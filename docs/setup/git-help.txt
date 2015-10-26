@@ -24,3 +24,17 @@ To  checkin 'modified' file
 
 To  see the 'log' of the committed file
 	git log temp.c 
+
+Git server
+To add new project 'sources'
+
+In git server
+	$ su git
+	$ cd /opt/git/
+	$ mkdir sources.git
+	$ cd sources.git
+	$ git init --bare
+
+In git client
+	git clone git@192.168.1.254:/opt/git/sources.git
+	
