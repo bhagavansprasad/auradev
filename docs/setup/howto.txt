@@ -38,3 +38,6 @@
   In client mount remote directory on to /home/nfs
   # mount -o  nolock 192.168.1.30:/home/bhagavan/rpi-nfs /home/nfs
 
+
+- To change keyboard languge, press
+	alt + shift
