@@ -1,11 +1,21 @@
 To clone students folder
 	git clone git@192.168.1.254:/opt/git/students.git
 
-To see the status of 'all' local files
+To see the 'status' of 'all' local files
 	git status 
 
-To see the status of 'one' local file
+To see the 'status' of 'one' local file
 	git status  temp.c
 
-To add new file
-	git status temp.c 
+To 'add' new file
+	git add temp.c 
+
+To  'commit' new file
+	git commit temp.c 
+
+To  'push' to server permanentely 
+	git push origin master
+
+
+To  see the 'diff' between local and server file
+	git diff temp.c 
