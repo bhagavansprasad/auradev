@@ -16,6 +16,11 @@ To  'commit' new file
 To  'push' to server permanentely 
 	git push origin master
 
-
 To  see the 'diff' between local and server file
 	git diff temp.c 
+
+To  checkin 'modified' file
+	git commit temp.c 
+
+To  see the 'log' of the committed file
+	git log temp.c 
