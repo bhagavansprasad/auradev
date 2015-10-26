@@ -1,0 +1,11 @@
+To clone students folder
+	git clone git@192.168.1.254:/opt/git/students.git
+
+To see the status of 'all' local files
+	git status 
+
+To see the status of 'one' local file
+	git status  temp.c
+
+To add new file
+	git status temp.c 
