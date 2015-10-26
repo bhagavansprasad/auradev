@@ -1,3 +1,5 @@
+Git client
+==========
 To clone students folder
 	git clone git@192.168.1.254:/opt/git/students.git
 
@@ -25,7 +27,12 @@ To  checkin 'modified' file
 To  see the 'log' of the committed file
 	git log temp.c 
 
+To  'get' deleted files
+	git checkout .
+
+
 Git server
+==========
 To add new project 'sources'
 
 In git server
