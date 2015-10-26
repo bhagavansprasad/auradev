@@ -1,0 +1,40 @@
+- Wireshark giving error
+	$ sudo wireshark 
+	No protocol specified
+
+	(wireshark:3444): Gtk-WARNING **: cannot open display: :0.0
+	warun@sys2:~$ echo $XAUTHORITY
+
+	Solution: Adding below statement to .bashrc
+	export XAUTHORITY=/home/$USER/.Xauthority
+
+- Deleting a route (like below) from routing table
+	>>169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 eth0
+	$ sudo route del -net 169.254.0.0 gw 0.0.0.0 netmask 255.255.0.0 dev eth0
+
+- Adding new user in Linux
+  adduser <username> --home <home path> --shell <default shell> --uid <uid> --gid <cvs group id >
+  ex: adduser parvathi --home /home/parvathi --shell /bin/bash --uid 1512 --gid 1001 
+  ex: adduser kalyan --home /home/kalyan --shell /bin/bash --uid 1514 --gid 1001 
+
+- Shell command to process each line of a file 't.txt'
+  $ for file in `cat t.txt `;do ipcrm -q $file;done
+
+- How to start deamon process at boot time?
+  Just add below statement to /etc/rc.local file
+
+  /usr/local/bin/jabberd start
+ 
+- How to share directory over nfs
+  #apt-get install nfs-kernel-server nfs-common
+
+  In server (192.168.1.30) create a file /etc/exports with below content
+  /home/bhagavan/rpi-nfs 192.168.1.0/24(rw,nohide,insecure,no_subtree_check,async)
+  # exportfs -a  //export all
+  # exportfs -r  //start from fresh
+  # exportfs     //Lists exported folders
+
+
+  In client mount remote directory on to /home/nfs
+  # mount -o  nolock 192.168.1.30:/home/bhagavan/rpi-nfs /home/nfs
+

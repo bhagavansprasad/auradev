@@ -1,0 +1,77 @@
+TASK
+	states
+	How come it is a time bound OS
+
+How to create a task
+
+Different ways to create a task
+	User stack
+	System stack
+	Priority levels
+	How many tasks exists in the project
+
+Scheduling
+
+IPC
+Sempaphore
+	Priority Inversion
+
+PIPES
+MQ
+
+Real Time Operating System :
+==========================
+			     RTOS is a program that schedules execution in a timely manner, manages system resources, and   provides a consistent foundation for developintg application code.
+
+		* Time Sensitive,
+		* Fault Tolerate ,
+		* Consistent coding Flatform,
+		* A rich set of API's  to save coding time and errors,
+		* Hardware Abstraction.
+
+
+Function : The primary function of RTOS is to manage certain system resources, such as CPU, Memory, Time.
+
+Characteristics :
+		 * Inter Task Communication & synchronization,
+		 * Timers,
+		 * Quick responce to external events,
+		 * Fast process and thread switch,
+		 * Mutlitasking with Pre-emptive scheduling.
+
+Properties :
+		 * Determinism,
+		 * Responsiveness,
+		 * User Control,
+		 * Manage the processor & other system resources to meet the requirements of application,
+		 * Be able to move data efficient b/w  processes,
+		 * Be able to respond to, and synchronize with events,
+		 * Provids  for exclusive access to resources,
+		 * No address mapping (VM - mainmemory), so very fast accesses,
+		 * Provide efficient management of RAM.
+
+Kernal Components:
+		
+		* Scheduler,
+		* Function Library,
+		* Library of services,
+		* User - defind data objects.
+
+Kernal Classes :
+
+		* An RTOS operates on a set of structures commonly called 'Classes', and each supports kernal services.
+		* The classes includes the following :
+							# Task
+							# Inter Task Communication
+							# Queues
+							# Pipes
+							# Mailboxes
+							# Semaphores and
+							# Event Flags.
+		* Scheduling Modes :
+							# Round Robin
+							# Tick - Sliced and
+							# Premitive Scheduling.
+
+
+

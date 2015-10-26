@@ -1,0 +1,32 @@
+Pseudo Driver (Charecter Driver)
+--------------------------------
+This module facilitates to  the applications to maintain data in the Kernel (R/W)
+
+Description
+-----------
+* Primary responsibility of this module is to maintain Application's (User mode)
+  data in the Kernel (Kernel mode).  Applications can R/W data from User mode to
+  Kernel mode and vice versa.
+
+* Pseudo Driver is basically a 'Char Driver'. Different application programs
+  can store their  data into Kernel module by sending specific 'Commands'
+  through ioctl's
+
+* Since every application has different data (Data Structure) to store, Pseudo
+  Driver facilitates to define their own set of unique commands.
+
+* Pseudo driver facilitates application programmers to add function in Kernel
+  module (Charactor driver).
+
+* Upon receiving ioctl command it copies data from user buffers to Kernel
+  buffers and calls appropriate Kernel module function based on the command
+  passed by the application.
+
+Examples
+* Firewall configuration is done through application program (HTTP) and actual
+  data has to be maintained in the Kernel as because all data packet processing
+  happens in Kernel Mode
+
+* DNS Client request is raised by applications (HTTP or FTP) but data is
+  maintained in Kernel Mode
+

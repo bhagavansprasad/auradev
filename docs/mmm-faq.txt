@@ -1,0 +1,35 @@
+                        Memory Management Module    
+  Basics
+ What is Thread?
+ Explain About Hashlist?
+ What are uses of own malloc and free functions?
+
+   FAQ
+Explain about  mmm?
+how can you implement mmm?
+How to generate Hash key?
+What are main limitations of Memory management module ?
+How to generate own  malloc & free functions?
+what are the problems occured when we call malloc & free frequently?
+what is Memory Leak And how to control Memory leak ?
+What is Fragmentation ?
+Explain about Internal & External Fragmentation?
+Why can't conquer internal fragmentation  full fledged ?
+What are Memory issues in Real time Embedded Systems.
+What are advantages of  mmm?
+What is the main intention of  mmm?
+what is use of Memory Requirements ?
+How to Detect the memory Leaks?
+Why can't use malloc system call replace of own malloc function?
+Explain about  init_free_poll, add_to_free functions and how they will works ?
+Is there any scope to add extra buffers to free pool at runtime?
+what is Buffer overflow and how to manage Overflow ?
+How to print Statistics of mmm, benefits of displaying statistics?
+what occur when we try to use the memory beyond the alloced memory?
+what occur when we try to allocate the memory which is not entered in memoryrequirements by us?
+Is there any scope to add extra buffers to free pool at runtime?
+can we allocate different sizes of buffers combinely to one function?
+what happens if you free the buffer forcebly while the buffer is in use by the application?
+draw flowchart for mmm?
+write the algorithm for mmm?
+

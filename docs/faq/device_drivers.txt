@@ -1,0 +1,56 @@
+make -C /usr/src/linux-headers-`uname -r` SUBDIRS=$PWD modules
+
+- Every device has its own read, write, ioctl, open, release operations
+- New device should be listed in /dev directory - Not happening
+
+User mode
+---------
+- open the device by "name" to read or write operations
+
+
+Questions
+=========
+The below questions prepared based on 'char driver' given in "http://tldp.org/LDP/lkmpg/2.6/html/x569.html"
+
+Q. What is the mandatory structure to fill when any device is created?
+A. Clue: /usr/src/linux-headers-2.6.xxxxxx.xxxxxx/include/linux
+
+Q. What is the mandatory data to fill the above structure?
+
+Q. In Kernel Module (KM) what fuction gets invoked when we write data from user
+   program (through ioctl) to KM?
+
+Q. The buffer pointer used in ioctl while writing data to KM, and buffer pointer
+  that KM reads are they both same?
+
+Q. What does the Major number signifies?
+
+Q. How can we choose a unique major number for our new driver?
+
+Q. What does it signifies when the major number is passed as '0' to
+   'register_chrdev' function?
+
+Q. From shell how do we know if the device is registred properly or not?
+A. Clue: Reffer /proc/devices
+
+Q. How do we know how many process are reffering the current KM?
+A. Clue: Reffer /proc/modules
+
+Q. What happens when the KM is rmmod'ed when it is reffering by a user program?
+
+Q. What does below functions do?  What is the use?
+   try_module_get(THIS_MODULE)
+   module_put(THIS_MODULE)
+
+Q. Why do you need to create 'device file'?
+
+Q. What is the right path to create a 'device file'?
+
+Q. How to debug a Kernel Module?
+
+Q. What does /proc/kallsyms file contains?
+
+Q. What is the maximum and minimum value of 'Major' and 'Minor'?
+
+Q.
+

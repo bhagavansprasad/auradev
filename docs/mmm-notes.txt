@@ -1,0 +1,18 @@
+MMM
+====
+- Memory Management Module
+
+Description
+-----------
+This module is built to resolve memory related issues especially in embedded systems where total available memory is very minimal.  This module gives solutions for below issues.
+
+Fragmentation - In RTOS, calling "malloc" and "free" functions repeatedly might cause memory fragmentation.  This leads a situation where malloc() fails even though memory is available but fragmented.  MMM makes sure memory doesn't gets fragmented
+
+Memory Leaks (finding) - This is a major issue in any embedded device, and might lead to a hang or crash.  Since MMM tracks every buffer allocation, it prints any leak missed from free.  Also it takes care of freeing buffer twice.
+
+Instrumentation - MMM maintains statistics like, Memory usage of every task, Number of "allocs" and "frees", maximum usage of buffers, number of alloc failed
+
+Buffer overflow - MMM has a mechanism to detect buffer overflow.  It maintains header and tail for every buffer through which it can recognize the buffer overflow
+NOTE : This feature is NOT a complete solution for all kinds of buffer overflows
+
+Controlling memory usage - It limits the usage of buffer per task.  It logs the message if the usage is crossing the threshold value

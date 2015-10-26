@@ -1,0 +1,13 @@
+ECU Rest                            - 11 hex.
+Security Access                     - 27 hex.
+Tester Present                      - 3E hex.
+Read data by identifier             - 22 hex.
+Read memory by address              - 23 hex.
+Read scaling data by identifier     - 24 hex.
+Read periodic data by identifier    - 2A hex.
+write data by identifier            - 2C hex.
+write memory by address             - 2E hex.
+Request Download                    - 34 hex.
+Request upload                      - 35 hex.
+data present                        - 36 hex.
+Request data exit                   - 37 hex.

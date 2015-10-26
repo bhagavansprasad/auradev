@@ -1,0 +1,6 @@
+cd
+cvs co auradev
+cp -f ~/auradev/tools/bashrc/bashrc ~/.bashrc
+cp -f ~/auradev/tools/gvim/gvimrc ~/.gvimrc
+cp -f ~/auradev/tools/set_env/mkenv ~/
+sudo cp -f ~/auradev/tools/cvs_tools/cvsdiff /usr/local/bin

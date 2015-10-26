@@ -1,0 +1,55 @@
+https://help.ubuntu.com/community/MediaWiki
+
+http://localhost/mediawiki/config/index.php
+Database type: MySQL
+Database host:	localhost
+Database name: aurawikidb
+DB username: bhagavan
+DB password:jnjnuh
+	Checking environment...
+
+Wiki configuration file path
+----------------------------
+/var/lib/mediawiki
+
+mysql login
+------------
+$ mysql --user=root --password=jnjnuh
+
+Wiki configuration results
+---------------------------
+Please include all of the lines below when reporting installation problems.
+PHP 5.3.2-1ubuntu4.21 installed
+Found database drivers for: MySQL
+PHP server API is apache2handler; ok, using pretty URLs (index.php/Page_Title)
+Have XML / Latin1-UTF-8 conversion support.
+Session save path (/var/lib/php5) appears to be valid.
+PHP's memory_limit is 128M.
+Couldn't find Turck MMCache, eAccelerator, APC or XCache; cannot use these for object caching.
+Found GNU diff3: /usr/bin/diff3.
+Found ImageMagick: /usr/bin/convert; image thumbnailing will be enabled if you enable uploads.
+Found GD graphics library built-in.
+Installation directory: /var/lib/mediawiki
+Script URI path: /mediawiki
+Installing MediaWiki with php file extensions
+Environment checked. You can install MediaWiki.
+
+Generating configuration file...
+Notice: Constant MW_INSTALL_PATH already defined in /var/lib/mediawiki/config/index.php(767) : eval()'d code on line 19
+Database type: MySQL
+Loading class: DatabaseMysql
+Attempting to connect to database server as root...success.
+Connected to mysql 5.1.72-0ubuntu0.10.04.1; enabling MySQL 4.1/5.0 charset mode
+Attempting to create database...
+Created database aurawikidb
+Creating tables... done.
+Initializing statistics...
+Granting user permissions to bhagavan on aurawikidb...success.
+Created sysop account bhagavan.
+
+Creating LocalSettings.php...
+
+Installation successful! Move /var/lib/mediawiki/config/LocalSettings.php to /etc/mediawiki, then follow this link to your wiki.
+
+You should change file permissions for LocalSettings.php as required to prevent other users on the server reading passwords and altering configuration data.
+

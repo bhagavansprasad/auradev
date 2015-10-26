@@ -1,0 +1,39 @@
+- Add user as cvs 
+- Add group as cvs
+- cd /home/cvs
+- mkdir cvsroot
+- chmod 0770 cvsroot/
+- chmod g+s cvsroot/
+- sudo cvs -d /home/cvs/cvsroot/ init
+- sudo gvim /etc/inetd.conf - Added bellow line
+  cvspserver	stream	tcp	nowait	root	/usr/local/bin/cvs cvs --allow-root=/home/cvs/cvsroot pserver
+
+- Install xinetd
+- Creat a file /etc/xinetd.d/cvspserver with bellow content
+  service cvspserver
+  {
+     port = 2401
+     socket_type = stream
+     protocol = tcp
+     user = root
+     wait = no
+     type = UNLISTED
+     server = /usr/bin/cvs
+     server_args = -f --allow-root /home/cvs/cvsroot pserver
+     disable = no
+  }
+
+ - Copy cvspassgen file from auradev/tools/cvs_tools
+# Copy paste the output of the below command to /home/cvs/cvsroot/CVSROOT/passwd file 
+  (create incase file is not available)
+# perl cvspassgen bhagavan jnjnuh
+  example output "bhagavan:hbi5KGmriQGnI:cvs"
+
+Q. Adding new project to CVS
+   $ mkdir new_proj
+   $ cd new_proj //Make sure no files exists in the directory
+   $ cvs import -m "Sources (projects) built inside Aura" new_proj trunk-new_proj start
+
+   Thats all.  The new project is is added to cvs
+
+

@@ -1,0 +1,17 @@
+
+ff "*.c"
+ff "*.c" -o -name *.h
+ff "*"
+ff "*" > files.txt
+g files.txt 
+pwd
+cscope -b -q  -i files.txt 
+
+In .bashrc add path to the CSCOPE_DB=--------
+-------------------------------------------------
+CSCOPE_DB=/home/bhagavan/students/prasad/cam
+
+And also add easy way to refer the path
+--------------------------------------------------
+alias wd='cd /home/bhagavan/students/prasad/cam'
+

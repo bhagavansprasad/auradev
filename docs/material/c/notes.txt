@@ -1,0 +1,7 @@
+Useful links
+- Bitwise operations/questions
+  http://www.autoitscript.com/autoit3/docs/functions/BitNOT.htm
+  http://help.scilab.org/docs/5.3.3/en_US/section_3aafd536f8ccc91f7bd42797f44a6f94.html
+  http://en.wikipedia.org/wiki/Bitwise_operation
+  http://www.cprogramming.com/tutorial/bitwise_operators.html
+  http://www.cloveretl.com/documentation/UserGuide/index.jsp?topic=/com.cloveretl.gui.docs/docs/mathematical-functions-ctl2.html

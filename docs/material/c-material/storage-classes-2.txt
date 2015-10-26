@@ -1,0 +1,742 @@
+ /*
+ 1. Print the addresses of all variables.  Based on the address (value) arrange them
+    in decending order
+	NOTE: Also Print ptr, &ptr, fun1, fun2 and fun3
+ 2. List all Local variables
+ 3. List all Global variables
+ 4. Print all global variables in a function called 'my_fun()' which is
+ 	defined "my_fun.c" 
+	NOTE: Compile the program like below
+	$ gcc main.c my_fun.c
+ 5. Compile the programs with and without '-Wall -Werror' flags and note your
+    observations
+	ex. gcc -Wall -Werror main.c my_fun.c
+ */
+
+main.c
+------
+int   idata1=1;
+char  carray1[10];
+char  cname1[128] = "Aura Networks";
+char  *pname1 = "Aura Networks";
+int   idata2;
+int   idata3 = 3;
+int   idata4;
+short sh1;
+short sh2 = 2;
+int   iarray2[10] = {1, 2};
+short sh3;
+short sh4 = 4;
+char  ch1 = 1;
+char  ch2;
+short sharray3[10] = {5, 6};
+char  ch3 = 3;
+
+void fun1();
+void fun2();
+void fun3();
+
+main()
+{
+	int ldata1;
+	int 1data2 = 2;
+	int  ldata3;
+	static int sdata1;
+	static int sdata2 = 10;
+	char  cname2[128] = "Aura Networks";
+	char  *pname2 = "Aura Networks";
+
+	int *ptr=malloc(10);
+
+	printf("%p\n", ptr);
+	printf("%p\n", &ptr);
+
+	printf("%p\n", cname1);
+	printf("%p\n", pname1);
+	printf("%p\n", &pname1);
+
+	printf("%p\n", cname2);
+	printf("%p\n", pname2);
+	printf("%p\n", &pname2);
+
+	printf("%p\n", fun1);
+	printf("%p\n", fun2);
+	printf("%p\n", fun3);
+}
+
+void fun1( )
+{ 
+	int ldata4;
+
+	printf("I am funcion1\n");
+}
+
+int idata5 = 10;
+void fun2( )
+{ 
+	printf("I am function 2\n");
+}
+
+void fun3()
+{
+	int ldata5 = 10;
+	printf("I am funcion 3\n");
+}
+
+int idata6 = 20;
+
+my_fun.c
+--------
+void my_fun(void)
+{
+	...
+
+	//print all global variabls
+
+	....
+}
+
+Storage classes
+	IPL
+	Stack
+	Heap
+	BSS
+	Data
+	Text
+
+Storage sections
+================
+*** automatic ***
+- What is automatic variable?
+- How automatic variable is different from normal variable (without storage
+  specifier)?
+- What is the difference between the output's of below programs?
+  main()
+  {
+	  auto int a = 10;
+	  auto int b;
+
+	  printf("-->a :%d\r\n", a);
+	  printf("-->b :%d\r\n", b);
+  }
+
+  main()
+  {
+	  int a = 10;
+	  int b;
+
+	  printf("-->a :%d\r\n", a);
+	  printf("-->b :%d\r\n", b);
+  }
+
+- What is the output of the below program?
+  Compile below programs together 'gcc main.c fun1.c'
+
+  "main.c"
+  --------
+  main()
+  {
+	  auto int a = 10;
+
+	  printf("-->a :%d\r\n", a);
+
+	  my_function1();
+	  my_function1();
+  }
+
+  "fun1.c"
+  --------
+  void my_function1(void)
+  {
+	  auto int temp = 10;
+
+	  printf("-->temp :%d\r\n", temp);
+
+	  temp++;
+  }
+
+- What is the output of the below program?
+  Compile below programs together 'gcc main.c fun1.c'
+
+  "main.c"
+  --------
+  main()
+  {
+	  auto int a = 10;
+
+	  printf("-->a :%d\r\n", a);
+
+	  my_function1();
+	  my_function1();
+  }
+
+  "fun1.c"
+  --------
+  void my_function1(void)
+  {
+	  int temp = 10;
+
+	  printf("-->temp :%d\r\n", temp);
+
+	  temp++;
+  }
+
+- Does below program compiles? if not, why? at what stage it stops compilation?
+ 
+  auto int a = 10;
+  auto int b;
+  
+  main()
+  {
+	  printf("-->a :%d\r\n", a);
+	  printf("-->b :%d\r\n", b);
+  }
+
+- Compile below two programs together 'gcc main.c fun1.c"
+  a. Does they compile? if not, why? 
+  b. At what stage 'main.c' stops compilation? and why?
+  c. At what stage 'fun1.c' stops compilation? and why?
+
+"main.c"
+--------
+int a = 10;
+int b;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+	printf("-->b :%d\r\n", b);
+
+	my_function1();
+}
+
+"fun1.c"
+--------
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+	printf("-->b :%d\r\n", b);
+}
+
+- compile below two programs together 'gcc main.c fun1.c"
+  a. does they compile? if not, why? 
+  b. at what stage 'main.c' stops compilation? and why?
+  c. at what stage 'fun1.c' stops compilation? and why?
+
+"main.c"
+--------
+auto int a = 10;
+int b;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+	printf("-->b :%d\r\n", b);
+
+	my_function1();
+}
+
+"fun1.c"
+--------
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+	printf("-->b :%d\r\n", b);
+}
+
+- compile below two programs together 'gcc main.c fun1.c"
+  a. does they compile? if not, why? 
+  b. at what stage 'main.c' stops compilation? and why?
+  c. at what stage 'fun1.c' stops compilation? and why?
+  d. How to fix the compilation error? and explain the reason?
+
+defs.h
+------
+auto int a = 10;
+#define NUMBER 5
+
+"main.c"
+--------
+#include "defs.h"
+
+main()
+{
+	printf("-->MAX :%d\r\n", MAX);
+	printf("-->a :%d\r\n", a);
+
+	my_function1();
+}
+
+"fun1.c"
+--------
+#include "defs.h"
+
+void my_function1(void)
+{
+	printf("-->MAX :%d\r\n", MAX);
+	printf("-->a :%d\r\n", a);
+}
+
+- compile below two programs together 'gcc main.c fun1.c"
+  a. does they compile? if not, why? 
+  b. at what stage 'main.c' stops compilation? and why?
+  c. at what stage 'fun1.c' stops compilation? and why?
+  d. How to fix the compilation error? and explain the reason?
+
+"main.c"
+--------
+int a = 10;
+main()
+{
+	printf("-->a :%d\r\n", a);
+
+	my_function1();
+}
+
+"fun1.c"
+--------
+int a = 20;
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+}
+
+*** extern ***
+- What is extern variable?
+- How extern variable is different from normal variable (without storage
+  specifier)?
+- When do we declare the variable as 'extern'?
+
+- Compile below two programs together 'gcc main.c fun1.c"
+  a. Does they compile? if not, why? 
+
+"main.c"
+--------
+int a = 10;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+
+	my_function1();
+}
+
+"fun1.c"
+--------
+extern int a;
+
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+}
+
+- Compile below two programs together 'gcc main.c fun1.c"
+  a. Does they compile? if not, why? 
+  b. At what stage 'main.c' stops compilation? and why?
+  c. At what stage 'fun1.c' stops compilation? and why?
+
+"main.c"
+--------
+main()
+{
+	printf("-->a :%d\r\n", a);
+
+	my_function1();
+}
+
+"fun1.c"
+--------
+extern int a;
+
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+}
+
+- Compile below two programs together 'gcc main.c fun1.c"
+  a. Does they compile? if not, why? 
+  b. At what stage 'main.c' stops compilation? and why?
+  c. At what stage 'fun1.c' stops compilation? and why?
+
+"main.c"
+--------
+int a = 10;
+int b;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+	printf("-->b :%d\r\n", b);
+
+	my_function1();
+}
+
+"fun1.c"
+--------
+extern int a;
+
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+	printf("-->b :%d\r\n", b);
+}
+
+- compile below two programs together 'gcc main.c fun1.c fun2.c"
+  a. Does they compile? if not, why? 
+  b. At what stage 'main.c' stops compilation? and why?
+  c. At what stage 'fun1.c' stops compilation? and why?
+  d. How to fix the compilation error? and explain the reason?
+
+
+defs.h
+------
+extern int a;
+#define NUMBER 5
+
+"main.c"
+--------
+int a = 10;
+int b = 20;
+#include "defs.h"
+
+main()
+{
+	printf("-->MAX :%d\r\n", MAX);
+	printf("-->a :%d\r\n", a);
+	printf("-->b :%d\r\n", b);
+
+	my_function1();
+	my_function2();
+}
+
+"fun1.c"
+--------
+#include "defs.h"
+extern int b;
+
+void my_function1(void)
+{
+	printf("-->MAX :%d\r\n", MAX);
+	printf("-->b :%d\r\n", b);
+}
+
+"fun2.c"
+--------
+#include "defs.h"
+extern int b = 20;
+
+void my_function2(void)
+{
+	printf("-->MAX :%d\r\n", MAX);
+	printf("-->a :%d\r\n", a);
+	printf("-->b :%d\r\n", b);
+}
+
+- compile below two programs together 'gcc main.c fun1.c fun2.c"
+  a. Does they compile? if not, why? 
+  b. At what stage 'main.c' stops compilation? and why?
+  c. At what stage 'fun1.c' stops compilation? and why?
+  d. How to fix the compilation error? and explain the reason?
+
+defs.h
+------
+extern int a;
+#define NUMBER 5
+
+"main.c"
+--------
+int a = 10;
+#include "defs.h"
+
+main()
+{
+	printf("-->MAX :%d\r\n", MAX);
+	printf("-->a :%d\r\n", a);
+
+	my_function1();
+	my_function2();
+}
+
+"fun1.c"
+--------
+#include "defs.h"
+
+void my_function1(void)
+{
+	printf("-->MAX :%d\r\n", MAX);
+	printf("-->a :%d\r\n", a);
+}
+
+"fun2.c"
+--------
+#include "defs.h"
+
+void my_function2(void)
+{
+	printf("-->MAX :%d\r\n", MAX);
+	printf("-->a :%d\r\n", a);
+}
+
+- compile below two programs together 'gcc main.c fun1.c"
+  a. Does they compile? if not, why? 
+  b. At what stage 'main.c' stops compilation? and why?
+  c. At what stage 'fun1.c' stops compilation? and why?
+  d. How to fix the compilation error? and explain the reason?
+
+"main.c"
+--------
+int a = 10;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+
+	my_function1();
+	my_function2();
+}
+
+"fun1.c"
+--------
+void function1(void)
+{
+	printf("-->a :%d\r\n", a);
+}
+
+"fun2.c"
+--------
+void my_function2(void)
+{
+	printf("-->a :%d\r\n", a);
+}
+
+*** static ***
+- compile below two programs together 'gcc main.c fun1.c func2.c"
+  a. Does they compile? if not, why? 
+  b. At what stage 'main.c' stops compilation? and why?
+  c. At what stage 'fun1.c' stops compilation? and why?
+  d. How to fix the compilation error? and explain the reason?
+
+"main.c"
+--------
+static a = 10;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+
+	my_function1();
+	my_function2();
+}
+
+"fun1.c"
+--------
+static int a = 20;
+
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+}
+
+"fun2.c"
+--------
+static int a = 30;
+
+void my_function2(void)
+{
+	printf("-->a :%d\r\n", a);
+}
+
+- compile below two programs together 'gcc main.c fun1.c fun2.c"
+  a. What is the value of 'a' in all functions?
+
+"main.c"
+--------
+int a = 10;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+	my_function1();
+	my_function2();
+	printf("-->a :%d\r\n", a);
+}
+
+"fun1.c"
+--------
+static int a = 20;
+
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+	a++;
+	printf("-->a :%d\r\n", a);
+}
+
+"fun2.c"
+--------
+static int a = 30;
+
+void my_function2(void)
+{
+	printf("-->a :%d\r\n", a);
+	a++;
+	printf("-->a :%d\r\n", a);
+}
+
+- compile below two programs together 'gcc main.c fun1.c"
+  a. What is the output of the below program?
+
+"main.c"
+--------
+int a = 10;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+	my_function1();
+	printf("-->a :%d\r\n", a);
+	my_function1();
+	printf("-->a :%d\r\n", a);
+}
+
+"fun1.c"
+--------
+void my_function1(void)
+{
+	static int a = 20;
+	printf("-->a :%d\r\n", a);
+	a++;
+	printf("-->a :%d\r\n", a);
+}
+Q1. How come the local variable in 'my_function1' is retaining its value across
+the function calls?
+
+- compile below two programs together 'gcc main.c fun1.c"
+  a. Does they compile? if not, why? 
+  b. At what stage 'main.c' stops compilation? and why?
+  c. At what stage 'fun1.c' stops compilation? and why?
+  d. How to fix the compilation error? and explain the reason?
+  e. What do we mean 'file scope variable'?
+
+"main.c"
+--------
+static int a = 10;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+	my_function1();
+	printf("-->a :%d\r\n", a);
+	my_function1();
+	printf("-->a :%d\r\n", a);
+}
+
+"fun1.c"
+--------
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+	a++;
+	printf("-->a :%d\r\n", a);
+}
+
+- What does it mean a function declared as 'static'?
+- How to declare a 'file scope function'
+
+*** register ***
+- What is the 'register' variable? How to declare it?
+- How is it different from normal variable and static variables?
+- Can we print the address of 'register' variable?
+- In what cases can we use 'register' variable?
+
+*** volatile ***
+- What is the 'volatile' variable? How to declare it?
+- How is it different from normal variable and static variables?
+- Can we print the address of 'volatile' variable?
+- In what cases can we use 'volatile' variable?
+
+*** Local & Global scope ***
+- Guess what is the output of the below program?
+
+"main.c"
+--------
+int a = 10;
+
+main()
+{
+	printf("-->a :%d\r\n", a);
+	my_function1();
+	printf("-->a :%d\r\n", a);
+	my_function2();
+	printf("-->a :%d\r\n", a);
+	my_function1();
+	printf("-->a :%d\r\n", a);
+	new_fun();
+	printf("-->a :%d\r\n", a);
+	my_function2();
+	printf("-->a :%d\r\n", a);
+	new_fun();
+	printf("-->a :%d\r\n", a);
+	a = my_function3();
+	printf("-->a :%d\r\n", a);
+}
+
+void my_function1(void)
+{
+	printf("-->a :%d\r\n", a);
+	a++;
+	printf("-->a :%d\r\n", a);
+}
+
+void my_function2(void)
+{
+	int a = 20;
+	printf("-->a :%d\r\n", a);
+	a++;
+	printf("-->a :%d\r\n", a);
+}
+
+void my_function3(void)
+{
+	int a = 30;
+	printf("-->a :%d\r\n", a);
+	a++;
+	printf("-->a :%d\r\n", a);
+	return a;
+}
+
+"new_fun.c"
+-----------
+static int a = 50;
+
+int new_fun()
+{
+	printf("-->a :%d\r\n", a);
+	a++;
+	printf("-->a :%d\r\n", a);
+}
+
+- Guess what is the output of the below program?
+
+  int a = 10;
+  main()
+  {
+  	int a = 20;
+	int i = 5;
+	printf("-->a :%d\r\n", a);
+
+	if (i > 3)
+	{
+		int a = 30;
+
+		printf("-->a :%d\r\n", a);
+		a++;
+	}
+	printf("-->a :%d\r\n", a);
+  }
+
+- Define Block Scope, Function Scope, File Scope and Global scope variables with
+  examples
+
+ - Define 'static function' properties
+ - When do we define any function as 'static function'?

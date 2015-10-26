@@ -1,0 +1,68 @@
+Task: Synchronize a remote directory with a local directory
+	$ rsync -rav --progress --delete cvs@192.168.1.30:/home/cvs /home/bhagavan/backup/
+
+Task: Synchronize a local directory with a remote rsync server
+	$ rsync -r -a -v --progress --delete rsync://rsync.nixcraft.in/cvs /home/cvs
+
+Links to configure rsync server
+	https://help.ubuntu.com/community/rsync
+
+1. Edit the file /etc/default/rsync to start rsync as daemon using xinetd. The
+   entry listed below, should be changed from false to inetd.
+
+	RSYNC_ENABLE=inetd
+
+2. Install xinetd because it's not installed by default.
+	$ sudo apt-get -y install xinetd
+
+3. Create the file /etc/xinetd.d/rsync to launch rsync via xinetd. It should
+   contain the following lines of text.
+
+	service rsync
+	{
+	    disable = no
+	    socket_type = stream
+	    wait = no
+	    user = root
+	    server = /usr/bin/rsync
+	    server_args = --daemon
+	    log_on_failure += USERID
+	    flags = IPv6
+	}
+
+4. Create the file /etc/rsyncd.conf configuration for rsync in daemon mode. The
+   file should contain the following. In the file, user should be replaced with the
+   name of user on the remote machine being logged into.
+	max connections = 2
+	log file = /var/log/rsync.log
+	motd file = /etc/rsyncd.motd
+	log file = /var/log/rsyncd.log
+	pid file = /var/run/rsyncd.pid
+	lock file = /var/run/rsync.lock
+
+	timeout = 300
+
+	[share]
+		comment = Public Share
+        path = /home
+        read only = no
+        list = yes
+        uid = nobody
+        gid = nogroup
+        auth users = cvs bhagavan root
+        secrets file = /etc/rsyncd.secrets
+
+5. Create /etc/rsyncd.secrets for user's password. User should be the same as
+   above, with password the one used to log into the remote machine as the
+   indicated user.
+	$ sudo vim /etc/rsyncd.secrets 
+
+	bhagavan:jnjnuh
+	root:jnjnuh
+	cvs:jnjnuh
+
+6. This step sets the file permissions for rsyncd.secrets.
+	$ sudo chmod 600 /etc/rsyncd.secrets
+
+7. Start/Restart xinetd
+	$ sudo /etc/init.d/xinetd restart

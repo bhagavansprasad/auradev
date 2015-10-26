@@ -1,0 +1,65 @@
+Building tool to Mux and De-Mux of FLV Container (FLV Parser)
+
+Link
+----
+	http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/flv/pdfs/video_file_format_spec_v10.pdf
+
+Description
+-----------
+FLV-Parser is tool to Parse(Demuxer) Flv container format file supported by
+Adobe® Flash® Player software—FLV.  
+Detailed featured list of this tool are like below
+
+- Parsing & Injecting Metadata
+* This tool Parses and understand and prints "Metadata" in a readable format.
+* How and when and by whom a particular set of data was collected, How the data
+  is formatted. 
+* It also provides more information about the file like signature, type, version,
+  Creater and Size of the file
+* Tool convert any FLV file into XML Format.
+
+- Separating Video & Audio Tags
+* It demuxes the flv file into audio and video files
+* Each file can played individually
+* While separating it takes care of updating the file Header and Metadata
+* It also has feature to break down a single video file into multiple videos
+  files
+
+- Creating Subtitle template('SRT')
+* Tool creates readymade template file ('SRT') to write "Sub titles" for the any
+  video
+* This template contains 'Tags' for each video frame with time stamp
+* This helps users to write sub titles on their own language easily
+
+- Identifying Frame loss (Glitches)
+* Video (Frame) loss is a big problem which can't be detected with naked eye.
+* This tool capable to identify any frame loss while playing the video with any
+  stream players.
+* This is achieved by applying 'Frame number' to each frame.  This frame number
+  can be cross checked with players frame number
+
+- Metadata Injecter - This tool injects below MetaData into FLV files
+* Creator, MetadataCreator, HasKeyFrames, HasVideo, HasAudio, HasMetadata,
+  CanSeekToEnd duration, DataSize, VideoSize, VideoCodecID, AudioSize,
+  AudioCodecID, AudioSampleRate, AudioSampleSize, Stereo, FileSize,
+  LastTimeStamp, LastKeyFrameTimeStamp, LastKeyFrameLocation, KeyFrames
+  (FilePositions, Times), Width, Height, FrameRate, VideoDataRate and
+  AudioDataRate
+
+- Simulating of Implementing trick modes
+* As part of this simulation tool genarates new file with configurable speed
+  frames ex.8x
+* The new video file gets created by having every 8'th second key frame from
+  source file
+* While genarating it takes care of updating the file Header, Metadata and Time
+  stamp of every Tag
+- Applying frame numbers to all Video tags 
+* Tool has a capabilitiy to provide the number to each Video frame
+* Tool can be tuned to give numbering to only Key Frames but nor for Iframes and
+  BFrames
+
+- Generating Human readable content from flv
+* Tool parses through the all tags in a file and genarates data in human
+  readable and exports to text, xml, excel and csv formats.
+
+

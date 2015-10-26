@@ -1,0 +1,23 @@
+- Why IPC required and what is the main purpose?
+- Write an example program to demonstrate the requiremnt of IPC?
+- Is global varible is shared across child and parent process?
+- What is "copy on write bit" in the process table?
+- What are all different kinds of IPCs we have?
+- Describe "Named PIPE" Vs "Un Named PIPE"
+- Justify the statement "By default PIPE is full duplex"
+- If pipe is "Full Duplex" is it sufficient one pipe bitween two process?
+- Describe PIPE Vs Message-Queues
+- Describe Message-Queue Vs Shared memory
+- Describe PIPE Vs Message Queue Vs Siganls?
+- How does parent know that chaild got finished his execution
+- How do we know the process got exited gracefully or ab-normally?
+- Cane we build client server communication using Message queues?
+- Describe Binary Vs Mutext semaphores?
+- Describe Binar Vs Counting semaphores?
+- What is Priority inversion?
+- What IPC is most widely used? 
+- Where exactly IPC datastructures are stored?
+- What is process memory area?
+- What is deadlock?
+- What is difference bitween process Synchronization Vs Mutual Execlusion
+

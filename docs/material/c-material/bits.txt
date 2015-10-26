@@ -1,0 +1,6 @@
+ Using Bitwise operatorts...
+
+ - Print each byte value of 4 bytes for variable 'a', if 
+   int a = 300;
+
+- Write a program to reverse the Endianness 
