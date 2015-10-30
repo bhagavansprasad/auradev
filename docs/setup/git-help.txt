@@ -30,6 +30,13 @@ To  see the 'log' of the committed file
 To  'get' deleted files
 	git checkout .
 
+Diffing with gvim
+-----------------
+git config --global diff.tool gvimdiff
+git config --global difftool.prompt false
+git config --global alias.d difftool
+
+NOTE: Now to see diff do 'git d test.c' instead of 'git diff test.c'
 
 Git server
 ==========
