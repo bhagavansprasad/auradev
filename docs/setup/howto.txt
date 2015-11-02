@@ -41,3 +41,9 @@
 
 - To change keyboard languge, press
 	alt + shift
+
+- apt update error 
+  error GPG error: The following signatures couldn't be verified because the public key is not available 
+
+  $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <NEW KEY>
+  $ sudo apt-get update
