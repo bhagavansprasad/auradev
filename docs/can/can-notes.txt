@@ -79,3 +79,20 @@ What are all CAN node error states?
 48. Why CAPL scripting is used in CANoe tool?
 49. Is it possible to simulate other ECU's Except Test ECU without CAPL Scripting in CANoe tool?
 50. What is flow control frame?
+
+
+Diagnostics
+Link
+	http://drewtech.com/support/J2534/index.html
+
+J2534 Faqs
+	http://www.boschdiagnostics.com/pro/j2534-faqs	
+
+Apps for cars
+	http://www.developereconomics.com/7-things-you-need-to-know-before-developing-a-car-app/
+
+	
+	
+	
+	
+	
