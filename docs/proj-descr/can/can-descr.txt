@@ -1,0 +1,72 @@
+CAN Simulator/Utilities over SocketCAN 
+
+SocketCAN is a set of open source CAN drivers over BSD sockets stack in Linux
+kernel. Using socketCAN interface built multiple utilities which genarates
+different CAN frames.
+
+- SocketCAN utilities are built over RAW sockets where CAN frames are written
+  RAW data format
+- SocketCAN allows to simulate CAN bus over the TCP/IP Network stack using RAW
+  sockets
+- It allows different CAN Nodes to communicate over CAN Dev (Network).  Any data
+  wrtten on CANDev is received by all CAN nodes who is listening on CANDev.
+- CAN Nodes can "apply acceptency filter" by requesting Kernel with different
+  CANIDs
+- Kernel matches every CANID of every frame, if a match is seen between the
+  filter and CAN ID the CAN frame is then accepted by the CAN engine and
+  transfered into a CAN Rx buffer.  If match doesn't occurs, frame is dropped.
+ 
+cangen -Is a utility which genarares CAN "standard and extended" frames.  Each frame
+		  can be genarated with same or different CANID with different time
+		  intervals 
+		Based on requirements configurable data can be sent over CAN frames
+
+candump - Is a utility is actually used for debugging purpose.  This listens
+		over CANDev and read every CAN frame going over the bus reads dumps it
+		in readable format
+
+bcmserver - 
+cangw - 
+canlogserver - 
+isotpserver - 
+canfdtest - 
+
+Advantages: Ease of development, Testing, debugging and fixing issues
+
+Tools Used 
+Wireshark : is wellknow network traffic analyzer, with which CANFrames can
+			be analyzed better
+GDB : GNU based source level debugger
+gprof Profiler : GNU based profiler where code coverage can be messured.
+-------------------------------------------------------------------------
+
+
+
+
+candump 
+asc2log,
+bcmserver, 
+canbusload, 
+can-calc-bit-timing,
+candump, 
+canfdtest, 
+cangen, 
+cangw, 
+canlogserver, 
+canplayer, 
+cansend,
+cansniffer, 
+isotpdump, 
+isotprecv, 
+isotpperf, 
+isotpsend, 
+isotpserver,
+isotpsniffer, 
+isotptun, 
+log2asc, 
+log2long, 
+slcan_attach, 
+slcand
+slcanpty.
+
+
