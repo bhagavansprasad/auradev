@@ -33,6 +33,12 @@ canfdtest -
 
 Advantages: Ease of development, Testing, debugging and fixing issues
 
+Need to capture below things
+- Error rate - Number of messages drops Vs CANBus
+- Bandwidth - Number of fixed length messages sent in a minute Vs CANBus
+
+
+
 Tools Used 
 Wireshark : is wellknow network traffic analyzer, with which CANFrames can
 			be analyzed better
