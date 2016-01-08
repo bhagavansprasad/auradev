@@ -95,5 +95,12 @@ export DIFFPROG='gvim -df +0 -geom +0+84'
 export EDITOR='gvim -df +0 -geom +0+84'
 
 export CVSROOT=:pserver:$USER@192.168.1.30:/home/cvs/cvsroot
+git config --global user.email "bhagavan@auranetworks.in"
+git config --global user.name "bhagavan"
+git config --global core.editor "gvim"
+git config --global diff.tool cvsdiff
+git config --global difftool.prompt false
+git config --global alias.d difftool
+
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:
 
