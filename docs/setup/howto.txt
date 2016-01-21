@@ -45,5 +45,10 @@
 - apt update error 
   error GPG error: The following signatures couldn't be verified because the public key is not available 
 
+  Method - 1
   $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <NEW KEY>
   $ sudo apt-get update
+
+  Method - 2
+  $ sudo wget -q http://webmin.com/jcameron-key.asc
+  $ sudo apt-key add jcameron-key.asc
