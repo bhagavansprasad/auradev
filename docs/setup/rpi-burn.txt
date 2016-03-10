@@ -1,0 +1,15 @@
+Url
+  http://elinux.org/RPi_Easy_SD_Card_Setup
+
+- Windows
+1. Launch SDCardFormatter
+   Select Drive
+   Options -> Format Size Adjustment -> ON
+   Format
+
+2. Launch Win32 Disk Imager
+   Select Image
+   Write
+
+3. Boot rpi
+   $ sudo raspi-config  //to exapand the file system   
