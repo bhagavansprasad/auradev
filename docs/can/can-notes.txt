@@ -79,7 +79,30 @@ What are all CAN node error states?
 48. Why CAPL scripting is used in CANoe tool?
 49. Is it possible to simulate other ECU's Except Test ECU without CAPL Scripting in CANoe tool?
 50. What is flow control frame?
-
+How many nodes can exist in CAN network?
+Length of msgid,canid?
+Who is assigning canid and msgid?
+Is every thing in a network is broadcast?
+Can we control all the nodes with one microcontroller?
+How much data can we transfer at a time?
+How do u know the recevied data is correct (or) not?
+why we are using serial communication rather than parllel communication?
+What is the purpose of arbitaration?how it is maintain?
+Difference between controller and dash board?
+Can we control all nodes with one microcontroller?
+What is RTR & DLC?
+How much time taken by the ECU to control the other nodes?
+What is the dominant bit in base and extended?
+what is error states,error active,error passive and busoff?
+What is RTR bit,what is dataframe ,what really happens ?
+In remote frame request blocks until unless reply?
+Where the data length is specified in extended?
+Why SOF and EOF is required?
+For acknowledgemnt frame DLC will be zero(yes/no)?
+What is RTR value for error (or) overload?
+In the priority of process the first priority of the process is completed then
+one more process is accomidate then it will checks from the SOF (or) not?
+How to overload situation comes?
 
 Diagnostics
 Link
