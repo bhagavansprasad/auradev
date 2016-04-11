@@ -1,0 +1,114 @@
+URL
+---
+https://wwww.datadoghq.com/docker-adoption
+
+Commands
+--------
+$ docker images 															--> lists all the images on your local system
+$ docker tag 7d9495d03763 maryatdocker/docker-whale:latest 					--> Taging the docker image
+$ docker login --username=auranetworks --email=bhagavansprasad@gmail.com	--> To login to repository
+$ docker push auranetworks/myfirst-docker									--> Pushing updated docker image to repository
+$ docker info
+$ sudo docker rmi 5ba8a29230ec
+$ sudo docker ps 															--> Lists all docker imagaes running
+$ docker search ubuntu														--> searches for images in central repository
+
+installed Docker
+run a software image in a container
+located an interesting image on Docker Hub
+run the image on your own machine
+modified an image to create your own and run it
+create a Docker Hub account and repository
+pushed your image to Docker Hub for others to share
+
+How build hello world container?
+============Creating new container, build and RUN======================
+- Create a file 'Dockerfile' with below content
+  FROM ubuntu
+  CMD echo 'Howdy from Code School!!!'
+Descripton : 1. Create a container from 'ubuntu' image
+             2. Run the command 'echo' with given message
+- Build the docker container
+  docker build -t code_school . 
+- Run the container
+  docker run code_school
+- docker images lists you what containers available locally
+=======================================================================
+
+What are all other things can be done in simple with own container
+============Creating new container, build and RUN======================
+- Create a file 'Dockerfile' with below content
+  FROM ubuntu
+  RUN apt-get update
+  CMD ls -ls
+  EXPOSE 9999
+  ENTRYPOINT ls
+- Build the docker container
+  docker build -t 2nd_exmp . 
+- Run the container
+  docker run 2nd_exmp
+
+Note
+	RUN — Run a command on the container. Used for things like installing packages, etc.
+	EXPOSE — Open ports from the Docker container to the host.
+	CMD — The default command to run when the container is started. Can be overridden from the command line at runtime.
+	ENTRYPOINT — Similar to the CMD option in that it will be the default command that is run but this one cannot be overridden from the command line.
+=======================================================================
+
+Notes
+- What is Docker Server
+Docker deamon with builds and runs the container
+- What is Docker client
+Interact with deamon with Docker client with docket command
+- List out Virtual Machine stack
+	Application-A				Application-B
+	Bins/libs					Bins/Libs
+	Guest OS (complete)			Guest OS (complete)
+	-----------------------------------------------
+				Hypervisor
+				Host OS
+				HW
+- List out Docker container stack 
+	Application-A			Application-B
+	Bins/Libs				Bins/Libs
+	----------------------------------------
+				Docker Engine
+				Host OS
+				HW
+- What does docker containers contains
+  It is just a binary files which we download and run
+  Which contains application and dependencies with required to run the application
+- What is docker engine?
+  Docker engine is a thin layer on top of host os 
+  Docker engine uses host os to run process in the container (application)
+  These processes are like sandboxes/busybox which does not have any conflict between containers
+
+
+=============New docker file with listining on port 80================
+RUN apt-get update
+RUN apt-get install -y nginx
+RUN echo "daemon off" ; >> /etc/nginx/nginx.conf 
+ADD index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+ENTRYPOINT /usr/sbin/nginx
+
+#Create new html file locally
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Code TV Static Site </title>
+	</head>
+	<body>
+		<h1>Hi from 2nd example of docker container!</h1>
+	</body>
+</html>
+
+#Build comand
+$ docker build -t nginx_example .
+
+#Run command
+$ docker run -p 80:80 -d nginx_example  -->All local host requests on port 80 is redirected to container port 80
+
+#From local browser connect to localhost, it redicts to port 80 of container
+=============================================================================
+
