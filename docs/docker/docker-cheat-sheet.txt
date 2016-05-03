@@ -20,6 +20,25 @@ $ sudo docker rmi 5ba8a29230ec
 $ sudo docker ps 															--> Lists all docker imagaes running
 $ docker search ubuntu														--> searches for images in central repository
 
+Docker engine (daemon) commands
+-------------------------------
+$ sudo docker info
+$ sudo start docker
+$ sudo stop docker
+$ sudo restart docker
+$ tail -f /var/log/upstart/docker.log
+
+swarm setup
+-----------
+$ sudo docker daemon -H  tcp://0.0.0.0:2375 &
+$ sudo docker  -H tcp://localhost:2375 run --rm swarm create
+  swarm ID : 13a9741b656e74df600d58b14e29ff62
+
+You tube video
+$sudo docker run swarm create
+	7503d24b6f61b74a8d99990c163884c1
+$docker-machine create -d digitalocean --swarm --swarm-master --swarm-discovery=token://7503d24b6f61b74a8d99990c163884c1 swarm-master
+
 installed Docker
 run a software image in a container
 located an interesting image on Docker Hub
