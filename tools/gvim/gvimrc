@@ -10,7 +10,7 @@ set bs=2 ai ru " for cygwin
 " set guioptions-=T " remove headers.
 
 "set guifont=Courier\ 10\ Pitch\ 16
-set lines=29 columns=88 tw=80 pvh=14 wrapmargin=8
+set lines=42 columns=165 tw=80 pvh=14 wrapmargin=8
 set ic scs is vb sm so=5
 set scr=3 sw=2 sbr=\ \ lsp=2
 au BufNewFile,BufRead *.c.*.tmp	setf c
@@ -196,7 +196,7 @@ if &diff
   map <silent> <s-f2> :set diffopt-=iwhite<cr>
   cnoremap q qa
 
-  set guifont=Courier\ 10\ Pitch\ 12
+  "set guifont=Courier\ 10\ Pitch\ 12
   "set guifont=-schumacher-clean-medium-r-normal--13-130-75-75-c-60-iso646.1991-irv
   "set guifont=-Schumacher-Clean-Medium-R-Normal--13-130-75-75-C-60-ISO646.1991-IRV
 "  set guifont=clean

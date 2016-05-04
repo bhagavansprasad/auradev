@@ -11,3 +11,6 @@ Sites to ban - proxy refused message is displayed
 
 Any configuration change, need to restart dansguardian
 	sudo service dansguardian restart
+
+
+sudo apt-get -y install clamav-freshclam iptables privoxy dansguardian

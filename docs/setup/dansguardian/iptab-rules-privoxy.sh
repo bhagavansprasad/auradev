@@ -17,3 +17,9 @@ sudo iptables -A OUTPUT -o lo -p tcp --dport 8118 -m owner --uid-owner bhagavan 
 
 #Blocks all other connections to privoxy. 
 sudo iptables -A OUTPUT -o lo -p tcp --dport 8118 -j DROP
+
+#Bhagavan
+#Add rule to drop google play app to go out
+#Google Play uses TCP and UDP 5228 port
+sudo iptables -A OUTPUT -p tcp -m multiport --dports 80,443 -j DROP
+

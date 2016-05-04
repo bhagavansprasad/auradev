@@ -1,5 +1,5 @@
 CAN Simulator/Utilities over SocketCAN 
-
+--------------------------------------
 SocketCAN is a set of open source CAN drivers over BSD sockets stack in Linux
 kernel. Using socketCAN interface built multiple utilities which genarates
 different CAN frames.
@@ -75,4 +75,30 @@ slcan_attach,
 slcand
 slcanpty.
 
+
+Working with opensource projects
+---------------------------------
+Role: Understding the features of SocketCAN simulator and advantages/Limitations in using for Diagnostics development.
+
+SocketCAN :  Exploring and experimenting with opensource code package user level
+application SocketCAN. The SocketCAN package is a simulator for CAN over Linux
+Network Sockets. SocketCAN uses the Berkeley socket APIs, Linux network stack
+and implements the CAN device drivers as network interfaces.  The CAN socket API
+has been designed as similar as possible to the TCP/IP protocols to allow
+programmers,familiar with network programming, to easily learn how to use CAN
+sockets.
+
+Advantages: 
+Ease of building, Loading and Testing : This can be built on a Linux PC using gcc compiler and can run on the same PC and tested
+
+No Device is required : No physical device is required.  CAN Nodes can be simulated by running application
+
+No Kernel Knowledge required:  Since SocketCAN is user level application doesn't required any kind of Kernel development
+
+Using existing Network Infrastructure:  SocketCAN start using existing infrastructure like, Stable and Tested Network APIs, Network monitoring tools,
+	  packet genarators, analyzers, debuggers
+
+Ease of genarating raw CAN frames:  Allows to genarate CAN frames and writing into network with different CAN IDs and data
+
+Simulating Frame loss : It is very easy to create and testing CAN Frame loss using existing network utility 'traffic control (tc)'
 
