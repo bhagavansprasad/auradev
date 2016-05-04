@@ -9,19 +9,19 @@
   # \password postgres
 
 - Create new user 'gerrit'
-  # create user gerrit
+  # create user gerrit;
 
 - Set new password 'jnjnuh' to new user
-  # ALTER USER gerrit with PASSWORD 'jnjnuh'
+  # ALTER USER gerrit with PASSWORD 'jnjnuh';
 
 - Create new database 'reiewdb'
-  # create database reviewdb
+  # create database reviewdb;
   # \list  //to list all dbs
   # \list -l
-  # SELECT * FROM pg_user
+  # SELECT * FROM pg_user;
 
 - Enable permissions to 'gerrit' to access db 'reviewdb'
-  # GRANT ALL PRIVILEGES ON DATABASE reviewdb TO gerrit
+  # GRANT ALL PRIVILEGES ON DATABASE reviewdb TO gerrit;
 
 - Java installation
   $ sudo apt-get install default-jdk
