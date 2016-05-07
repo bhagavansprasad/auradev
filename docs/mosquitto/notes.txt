@@ -1,0 +1,15 @@
+/usr/local/sbin/mosquitto - to run broker
+$ cd /home/bhagavan/mosquitto/mosquitto/examples/temperature_conversion
+$ export LD_LIBRARY_PATH=/home/bhagavan/mosquitto/mosquitto/lib/cpp:/home/bhagavan/mosquitto/mosquitto/lib
+$ ./mqtt_temperature_conversion
+
+
+Broker
+$ /usr/local/sbin/mosquitto
+
+Subscriber1
+	mosquitto_sub --disable-clean-session --id client1 -h 127.0.0.1 -t topic1/# -q 0
+	mosquitto_sub --disable-clean-session --id client2 -h 127.0.0.1 -t topic2/# -q 1
+
+Publisher
+$ /home/bhagavan/mosquitto/mosquitto/client/demo
