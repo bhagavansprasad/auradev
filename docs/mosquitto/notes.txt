@@ -6,7 +6,7 @@ $ ./mqtt_temperature_conversion
 
 $ cd /home/bhagavan/mosquitto/mosquitto/client
 
-To build subscriber
+To build publisher
 $ make
 $./demo
 
