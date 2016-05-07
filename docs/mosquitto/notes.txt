@@ -4,6 +4,12 @@ $ export LD_LIBRARY_PATH=/home/bhagavan/mosquitto/mosquitto/lib/cpp:/home/bhagav
 $ ./mqtt_temperature_conversion
 
 
+$ cd /home/bhagavan/mosquitto/mosquitto/client
+
+To build subscriber
+$ make
+$./demo
+
 Broker
 $ /usr/local/sbin/mosquitto
 
