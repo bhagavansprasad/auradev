@@ -3,7 +3,7 @@
   $ sudo apt-get install postgresql postgresql-client postgresql-contrib pgadmin3
 
 - Login to pgsql shell 'with user postgress'
-$ sudo - postgres
+$ su - postgres
 $ psql postgres
 
 - Reset admin password
