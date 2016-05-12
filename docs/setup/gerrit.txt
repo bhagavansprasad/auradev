@@ -29,8 +29,8 @@ $ psql postgres
 
 - gerrit installation
   http://blogs.fcoos.net/how-to-install-gerrit-on-an-ubuntu-14-04-server/
-  $ wget https://gerrit.googlecode.com/files/gerrit-2.7-rc1.war
-  $ java -jar gerrit-2.7-rc1.war init
+  $ wget https://gerrit-releases.storage.googleapis.com/gerrit-2.12.2.war
+  $ java -jar gerrit-2.12.2.war init
 -- Postgres SQL installation
 
 ----ubuntu
