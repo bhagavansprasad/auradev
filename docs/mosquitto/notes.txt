@@ -19,3 +19,34 @@ Subscriber1
 
 Publisher
 $ /home/bhagavan/mosquitto/mosquitto/client/demo
+
+
+As another example, for a topic of "a/b/c/d", the following 
+example subscriptions will match:
+	a/b/c/d, +/b/c/d, a/+/c/d, a/+/+/d, +/+/+/+
+
+The following subscriptions will not match:
+a/b/c, b/+/c/d, +/+/+
+
+# can be used as a wildcard for all remaining levels of hierarchy. This means
+# that it must be the final character in a subscription. With a topic of
+# "a/b/c/d", the following example subscriptions will match:
+
+a/b/c/d
+#, a/#, a/b/#, a/b/c/#, +/b/c/#
+
+
+Work with public mosquitto server test.mosquitto.org
+====================================================
+Subscriber
+---------
+- Compiling subscriber
+$ g++ 2exp_pub.c -L/usr/local/lib /usr/local/lib/libmosquittopp.so.1 /usr/local/lib/libmosquitto.so.1 -o pub
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
+$ ./pub
+
+- Running subscriber and listen all messages publishing on server
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
+$ mosquitto_sub -h test.mosquitto.org -t "#" -v
+$ mosquitto_sub -h test.mosquitto.org -t aura_net_news/#
+
