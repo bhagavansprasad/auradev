@@ -2,6 +2,9 @@ URL
 ---
 https://wwww.datadoghq.com/docker-adoption
 
+Docker Networking
+	https://docs.docker.com/v1.8/articles/networking/
+
 Docker hub login
 ----------------
 https://hub.docker.com/
@@ -19,6 +22,81 @@ $ docker info
 $ sudo docker rmi 5ba8a29230ec
 $ sudo docker ps 															--> Lists all docker imagaes running
 $ docker search ubuntu														--> searches for images in central repository
+$ docker run -P -d tcp-echo --> port 5000 container and binds to random local port 32770
+	0.0.0.0:32770->5000/tcp 
+$ docker run -p 5000:5000 -d tcp-echo --> container binds to 5000 and mapped local port 5000
+$ docker port 07bb04bf1872 
+	5000/tcp -> 0.0.0.0:32770
+$ docker port 07bb04bf1872  5000
+	0.0.0.0:32770
+$ docker logs -f sleepy_pasteur
+$ docker top nostalgic_morse --> Lists all processes running in container
+$ docket inspect nostalgic_morse --> Prints JSON object with contains status and configuration of the container
+$ docker network ls
+$ docker network inspect my-bridge-network --> Inspecting network bridge
+
+Connecting two containers through bridge
+----------------------------------------
+1. Running first container with connecting bridge
+   Launch second container and connect to bridge
+-  Launching first container 'db'
+$ docker run -d --net=my-bridge-network --name db training/postgres
+
+- Inspecting network 'db'
+$ docker inspect --format='{{json .NetworkSettings.Networks}}'  db
+
+- Running second container 'web'
+$ docker run -d --name web training/webapp python app.py
+
+- Inspecting network 'web'
+$ docker inspect --format='{{json .NetworkSettings.Networks}}'  web
+
+- Print IP of web
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' web
+
+- Print IP of db
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db
+
+- Open the shell of bash and ping to web, it does not ping
+$ docker exec -it db bash
+
+- Adding web to bridge
+$ docker network connect my-bridge-network web
+
+- Open the shell of bash and ping to web, it pings
+$ docker exec -it db bash
+
+2. Running both containers without connecting bridge
+   Connect both containers to bridge
+$ docker run -d  --name db  training/postgres
+$ docker run -d  --name web training/webapp python app.py
+$ docker network connect my-bridge-network db
+$ docker network connect my-bridge-network web
+
+Notes
+------
+- .dockerignore file to that directory as well. This file supports exclusion patterns similar to .gitignore files
+- Container linking
+	Decoupling applications into multiple containers makes it much
+	easier to scale horizontally and reuse containers. If that service depends
+	on another service, make use of container linking.
+- do not want to use the cache at all you can use the --no-cache=true option on the docker build
+
+Dockerfile instructions (commands)
+-------------------
+- RUN
+Sort multi-line arguments
+Always combine RUN apt-get update with apt-get install in the same RUN statement,
+
+- CMD - should be used to run the software contained by your image
+- EXPOSE - nstruction indicates the ports on which a container will listen for connections
+- ENV - use ENV to update the PATH environment variable 
+- ADD & COPY - COPY is preferred. That’s because it’s more transparent than ADD
+- ENTRYPOINT - 
+
+Docker Networking
+-----------------
+Docker provides two network drivers for you, 'bridge' and the 'overlay driver'
 
 installed Docker
 run a software image in a container
@@ -118,4 +196,30 @@ $ docker run -p 80:80 -d nginx_example  -->All local host requests on port 80 is
 
 #From local browser connect to localhost, it redicts to port 80 of container
 =============================================================================
+
+
+
+docker run -d -p 8080:8080 -p 29418:29418 openfrontier/gerrit
+openfrontier/gerrit   "/gerrit-entrypoint.s"   0.0.0.0:8080->8080/tcp, 0.0.0.0:29418->29418/tcp   boring_tesla
+
+sh createGerrit.sh http://gerrit 192.168.1.253 admin 127.0.0.1 bhagavan@aura.in
+openfrontier/gerrit   "/gerrit-entrypoint.s"   8080/tcp,               0.0.0.0:29418->29418/tcp   gerrit
+
+
+1. Run SMTP server
+	docker run --name smtpd -d namshi/smtp
+
+2. Run 'pgsql'
+	docker run --name pg-gerrit -P -e POSTGRES_USER=gerrit2 -e POSTGRES_PASSWORD=gerrit -e POSTGRES_DB=reviewdb -d postgres
+
+3. Run to create gerrit valume
+	docker run --name gerrit-volume openfrontier/gerrit 
+
+4. Run gerrit
+	docker run --name gerrit --link pg-gerrit:db -p 8080:8080 -p 29418:29418 --volumes-from gerrit-volume -e WEBURL=http://* -e HTTPD_LISTENURL=http://*:8080 -e DATABASE_TYPE=postgresql -e AUTH_TYPE=LDAP -e LDAP_SERVER=192.168.1.253 -e LDAP_ACCOUNTBASE=cn=admin,dc=devops,dc=auranetworks,dc=com  -e SMTP_SERVER=192.168.1.253 -e SMTP_USER=bhagavan -e SMTP_PASS=jnjnuh -e USER_EMAIL=bhagavan@auranetworks.in -e GERRIT_INIT_ARGS=--install-plugin=download-commands -d openfrontier/gerrit
+
+
+
+	docker run --name gerrit --link pg-gerrit:db -p 8080:8080 -p 29418:29418 --volumes-from gerrit-volume -e WEBURL=http://* -e HTTPD_LISTENURL=http://*:8080 -e DATABASE_TYPE=postgresql -e AUTH_TYPE=LDAP -e LDAP_SERVER=192.168.1.253 -e LDAP_ACCOUNTBASE=cn=admin,dc=devops,dc=auranetworks,dc=com  -e SMTP_SERVER=192.168.1.253 -e SMTP_USER=bhagavan -e SMTP_PASS=jnjnuh -e USER_EMAIL=bhagavan@auranetworks.in -e GERRIT_INIT_ARGS=--install-plugin=download-commands -d openfrontier/gerrit
+
 
