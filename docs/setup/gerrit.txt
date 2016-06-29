@@ -15,11 +15,7 @@ $ psql postgres
 - Set new password 'jnjnuh' to new user
   # ALTER USER gerrit with PASSWORD 'jnjnuh';
 
-<<<<<<< HEAD
 - Create new database 'reviewdb'
-=======
-- Create new database 'reiewdb'
->>>>>>> e508ca2cb86474070a6c9ae99c3a7dca6278c14a
   # create database reviewdb;
   # \list  //to list all dbs
   # \list -l
