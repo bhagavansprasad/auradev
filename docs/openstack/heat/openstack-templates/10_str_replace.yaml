@@ -1,0 +1,25 @@
+heat_template_version: 2013-05-23
+
+description: Demo template to use str_replace
+
+parameters:
+  instance_name:
+    type: string
+    label: Name
+    description: Name of the instance which needs to be created with
+    default: test-instance
+
+resources:
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      name:
+        str_replace:
+          template: $instance_name
+          params:
+            $instance_name: { get_param: instance_name }
+      image: centoswithroot
+      flavor: m1.small
+      key_name: ashwa
+      networks:
+        - network: int-net

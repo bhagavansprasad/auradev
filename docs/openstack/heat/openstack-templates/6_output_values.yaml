@@ -1,0 +1,19 @@
+heat_template_version: 2013-05-23
+
+description: Demo template show output values from template.
+
+resources:
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      name: output-instance
+      image: centoswithroot
+      flavor: m1.small
+      key_name: ashwa
+      networks:
+        - network: int-net
+
+outputs:
+  test_instance_ip:
+    description: prviate ip of the instance
+    value: { get_attr: [ test_instance, first_address ] }

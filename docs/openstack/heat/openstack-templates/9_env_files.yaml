@@ -1,0 +1,23 @@
+heat_template_version: 2013-05-23
+
+description: Demo template to use env file.
+
+parameters:
+  key_name:
+    type: string
+    label: Key
+    description: Key needs to be used to create cloud instance
+  image:
+    type: string
+    label: Image
+    description: Image used to create instance.
+
+resources:
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      key_name: { get_param: key_name }
+      image: { get_param: image }
+      flavor: m1.medium
+      networks:
+        - network: int-net
