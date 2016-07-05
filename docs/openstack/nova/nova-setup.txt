@@ -2,5 +2,9 @@ http://docs.openstack.org/juno/install-guide/install/apt/content/neutron-compute
 /etc/neutron/neutron.conf
 sudo service openvswitch-switch restart
 
+ sudo  -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade juno" neutron
+ sudo neutron-db-manage --config-file /etc/neutron/neutron.conf stamp head
+
+
  /etc/nova/nova.conf
 sudo service nova-compute restart
