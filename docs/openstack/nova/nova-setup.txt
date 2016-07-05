@@ -9,7 +9,26 @@ sudo service openvswitch-switch restart
  /etc/nova/nova.conf
 sudo service nova-compute restart
 
-~
+Error in Nova compute node
+==========================
+$ tail -f /var/log/neutron/openvswitch-agent.log
+
 2016-07-05 17:33:35     INFO [neutron.openstack.common.rpc.common] Reconnecting to AMQP server on 192.168.1.253:5672
 2016-07-05 17:33:38    ERROR [neutron.openstack.common.rpc.common] AMQP server on 192.168.1.253:5672 is unreachable: Socket closed. Trying again in 30 seconds.
+
+Error in NOVA controller node
+=============================
+$ tail -f rabbit@devops.log
+
+=ERROR REPORT==== 5-Jul-2016::20:06:49 ===
+closing AMQP connection <0.6402.0> (192.168.1.208:64671 -> 192.168.1.253:5672):
+{handshake_error,starting,0,
+                 {amqp_error,access_refused,
+                             "AMQPLAIN login refused: user 'guest' - invalid credentials",
+                             'connection.start_ok'}}
+======
+Fix:
+======
+In NOVA controller node
+$ sudo rabbitmqctl change_password guest jnjnuh
 
