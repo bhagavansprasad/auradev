@@ -8,3 +8,8 @@ sudo service openvswitch-switch restart
 
  /etc/nova/nova.conf
 sudo service nova-compute restart
+
+~
+2016-07-05 17:33:35     INFO [neutron.openstack.common.rpc.common] Reconnecting to AMQP server on 192.168.1.253:5672
+2016-07-05 17:33:38    ERROR [neutron.openstack.common.rpc.common] AMQP server on 192.168.1.253:5672 is unreachable: Socket closed. Trying again in 30 seconds.
+
