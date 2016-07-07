@@ -1,0 +1,30 @@
+Is all openstack applications are running?
+	Horizon is now available at http://192.168.1.253/dashboard
+	http://192.168.1.253:5000/v2.0
+	Port rabbitmq should be lisening on port 5672
+	Port should be opened on below ports
+	80 - Apache
+	5673 - rabbitmq server
+	5000 - 
+
+
+Compile devstack
+	$ ./stack.sh
+
+Set the environment
+	$ sh /home/bhagavan/auradev/docs/openstack/set-my-env.sh
+
+	NOTE: 
+	Check .stackenv values, change if require
+
+Source the environment
+	$ source myopenrc admin admin
+
+Print environment
+	$ sh  print-my-env.sh
+
+nova CLI commands
+	https://github.com/dianaclarke/openstack-notes/wiki/openstack-flavors
+	$ nova flavor-list
+	$ nova service-list
+
