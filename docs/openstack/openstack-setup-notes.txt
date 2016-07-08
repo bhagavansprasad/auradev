@@ -66,6 +66,7 @@ Utility commands
 ----------------
 nova-manage --version
 nova --version
+tail -f /var/log/{ceilometer,neutron,nova,openvswitch}/*.log /var/log/syslog
 
 keystone CLI commands
 ====================
