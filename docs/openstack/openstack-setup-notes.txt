@@ -61,6 +61,12 @@ Listing all images
 Creatting images
 	glance image-create --name centos7x8664 --file /home/bhagavan/dump/CentOS-7-x86_64-GenericCloud-1503.qcow2.xz --disk-format qcow2 --container-format bare --visibility public --progress
 
+
+Utility commands
+----------------
+nova-manage --version
+nova --version
+
 keystone CLI commands
 ====================
 Listing users
