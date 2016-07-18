@@ -1,3 +1,11 @@
+Configuration files
+
+-------------------
+Devstack
+/home/bhagavan/devstack/files/dnsmasq-for-baremetal-from-nova-network.conf
+
+/etc/openstack/clouds.yaml
+
 Is all openstack applications are running?
 	Horizon is now available at http://192.168.1.253/dashboard
 	http://192.168.1.253:5000/v2.0
@@ -42,6 +50,10 @@ nova CLI commands
 
 Booting images
 	nova boot centos-bhagavan --flavor 2 --image centos7x8664 
+	nova boot centos-bhagavan1 --flavor 2 --image centos7x8664 --fixed-ip 192.168.1.111
+
+Stopping images
+	nova stop centos-bhagavan
 
 Lising running images
 	nova list
@@ -68,6 +80,15 @@ nova-manage --version
 nova --version
 tail -f /var/log/{ceilometer,neutron,nova,openvswitch}/*.log /var/log/syslog
 
+Openstack commands
+===================
+openstack flavor list
+openstack network list
+
+Heat commands
+==============
+heat stack-create mystack -f 1_create_instance.yaml
+
 keystone CLI commands
 ====================
 Listing users
@@ -75,8 +96,10 @@ Listing users
 	keystone --help
 	keystone aggregate create bhagavan
 	keystone aggregate list
+	keystone service list
 
-Errors
+
+Errors1
 =========
 nova boot centos-bhagavan --flavor 2 --image centos7x8664 --key-name adminKey
 Invalid key_name provided. (HTTP 400) (Request-ID: req-24f73e8e-ffd1-474d-9f0b-23cb77674753)
@@ -86,4 +109,30 @@ WARNING: Option "--pub_key" is deprecated; use "--pub-key"; this option will be 
 ERROR (CommandError): Can't open or read '/home/bhagavan/.ssh/id_rsa.pub': [Errno 2] No such file or directory: u'/home/bhagavan/.ssh/id_rsa.pub'
 
 ssh-keygen
+
+Errors2
+=========
+$ heat stack-create mystack -f 1_create_instance.yaml    
+publicURL endpoint for orchestration service in RegionOne region not found
+
+fix - Create a service account
+------------------------------
+Link: https://ask.openstack.org/en/question/53132/public-endpoint-for-orchestration-service-in-regionone-region-not-found/
+
+keystone service list
+keystone service create  --name=heat  --description="Orchestration" orchestration
+keystone endpoint create  --publicurl http://192.168.1.253:8004/v1 --internalurl http://192.168.1.253:8004/v1 --adminurl http://192.168.1.253:8004/v1 --region  RegionOne heat
+
+keystone user create --password=jnjnuh --email=bhagavan@aura.net heat
+keystone role add --user=heat --project=admin admin
+
+
+log files
+=---------
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+/var/log/apache2/keystone.log
+/var/log/apache2/keystone_access.log
+
+
 
