@@ -1,3 +1,12 @@
+Install package
+	sudo apt-get install libmosquitto-dev
+	sudo apt install mosquitto-clients
+
+	dpkg -l
+	dpkg -l | mosqui
+	dpkg -l | grep mosqui
+	dpkg -L libmosquitto-dev:amd64
+
 /usr/local/sbin/mosquitto - to run broker
 $ cd /home/bhagavan/mosquitto/mosquitto/examples/temperature_conversion
 $ export LD_LIBRARY_PATH=/home/bhagavan/mosquitto/mosquitto/lib/cpp:/home/bhagavan/mosquitto/mosquitto/lib
@@ -50,3 +59,5 @@ $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 $ mosquitto_sub -h test.mosquitto.org -t "#" -v
 $ mosquitto_sub -h test.mosquitto.org -t aura_net_news/#
 
+
+mosquitto_pub -h test.mosquitto.org -t auranetworks/temperature -m "1266193804 32"

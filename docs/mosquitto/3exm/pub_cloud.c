@@ -6,21 +6,20 @@
 int main()
 {
 	struct mosquitto *mosq = NULL;
-	int i = 0;
-	char mess1[256];
-	char mess2[256];
+	int i = 1;
+	char mess[256];
 
 	mosquitto_lib_init();
 
-	mosq = mosquitto_new("publisher1", true, NULL);
+	mosq = mosquitto_new("publisher", true, NULL);
 	mosquitto_connect_async(mosq, "test.mosquitto.org", 1883, 10);
 	mosquitto_loop_start(mosq);
 
 	for ( ;  ; i++)
 	{
-		sprintf(mess2, "{\"version\":\"1.0.0\",\"vin\":\"car1\",\"datastreams\":[{\"id\":\"DistPub\",\"current_value\":\"6070635\"}]}");
-
-		mosquitto_publish(mosq, NULL, "aura_net_recru/a/b/c", strlen(mess2), mess2, 1, false);
+		sprintf(mess, "{%d.Message from Aura}", i);
+		printf("%d.Sending message...%s\n", i, mess);
+		mosquitto_publish(mosq, NULL, "auranetworks", strlen(mess), mess, 1, false);
 		sleep(1);
 	}
 }

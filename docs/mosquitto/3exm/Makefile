@@ -5,4 +5,4 @@ pub_cloud.o: pub_cloud.c
 	g++ pub_cloud.c -c
 	
 clean : 
-	-rm -f *.o pub
+	rm -f *.o pub

@@ -21,8 +21,11 @@ int main()
 		sprintf(mess1, "Message #%d QoS 0", i);
 		sprintf(mess2, "Message #%d QoS 1", i);
 
-		mosquitto_publish(mosq, NULL, "aura_net_news/a/b/c", strlen(mess1), mess1, 0, false);
-		mosquitto_publish(mosq, NULL, "aura_net_recru/a/b/c", strlen(mess2), mess2, 1, false);
+		//printf("%d.m1 :%s\n", i, mess1);
+		printf("%d.m2 :%s\n", i, mess2);
+
+		//mosquitto_publish(mosq, NULL, "aura_net_news/a/b/c", strlen(mess1), mess1, 0, false);
+		mosquitto_publish(mosq, NULL, "aura_net_recru/a/b/c", strlen(mess2), mess2, 2, true);
 		sleep(1);
 	}
 }
