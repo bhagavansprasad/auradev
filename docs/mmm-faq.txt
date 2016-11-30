@@ -1,5 +1,5 @@
                         Memory Management Module    
-  Basics
+Basics
  What is Thread?
  Explain About Hashlist?
  What are uses of own malloc and free functions?
