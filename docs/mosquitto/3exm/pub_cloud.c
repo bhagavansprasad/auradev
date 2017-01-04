@@ -12,7 +12,8 @@ int main()
 	mosquitto_lib_init();
 
 	mosq = mosquitto_new("publisher", true, NULL);
-	mosquitto_connect_async(mosq, "test.mosquitto.org", 1883, 10);
+	//mosquitto_connect_async(mosq, "test.mosquitto.org", 1883, 10);
+	mosquitto_connect_async(mosq, "localhost", 1883, 10);
 	mosquitto_loop_start(mosq);
 
 	for ( ;  ; i++)
