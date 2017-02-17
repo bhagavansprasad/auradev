@@ -52,3 +52,7 @@
   Method - 2
   $ sudo wget -q http://webmin.com/jcameron-key.asc
   $ sudo apt-key add jcameron-key.asc
+
+- Adding cron job
+sudo crontab -e
+
