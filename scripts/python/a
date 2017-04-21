@@ -1,0 +1,24 @@
+BRANCH_NAME 
+CHANGE_ID 
+CHANGE_URL 
+CHANGE_TITLE 
+CHANGE_AUTHOR 
+CHANGE_AUTHOR_DISPLAY_NAME 
+CHANGE_AUTHOR_EMAIL 
+CHANGE_TARGET 
+BUILD_NUMBER 26
+BUILD_ID 26
+BUILD_DISPLAY_NAME #26
+JOB_NAME build-copy-artifacts
+JOB_BASE_NAME build-copy-artifacts
+BUILD_TAG jenkins-build-copy-artifacts-26
+EXECUTOR_NUMBER 0
+NODE_NAME master
+NODE_LABELS master
+WORKSPACE /var/lib/jenkins/workspace/build-copy-artifacts
+JENKINS_HOME /var/lib/jenkins
+JENKINS_URL http://192.168.1.101:8080/
+BUILD_URL http://192.168.1.101:8080/job/build-copy-artifacts/26/
+JOB_URL http://192.168.1.101:8080/job/build-copy-artifacts/
+SVN_REVISION 
+SVN_URL 
