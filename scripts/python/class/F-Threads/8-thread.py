@@ -14,6 +14,7 @@ def print_time():
 
 print "Proces pid :", os.getpid()
 try:
+   print dir(threading)
    myt1 = threading.Thread(name='aura1', target=print_time)
    myt2 = threading.Thread(name='aura2', target=print_time)
 
@@ -21,6 +22,10 @@ try:
    myt2.start()
 
    print dir(myt1)
+
+   print "Thread count ", threading.active_count()
+   print "current Thread", threading.current_thread()
+   print "current Thread", threading.currentThread()
 
    myt1.join()
    myt2.join()

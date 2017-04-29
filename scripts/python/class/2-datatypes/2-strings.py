@@ -168,6 +168,10 @@ print str.replace("is", "was", 1) #Number of occurences to replace
 print str.replace("is", "was", 2) #Number of occurences to replace
 print ""
 
+#Number with tabs, single space and multiple spaces
+phnum = "	      99020 96 75  0   	       "
+phnum = "".join(phnum.split())
+print phnum
 
 str = "     this is string           example....wow!!!     ";
 print str,

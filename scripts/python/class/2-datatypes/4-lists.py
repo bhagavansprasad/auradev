@@ -70,7 +70,7 @@ print "list2: ",   list2
 list2.sort()
 print "list2: ",   list2
 
-list1 = ['physics', 'chemistry', '1997', '2000'];
+list1 = ['physics', 'the subject is english is', 'chemistry', '1997', '2000'];
 
 new_sub = "maths"
 if (new_sub in list1):
@@ -86,7 +86,9 @@ if (new_sub not in list1):
 
 print list1
 
+new_sub = "English"
+if (new_sub not in list1):
+    print "Appending"
+    list1.append(new_sub)
 
-
-
-
+print list1

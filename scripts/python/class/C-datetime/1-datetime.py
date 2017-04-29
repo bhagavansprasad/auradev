@@ -8,7 +8,8 @@ print "Number of ticks since 12:00am, January 1, 1970:", ticks
 
 print ""
 
-localtime = time.localtime(time.time())
+localtime = time.localtime(ticks)
+localtime = time.localtime()
 print "Local current time :", localtime
 
 cal = calendar.month(2017, 1)
@@ -17,7 +18,7 @@ print cal
 
 print "Time in seconds since the epoch: %s" %time.time()
 print "Current date and time          :", datetime.datetime.now()
-print "Or like this                   :", datetime.datetime.now().strftime("%y-%m-%d-%H-%M")
+print "Or like this                   :", datetime.datetime.now().strftime("%y-%m-%d-%H-%M-%Y")
 print "Current year                   :", datetime.date.today().strftime("%Y")
 print "Month of year                  :", datetime.date.today().strftime("%B")
 print "Week number of the year        :", datetime.date.today().strftime("%W")

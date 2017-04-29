@@ -2,6 +2,25 @@
 import httplib
 import urlparse
 
+'''
+def get_redirected_url(data):
+    sp = data.find('src="http') 
+    #print sp
+    if ( sp > 0):
+        ep = data.find(' ', sp) 
+        rurl = data[sp:ep]
+        rurl = rurl.lstrip('src="').rstrip('"')
+        print rurl
+    return rurl
+'''
+
+def get_redirected_url(data):
+    rurl  = ""
+    sp = data.find('src="http') 
+    if ( sp > 0):
+        return data[sp:data.find(' ', sp)].lstrip('src="').rstrip('"')
+
+    return rurl
 
 def send_http_request(url):
     scheme, server, path, query, fragment = urlparse.urlsplit(url)
@@ -33,28 +52,32 @@ def send_http_request(url):
             print "error in status"
 
         data = response.read()
-        print data
 
         return (response, response.status, data)
 
     finally:
         conn.close()
 
-    
 url = "http://www.airtel.in/smartbyte-s/page.html"
-
 (response, retcode, data) = send_http_request(url)
-
 print "resp, status :", response.status
 print "resp  reason :", response.reason
+print "retcode      :", retcode
 
-if (retcode != 200):
+if (retcode == 200):
     print "msg          :", response.msg
-    print data
 else:
     print "Error in request"
 
-#get_redirected_url(data)
+print "------------"
+print data
+print "------------"
+
+rurl = get_redirected_url(data)
+(response, retcode, data) = send_http_request(rurl)
+print "============="
+print data
+print "============="
 
 exit(1)
 

@@ -8,6 +8,7 @@ print('id(3) =', id(3))
 
 b = 2
 print('id(2) =', id(2))
+print('id(b) =', id(b))
 
 
 def printHello():
