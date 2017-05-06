@@ -82,7 +82,7 @@ print "============="
 exit(1)
 
 conn = httplib.HTTPConnection("www.airtel.in")
-conn.request("GET", "/smartbyte-s/page.html")
+conn.request("GET", "/smartbyte-/page.html")
 response = conn.getresponse()
 print response.status, response.reason
 data = response.read()

@@ -1,0 +1,86 @@
+$ sudo apt-get install software-properties-common
+$ sudo apt-add-repository ppa:ansible/ansible
+$ sudo apt-get update
+$ sudo apt-get install ansible
+
+test ansible setup
+echo "127.0.0.1" > ~/ansible_hosts
+export ANSIBLE_INVENTORY=~/ansible_hosts
+
+Parallelism and Shell Commands
+$ ssh-agent bash
+$ ssh-add ~/.ssh/id_rsa
+
+ansible atlanta -a "/sbin/reboot" -f 10
+ ansible atlanta -a "/usr/bin/foo" -u username
+ ansible atlanta -a "/usr/bin/foo" -u username --become [--ask-become-pass]
+ ansible atlanta -a "/usr/bin/foo" -u username --become-user otheruser [--ask-become-pass]
+
+ansible raleigh -m shell -a 'echo $TERM'
+
+File Transfer
+To transfer a file directly to many servers:
+ ansible atlanta -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+
+The file module allows changing ownership and permissions on files. These same options can be passed directly to the copy module as well:
+$ ansible webservers -m file -a "dest=/srv/foo/a.txt mode=600"
+$ ansible webservers -m file -a "dest=/srv/foo/b.txt mode=600 owner=mdehaan group=mdehaan"
+
+The file module can also create directories, similar to mkdir -p:
+$ ansible webservers -m file -a "dest=/path/to/c mode=755 owner=mdehaan group=mdehaan state=directory"
+
+As well as delete directories (recursively) and delete files:
+$ ansible webservers -m file -a "dest=/path/to/c state=absent"
+
+Managing Packages
+Ensure a package is installed, but don’t update it:
+$ ansible webservers -m yum -a "name=acme state=present"
+
+Ensure a package is installed to a specific version:
+$ ansible webservers -m yum -a "name=acme-1.5 state=present"
+
+Ensure a package is at the latest version:
+$ ansible webservers -m yum -a "name=acme state=latest"
+
+Ensure a package is not installed:
+$ ansible webservers -m yum -a "name=acme state=absent"
+
+Users and Groups
+The ‘user’ module allows easy creation and manipulation of existing user accounts, as well as removal of user accounts that may exist:
+$ ansible all -m user -a "name=foo password=<crypted password here>"
+$ ansible all -m user -a "name=foo state=absent"
+
+Deploying From Source Control
+Deploy your webapp straight from git:
+$ ansible webservers -m git -a "repo=git://foo.example.org/repo.git dest=/srv/myapp version=HEAD"
+
+Managing Services
+Ensure a service is started on all webservers:
+$ ansible webservers -m service -a "name=httpd state=started"
+
+Alternatively, restart a service on all webservers:
+$ ansible webservers -m service -a "name=httpd state=restarted"
+
+Ensure a service is stopped:
+$ ansible webservers -m service -a "name=httpd state=stopped"
+
+Time Limited Background Operations
+Long running operations can be run in the background, and it is possible to check their status later. For example, to execute long_running_operation asynchronously in the background, with a timeout of 3600 seconds (-B), and without polling (-P):
+$ ansible all -B 3600 -P 0 -a "/usr/bin/long_running_operation --do-stuff"
+
+If you do decide you want to check on the job status later, you can use the async_status module, passing it the job id that was returned when you ran the original job in the background:
+$ ansible web1.example.com -m async_status -a "jid=488359678239.2844"
+
+Polling is built-in and looks like this:
+$ ansible all -B 1800 -P 60 -a "/usr/bin/long_running_operation --do-stuff"
+
+Gathering Facts
+Facts are described in the playbooks section and represent discovered variables about a system. These can be used to implement conditional execution of tasks but also just to get ad-hoc information about your system. You can see all facts via:
+
+$ ansible all -m setup
+
+
+ssh -o StrictHostKeyChecking=no root@localhost -p 32770
+CMD  ["ssh-keygen", "-f", "id_rsa", "-t", "rsa", "-N", "''"]
+COPY id_rsa.pub "/root/.ssh/authorized_keys"
+
