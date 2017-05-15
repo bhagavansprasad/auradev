@@ -12,6 +12,7 @@ print symbol_to_name.keys()
 print symbol_to_name.values()
 print symbol_to_name.items()
 
+exit(1)
 print symbol_to_name["C"]
 
 print "O" in symbol_to_name, "U" in symbol_to_name
@@ -30,6 +31,7 @@ print "oxygen" in symbol_to_name
 #print symbol_to_name["P"]
 print symbol_to_name.get("P", "The item 'P' Not available")
 print symbol_to_name.get("C", "Not available")
+print symbol_to_name.items()
 print symbol_to_name.update( {"P": "phosphorous", "S": "sulfur"} )
 print symbol_to_name.items()
 del symbol_to_name['C']
@@ -40,7 +42,7 @@ print "dict['Name']: ",  dict['Name']
 print "dict['Age']: ",   dict['Age']
 print "dict['Class']: ", dict['Class']
 print "dict['phone']: ", dict['phone']
-print "dict['phone']: ", dict['phone'][0]
+print "dict['phone']: ", dict['phone'][1]
 print "dict['phone']: ", dict['phone'][0][0]
 
 print "dict['Age']  : ", type(dict['Age'])
@@ -52,12 +54,17 @@ print "dict['phone']: ", type(dict['phone'][0][0])
 print dict
 print type(dict)
 
+print dir(dict)
+
 atomic_number_to_name = {
     1: "hydrogen",
     6: "carbon",
     7: "nitrogen",
     8: "oxygen",
 }
+
+print atomic_number_to_name
+print atomic_number_to_name[1]
 
 nobel_prize_winners = {
     (1979, "physics"): ["Glashow", "Salam", "Weinberg"],
@@ -85,13 +92,11 @@ cities = {
 print states
 print cities
 
-
 cities['NY'] = 'New York'
 cities['OR'] = 'Portland'
 
 print states
 print cities
-
 
 print '-' * 10
 print "NY State has: ", cities['NY']
@@ -184,17 +189,6 @@ for value in my_dict[1]:
     print value,
 
 print " "
-#using dict()
-#my_dict = dict({1:'apple', 2:'ball'})
-
-#print my_dict
-#print my_dict[1]
-
-# from sequence having each item as a pair
-#my_dict = dict([(1,'apple'), (2,'ball')])
-#print my_dict
-#print my_dict[2]
-
 
 customers = [{"uid":1,"name":"Vachan"},
              {"uid":2,"name":"Ram"},
@@ -210,6 +204,4 @@ for cust in customers:
     cust["password"]="123456"
 
 print customers
-
-
 

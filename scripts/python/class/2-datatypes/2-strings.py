@@ -17,15 +17,9 @@ test_str = "Aura Networks Bangalore"
 #this is possible
 test_str = "new test string"
 
-exit(1)
-for byte in test_str:
-	print byte,
-
-
-
 i = 0
 while (i < len(test_str)):
-    print test_str[i], 
+    print test_str[i],
     i += 1
 
 print ""
@@ -37,6 +31,8 @@ print test_str[-2]
 print test_str[1:6]
 print test_str[1:23]
 print test_str[1:30]
+print test_str[5:]
+print test_str[:]
 print test_str[::-1]
 
 s1 = "Hello Aura Networks"
@@ -51,10 +47,6 @@ print s1[6:10]
 print s1[11:30]+"11234"
 
 
-test = "abcd"
-print test[4:6]
-
-
 name = "Saketh Ram"
 age = 13
 salary = 1000
@@ -64,11 +56,9 @@ height = 5.123
 print "my friend %s age is %d and salary is %d height is %f" % (name, age, salary, height)
 print name, age
 print name * 3
+
 #name[0] = 'x'
-
 s = "Aurovill"
-#s[0] = 'B' #error #immutable
-
 s = "B" + s[:]
 print s
 
@@ -166,6 +156,7 @@ str = "This is string is example...is .wow!!!";
 print str
 print str.replace("is", "was", 1) #Number of occurences to replace
 print str.replace("is", "was", 2) #Number of occurences to replace
+print str.replace("is", "was", -1) #Number of occurences to replace
 print ""
 
 #Number with tabs, single space and multiple spaces
@@ -203,8 +194,8 @@ print str
 
 print str.split()
 print type(str.split())
-print str.split(' ', 1 )
-print str.split(' ', 2 )
+print str.split(' ', 1)
+print str.split(' ', 2)
 
 
 print ""
@@ -221,7 +212,6 @@ print dname
 username,dname = email.split('@')
 print username
 print dname
-exit(0)
 
 
 print ""

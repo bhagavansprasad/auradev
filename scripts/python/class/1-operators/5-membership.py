@@ -8,3 +8,8 @@ if "@" not in email_address:
 else:
     print "Valid email ID"
 
+print email_address
+
+for i in range(1,10):
+    print i
+

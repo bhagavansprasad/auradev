@@ -25,8 +25,13 @@ Extended regular expressions
 cd /usr/share/common-licenses
 grep "GNU" GPL-3
 
+- Ignore case
 grep -i "license" GPL-3
+
+- Invert match, print all lines which does not have "the"
 grep -v "the" BSD
+
+- Invert match with line numbers
 grep -vn "the" BSD
 
 Anchor Matches
@@ -38,6 +43,7 @@ Match every line ending with the word "and" in the following regular expression:
 
 Matching Any Character
 grep "..cept" GPL-3
+grep -w "..cept" GPL-3
 
 Bracket Expressions
 Find the lines that contain "too" or "two",
@@ -60,12 +66,6 @@ grep "([A-Za-z ]*)" GPL-3
 Escaping Meta-Characters
 Find any line that begins with a capital letter and ends with a period. 
 grep "^[A-Z].*\.$" GPL-3
-
-Extended Regular Expressions
-Grouping
-grep "\(grouping\)" file.txt
-grep -E "(grouping)" file.txt
-egrep "(grouping)" file.txt
 
 Alternation
 grep -E "(GPL|General Public License)" GPL-3

@@ -2,7 +2,6 @@ my_set = {1, 2, 3, 8, 4}
 print (type(my_set))
 print(my_set)
 
-
 # set of mixed datatypes
 my_set = {1.0, "Hello", (1, 2, 3)}
 print(my_set)
@@ -16,7 +15,7 @@ print(type(a))
 a = set()
 print(type(a))
 
-my_set = {1,3}
+my_set = {1, 2, 3}
 print(my_set)
 
 my_set.add(2)
@@ -27,7 +26,6 @@ print(my_set)
 
 my_set.update([4,5], {1,6,8})
 print(my_set)
-
 
 print ""
 my_set = {1, 3, 4, 5, 6}
@@ -85,16 +83,3 @@ print A.symmetric_difference(B)
 print(B ^ A)
 print B.symmetric_difference(A)
 print ""
-
-for letter in set("apple"):
-	print letter, " ", 
-
-print ""
-A = set("abc")
-B = set("Axby")
-print(type(A))
-print(type(B))
-print A
-print B
-print A | B
-print A & B

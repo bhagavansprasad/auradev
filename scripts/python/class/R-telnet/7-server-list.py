@@ -1,4 +1,5 @@
-import server.json
+import json
+
 '''
 servers_list = [ 
  {
@@ -17,7 +18,6 @@ servers_list = [
    "password": "jnjnuh"
  }
 ]
-'''
 print servers_list
 print servers_list[0]
 print servers_list[0]["system_ip"]
@@ -28,3 +28,14 @@ for system in servers_list:
     print system["system_ip"]
     print system["username"]
     print system["password"]
+
+'''
+
+with open('servers.json') as data_file:    
+    data = json.load(data_file)
+
+#print(data[0])
+
+for server in data:
+    print server['system_ip'], server['username'], server['password'],  server['service']
+    print ""

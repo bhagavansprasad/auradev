@@ -2,9 +2,6 @@ import json
 import telnetlib
 import time
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-sys.setdefaultencoding('utf8')
 
 def my_debug_print (debug):
     print "\t" + debug
@@ -70,5 +67,5 @@ with open('servers.json') as data_file:
 #print(data[0])
 
 for server in data:
-    start_service_by_name(server['system_ip'], server['username'], server['password'],  server['service'])
+    start_service_by_name(server['system_name'], server['username'], server['password'],  server['service'])
     print ""

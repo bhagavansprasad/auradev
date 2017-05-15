@@ -3,11 +3,11 @@ import csv
 import psycopg2
 import sys
 
-fd = open('users-data.csv', 'rt')
+fd = open('/home/bhagavan/training/scripts/python/class/E-pgsql/users-data.csv', 'rt')
 reader = csv.reader(fd)
 
 conn = None
-conn = psycopg2.connect( database="postgres", user="postgres", host="127.0.0.1", password="jnjnuh")
+conn = psycopg2.connect( database="gcontacts", user="bhagavan", host="127.0.0.1", password="jnjnuh")
 cur = conn.cursor()
 
 i = 0
@@ -16,21 +16,16 @@ for row in reader:
         i = 1
         continue
 
-    print row[0],
-    print row[6]
-
-    if (len(row[0]) == 0):
-        print "=============Got row with name is zero"
-    	cur.execute("INSERT INTO playground(type, color) VALUES (%s,%s)", (row[0], row[6]))
-
+    print "===", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]
+    cur.execute("INSERT INTO students_list(name, fullname, uid, gid, phone, hphone, address, email, status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+        (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], "1"))
 
 conn.commit()
 fd.close()
 
-cur.execute("SELECT * FROM playground")
+cur.execute("SELECT * FROM students_list")
 rows = cur.fetchall()
 print rows
-exit(1)
 for row in rows:
     print row
 

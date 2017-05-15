@@ -1,15 +1,21 @@
 import json
  
-json_input = '{ "one": 1, "two":  { "list": [ {"item":"A"},{"item":"B"} ] } }'
+json_input = '{ "Bone": 1, "Atwo":  { "list": [ {"item":"A"},{"item":"B"} ] } }'
  
 try:
     decoded = json.loads(json_input)
  
     # pretty printing of json-formatted string
-    print json.dumps(decoded, sort_keys=True, indent=4)
+    print json.dumps(decoded, sort_keys=True, indent=8)
  
-    print "JSON parsing example: ", decoded['one']
-    print "Complex JSON parsing example: ", decoded['two']['list'][0]['item']
+    print "JSON parsing example: ", decoded['Aone']
+    '''
+    print "Complex JSON parsing example: ", decoded['Btwo']['list'][0]['item']
+    print decoded['Btwo']
+    print decoded['Btwo']['list']
+    print decoded['Btwo']['list'][0]
+    print json_input
+    '''
  
 except (ValueError, KeyError, TypeError):
     print "JSON format error"

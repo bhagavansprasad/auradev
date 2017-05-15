@@ -1,14 +1,27 @@
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04
 https://www.postgresql.org/docs/9.2/static/functions-info.html
 
-sudo -i -u postgres
-psql
-\q
- createuser --interactive joe
-
 Connecting to db
   psql -h <localhost> -U <username> <database>
 $ psql -h localhost -U postgres postgres
+psql -h localhost -U bhagavan gcontacts
+
+\l - list all databases
+\conninfo - To print details of database connected presentely
+\dt - List of tables
+\du - List of users available
+\c gcontacts; -- Changing the database
+\d+ playground -- Printing schema of the table
+Change password of the user
+CREATE USER gerrit2  WITH PASSWORD 'jnjnuh';
+ALTER  USER gerrit2  WITH PASSWORD 'jnjnuh';
+GRANT ALL PRIVILEGES ON DATABASE "reviewdb" to gerrit2;
+
+Database operations
+--------------------
+CREATE DATABASE gcontacts;
+DROP DATABASE gcontacts;
+GRANT ALL PRIVILEGES ON DATABASE gcontacts to bhagavan;
 
 Listing schema
 	postgres=# \d+ playground
@@ -18,16 +31,6 @@ Printing
 
 Deleting rows
 	delete from playground where equip_id > 10;
-
-\l - list all databases
-\conninfo - To print details of database connected presentely
-\dt - List of tables
-\c gcontacts; -- Changing the database
-\d+ playground -- Printing schema of the table
-Change password of the user
-CREATE USER gerrit2  WITH PASSWORD 'jnjnuh';
-ALTER  USER gerrit2  WITH PASSWORD 'jnjnuh';
-GRANT ALL PRIVILEGES ON DATABASE "reviewdb" to gerrit2;
 
 CREATE DATABASE gcontacts;
 
@@ -96,4 +99,31 @@ COPY (SELECT * from playground) To '/tmp/output.csv' With CSV;
 
  CREATE TABLE students (rno INTEGER PRIMARY KEY, name VARCHAR, phno VARCHAR);
  select * from students;
+
+
+CREATE TABLE my_contacts (
+    id serial PRIMARY KEY,
+    name VARCHAR (50) NOT NULL,
+    phone INTEGER,
+    address varchar (25),
+    gender varchar(1) check (gender in ('m', 'f', 'M', 'F', 'o', 'O')),
+    dob date
+);
+
+INSERT INTO  my_contacts (name, phone, address, gender, dob) VALUES ('Aura Networks', 966, 'Bangalore', 'M',  '2017-05-11');
+INSERT INTO playground (type, color, location, install_date) VALUES ('slide', 'blue', 'south', '2014-04-28');
+
+CREATE TABLE students_list (
+    id serial PRIMARY KEY,
+    name VARCHAR (50) NOT NULL,
+    fullname VARCHAR (50) NOT NULL,
+    uid INTEGER,
+    gid INTEGER,
+    phone VARCHAR,
+    hphone VARCHAR,
+    address VARCHAR (25),
+    email VARCHAR (56),
+	status BOOLEAN
+);
+
 

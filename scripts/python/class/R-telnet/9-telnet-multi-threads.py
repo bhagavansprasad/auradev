@@ -4,10 +4,10 @@ import time
 import sys
 import thread
 import threading
-
+from threading import Thread, current_thread
 
 def my_debug_print (debug):
-    print "\t" + debug
+	print "\t" + current_thread().name + ":" + debug
 
 def print_output(data):
     my_debug_print ("----------")
@@ -16,31 +16,25 @@ def print_output(data):
     my_debug_print ("----------")
 
 def make_connection(host):
+    print current_thread().name, 
     try:
         telnet = telnetlib.Telnet(host)
         print "Telnetting to server '%s' success..." % host
+        return telnet
     except:
         print "Could not connect to server '%s'" % host
         return -1
 
-
-
 def start_service_by_name(host, username, password, service):
+    '''
     print "host     :", host
     print "username :", username
     print "password :", password
     print "serivce  :", service
     print "host     :", host
+    '''
 
 
-    '''
-    try:
-        telnet = telnetlib.Telnet(host)
-        print "Telnetting to server '%s' success..." % host
-    except:
-        print "Could not connect to server '%s'" % host
-        return 0
-    '''
     telnet = make_connection(host)
     if (telnet < 0):
         return 0;
@@ -90,7 +84,7 @@ new_threads_list = []
 for server in data:
     print server
     try:
-        nthread = threading.Thread(target=start_service_by_name, args=(server['system_ip'], server['username'], server['password'],  server['service']))
+        nthread = threading.Thread(target=start_service_by_name, args=(server['system_name'], server['username'], server['password'],  server['service']))
 
         new_threads_list.append(nthread)
         nthread.setDaemon(True)

@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import psycopg2
-import sys
 
 conn1 = None
 conn1 = psycopg2.connect( database="postgres", user="postgres", host="127.0.0.1", password="jnjnuh")
