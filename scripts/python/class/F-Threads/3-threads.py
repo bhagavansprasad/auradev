@@ -11,14 +11,14 @@ def print_time( threadName, delay):
    while count < 5:
       time.sleep(delay)
       count += 1
-      print "%s: %s, x: %d" % ( threadName, time.ctime(time.time()), x)
+      print "%d. %s: %s, x: %d" % (count, threadName, time.ctime(time.time()), x)
       x += 1
 
 # Create two threads as follows
 print "Proces pid :", os.getpid()
 try:
-   thread.start_new_thread( print_time, ("Thread-1", 1, ) )
-   thread.start_new_thread( print_time, ("Thread-2", 2, ) )
+   thread.start_new_thread( print_time, ("T1", 1, ) )
+   thread.start_new_thread( print_time, ("T2", 2, ) )
 except:
    print "Error: unable to start thread"
 

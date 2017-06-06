@@ -10,9 +10,9 @@ symbol_to_name = {
 print symbol_to_name
 print symbol_to_name.keys()
 print symbol_to_name.values()
+print symbol_to_name.values()[0]
 print symbol_to_name.items()
 
-exit(1)
 print symbol_to_name["C"]
 
 print "O" in symbol_to_name, "U" in symbol_to_name
@@ -28,14 +28,13 @@ else:
 
 print "oxygen" in symbol_to_name
 
-#print symbol_to_name["P"]
 print symbol_to_name.get("P", "The item 'P' Not available")
 print symbol_to_name.get("C", "Not available")
-print symbol_to_name.items()
 print symbol_to_name.update( {"P": "phosphorous", "S": "sulfur"} )
 print symbol_to_name.items()
 del symbol_to_name['C']
 print symbol_to_name
+#print symbol_to_name["C"]
 
 dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First', 'phone': ['9902000000', '900000000']}
 print "dict['Name']: ",  dict['Name']
@@ -71,8 +70,6 @@ nobel_prize_winners = {
     (1962, "chemistry"): ["Hodgkin"],
     (1984, "biology"): ["McClintock"],
 }
-
-print atomic_number_to_name[1]
 print nobel_prize_winners[(1979, "physics")]
 
 states = {
@@ -115,6 +112,7 @@ print '-' * 10
 for state, abbrev in states.items():
     print "%s is abbreviated %s" % (state, abbrev)
 
+exit(1)
 # print every city in state
 print '-' * 10
 for abbrev, city in cities.items():

@@ -1,3 +1,6 @@
+Link
+http://docs.ansible.com/ansible/intro_getting_started.html
+
 $ sudo apt-get install software-properties-common
 $ sudo apt-add-repository ppa:ansible/ansible
 $ sudo apt-get update
@@ -12,9 +15,9 @@ $ ssh-agent bash
 $ ssh-add ~/.ssh/id_rsa
 
 ansible atlanta -a "/sbin/reboot" -f 10
- ansible atlanta -a "/usr/bin/foo" -u username
- ansible atlanta -a "/usr/bin/foo" -u username --become [--ask-become-pass]
- ansible atlanta -a "/usr/bin/foo" -u username --become-user otheruser [--ask-become-pass]
+ansible atlanta -a "/usr/bin/foo" -u username
+ansible atlanta -a "/usr/bin/foo" -u username --become [--ask-become-pass]
+ansible atlanta -a "/usr/bin/foo" -u username --become-user otheruser [--ask-become-pass]
 
 ansible raleigh -m shell -a 'echo $TERM'
 
@@ -83,4 +86,147 @@ $ ansible all -m setup
 ssh -o StrictHostKeyChecking=no root@localhost -p 32770
 CMD  ["ssh-keygen", "-f", "id_rsa", "-t", "rsa", "-N", "''"]
 COPY id_rsa.pub "/root/.ssh/authorized_keys"
+
+
+First commands
+--------------
+ ssh-agent bash
+ ssh-add ~/.ssh/id_rsa
+
+- Test case
+ansible all -m ping
+
+With different user 'root'
+ansible -vvvv all  --inventory-file=./1-hosts -m ping -u root
+ansible all  --inventory-file=./1-hosts  -a "/bin/echo hello" -u root
+
+# as bruce
+$ ansible all -m ping -u bruce
+# as bruce, sudoing to root
+$ ansible all -m ping -u bruce --sudo
+# as bruce, sudoing to batman
+$ ansible all -m ping -u bruce --sudo --sudo-user batman
+
+# With latest version of ansible `sudo` is deprecated so use become
+# as bruce, sudoing to root
+$ ansible all -m ping -u bruce -b
+# as bruce, sudoing to batman
+$ ansible all -m ping -u bruce -b --become-user batman
+
+setup
+-----
+Copy ssh public key to the host
+172.17.0.[2:4]
+scp id_rsa.pub root@172.17.0.2:/.ssh/auth/authorized_keys"
+
+create new '/etc/ansible/hosts' file with host IP
+172.17.0.2
+
+Testing the setup
+ansible all -a "/bin/echo hello"
+ansible all -a "/bin/echo hello" -u root
+ansible all -a "/bin/echo hello" -u root -p 32770
+ansible all -a "/bin/echo hello" -u root -p 32770  --inventory-file=./1-hosts
+
+disable SSH key host checking in /etc/ansible/ansible.cfg
+host_key_checking = False
+remote_user = root
+
+Adding set of in 'hosts' file 
+172.17.0.2
+172.17.0.3
+172.17.0.4
+172.17.0.5
+
+	or 
+
+172.17.0.[2:5]
+
+Hosts and Groups
+================
+[webservers]
+172.17.0.2
+172.17.0.3
+
+[dbservers]
+172.17.0.3
+172.17.0.4
+172.17.0.5
+db-[a:f].example.com
+
+ansible -l webservers all  -a "/bin/echo hello"
+ansible --limit=webservers all  -a "/bin/echo hello"
+ansible -l webservers,dbservers all  -a "/bin/echo hello" 
+
+grouping with yaml files
+------------------------
+/etc/ansible/groups_vars/dbservers-g.yaml
+---
+database_server: 172.17.0.4
+http://stackoverflow.com/questions/23767765/ansible-doesnt-pick-up-group-vars-without-loading-it-manually
+http://stackoverflow.com/questions/21908363/ansible-read-inventory-hosts-and-variables-to-group-vars-all-file
+http://stackoverflow.com/questions/31343753/ansible-variable-defined-in-group-vars-all-not-found
+
+docker run -itd -P --name 1node ssh-service 
+docker run -itd -P --name 2node ssh-service 
+docker run -itd -P --name 3node ssh-service 
+docker run -itd -P --name 4node ssh-service 
+
+Setup
+S1 - Create 4 Nodes (Linux systems) with ssh server installed
+     Append local ~/.ssh/id_rsa.pub file content to node(s),  /root/.ssh/authorized_keys
+S2 - Check ssh connection with node.
+	 ssh root@192.168.1.253
+     Note: Should not prompt for password
+S3 - Create new file '/etc/ansible/hosts' with below content
+     192.168.1.253
+S4 - Run ansible with below command
+- Running on all hosts
+ansible all -a "/bin/echo hello"
+
+- Running on all hosts with username
+ansible all -a "/bin/echo hello" -u root
+
+- Running on all hosts with username and port
+ansible all -a "/bin/echo hello" -u root -p 32770
+
+- Running on all hosts with username and port along with inventory file
+ansible all -a "/bin/echo hello" -u root -p 32770  --inventory-file=./1-hosts
+
+- Running only on 'webservers' group
+ansible webservers -a "/bin/echo hello"
+
+- Running only on 'webservers' and dbservers group
+ansible webservers:dbservers -a "/bin/echo hello"
+
+- All machines must be in the group webservers but not in the group phoenix
+webservers:!phoenix
+
+- The hosts must be in the group webservers and the host must also be in the group staging
+webservers:&staging
+webservers[0]
+webservers[-1]
+webservers[0:1]
+webservers[1:]
+webservers:dbservers:&staging:!phoenix
+
+/etc/ansible/hosts file content
+192.168.1.253 ansible_user=bhagavan
+[webservers]
+172.17.0.2	ansible_user=root
+172.17.0.3	ansible_connection=ssh	ansible_user=root
+
+- List of server from 172.17.0.2, 3, 4
+172.17.0.[2:4]
+
+	 Results should be
+	 -----------------
+	 192.168.1.253 | success | rc=0 >>
+	 hello
+
+S5 : Settingup nodes
+
+
+Group Vars
+ansible all -a "/bin/echo hello" --inventory-file=./3-host-vars
 

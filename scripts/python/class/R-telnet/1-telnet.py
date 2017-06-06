@@ -5,16 +5,15 @@ import telnetlib
 HOST = "127.0.0.1"
 user = "bhagavan"
 password = "jnjnuh"
-#user = raw_input("Enter your remote account: ")
 
 tn = telnetlib.Telnet(HOST)
 
 tn.read_until("login: ")
-print "after login"
+print "Received login"
 tn.write(user + "\n")
 if password:
     tn.read_until("Password: ")
-    print "after Password"
+    print "Received Password"
     tn.write(password + "\n")
 
 tn.read_until("~$ ")
@@ -29,10 +28,11 @@ tn.write("cat mount.sh\n")
 tn.write("exit\n")
 print "=============="
 data =  tn.read_all()
-print dir(tn)
+#print dir(tn)
 
 print "=============="
-print data.find("mount.sh")
-print type(data)
+print data
+#print data.find("mount.sh")
+#print type(data)
 
 

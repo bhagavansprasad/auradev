@@ -3,5 +3,5 @@ node 'vagrant.auranetworks.in' {
 		content => "I got it, Hello, I am Aura, with new content\n",
 	}
 
- 	package { 'gcc': ensure => 'installed' }
+ 	package { 'gcc': ensure => installed }
 }

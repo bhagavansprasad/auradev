@@ -1,8 +1,10 @@
 import time
 import os
 
-i = 0
-while True:
-    print '-->%d. i :%d' % (os.getpid(), i)
-    i += 1
-    time.sleep(1)
+numbers = [5, 10, 15]
+
+for index, number in enumerate(numbers):
+    print "index  :", index
+    print "number :", number
+    print "numbers[idex]  :", numbers[index]
+
