@@ -36,4 +36,5 @@ for myword in words:
 		j+=1
 	j = 1
 	i += 1
+exit(1)
 	

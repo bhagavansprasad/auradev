@@ -9,7 +9,7 @@ ids.append(ids[4] + 10)
 print ids
 ids[5] = ids[5] + 20
 print ids
-#del ids[0]
+del ids[0]
 print ids
 
 ids.sort()
@@ -55,12 +55,11 @@ print list1.index('chemistry')
 print list1.index('physics')
 
 
-print "list2: ",   list2
+print "*list2: ",   list2
 list2.pop()
 list2.pop()
 list2.pop()
 list2.append(9)
-print "list2: ",   list2
 list2.pop(2)
 list2.pop(0)
 list2.pop(-1)
@@ -79,6 +78,8 @@ else:
     print "Appending"
     list1.append(new_sub)
 
+print list1
+
 new_sub = "english"
 if (new_sub not in list1):
     print "Appending"
@@ -92,3 +93,4 @@ if (new_sub not in list1):
     list1.append(new_sub)
 
 print list1
+exit(1)

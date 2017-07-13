@@ -8,11 +8,13 @@ for byte in test_str:
 print ""
 print len(test_str)
 
+
 test_str = "Aura Networks Bangalore"
 
 # String is immutable 
-#print test_str[2]
-#test_str[2] = 'm'
+print test_str[2]
+# test_str[2] = 'm'
+print test_str
 
 #this is possible
 test_str = "new test string"
@@ -24,6 +26,7 @@ while (i < len(test_str)):
 
 print ""
 
+test_str = "Aura Networks Bangalore"
 print test_str[0]
 print test_str[1]
 print test_str[-1]
@@ -33,19 +36,11 @@ print test_str[1:23]
 print test_str[1:30]
 print test_str[5:]
 print test_str[:]
+print test_str[:-1]
 print test_str[::-1]
-
-s1 = "Hello Aura Networks"
-s2 = "Python Training"
-
-print "string1 :", s1
-print "string2 :", s2
-print s1[0]
-print s1[-1]
-print s1[-2]
-print s1[6:10]
-print s1[11:30]+"11234"
-
+print test_str[::]
+print test_str[13:-1]
+print test_str[:13:-1]
 
 name = "Saketh Ram"
 age = 13
@@ -53,11 +48,13 @@ salary = 1000
 height = 5.123
 
 #print "name ", name, "age ", age, 
+print "my friend ", name, " age is ", age, "and salary is ", salary, "height is ", height
 print "my friend %s age is %d and salary is %d height is %f" % (name, age, salary, height)
+
 print name, age
 print name * 3
-
 #name[0] = 'x'
+
 s = "Aurovill"
 s = "B" + s[:]
 print s
@@ -67,7 +64,6 @@ print s
 
 s = "B" + s[2:5]
 print s
-
 
 s = "B" + s[1:5]
 print s
@@ -81,8 +77,12 @@ str =  str.capitalize()
 print str
 print ""
 
-print dir(s)
+print dir(str)
 
+a = 10
+print dir(a)
+
+str = "this is string example. and temp...wow!!!";
 print str
 sub = "i";
 print "str.len() :", len(str)
@@ -100,7 +100,6 @@ print "str.count(sub) : ", str.count(sub)
 print ""
 print str
 
-
 i = 0
 str = "this is string example....wow!!!";
 print str
@@ -115,13 +114,14 @@ print "5. ", str.capitalize().startswith(prefix)
 
 print ""
 
-
 str = "this is string example....wow!!!";
 substr = "exam";
 print "1. ", str.find(substr)
 print "2. ", str.find(substr, 10)
 print "3. ", str.find(substr, 20)
 print "4. ", str.index(substr, 10)
+#print "6. ", str.index(substr, 20)
+print "7. ", str.find("test")
 print ""
 
 
@@ -130,7 +130,8 @@ print str.islower()
 print str.lower()
 print str.lower().islower()
 
-str = "this is string example....wow!!!";
+print ""
+str = "this is string example....wow!!!"; 
 print str.islower()
 print str.upper()
 print str.upper().capitalize()
@@ -152,6 +153,7 @@ print str
 print str.replace("is", "was")
 print str
 
+print ""
 str = "This is string is example...is .wow!!!";
 print str
 print str.replace("is", "was", 1) #Number of occurences to replace
@@ -159,15 +161,12 @@ print str.replace("is", "was", 2) #Number of occurences to replace
 print str.replace("is", "was", -1) #Number of occurences to replace
 print ""
 
-#Number with tabs, single space and multiple spaces
-phnum = "	      99020 96 75  0   	       "
-phnum = "".join(phnum.split())
-print phnum
-
 str = "     this is string           example....wow!!!     ";
 print str,
 print "xxxx"
-print str.rstrip()
+print str.rstrip(),
+print "xxxx"
+print "xxxx",
 print str.lstrip()
 print "xxxx"
 print str.strip(),
@@ -183,10 +182,17 @@ print (str.rstrip('8')).lstrip('8').lstrip("th")
 str = "88888888this is string example....wow!!!8888888888abc888888888888";
 #output should be str = "this is string example....wow!!!abc";
 print str
+print type(str)
 substr = "abc"
 print str.lstrip('8').rstrip('8').rstrip(substr).rstrip('8')+substr
 print type(str.lstrip('8').rstrip('8').rstrip(substr).rstrip('8')+substr)
 
+#Number with tabs, single space and multiple spaces
+phnum = "	      99020 96 75  0   	       "
+print phnum
+print phnum.split()
+phnum = "".join(phnum.split())
+print phnum
 
 print ""
 str = "Line1-ab cdef \nLine2-abc\nLine4-abcd";
@@ -197,8 +203,6 @@ print type(str.split())
 print str.split(' ', 1)
 print str.split(' ', 2)
 
-
-print ""
 print ""
 email = "bhagavansprasad@gmail.com"
 print email
@@ -212,7 +216,6 @@ print dname
 username,dname = email.split('@')
 print username
 print dname
-
 
 print ""
 str = "Line1-a b c d e f\nLine2- a b c\n\nLine4- a b c d";

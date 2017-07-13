@@ -26,7 +26,6 @@ print "Login successful"
 #data = telnet.read_until("total")
 #print "got total"
 
-
 telnet.write("service apache2 status\n")
 print "After service"
 data = telnet.read_until("*")
@@ -45,7 +44,6 @@ if (data.find("not") > 0):
 
     if (data.find("failed") > 0):
         print "Service start failed"
-        print data
     else:
         print "Service start SUCCESS"
 

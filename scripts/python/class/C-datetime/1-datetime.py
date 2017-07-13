@@ -9,6 +9,7 @@ print "Number of ticks since 12:00am, January 1, 1970:", ticks
 print ""
 
 localtime = time.localtime(ticks)
+print "Local current time :", localtime
 localtime = time.localtime()
 print "Local current time :", localtime
 
@@ -16,9 +17,9 @@ cal = calendar.month(2017, 1)
 print "Here is the calendar:"
 print cal
 
-print "Time in seconds since the epoch: %s" %time.time()
+print "Time in seconds since the epoch: %s" % time.time()
 print "Current date and time          :", datetime.datetime.now()
-print "Or like this                   :", datetime.datetime.now().strftime("%y-%m-%d-%H-%M-%Y")
+print "Or like this                   :", datetime.datetime.now().strftime("%y-%m-%d-%H-%M-%Y-%m-%m-%m")
 print "Current year                   :", datetime.date.today().strftime("%Y")
 print "Month of year                  :", datetime.date.today().strftime("%B")
 print "Week number of the year        :", datetime.date.today().strftime("%W")
@@ -26,7 +27,6 @@ print "Weekday of the week            :", datetime.date.today().strftime("%w")
 print "Day of year                    :", datetime.date.today().strftime("%j")
 print "Day of the month               :", datetime.date.today().strftime("%d")
 print "Day of week                    :", datetime.date.today().strftime("%A")
-
 
 now = datetime.datetime(2003, 8, 4, 12, 30, 45)
 print now
@@ -45,18 +45,19 @@ print 'second:', t.second
 print 'microsecond:', t.microsecond
 print 'tzinfo:', t.tzinfo
 
-
 today = datetime.date.today()
 print 'Today    :', today
 
-one_day = datetime.timedelta(days=1)
-print 'One day  :', one_day
+some_day = datetime.timedelta(days=1)
+print 'One day  :', some_day
+print(type(some_day))
 
-yesterday = today - one_day
+yesterday = today - some_day
 print 'Yesterday:', yesterday
 
-tomorrow = today + one_day
+tomorrow = today + some_day
 print 'Tomorrow :', tomorrow
+print type(tomorrow)
 
 print 'tomorrow - yesterday:', tomorrow - yesterday
 print 'yesterday - tomorrow:', yesterday - tomorrow
@@ -67,10 +68,12 @@ print '\tt1:', t1
 t2 = datetime.time(13, 5, 0)
 print '\tt2:', t2
 print '\tt1 < t2:', t1 < t2
+print help(datetime.timedelta)
 
 print 'Dates:'
 d1 = datetime.date.today()
 print '\td1:', d1
-d2 = datetime.date.today() + datetime.timedelta(days=1)
+d2 = datetime.date.today() + datetime.timedelta(days=2)
 print '\td2:', d2
 print '\td1 > d2:', d1 > d2
+exit(1)

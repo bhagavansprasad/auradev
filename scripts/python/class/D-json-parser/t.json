@@ -1,12 +1,9 @@
 [
     {
-        "Id": "aabcffdbef1055329a2ce03759a92d22d20bef8ed3cc26783cb22411c44f0015",
-        "Created": "2017-05-14T07:16:13.822322202Z",
-        "Path": "/bin/sh",
-        "Args": [
-            "-c",
-            "/usr/bin/myechoserver $PORT"
-        ],
+        "Id": "65fd2c4ec35ffb51bec250587d375a59c11f43394c07446623054cd6dadddd3f",
+        "Created": "2017-07-06T04:17:56.738204153Z",
+        "Path": "/hello",
+        "Args": [],
         "State": {
             "Status": "exited",
             "Running": false,
@@ -17,15 +14,15 @@
             "Pid": 0,
             "ExitCode": 0,
             "Error": "",
-            "StartedAt": "2017-05-14T07:16:14.200512004Z",
-            "FinishedAt": "2017-05-14T07:20:00.508587015Z"
+            "StartedAt": "2017-07-06T04:17:57.239233663Z",
+            "FinishedAt": "2017-07-06T04:17:57.257781033Z"
         },
-        "Image": "sha256:31bc36a3a532dbc88caa398390fe0b252dba0fac7c3ef7b5934225cc98c6815e",
-        "ResolvConfPath": "/var/lib/docker/containers/aabcffdbef1055329a2ce03759a92d22d20bef8ed3cc26783cb22411c44f0015/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/aabcffdbef1055329a2ce03759a92d22d20bef8ed3cc26783cb22411c44f0015/hostname",
-        "HostsPath": "/var/lib/docker/containers/aabcffdbef1055329a2ce03759a92d22d20bef8ed3cc26783cb22411c44f0015/hosts",
-        "LogPath": "/var/lib/docker/containers/aabcffdbef1055329a2ce03759a92d22d20bef8ed3cc26783cb22411c44f0015/aabcffdbef1055329a2ce03759a92d22d20bef8ed3cc26783cb22411c44f0015-json.log",
-        "Name": "/awesome_hypatia",
+        "Image": "sha256:c54a2cc56cbb2f04003c1cd4507e118af7c0d340fe7e2720f70976c4b75237dc",
+        "ResolvConfPath": "/var/lib/docker/containers/65fd2c4ec35ffb51bec250587d375a59c11f43394c07446623054cd6dadddd3f/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/65fd2c4ec35ffb51bec250587d375a59c11f43394c07446623054cd6dadddd3f/hostname",
+        "HostsPath": "/var/lib/docker/containers/65fd2c4ec35ffb51bec250587d375a59c11f43394c07446623054cd6dadddd3f/hosts",
+        "LogPath": "/var/lib/docker/containers/65fd2c4ec35ffb51bec250587d375a59c11f43394c07446623054cd6dadddd3f/65fd2c4ec35ffb51bec250587d375a59c11f43394c07446623054cd6dadddd3f-json.log",
+        "Name": "/cranky_goldwasser",
         "RestartCount": 0,
         "Driver": "aufs",
         "MountLabel": "",
@@ -61,7 +58,7 @@
             "OomScoreAdj": 0,
             "PidMode": "",
             "Privileged": false,
-            "PublishAllPorts": true,
+            "PublishAllPorts": false,
             "ReadonlyRootfs": false,
             "SecurityOpt": null,
             "UTSMode": "",
@@ -106,44 +103,36 @@
         },
         "Mounts": [],
         "Config": {
-            "Hostname": "aabcffdbef10",
+            "Hostname": "65fd2c4ec35f",
             "Domainname": "",
             "User": "",
             "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "8888/tcp": {}
-            },
-            "Tty": true,
-            "OpenStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
             "StdinOnce": false,
             "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "GPG_KEYS=B215C1633BCA0477615F1B35A5B3A004745C015A \tB3C42148A44E6983B3E4CC0793FA9B1AB75C61B8 \t90AA470469D3965A87A5DCB494D03953902C9419 \t80F98B2E0DAB6C8281BDF541A7C8C3B2F71EDF1C \t7F74F97C103468EE5D750B583AB00996FC26A641 \t33C235A34C46AA3FFB293709A328C3A2C3C45C06",
-                "GCC_VERSION=4.9.4",
-                "PORT=8888"
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
             ],
             "Cmd": [
-                "/bin/sh",
-                "-c",
-                "/usr/bin/myechoserver $PORT"
+                "/hello"
             ],
-            "Image": "31bc36a3a532",
+            "Image": "hello-world",
             "Volumes": null,
-            "WorkingDir": "/usr/src/tcpechoserver",
+            "WorkingDir": "",
             "Entrypoint": null,
             "OnBuild": null,
             "Labels": {}
         },
         "NetworkSettings": {
             "Bridge": "",
-            "SandboxID": "8d2f21d379d163fe99b75991f6d87b255708a216d6f4a79b22669416bc813b79",
+            "SandboxID": "9b5d7f1e4db067421083e061ddab7148887c9fbf99a1d3e1bf94f503d450de7b",
             "HairpinMode": false,
             "LinkLocalIPv6Address": "",
             "LinkLocalIPv6PrefixLen": 0,
             "Ports": null,
-            "SandboxKey": "/var/run/docker/netns/8d2f21d379d1",
+            "SandboxKey": "/var/run/docker/netns/9b5d7f1e4db0",
             "SecondaryIPAddresses": null,
             "SecondaryIPv6Addresses": null,
             "EndpointID": "",
@@ -159,7 +148,7 @@
                     "IPAMConfig": null,
                     "Links": null,
                     "Aliases": null,
-                    "NetworkID": "52ff3b2e56d7f566b0a7abee3a1a2857c079e420798933f612c97eb3d8c2070f",
+                    "NetworkID": "5273e6a1362dde3c3e922f10504e066647b4920abdebbe29542d65420e89baf4",
                     "EndpointID": "",
                     "Gateway": "",
                     "IPAddress": "",

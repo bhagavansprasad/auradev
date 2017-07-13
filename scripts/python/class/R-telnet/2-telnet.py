@@ -25,12 +25,11 @@ for server in list_of_servers:
         tn.write(password + "\n")
 
     tn.read_until("~$ ")
-    tn.write("ls -l\r\n")
-    data =  tn.read_very_eager()
-    print data
-    #print "reading_all..."
-    #data = tn.read_all()
-    #print data
-    sys.stdout.flush()
+    tn.write("ls -l" + "\n")
+
+    tn.read_until("mount.sh")
+    print "reading_all..."
+    data =  tn.read_all()
+    print "data ", data
 
 

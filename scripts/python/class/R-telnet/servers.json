@@ -6,7 +6,7 @@
    "service": "apache2"
  },
  {
-   "system_name": "192.168.1.6",
+   "system_name": "192.168.1.250",
    "username": "bhagavan",
    "password": "jnjnuh",
    "service": "apache2"

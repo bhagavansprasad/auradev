@@ -1,19 +1,60 @@
+'''
+<student>
+    <name> aura </name>
+    <class> 5 </class>
+    <marks> 
+        <s1> 45 </s1>
+        <s1> 40 <s1>
+    </marks>
+</student>
+<student>
+    <name> aura </name>
+    <marks> 234 </marks>
+    <marks> 234 </marks>
+    <marks> 234 </marks>
+</student>
+
+student_data = {
+        student[
+            {"name":"aura",
+            "class":5,
+            "marks":[
+                {"s1":45},
+                {"s2":40}
+                ]
+            },
+            {"name":"temp",
+            "class":5,
+            "marks":[
+                {"s1":45},
+                {"s2":40}
+                ]
+            },
+            ]
+        }
+'''
+
+#json
+
 symbol_to_name = {
 	"H": "hydrogen",
 	"He": "helium",
 	"Li": "lithium",
 	"C": "carbon",
 	"O": "oxygen",
-	"N": "nitrogen"
+	"N": "nitrogen",
+        "P": "phosp"
 }
 
 print symbol_to_name
 print symbol_to_name.keys()
 print symbol_to_name.values()
 print symbol_to_name.values()[0]
+print symbol_to_name.values()[0][0]
 print symbol_to_name.items()
 
 print symbol_to_name["C"]
+print symbol_to_name["O"]
 
 print "O" in symbol_to_name, "U" in symbol_to_name
 print "o" in symbol_to_name
@@ -31,7 +72,7 @@ print "oxygen" in symbol_to_name
 print symbol_to_name.get("P", "The item 'P' Not available")
 print symbol_to_name.get("C", "Not available")
 print symbol_to_name.update( {"P": "phosphorous", "S": "sulfur"} )
-print symbol_to_name.items()
+print symbol_to_name
 del symbol_to_name['C']
 print symbol_to_name
 #print symbol_to_name["C"]
@@ -52,7 +93,6 @@ print "dict['phone']: ", type(dict['phone'][0][0])
 
 print dict
 print type(dict)
-
 print dir(dict)
 
 atomic_number_to_name = {
@@ -64,6 +104,7 @@ atomic_number_to_name = {
 
 print atomic_number_to_name
 print atomic_number_to_name[1]
+print atomic_number_to_name[8]
 
 nobel_prize_winners = {
     (1979, "physics"): ["Glashow", "Salam", "Weinberg"],
@@ -73,69 +114,73 @@ nobel_prize_winners = {
 print nobel_prize_winners[(1979, "physics")]
 
 states = {
-    'Oregon': 'OR',
-    'Florida': 'FL',
-    'California': 'CA',
-    'New York': 'NY',
-    'Michigan': 'MI'
+    'Andhra Pradesh': 'AP',
+    'Karnataka': 'KA',
+    'Telangana': 'TS',
+    'Tamilnadu': 'TN',
+    'Gujarath': 'GJ',
+    'Maharashtra': 'MH'
 }
 
 cities = {
-    'CA': 'San Francisco',
-    'MI': 'Detroit',
-    'FL': 'Jacksonville'
+    'MH': 'Mumbai',
+    'AP': 'Amaravathi',
+    'TS': 'Hyderabad',
+    'TN': 'Chennai',
+    'KA': 'Benguluru'
 }
 
 print states
 print cities
 
-cities['NY'] = 'New York'
-cities['OR'] = 'Portland'
+states['Odisha'] = 'OR'
+cities['OR'] = 'Bhuvaneswar'
+cities['GJ'] = 'Ahemadabad'
 
 print states
 print cities
 
 print '-' * 10
-print "NY State has: ", cities['NY']
+print "MH State has: ", cities['MH']
 print "OR State has: ", cities['OR']
 
 print '-' * 10
-print "Michigan's abbreviation is: ", states['Michigan']
-print "Florida's abbreviation is: ", states['Florida']
+print "Karnataka's abbreviation is: ", states['Karnataka']
+print "Maharashtra's abbreviation is: ", states['Maharashtra']
 
 # do it by using the state then cities dict
 print '-' * 10
-print "Michigan has: ", cities[states['Michigan']]
-print "Florida has: ", cities[states['Florida']]
+print "Maharashtra has: ", cities[states['Maharashtra']]
+print "Gurarath has: ",    cities[states['Gujarath']]
 
 print '-' * 10
 for state, abbrev in states.items():
-    print "%s is abbreviated %s" % (state, abbrev)
+    print "'%s' is abbreviated '%s'" % (state, abbrev)
 
-exit(1)
 # print every city in state
 print '-' * 10
 for abbrev, city in cities.items():
-    print "%s has the city %s" % (abbrev, city)
+    print "'%s' has the city '%s'" % (abbrev, city)
 
 # now do both at the same time
 print '-' * 10
 for state, abbrev in states.items():
-    print "%s state is abbreviated %s and has city %s" % (state, abbrev, cities[abbrev])
+    print "'%s' state is abbreviated '%s' and has city '%s'" % (state, abbrev, cities[abbrev])
 
 print '-' * 10
 # safely get a abbreviation by state that might not be there
-state = states.get('Texas')
+state = states.get('Kerala')
+#print states['Kerala']
+print state
 
 if not state:
-    print "Sorry, no Texas."
+    print "Sorry, no Kerala."
 
 # get a city with a default value
-city = cities.get('TX', 'Does Not Exist')
-print "The city for the state 'TX' is: %s" % city
+city = cities.get('KR', 'Does Not Exist')
+print "The city for the state 'KR' is: %s" % city
 
 print type(city)
-print dir(city)
 
 my_dict = {'Name': 'Aura', 'Age': 5, 'Location': 'Bangalore'}
 
@@ -162,20 +207,14 @@ my_dict.clear();
 print my_dict
 
 del my_dict ;     
+#print my_dict
 
 # empty dictionary
 my_dict = {}
 print my_dict
 
-# dictionary with integer keys
-my_dict = {1: 'apple', 2: 'ball', 'ball':'red'}
-print my_dict[1]
-print my_dict[2]
-print my_dict['ball']
-
-
 # dictionary with mixed keys
-my_dict = {'name': 'John', 1: [2, 9, 7, 4, 3]}
+my_dict = {'name': 'Aura', 1: [2, 9, 7, 4, 3]}
 print my_dict['name']
 print my_dict[1][0]
 print my_dict[1][0:3]
@@ -188,7 +227,8 @@ for value in my_dict[1]:
 
 print " "
 
-customers = [{"uid":1,"name":"Vachan"},
+customers = [
+             {"uid":1,"name":"Vachan"},
              {"uid":2,"name":"Ram"},
              {"uid":3,"name":"Saketh"},
             ]
@@ -202,4 +242,5 @@ for cust in customers:
     cust["password"]="123456"
 
 print customers
+exit(1)
 

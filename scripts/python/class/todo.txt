@@ -1,0 +1,6 @@
+enums - example
+lamda 
+'with' operator
+	with open("t.txt", 'r') as descriptor:
+softspace
+3-json-parser.py

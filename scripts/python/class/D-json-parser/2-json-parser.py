@@ -196,13 +196,12 @@ def get_value_by_id(id, dict_object):
 print myobject[0]['Id']
 print myobject[0]['State']
 print myobject[0]['State']['Status']
+exit(1)
 print myobject[0]['Id'][0:13]
 print myobject[0]['Created']
 print myobject[0]['Args']
 print myobject[0]['State']['Status']
 
-exit(1)
-exit(1)
 print myobject
 print "====================="
 print myobject[0]

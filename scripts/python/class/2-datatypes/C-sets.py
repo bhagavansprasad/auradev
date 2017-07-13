@@ -18,13 +18,13 @@ print(type(a))
 my_set = {1, 2, 3}
 print(my_set)
 
-my_set.add(2)
+my_set.add(5)
 print(my_set)
 
 my_set.update([2,3,4])
 print(my_set)
 
-my_set.update([4,5], {1,6,8})
+my_set.update([4,5], {1,6,8}, (9,10))
 print(my_set)
 
 print ""
@@ -83,3 +83,4 @@ print A.symmetric_difference(B)
 print(B ^ A)
 print B.symmetric_difference(A)
 print ""
+exit(1)

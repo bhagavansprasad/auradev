@@ -2,12 +2,13 @@ import sys
 
 def factorial( n ):
    a = 10
+   temp = 1
+
    if n < 1:
       print "value error"
       #raise ValueError("Invalid Input for for factorial value!", n)
       raise Exception('This is the exception you expect to handle')
       print "No statement"
-   temp = 1
 
    for i in range(1, n+1):
        temp *= i

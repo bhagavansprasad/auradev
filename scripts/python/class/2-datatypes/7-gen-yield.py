@@ -1,21 +1,22 @@
-
-'''
 def myfun():
-    return 5
-
-my_list= [10,20,30]
-
-for item in my_list:
-    print item
-
-'''
-
-def myfun():
+    #....
     yield 15
+
+    #....
     yield "temp"
+
+    #....
     yield 'a'
+
+(a, b, c) =  myfun()
+print a, b, c
+
 for item in myfun():
     print item
+
+print item
+'''
+'''
 
 
 

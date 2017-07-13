@@ -37,5 +37,5 @@ with open('servers.json') as data_file:
 #print(data[0])
 
 for server in data:
-    print server['system_ip'], server['username'], server['password'],  server['service']
+    print server['system_name'], server['username'], server['password'],  server['service']
     print ""

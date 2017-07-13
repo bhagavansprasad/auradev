@@ -14,10 +14,12 @@ for item in enumerate(prog_lagn):
 
 print ""
 for i, temp in enumerate(prog_lagn):
-  print(temp)
+  print(i, temp)
 
 print ""
 # changing default start value
-for count, item in enumerate(prog_lagn, 100):
-  print(count, item)
+for i, item in enumerate(prog_lagn, 100):
+  print(i, item)
+
+print enumerateprog_lagn['Python']
 exit(1)

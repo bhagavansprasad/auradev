@@ -17,6 +17,11 @@ def is_prime(number):
         return True
     return False
 
+def get_primes_with_yield(input_list):
+    for element in input_list:
+        if is_prime(element):
+            yield element
+
 def get_primes(input_list):
     result_list = list()
     for element in input_list:
@@ -27,7 +32,18 @@ def get_primes(input_list):
 
 num_list = [2, 5, 7, 8, 11, 15, 23, 29]
 
+'''
 result = get_primes(num_list)
 print result
+'''
 
+'''
+result = get_primes_with_yield(num_list)
+print result
 
+for num in result:
+    print num
+'''
+
+for num in get_primes_with_yield(num_list):
+    print num

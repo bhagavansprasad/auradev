@@ -4,7 +4,7 @@ class Error(Exception):
    pass
 
 class MyException(Error):
-   print "Raised when the input value is too small"
+   #print "Raised when the input value is too small"
    pass
 
 def factorial( n ):
@@ -24,7 +24,4 @@ except MyException as e:
     print "In Exception block: ", e.args
 else:
    print "factorial value of '", n, "' is ", factval
-
-    
-
 
