@@ -15,8 +15,8 @@ fd.write("Hello world")
 
 fd.close()
 
-with open("t.txt", 'r') as descriptor:
-    file_content = descriptor.readlines()
+with open("t.txt", 'r') as fd:
+    file_content = fd.readlines()
 
 print file_content
 fd.close()
@@ -24,11 +24,6 @@ fd.close()
 for row in file_content:
     print row
 
-'''
-    if (row.find("modified") != -1):
-        #print row,
-        tar_cmd.append(row.split(':')[1].lstrip().rstrip('\n'))
-        print tar_cmd
-'''
+exit(1)
 
 

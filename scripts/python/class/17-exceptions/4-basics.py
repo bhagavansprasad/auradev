@@ -12,13 +12,13 @@ except IOError:
 # catch one exception, but provide the exception object
 try:
     ...
-except IOError, e:
+except IOError as e:
     ...
 
 # catch more than one exception
 try:
     ...
-except (IOError, ValueError), e:
+except (IOError, ValueError) as e:
     ...
 
 
@@ -68,7 +68,6 @@ finally:
 #what is the output
 try:
     print "a"
-    raise Exception("doom")
 except:
     print "b"
 else:

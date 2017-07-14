@@ -26,6 +26,9 @@ print "file position ", fd.tell()
 fd.seek(10, 0)
 print "file position ", fd.tell()
 
+fd.seek(20, 1)
+print "file position ", fd.tell()
+
 fd.seek(-10, 2)
 print "file position ", fd.tell()
 
@@ -35,15 +38,13 @@ print "Opening mode      :", fd.mode
 print "Softspace flag    :", fd.softspace
 
 print "---"
-fd.seek(0, 0)
-print "file position ", fd.tell()
-
 data = fd.read(10);
 print data
 print "file position ", fd.tell()
 
 fd.seek(-1, 1)
 print "file position ", fd.tell()
+
 data = fd.read(10);
 print data
 print "file position ", fd.tell()
