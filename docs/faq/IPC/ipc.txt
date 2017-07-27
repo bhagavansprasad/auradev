@@ -1,0 +1,130 @@
+- Why IPC required and what is the main purpose?
+- Write an example program to demonstrate the requiremnt of IPC?
+- Is global varible is shared across child and parent process?
+- What is "copy on write bit" in the process table?
+- What are all different kinds of IPCs we have?
+- Describe "Named PIPE" Vs "Un Named PIPE"
+- Justify the statement "By default PIPE is full duplex"
+- If pipe is "Full Duplex" is it sufficient one pipe bitween two process?
+- Describe PIPE Vs Message-Queues
+- Describe Message-Queue Vs Shared memory
+- Describe PIPE Vs Message Queue Vs Siganls?
+- How does parent know that chaild got finished his execution
+- How do we know the process got exited gracefully or ab-normally?
+- Cane we build client server communication using Message queues?
+- Describe Binary Vs Mutext semaphores?
+- Describe Binar Vs Counting semaphores?
+- What is Priority inversion?
+- What IPC is most widely used? 
+- Where exactly IPC datastructures are stored?
+- What is process memory area?
+- What is deadlock?
+- What is difference bitween process Synchronization Vs Mutual Execlusion
+
+===========================
+- What is IPC?
+
+- Why IPC is required?
+  - What is process?
+  - What is process memory area?
+  - What is protected memory?
+  - What is flat memory?
+
+- What are all different kinds of IPCs?
+- Why do we need many IPCs?
+  - Basic usage of all IPCs
+  - Pipes Vs Named Pipes Vs Message Queues Vs Semaphores Vs Shared Memory Vs
+    Signals Vs Sockets
+
+- Un-Named PIPE
+Properties
+* Used to send data/messages/bytes to different proecess
+* Stream of data - No boundaries
+* Used as Half duplex (Though full duplex) - Unidirection
+* No identification
+* No selection
+* First in First out (FIFO)
+* Accessble only between related proecess
+* Process persistance
+* Two descriptors (Read and Write)
+* No name
+* No read end means can't write and wise versa
+* Data existance - Single time read
+* Reading more than exists - Only available is returned
+* Data stored in RAM - fast accessing
+* Very difficult to building full duplex communication between multiple
+  processes
+
+  Live example
+  Comparing with "Overhead tank with a pipe" and Unix PIPE
+
+- Named PIPE
+Properties
+* Used to send data/messages/bytes to different proecess
+* Stream of data - No boundaries
+* Full duplex - By-direction
+* No identification for messaage
+* No selection
+* First in First out (FIFO)
+* Accessble between unrelated proecess
+* File system persistance
+* Single descriptor (Like file descriptor)
+* Has a Path, name and directory entry and Inode
+* Uses only direct blocks
+* Data existance - Single time read
+* Reading more than exists - Only available is returned
+* Data stored in Disk like a file - Disk operations are time consuming
+* Easy to build full duplex communication between multiple processes
+
+  Unnamed Pipe VS Name Pipe
+
+- Message queues
+Properties
+* Used to send data/messages/bytes to different proecess
+* Every message has boundary
+* Full duplex - By-direction
+* Every message has a identification - "Data = ID + Data"
+* Selective messages can be read based on ID
+* Not a FIFO
+* Accessble between unrelated proecess
+* Kernel persistance
+* Message Queue ID
+* Has a MQKey through with Queue can be identified
+* Stores in Kernel Datastructures
+* Data existance - Single time read
+* Reading more than exists - Only available is returned
+* Data stored in Kernel - Much faster
+* Easy to build full duplex communication between multiple processes
+
+  Why is it required?
+  How to build Client Server communication?
+
+- Semaphores
+* Used synchronization/Mutually-exclusive purpose between processes
+* No real data is being transffered between processes
+* Every Semaphore has a identification
+* Semaphores are accessble between unrelated proecess
+* Kernel persistance
+* Has a SemID through with Semaphore can be identified
+* Stores in Kernel Datastructures
+
+  Properties
+  Where do we need - Live example
+  Different kinds of semaphores
+
+- Shared memory
+  Properties
+  Fastest among all IPCs
+
+- Signals
+  Properties
+  Why is it required
+
+- Sockets
+  Properties
+  Why is it different?
+  Can be used a alternate IPC
+
+- All together
+  - Pipes Vs Named Pipes Vs Message Queues Vs Semaphores Vs Shared Memory Vs
+    Signals Vs Sockets
