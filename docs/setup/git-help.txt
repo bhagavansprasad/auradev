@@ -38,8 +38,26 @@ git config --global alias.d difftool
 
 NOTE: Now to see diff do 'git d test.c' instead of 'git diff test.c'
 
-Git server
-==========
+Creating new git repository on git server
+========================================
+- Add new user 'git'
+$ sudo adduser git
+
+- Create new repository "py-sources.git" in '/home/git' folder
+$ su git
+$ cd /home/git
+$ mkdir py-sources.git
+$ cd py-sources.git
+$ git init --bare
+
+- Goto another terminal (cliet)
+git clone git@192.168.1.254:/home/git/py-sources.git
+cd py-sources
+git add first.py
+git commit -m "first version"
+git push origin master
+
+
 To add new project 'sources'
 
 In git server
