@@ -46,13 +46,14 @@ def get_warning_count_by_filename(log_file_name):
     lines = fd.readlines()
     fd.close()
 
-    '''
     for line in lines:
         if (line.find(": warning:") != -1):
             warn_count  += 1
-    '''
+
+'''
     for i in lines[1:]:
         print lines[i]
+'''
 
     return warn_count
 
