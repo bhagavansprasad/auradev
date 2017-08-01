@@ -1,6 +1,10 @@
+- Py3-Batch
 enums - example
 lamda 
 'with' operator
 	with open("t.txt", 'r') as descriptor:
 softspace
 3-json-parser.py
+Json encoding and deconding
+
+- Py4-Batch

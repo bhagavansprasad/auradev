@@ -1,0 +1,4 @@
+Logging and logger modules
+Calling python function code from "C" and vice versa
+
+Python matplotlib

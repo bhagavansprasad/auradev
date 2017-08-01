@@ -4,46 +4,34 @@ import time
 from multiprocessing import Process, Lock
 
 my_global_variable = 0
-tcount = 0
 
-def printer(item, delay, lock):
+def printer(tname, lock):
     global my_global_variable 
-    global tcount
-    tcount += 1
-    print '%d.%8s Before Modifying global data :%d' % (os.getpid(), item, my_global_variable)
-    print '%d.%8s Locking critical section' % (os.getpid(), item)
+    print '%d.%8s Before Modifying global data :%d' % (os.getpid(), tname, my_global_variable)
+    print '%d.%8s Locking critical section' % (os.getpid(), tname)
     lock.acquire()
-    print '%d.%8s Locking Success' % (os.getpid(), item)
+    print '%d.%8s Locking Success' % (os.getpid(), tname)
     try:
-        for i in range(1,4):
-            print '%d.%8s **** In critical section...%d sec, global_data :%d' % (os.getpid(), item,  i, my_global_variable)
-            time.sleep(1)
+        for i in range(1, 4):
+            print '%d.%8s **** In critical section...%d sec, global_data :%d' % (os.getpid(), tname,  i, my_global_variable)
+            time.sleep(2)
             my_global_variable += 1
-        print '%d.%8s Out of critical section...' % (os.getpid(), item)
+        print '%d.%8s Out of critical section...' % (os.getpid(), tname)
     finally:
-        print '%d.%8s Before Unlock, global data :%d' % (os.getpid(), item, my_global_variable)
+        print '%d.%8s Before Unlock, global data :%d' % (os.getpid(), tname, my_global_variable)
         lock.release()
-        print '%d.%8s After  Unlock, global data :%d' % (os.getpid(), item, my_global_variable)
-        tcount -= 1
+        print '%d.%8s After  Unlock, global data :%d' % (os.getpid(), tname, my_global_variable)
  
 lock = Lock()
-items = ['ganga', 'kaveri', 'penna']
-i = 0
-new_threads_list = []
+task_names = ['ganga', 'kaveri', 'penna']
+new_task_list = []
 
-for tname in items:
-    #p = Process(target=printer, args=(item, lock))
-    #p.start()
+for tname in thread_names:
 	try:
-		nthread = thread.start_new_thread(printer, (tname, i, lock) )
-		new_threads_list.append(nthread) 
-		i += 1
+		ntask = thread.start_new_thread(printer, (tname, lock))
+		new_task_list.append(ntask) 
 	except:
 		print "Error: unable to start thread"
-
-#while (tcount > 0):
-#while (True):
-	#pass
 
 c = raw_input("Type something to quit.")
 

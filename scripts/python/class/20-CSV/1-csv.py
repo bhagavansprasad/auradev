@@ -12,7 +12,10 @@ except IOError as e:
     exit(1)
 
 
-a = []
+data_list = []
+
+#print fd.read(50)
+
 reader = csv.reader(fd)
 
 print "reader type :", type(reader)
@@ -23,50 +26,35 @@ print reader.next()
 
 for row in reader:
     print row
-    print "row type :", type(row), "row[0] type :", type(row[0]), row[0], "row[3] type :", type(row[3]), row[3]
-    a.append(row)
+    #print "row type :", type(row), "row[0] type :", type(row[0]), row[0], "row[3] type :", type(row[3]), row[3]
+    data_list.append(row)
 
+print "data_list :", data_list
 
-print a
-
-print "a type ", type(a)
-for row in a:
+print ("-" * 20)
+for row in data_list:
     print row
 
+print ("-" * 20)
+exit(1)
+print data_list
+print data_list[0]
+print data_list[1]
+print ("-" * 20)
+exit(1)
 
-print fd.seek(0, 0)
-print fd.tell()
+print data_list[0][0]
+print type(data_list[0][0])
+print int(data_list[0][0])
+print type(int(data_list[0][0]))
 
-print fd.seek(5, 0)
-print fd.tell()
+if  (int(data_list[0][0]) > int(data_list[1][0])):
+    t = data_list[0]
+    data_list[0] = data_list[1]
+    data_list[1] = t
 
-print fd.seek(10, 1)
-print fd.tell()
-
-print fd.seek(10, 1)
-print fd.tell()
-
-print fd.seek(-10, 2)
-print fd.tell()
-
-for row in a:
-    print row
-
-print a[0]
-print a[1]
-
-print a[0][0]
-print type(a[0][0])
-print int(a[0][0])
-print type(int(a[0][0]))
-
-if  (int(a[0][0]) > int(a[1][0])):
-    t = a[0]
-    a[0] = a[1]
-    a[1] = t
-
-print a[0]
-print a[1]
+print data_list[0]
+print data_list[1]
 
 fd.close()
 

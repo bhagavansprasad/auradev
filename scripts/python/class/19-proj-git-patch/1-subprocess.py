@@ -1,6 +1,7 @@
 import os
 import subprocess
 
+#git status ./
 my_cmd = ['git', 'status', './']
 
 subprocess.call(my_cmd)

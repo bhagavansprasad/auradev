@@ -5,8 +5,8 @@ print (np_2d)
 print (np_2d.shape)
 print (np_2d[0][2])
 print (np_2d[0,2])
-print (np_2d[:,1:3]) height and weight of 2 and 3rd
-print (np_2d[1,:]) weight of all members
+print (np_2d[:,1:3]) #height and weight of 2 and 3rd
+print (np_2d[1,:])   #weight of all members
 
 np.mean(np_city[:,0])
 np.median(np_city[:,0])
