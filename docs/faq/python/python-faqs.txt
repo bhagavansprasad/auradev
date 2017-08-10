@@ -1,0 +1,43 @@
+1.  What is python and benefits of using python
+2.  How is python interpreted
+3.  What is List
+4.  What are Mutable and Immutable
+5.  Mention the use of split function in python
+6.  How to delete a file in python
+7.  What are the rules for local and global variables in python
+8.  Explain Dictionary in Python
+9.  How do we share global variables across modules in python
+10. How can we pass optional or keyword parameters from one function to another in python
+11. What is lambda form? Explain about assert statement
+12. Explain pickling and unpickling
+13. What is list comprehension feature of python used for
+14. Explain how to copy an object in python
+15. How do i convet a string to a number
+16. How do you make an array in python
+17. Describe how to send mail from python script
+18. What are python decorators
+19. What is difference between list and tuple
+20. In python what are Iterators
+21. Mention the use of split function in python
+22. Mention the use of || operator in python
+23. What is module and package in python
+24. What is docstring in python
+25. What are generators in python
+26. What is namespace
+27. Is python a case sensitive language
+28. Palliandrome Program
+29. Print first n natural numbers
+30. Python program to take 5 integers as input and calculate the largest and smallest number
+31. Python program to print different datatypes
+32. Socket Module
+33. Environment Error
+34. Unbound Local Error
+35. Function Overloading
+36. Module in Class
+37. Dictionary
+38. Update
+39. Call Function
+40. Built in function of a list & dictionary
+41. Program to call a text file and edit
+
+
