@@ -17,6 +17,7 @@ def parent( ):
 
 if not os.path.exists(pipe_name):
     os.mkfifo(pipe_name)  
+
 pid = os.fork()    
 if pid == 0:
     child()

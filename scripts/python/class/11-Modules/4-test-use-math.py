@@ -1,6 +1,7 @@
 #import mymath
-from mymath import is_prime, is_even, is_odd
+#from mymath import is_prime, is_even, is_odd
 #from mymath import *
+import mymath
 
 n = 5
 

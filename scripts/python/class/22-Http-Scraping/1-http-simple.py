@@ -1,7 +1,7 @@
+'''
 #!/usr/bin/env python
 import httplib
 import urlparse
-'''
 
 conn = httplib.HTTPConnection("www.python.org")
 conn.request("GET", "/index.html")
@@ -28,6 +28,8 @@ print "fragment :", fragment
 conn.close()
 
 print "================="
+'''
+'''
 if scheme == 'http':
      ConnClass = httplib.HTTPConnection
 elif scheme == 'https':
@@ -59,6 +61,7 @@ finally:
 
 
 '''
+'''
 import httplib
 conn = httplib.HTTPSConnection("ccc.de")
 conn.request("GET", "/")
@@ -67,3 +70,4 @@ print response.status, response.reason
 data = response.read()
 print data
 
+'''

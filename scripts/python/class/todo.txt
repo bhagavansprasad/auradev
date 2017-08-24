@@ -1,10 +1,45 @@
 - Py3-Batch
-enums - example
-lamda 
-'with' operator
+-----------
+* enums - example
+* lambda 
+* 'with' operator
 	with open("t.txt", 'r') as descriptor:
-softspace
-3-json-parser.py
-Json encoding and deconding
+* softspace
+* Json encoding and deconding
+* sockets
+* regexp
+* git-patch
+* email handlling
+* Yielding
+* What if number yielding values are more dynamic, how dow we know count of yeilding values
+* genarators
+* iterator
+* map
+* filter
+* Classes
+* Email
+* Git Connect
+* Regular expressions
+Web scraping - http
+Git connect
+Decorators
+SSH
+xml parser
+Unit Testing
 
-- Py4-Batch
+- PgSQL
+Handlling errors
+Return values
+send a mail with an attachment
+
+
+Further learning for students
+-----------------------------
+- Docker
+	Swarm
+- Vagrant
+- Jenkins
+- Ansible/Puppet
+- AWS
+
+

@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import time;  # This is required to include time module.
+import time
 import calendar
 import datetime
 
@@ -10,6 +10,7 @@ print ""
 
 localtime = time.localtime(ticks)
 print "Local current time :", localtime
+
 localtime = time.localtime()
 print "Local current time :", localtime
 
@@ -28,7 +29,7 @@ print "Day of year                    :", datetime.date.today().strftime("%j")
 print "Day of the month               :", datetime.date.today().strftime("%d")
 print "Day of week                    :", datetime.date.today().strftime("%A")
 
-now = datetime.datetime(2003, 8, 4, 12, 30, 45)
+now = datetime.datetime(2003, 8, 4, 12, 30, 45, 1234)
 print now
 print repr(now)
 print type(now)
@@ -37,13 +38,13 @@ print now.hour, now.minute, now.second
 print now.microsecond
 
 
-t = datetime.time(1, 2, 3)
-print t
-print 'hour  :', t.hour
-print 'minute:', t.minute
-print 'second:', t.second
-print 'microsecond:', t.microsecond
-print 'tzinfo:', t.tzinfo
+myt = datetime.time(1, 2, 3, 45)
+print myt
+print 'hour  :', myt.hour
+print 'minute:', myt.minute
+print 'second:', myt.second
+print 'microsecond:', myt.microsecond
+print 'tzinfo:', myt.tzinfo
 
 today = datetime.date.today()
 print 'Today    :', today
@@ -68,7 +69,7 @@ print '\tt1:', t1
 t2 = datetime.time(13, 5, 0)
 print '\tt2:', t2
 print '\tt1 < t2:', t1 < t2
-print help(datetime.timedelta)
+#print help(datetime.timedelta)
 
 print 'Dates:'
 d1 = datetime.date.today()

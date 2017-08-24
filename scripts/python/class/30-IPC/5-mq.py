@@ -11,7 +11,7 @@ class Task(object):
 q = Queue.PriorityQueue()
  
 q.put( Task(100, 'a not agent task') )
-q.put( Task(5, 'a highly agent task') )
+q.put( Task(5, 'a highly imp task') )
 q.put( Task(10, 'an important task') )
  
 while not q.empty():

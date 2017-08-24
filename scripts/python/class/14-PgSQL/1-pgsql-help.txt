@@ -144,3 +144,13 @@ INSERT INTO  students_list (name, fullname, uid, gid, phone, hphone, address, em
 delete from students_list WHERE id > 60;
 
 INSERT INTO  students_list (name, fullname, uid, gid, phone, hphone, address, email, status) VALUES ('Manesh', 'Manesh Reddy', 1000, 1001, '7799899974', '', 'Hyderabad', 'manesh.reddy@gmail.com', 'T');
+
+
+CREATE TABLE nbrs (
+    equip_id serial PRIMARY KEY,
+    source INTEGER,
+    target INTEGER,
+    cellname VARCHAR (50) NOT NULL
+);
+INSERT INTO nbrs (source, target, cellname) VALUES (15, 60, 'Aura1');
+

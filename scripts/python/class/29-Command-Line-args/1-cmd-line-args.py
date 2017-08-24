@@ -16,4 +16,5 @@ print list_of_servers
 
 for server in list_of_servers:
     print server
+exit(1)
 

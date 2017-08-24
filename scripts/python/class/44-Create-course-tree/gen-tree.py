@@ -65,6 +65,7 @@ def main():
     print linecount
 
     dirname = ""
+    count = 1
 
     i = 0
     got_space = False
@@ -87,25 +88,29 @@ def main():
             dirname = mk_chapter(line, fdata[i+1])
             i = i + 2
             got_space = False
+            count = 1
             continue
 
         if (line.find("Quiz") >= 0):
             filename = normalize_filename(line.strip())+".mp4"
+            filename = "%02d-%s" % (count, filename)
             print "filename :", filename
             file_with_path = dirname + "/" + filename 
             print "path     :", file_with_path 
             create_new_file(file_with_path)
             i = i + 1
+            count += 1
             continue
 
         if (got_space == True):
-            #print "file :", fdata[i+1].strip() + line
             filename = normalize_filename(fdata[i+1].strip() + "-" + line.strip())+".mp4"
+            filename = "%02d-%s" % (count, filename)
             print "filename :", filename
             print "path     :", dirname+filename 
             file_with_path = dirname + "/" + filename 
             print "path     :", file_with_path 
             create_new_file(file_with_path)
+            count += 1
             i = i + 1
 
         '''

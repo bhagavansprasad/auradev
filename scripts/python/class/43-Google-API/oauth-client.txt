@@ -1,0 +1,5 @@
+Here is your client ID
+239362353328-ilnb1kfnc6e2vaqptmbk0p6ldrhrogoe.apps.googleusercontent.com
+
+Here is your client secret
+8MXnmeDQQTDFeHR4qggAabGb

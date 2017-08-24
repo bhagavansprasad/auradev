@@ -1,7 +1,25 @@
 import openpyxl
+import dump_cell
 
 book = openpyxl.load_workbook('revenue.xlsx')
-user_data = book.get_sheet_by_name(str("sales"))
+
+'''
+print dir(book)
+for word in dir(book):
+    print "\tprint (%s%s :%s%s%s, cell.%s)" % ('"', word, "%", "s", '"', word)
+'''
+
+
+
+wsheet = book.get_sheet_by_name(str("sales"))
+
+cell = wsheet[1][0]
+
+dump_cell.dump_cell_properties(wsheet[1][0])
+
+
+
+''' 
 for x in range(1, user_data.max_row):
     flag = 1
     for i in range (0, 5):
@@ -13,3 +31,4 @@ for x in range(1, user_data.max_row):
     if (flag == 1):
        break;
 
+''' 

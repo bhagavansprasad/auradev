@@ -6,7 +6,7 @@ my_global_variable = 0
 
 def printer(item, lock):
     global my_global_variable    # Needed to modify global copy of globvar
-    print '%d.%8s Before Modifying global data :%d' % (os.getpid(), item, my_global_variable)
+    print '%d.%8s Before Modifying global data :%d' % (s.getpid(), item, my_global_variable)
     print '%d.%8s Locking critical section' % (os.getpid(), item)
     lock.acquire()
     print '%d.%8s Locking Success' % (os.getpid(), item)

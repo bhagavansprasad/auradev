@@ -13,8 +13,9 @@ def is_prime(num):
         return 1
     else:
         return 0
- ''' 
+''' 
 
+''' 
 #0 incase of NOT PRIME, 1 otherwise
 def is_prime(num):
     i = 2
@@ -28,17 +29,54 @@ def is_prime(num):
         return 0
     else:
         return 1
+''' 
+
+
+
+
+
+
+def is_prime(n):
+    i = 2
+
+    for i in range(2, n):
+        if (n % i == 0):
+            return 0
+
+    return 1
 
 
 n = 25
-m = 12
-o = 17
 t = is_prime(m)
 if t ==  1:
     print "Number ", m, "is a PRIME"
 else:
     print "Number ", m, "is a NOT PRIME"
 
+exit(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+m = 12
+o = 17
 t = is_prime(n)
 if (t ==  1):
     print "Number ", n, "is a PRIME"

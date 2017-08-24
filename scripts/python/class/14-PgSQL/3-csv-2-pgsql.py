@@ -4,8 +4,8 @@ import psycopg2
 import sys
 
 #open the source csv file
-fd = open('/home/bhagavan/training/scripts/python/class/14-Pgsql/users-data.csv', 'rt')
-           
+fd = open('/home/bhagavan/training/scripts/python/class/14-PgSQL/users-data.csv', 'rt')
+
 #reading data from csv
 reader = csv.reader(fd)
 
@@ -38,5 +38,4 @@ print rows
 #print each row
 for row in rows:
     print row
-
 

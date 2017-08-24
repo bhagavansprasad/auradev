@@ -10,4 +10,5 @@ print 'hello world, I\'m Bhagavan'
 print "hello world, I'm Bhagavan"
 print 'hello world, I"m Bhagavan'
 print """hello' world, I'm Bhaga"van"""
+exit(1)
 

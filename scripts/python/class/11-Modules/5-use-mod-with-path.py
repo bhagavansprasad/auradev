@@ -1,7 +1,10 @@
-import sys
+#import fact
+
+#from fact import factorial
 sys.path.append('/home/bhagavan/training/scripts/python/class/11-modues/mod-lib')
-from fact import *
+#from fact import *
+import fact
 
 n = 5
-print factorial(n)
-print ""
+t =  factorial(n)
+print t 

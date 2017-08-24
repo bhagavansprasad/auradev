@@ -28,7 +28,7 @@ if (is_even(n) == 0):
 else:
     print n, "ODD"
 
-if (is_odd(n) == 1):
+if (is_odd(n) != 0):
     print n, "EVEN"
 else:
     print n, "ODD"

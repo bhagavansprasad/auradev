@@ -22,24 +22,16 @@ print len(rows)
 for row in rows:
     print row
 
-add_row_query = "INSERT INTO my_contacts(id, name, phone, address, gender, dob) VALUES(30, 'Vachan', 9876588, 'Bangalore', 'M', '2017-05-11')"
+add_row_query = "INSERT INTO my_contacts(id, name, phone, address, gender, dob) VALUES(50, 'Vachan', 9876588, 'Bangalore', 'M', '2017-05-11')"
 cur.execute(add_row_query)
 conn.commit()
+conn.close()
+
+conn = None
+conn = psycopg2.connect(database="postgres", user="bhagavan", host="127.0.0.1", password="jnjnuh")
+cur = conn.cursor()
 
 
-exit(1)
-'''
-id |  name   | phone |  address  | gender |    dob     
-----+---------+-------+-----------+--------+------------
-  2 | Bhaavan |   966 | Bangalore | M      | 2017-05-11
-
-    query = "INSERT INTO playground(type, color) VALUES (%s,%s)"
-    data = (row[0], row[6])
-    cur.execute(query, data)
-'''
-
-
-'''
 namedict = (
         {"type":"ball",     "color":"white",   "location":"south", "install_date":"2020-01-20"},
         {"type":"cricket",  "color":"white",   "location":"north", "install_date":"2020-01-20"},
@@ -47,8 +39,7 @@ namedict = (
         )
 
 cur.executemany("INSERT INTO playground(type, color, location, install_date) VALUES (%(type)s, %(color)s, %(location)s, %(install_date)s)", namedict)
-'''
+conn.commit()
+conn.close()
 
-
-''' 
-''' 
+exit(1)

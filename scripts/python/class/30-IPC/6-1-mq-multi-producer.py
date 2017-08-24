@@ -12,4 +12,4 @@ while True:
     mq.put(message)
     print("Put Message: %s" % message)
     i += 1
-    #time.sleep(1)
+    time.sleep(1)
