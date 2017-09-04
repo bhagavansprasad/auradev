@@ -40,7 +40,7 @@ proc1.start()
 proc2.start()
 proc3.start()
 
-time.sleep(20)
+time.sleep(10)
 
 for proc in procs:
     proc.join()

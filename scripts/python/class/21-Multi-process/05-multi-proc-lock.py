@@ -35,4 +35,4 @@ for tname in task_names:
     except:
 	print "Error: unable to start thread"
 
-sleep(20)
+time.sleep(20)

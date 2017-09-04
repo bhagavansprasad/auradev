@@ -4,7 +4,7 @@ print "parent ", os.getpid()
 
 retval =  os.system("python test.py")
 
-print hex(retval)
+print "retval :", hex(retval)
 
 if (retval == 0):
     print "Child process exited"

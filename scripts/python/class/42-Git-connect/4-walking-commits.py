@@ -5,6 +5,7 @@ import pygit2
 sys.path.append('/home/bhagavan/training/scripts/python/class/05-Utilities')
 import dumphelp
  
+#repo = pygit2.Repository('/opt/git/amath.git')
  
 def main(repository):
     #repo = pygit2.Repository(repository)
@@ -12,15 +13,16 @@ def main(repository):
 
     dumphelp.dump_object_help(repo)
     print "head :", dir(repo.head)
+    print "walk :", dir(repo.walk)
+    exit(1)
     print "head :", dir(repo.head.log)
     print "head :", dir(repo.head.name)
     print "head :", repo.head.name
 
-    exit(1)
  
     commits = []
  
-    for commit in repo.walk(repo.head.oid, pygit2.GIT_SORT_TIME):
+    for commit in repo.walk(repo.head.oid_new, pygit2.GIT_SORT_TIME):
         commits.append({
             'hash': commit.hex,
             'message': commit.message,
@@ -32,6 +34,7 @@ def main(repository):
         })
  
     print(json.dumps(commits, indent=2))
+    exit(1)
  
  
 if __name__ == '__main__':

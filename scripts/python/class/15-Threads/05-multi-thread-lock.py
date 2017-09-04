@@ -26,12 +26,12 @@ lock = Lock()
 task_names = ['ganga', 'kaveri', 'penna']
 new_task_list = []
 
-for tname in thread_names:
-	try:
-		ntask = thread.start_new_thread(printer, (tname, lock))
-		new_task_list.append(ntask) 
-	except:
-		print "Error: unable to start thread"
+for tname in task_names:
+    try:
+        ntask = thread.start_new_thread(printer, (tname, lock))
+        new_task_list.append(ntask) 
+    except:
+        print "Error: unable to start thread"
 
 c = raw_input("Type something to quit.")
 

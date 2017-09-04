@@ -1,7 +1,7 @@
 import re
 
 #"w" - Specifies charactar
-s1 = "We do     not   need   ACTS   but  Action"
+s1 = "We do     not   need   ACTS   but  Action We temp"
 s2 = "Once we decide we have to do something, we can go miles ahead"
 s3 = "We are not here for any positions but for a responsibility"
 s4 = "In  my life mission and passsion is everything.. Even if i was a municipal chairman, work as hard as a CM"
@@ -16,9 +16,7 @@ if match:
     print 'Found :', match.group()
 else:
     print 'Not Found'
-
 print ""
-
 
 regex = r'we \w\w\w'
 print "search -- '%s' -- '%s' " % (regex, s2)
@@ -186,7 +184,7 @@ if match:
     print match.group(2)  
 print ""
 
-regex = r'([\w.-]+)@(\w+\.w+)'
+regex = r'([\w.-]+)@([\w.-]+)'
 print "findall -- '%s' -- '%s' " % (regex, s7)
 match = re.findall(regex, s7)
 if match:

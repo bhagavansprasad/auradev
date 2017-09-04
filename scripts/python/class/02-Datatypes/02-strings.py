@@ -2,16 +2,20 @@ test_str = "Aura Networks Bangalore"
 
 print test_str
 
-i = 0
 for temp in test_str:
 	print temp,
-        i = i + 1
 print ""
-print "length of the string :", i
 
 print ""
 
 print len(test_str)
+
+i = 0
+while (i < len(test_str)):
+    print test_str[i],
+    i += 1
+
+print ""
 
 test_str = "Aura Networks Bangalore"
 
@@ -25,13 +29,6 @@ print test_str
 test_str = "new test string"
 print test_str
 
-i = 0
-while (i < len(test_str)):
-    print test_str[i],
-    i += 1
-
-print ""
-
 test_str = "Aura Networks Bangalore"
 print test_str
 print test_str[0]
@@ -41,14 +38,21 @@ print test_str[-2]
 print test_str[1:6]
 print test_str[1:23]
 print test_str[1:30]
-print test_str[5:]
+print test_str[0:30]
+print test_str
 print test_str[:]
+print test_str[5:]
 print test_str[:-1]
+print test_str[:]
 print test_str[-1:]
 print test_str[::-1]
 print test_str[::]
 print test_str[13:-1]
 print test_str[:13:-1]
+print test_str[5::1]
+print test_str[5::2]
+print test_str[5::3]
+
 
 name = "Saketh Ram"
 age = 13
@@ -64,7 +68,6 @@ print name * 3
 print age * 3
 print height * 3
 print str(height) * 3
-#name[0] = 'x'
 
 s = "Aurovill"
 s = "B" + s[:]
@@ -88,6 +91,7 @@ print "str              :", str
 str =  str.capitalize()
 print "str              :", str
 print ""
+#print help(str.capitalize)
 
 print dir(str)
 
@@ -108,7 +112,6 @@ sub = "wow";
 print "str.count(sub)        :", str.count(sub)
 sub = " ";
 print "str.count(sub)        :", str.count(sub)
-
 
 i = 0
 str = "this is string example....wow!!!";
@@ -168,6 +171,7 @@ print "1. ", str
 print "2. ", str.replace("is", "was", 1) #Number of occurences to replace
 print "3. ", str.replace("is", "was", 2) #Number of occurences to replace
 print "4. ", str.replace("is", "was", -1) #Number of occurences to replace
+print "5. ", str[5:].replace("is", "was") #Number of occurences to replace
 print ""
 
 str = "          this is string           example....wow!!!     ";
@@ -227,20 +231,3 @@ print username
 print dname
 exit(1)
 
-'''
-print ""
-str = "Line1-a b c d e f\nLine2- a b c\n\nLine4- a b c d";
-print str.splitlines()
-print str.splitlines(0)
-print str.splitlines(1)
-print str.splitlines(4)
-print str.splitlines(5)
-
-str = "Line1-ab cdef     Line2-abc Line4-abcd";
-print str
-print str.split(' ')
-print str.split()
-print len(str.split(' '))
-'''
-
-exit(1);

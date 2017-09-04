@@ -4,14 +4,7 @@ class Error(Exception):
    pass
 
 class MyException(Error):
-   print "Raised when the input value is too small"
-   #print "Raised when the input value is too small"
-   #print "Raised when the input value is too small"
-   #print "Raised when the input value is too small"
-   #print "Raised when the input value is too small"
-   #print "Raised when the input value is too small"
-   #print "Raised when the input value is too small"
-   #print "Raised when the input value is too small"
+   print "Raised when the input value is less than 1"
 
 def factorial( n ):
    if n < 1:

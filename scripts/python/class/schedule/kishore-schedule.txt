@@ -1,0 +1,25 @@
+01-Operators
+02-Datatypes
+03-Loops
+04-Conditional
+05-Utilities
+06-Functions
+08-Files
+09-Assignments
+11-Modules
+12-DateTime
+13-Json-parser
+* 15-Threads
+17-Exceptions
+19-Git-patch
+20-CSV-Data-Handling
+* 21-Multi-process
+* 23-Sockets
+* 24-Classes
+25-Deep-Shallow-copy
+26-NameSpace
+27-Test-Automation-Telnet
+29-Command-Line-args
+31-Regular-expressions
+36-Build-Status
+42-Git-connect

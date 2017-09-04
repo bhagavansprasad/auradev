@@ -22,20 +22,24 @@ def doubler3(number):
     proc = os.getpid()
     print '-->proc:%d. double value is :%d' % (proc, result)
 
-numbers = [5, 10, 15]
-proc_list = [doubler1, doubler2, doubler3]
-procs = []
+def main()
+    numbers = [5, 10, 15]
+    entry_func_list = [doubler1, doubler2, doubler3]
+    procs = []
 
-pid = os.getpid()
+    pid = os.getpid()
 
-print '-->Parent :%d' % (pid)
+    print '-->Parent :%d' % (pid)
 
-for index, number in enumerate(numbers):
-    proc = Process(target=proc_list[index], args=(number,))
-    procs.append(proc)
-    print "index :", index
-    proc.start()
+    for index, number in enumerate(numbers):
+        proc = Process(target=entry_func_list[index], args=(number,))
+        procs.append(proc)
+        print "index :", index
+        proc.start()
 
-time.sleep(20)
-for proc in procs:
-    proc.join()
+    time.sleep(10)
+    for proc in procs:
+        proc.join()
+
+if __name__ == '__main__'):
+    main()

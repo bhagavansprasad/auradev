@@ -50,7 +50,9 @@ except IOError, e:
     sys.exit(1)
 finally:
     delete_temp_files()
+'''
 
+'''
 #Exception is raised using the raised keyword.
 raise Exception("error message")
 '''
@@ -94,3 +96,4 @@ def f():
         print "d"
 
 f()
+exit(1)

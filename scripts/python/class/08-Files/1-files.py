@@ -1,5 +1,6 @@
 import time
 
+'''
 fd = open("t.txt", "r")
 data = fd.read(5)
 print data,
@@ -11,8 +12,8 @@ print data,
 print data
 fd.close()
 exit(1)
-
 '''
+
 #==============
 
 fd = open("t.txt", "r")
@@ -27,6 +28,22 @@ fd.close()
 
 #==============
 
+fd = open("t.txt", "r")
+
+i = 0
+while(True):
+    data = fd.readline()
+    print "%d : len :%d, %s" % (i, len(data), data)
+    if (len(data) <= 0):
+        break
+    i  = i + 1
+
+fd.close()
+exit(1)
+
+
+
+'''
 fd = open("t.txt", "r")
 
 i = 0
@@ -69,8 +86,8 @@ data = fd.readlines()
 #print "len :%d, %s" % (len(data), data)
 
 i = 1
-for mystring in data:
-    print "%d. %s" % (i, mystring)
+for line in data:
+    print "%d. %s" % (i, line)
     i = i + 1
 
 fd.close()

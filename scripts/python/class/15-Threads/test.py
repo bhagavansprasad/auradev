@@ -1,9 +1,13 @@
-import sys
 import os
-import time
+import sys
 
 print "Mypid :", os.getpid()
 
-#time.sleep(5)
+sys.exit()
+''' 
+if (open == -1)
+	sys.exit(0)
 
-sys.exit(9)
+if (write() < 0)
+	sys.exit(1)
+''' 

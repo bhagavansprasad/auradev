@@ -25,10 +25,7 @@ def print_normal_email(raw_email):
 
 def dump_git_log(entry):
     print ("commit %s"   % (entry.oid_new))
-    #print print_normal_email(entry.committer.email)
     print ("Author: %s"  % (print_normal_email(entry.committer.email)))
-    #print ("Date:   %s"  % (entry.committer.time))
-    print ("Date:   %s"  % (datetime.utcfromtimestamp(entry.committer.time).strftime('%Y-%m-%dT%H:%M:%SZ')))
     print ("Date:   %s"  % (datetime.utcfromtimestamp(entry.committer.time).strftime('%a %b %d %H:%M:%S %Y %z')))
     print ""
 
@@ -46,6 +43,7 @@ def main():
 	
 	for entry in head.log():
             dump_git_log(entry)
+        exit(1)
 
 if __name__ == '__main__':
     main()

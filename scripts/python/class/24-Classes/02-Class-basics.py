@@ -10,7 +10,7 @@ class MyClass:
         print "1. In constructure function"
 
     def print_data(self):
-        print("2. This is a message inside the class.")
+        print("In print_data function in class")
         print self.name
 
     def store_data(self, data):
@@ -20,6 +20,8 @@ class MyClass:
         return self.name
 
 obj1 = MyClass()
+obj1.print_data()
+
 obj2 = MyClass()
 obj3 = MyClass()
 

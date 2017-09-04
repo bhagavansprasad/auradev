@@ -4,8 +4,8 @@ def factorial( n ):
 
    if n < 0:
       print "value error"
-      #raise ValueError("Invalid Input for factorial value!", n)
-      raise Exception('Invalid Input for factorial value!')
+      raise ValueError("Invalid Input for factorial value!", n)
+      #raise Exception('Invalid Input for xxxxxxxxxxxx factorial value!')
       print "No statement"
 
    for i in range(1, n+1):

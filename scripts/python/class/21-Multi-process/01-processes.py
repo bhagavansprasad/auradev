@@ -7,7 +7,8 @@ print ("my process id pid :%d, ppid :%d" % (os.getpid(), os.getppid()))
 
 time.sleep(3)
 
-#os.fork()
+os.fork()
+
 while(1):
     print ("Pid :%d, Ppid :%d" % (os.getpid(), os.getppid()))
-    #time.sleep(1)
+    time.sleep(1)
