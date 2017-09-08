@@ -11,7 +11,7 @@ def list_worksheets_by_wbook(wbook):
         print ("'%s'" % (wsheet)),
     print ""
 
-def copy_rows_by_name(wbook, dst_wname, src_wname, filter_str):
+def append_rows_by_name(wbook, dst_wname, src_wname, filter_str):
     wb = load_workbook(wbook)
 
     #opening source worksheet in workbook
@@ -21,11 +21,8 @@ def copy_rows_by_name(wbook, dst_wname, src_wname, filter_str):
     try:
         print ("Worksheet '%s' found" % (dst_wname))
         dwsheet = wb.get_sheet_by_name(dst_wname)
-        print ("Removing worksheet :'%s'" % (dst_wname))
-        wb.remove_sheet(dwsheet)
     except:
         print ("Worksheet '%s' not found" % (dst_wname))
-    finally:
         print ("Creating new worksheet :'%s'" % (dst_wname))
         dwsheet = wb.create_sheet(dst_wname, 0)
 
@@ -37,11 +34,12 @@ def copy_rows_by_name(wbook, dst_wname, src_wname, filter_str):
     drcount =  dwsheet.max_row
     dccount =  dwsheet.max_column
     print ("%s: max row:col (%d:%d)" % (dst_wname, drcount, dccount))
-
-    #copy titles
-    row = swsheet[1]
-    frow = [cell.value for cell in row]
-    dwsheet.append(frow)
+    
+    #copy titles only if it is new sheet
+    if (drcount <= 1):
+        row = swsheet[1]
+        frow = [cell.value for cell in row]
+        dwsheet.append(frow)
 
     #dump rows
     for row in dwsheet.iter_rows():
@@ -58,7 +56,6 @@ def copy_rows_by_name(wbook, dst_wname, src_wname, filter_str):
     print ("Saving :%s" % (wbook))
     wb.save(wbook)
 
-
 def main():
     wbook = 'shared/revenue.xlsx'
     src_wname = "sales"
@@ -66,7 +63,7 @@ def main():
     filter_str = "Vinay"
 
     list_worksheets_by_wbook(wbook)
-    copy_rows_by_name(wbook, dst_wname, src_wname, filter_str)
+    append_rows_by_name(wbook, dst_wname, src_wname, filter_str)
 
 if (__name__ == '__main__'):
     main()
