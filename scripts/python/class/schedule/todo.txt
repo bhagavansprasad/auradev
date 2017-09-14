@@ -14,20 +14,22 @@
 * What if number yielding values are more dynamic, how dow we know count of yeilding values
 * genarators
 * iterator
-* map
-* filter
-* Classes
-* Email
 * Git Connect
+* Classes
 * Regular expressions
-Web scraping - http
-Git connect
-Decorators
-SSH
-xml parser
+* Decorators
+
 Unit Testing
 Adding attachment to email
 Assert's
+
+* map
+* filter
+* reduce
+
+Web scraping - http
+SSH
+xml parser
 
 - PgSQL
 Handlling errors
@@ -38,7 +40,6 @@ send a mail with an attachment
 02-Datatypes
 19-Git-patch
 22-Http-Scraping
-23-Sockets
 27-Test-Automation-Telnet
 30-IPC
 37-Excel-parser

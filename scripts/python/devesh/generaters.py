@@ -49,5 +49,7 @@ class firstn(object):
         else:
             raise StopIteration()
             
+
+print "1. ", firstn(100)
 sum_of_first_n = sum(firstn(1000000))
-print sum_of_first_n
+print "2. ", sum_of_first_n

@@ -1,3 +1,10 @@
+root account
+Account ID # 293136561839 
+Account name : Bhagavan
+Pass : Saketh0909Ram
+Acces Key id # AKIAJ7AQUAMFUVGABPKA
+Secret access key: 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
+
 ssh -i MyFirstInstance.pem ubuntu@ec2-52-32-208-56.us-west-2.compute.amazonaws.com
 https://293136561839.signin.aws.amazon.com/console , bhagavan, jnjnuhuh
 

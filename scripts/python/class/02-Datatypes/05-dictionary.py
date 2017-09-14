@@ -7,6 +7,7 @@
         <s2> 40 <s2>
     </marks>
 </student>
+
 <student>
     <name> aura </name>
     <class> 10 </class>
@@ -54,12 +55,10 @@ atomic_elements = {
 print atomic_elements
 print atomic_elements["C"]
 print atomic_elements["O"]
-
 print  ""
 
 print "O" in atomic_elements, "U" in atomic_elements
 print "o" in atomic_elements
-
 
 if ("O" in atomic_elements):
     print "Symbol is available"
@@ -83,7 +82,6 @@ print atomic_elements
 print atomic_elements.keys()
 print atomic_elements.values()
 print atomic_elements.values()[0]
-print atomic_elements.values()[0][0]
 print atomic_elements.items()
 print atomic_elements.items()[0]
 
@@ -145,6 +143,7 @@ print states
 print cities
 
 states['Odisha'] = 'OR'
+print states
 
 cities['OR'] = 'Bhuvaneswar'
 cities['GJ'] = 'Ahemadabad'
@@ -211,3 +210,4 @@ del my_dict ;
 my_dict = {}
 print my_dict
 
+exit(1)

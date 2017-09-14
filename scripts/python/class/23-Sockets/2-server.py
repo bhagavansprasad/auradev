@@ -1,25 +1,23 @@
 #!/usr/bin/env python
 import socket
+import time
 
-
-TCP_IP = ''
+MY_IFACE = ''
 TCP_PORT = 5005
 BUFFER_SIZE = 20 
 
-
-
 sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-sockfd.bind((TCP_IP, TCP_PORT))
+sockfd.bind((MY_IFACE, TCP_PORT))
 
 sockfd.listen(5)
 
-conn, addr = sockfd.accept()
+newfd, addr = sockfd.accept()
 print 'Connection address:', addr
 
-data = conn.recv(BUFFER_SIZE)
+data = newfd.recv(BUFFER_SIZE)
 print "received data:", data
 
-conn.send(data.upper())  # echo
+newfd.send(data.upper())  # echo
 
-conn.close()
+newfd.close()

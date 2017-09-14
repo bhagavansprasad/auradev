@@ -2,15 +2,15 @@
 import socket
 import time
 
-sip_addr = '127.0.0.1'
-TCP_PORT = 5005
+dip_addr = '127.0.0.1'
+DTCP_PORT = 5005
 BUFFER_SIZE = 1024
 MESSAGE = "Hello, World!"
 
 
 sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-sockfd.connect((sip_addr, TCP_PORT))
+sockfd.connect((dip_addr, DTCP_PORT))
 
 sockfd.send(MESSAGE)
 

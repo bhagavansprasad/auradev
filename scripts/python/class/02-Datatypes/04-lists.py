@@ -57,7 +57,6 @@ print "list2: ",   list2
 print list1.index('chemistry')
 print list1.index('physics')
 #print list1.index('maths')
-#print list1.find('phys')
 
 
 print "list2: ",   list2
@@ -70,7 +69,7 @@ print "list2: ",   list2
 print list2.pop(2)
 print list2.pop(0)
 print "list2: ",   list2
-list2.pop(-1)
+print list2.pop(-1)
 print "list2: ",   list2
 #list2.pop(10)
 print "list2: ",   list2
@@ -102,3 +101,4 @@ if (new_sub not in list1):
     list1.append(new_sub)
 
 print list1
+exit(1)

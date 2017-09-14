@@ -46,13 +46,12 @@ def main():
     for i in range(5):
         value = list(map(lambda x: x(i), funcs))
         print(value)
-
    
     product = reduce((lambda x, y: x * y), [1, 2, 3, 4])
     print (product)
 
-    f = lambda a, b: a if (a > b) else b
-    print (reduce(f, [47, 11, 42, 102, 13]))
+    lfun = lambda a, b: a if (a > b) else b
+    print (reduce(lfun, [47, 11, 42, 102, 13]))
 
     exit(1)
 if __name__ == '__main__':

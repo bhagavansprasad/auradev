@@ -13,6 +13,3 @@ def is_prime(n):
 
 def is_even(n):
     return (not n%2)
-
-def is_odd(n):
-    return (n%2)

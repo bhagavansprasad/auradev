@@ -1,10 +1,7 @@
-#import fact
-
-#from fact import factorial
-sys.path.append('/home/bhagavan/training/scripts/python/class/11-modues/mod-lib')
-#from fact import *
-import fact
+import sys
+sys.path.append('/home/bhagavan/training/scripts/python/class/11-Modules/mod-lib')
+import amath
 
 n = 5
-t =  factorial(n)
+t = amath.is_prime(5)
 print t 

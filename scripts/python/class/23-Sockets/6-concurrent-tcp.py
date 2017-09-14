@@ -2,6 +2,7 @@
 
 import socket
 import os
+import time
 
 #TCP_IP = '127.0.0.1'
 TCP_IP = ''
@@ -13,15 +14,17 @@ s.bind((TCP_IP, TCP_PORT))
 s.listen(5)
 
 while(1):
-    conn, addr = s.accept()
+    nfd, addr = s.accept()
     if (os.fork() == 0):
         print 'Connection address:', addr
         while 1:
-            data = conn.recv(BUFFER_SIZE)
+            data = nfd.recv(BUFFER_SIZE)
             if not data: break
             print "received data:", data
             data = "server response" + data
-            conn.send(data)  # echo
-        conn.close()
+            nfd.send(data.upper())  # echo
+        nfd.close()
+        exit(1)
     else:
-        conn.close()
+        nfd.close()
+

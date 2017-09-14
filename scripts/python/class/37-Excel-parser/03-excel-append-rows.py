@@ -60,7 +60,7 @@ def main():
     wbook = 'shared/revenue.xlsx'
     src_wname = "sales"
     dst_wname = "sorted"
-    filter_str = "Vinay"
+    filter_str = "Ashish"
 
     list_worksheets_by_wbook(wbook)
     append_rows_by_name(wbook, dst_wname, src_wname, filter_str)

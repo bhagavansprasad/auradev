@@ -3,7 +3,7 @@ def my_open(filename):
     fd = 0
 
     try:
-        fd = open("a.txt", "r")
+        fd = open("t.txt", "r")
 
     #except:
     #except IOError:

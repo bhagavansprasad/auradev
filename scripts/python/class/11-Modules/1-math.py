@@ -1,5 +1,6 @@
 def is_prime(n):
     i = 2
+
     while (i < n):
         if (n % i == 0):
             break
@@ -10,25 +11,17 @@ def is_prime(n):
     else:
         return 0
 
-def is_odd(n):
-    return (n%2)
-
 def is_even(n):
     return (n%2)
 
 
-n = 10
+n = 7
 if (is_prime(n)):
     print n, "Prime"
 else:
     print n, "NOT Prime"
 
 if (is_even(n) == 0):
-    print n, "EVEN"
-else:
-    print n, "ODD"
-
-if (is_odd(n) != 0):
     print n, "EVEN"
 else:
     print n, "ODD"

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import psycopg2
-import sys
+#import sys
 
 conn = None
 conn = psycopg2.connect(database="gcontacts", user="bhagavan", host="127.0.0.1", password="jnjnuh")
@@ -12,9 +12,10 @@ rows = cur.fetchall()
 print rows
 print len(rows)
 
-for row in rows:
-    print row
+for temp in rows:
+    print temp
 
+print ""
 cur.execute("SELECT * FROM my_contacts WHERE name='Bhaavan'")
 rows = cur.fetchall()
 print rows
@@ -22,7 +23,7 @@ print len(rows)
 for row in rows:
     print row
 
-add_row_query = "INSERT INTO my_contacts(id, name, phone, address, gender, dob) VALUES(50, 'Vachan', 9876588, 'Bangalore', 'M', '2017-05-11')"
+add_row_query = "INSERT INTO my_contacts(id, name, phone, address, gender, dob) VALUES(60, 'Vachan', 9876588, 'Bangalore', 'M', '2017-05-11')"
 cur.execute(add_row_query)
 conn.commit()
 conn.close()
@@ -30,7 +31,6 @@ conn.close()
 conn = None
 conn = psycopg2.connect(database="postgres", user="bhagavan", host="127.0.0.1", password="jnjnuh")
 cur = conn.cursor()
-
 
 namedict = (
         {"type":"ball",     "color":"white",   "location":"south", "install_date":"2020-01-20"},

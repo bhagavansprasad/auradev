@@ -17,10 +17,6 @@ print cmp((123, 'abc'), ('123', 'abdxyz'))
 
 print ""
 
-print int("123") * 3
-print "123" + str(3)
-print int("123") + 3
-
 #tuple3 = tuple2 + ('823')
 tuple3 = tuple2 + tuple("823")
 print tuple3

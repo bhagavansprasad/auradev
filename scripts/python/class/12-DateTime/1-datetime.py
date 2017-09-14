@@ -14,15 +14,16 @@ print "Local current time :", localtime
 localtime = time.localtime()
 print "Local current time :", localtime
 
-cal = calendar.month(2017, 1)
+cal = calendar.month(2017, 9)
 print "Here is the calendar:"
 print cal
 
 print "Time in seconds since the epoch: %s" % time.time()
 print "Current date and time          :", datetime.datetime.now()
-print "Or like this                   :", datetime.datetime.now().strftime("%y-%m-%d-%H-%M-%Y-%m-%m-%m")
+print "Or like this                   :", datetime.datetime.now().strftime("%y-%m-%d-%H-%M-%Y-%m-%m,-%M")
 print "Current year                   :", datetime.date.today().strftime("%Y")
 print "Month of year                  :", datetime.date.today().strftime("%B")
+print "Month of year                  :", datetime.date.today().strftime("%h")
 print "Week number of the year        :", datetime.date.today().strftime("%W")
 print "Weekday of the week            :", datetime.date.today().strftime("%w")
 print "Day of year                    :", datetime.date.today().strftime("%j")
@@ -36,7 +37,6 @@ print type(now)
 print now.year, now.month, now.day
 print now.hour, now.minute, now.second
 print now.microsecond
-
 
 myt = datetime.time(1, 2, 3, 45)
 print myt
@@ -55,26 +55,26 @@ print(type(some_day))
 
 yesterday = today - some_day
 print 'Yesterday:', yesterday
+print type(yesterday)
 
 tomorrow = today + some_day
 print 'Tomorrow :', tomorrow
-print type(tomorrow)
 
 print 'tomorrow - yesterday:', tomorrow - yesterday
 print 'yesterday - tomorrow:', yesterday - tomorrow
 
 print 'Times:'
 t1 = datetime.time(12, 55, 0)
-print '\tt1:', t1
+print 't1:', t1
 t2 = datetime.time(13, 5, 0)
-print '\tt2:', t2
-print '\tt1 < t2:', t1 < t2
+print 't2:', t2
+print 't1 < t2:', t1 < t2
 #print help(datetime.timedelta)
 
 print 'Dates:'
 d1 = datetime.date.today()
 print '\td1:', d1
-d2 = datetime.date.today() + datetime.timedelta(days=2)
+d2 = datetime.date.today() + datetime.timedelta(days=-5)
 print '\td2:', d2
 print '\td1 > d2:', d1 > d2
 exit(1)

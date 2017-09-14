@@ -1,1 +1,4 @@
-If there has been no previous EHLO or HELO command this session, this method tries ESMTP EHLO first. If the server does ESMTP, message size and each of the specified options will be passed to it (if the option is in the feature set the server advertises). If EHLO fails, HELO will be tried and ESMTP options suppressed.
+This class represents an aggregation of individual test cases and test suites.
+The class presents the interface needed by the test runner to allow it to be run
+as any other test case. Running a TestSuite instance is the same as iterating
+over the suite, running each test individually.

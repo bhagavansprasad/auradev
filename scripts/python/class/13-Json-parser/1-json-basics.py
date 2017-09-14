@@ -10,6 +10,7 @@ try:
  
     # pretty printing of json-formatted string
     print json.dumps(decoded, sort_keys=True, indent=8)
+    exit(1)
  
     print "JSON parsing example: ", decoded['Atwo']
     print "Complex JSON parsing example: ", decoded['Btwo']['list'][0]['item']

@@ -17,6 +17,7 @@ def validate_json(*expected_args):
     return decorator
 
 # curl -H "Content-Type: application/json" -X POST -d '{"student_id":1}' http://localhost:5000/grade
+# curl -H "Content-Type: application/json" -X POST -d '{"bhagavan":1}' http://localhost:5000/grade
 
 @app.route('/grade', methods=['POST'])
 @validate_json('student_id')

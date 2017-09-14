@@ -39,7 +39,6 @@ outer_function()
 print "a :", a
 '''
 
-'''
 def outer_function():
     global a
     a = 20
@@ -54,4 +53,6 @@ def outer_function():
 a = 10
 outer_function()
 print('a :',a)
+exit(1)
+'''
 '''

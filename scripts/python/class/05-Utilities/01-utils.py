@@ -2,7 +2,9 @@ import pygit2
 import psycopg2
 
 #To print module path
+
 print dir(pygit2)
+
 print "file",     pygit2.__file__
 print "name ",    pygit2.__name__
 print "package ", pygit2.__package__
