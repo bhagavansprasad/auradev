@@ -195,6 +195,7 @@ def get_value_by_id(id, dict_object):
 
 #print myobject
 #print myobject[0]
+
 print myobject[0]['Id']
 print myobject[0]['Id'][0:12]
 print myobject[0]['Config']

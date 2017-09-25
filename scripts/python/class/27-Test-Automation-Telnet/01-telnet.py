@@ -1,4 +1,3 @@
-import getpass
 import sys
 import telnetlib
 
@@ -19,7 +18,7 @@ print "Received Password"
 if password:
     tn.write(password + "\n")
 
-tn.read_until("~$ ")
+tn.read_until(":~$ ")
 
 tn.write("ls -l\n")
 data =  tn.read_eager()

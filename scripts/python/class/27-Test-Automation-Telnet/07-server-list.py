@@ -32,8 +32,8 @@ for server in servers_list:
     #print server["username"]
     #print server["password"]
     print server['system_name'], server['username'], server['password'],  server['service']
-
 '''
+
 
 with open('servers.json') as data_file:    
     data = json.load(data_file)

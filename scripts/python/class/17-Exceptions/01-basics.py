@@ -1,5 +1,5 @@
-'''
 # catch all exceptions
+'''
 try:
     ...
 except:
@@ -21,8 +21,9 @@ try:
     ...
 except (IOError, ValueError) as e:
     ...
+'''
 
-
+'''
 #It is possible to have more than one except statements with one try.
 try:
     ...
@@ -31,6 +32,7 @@ except IOError, e:
     sys.exit(1)
 except FormatError, e:
     print >> sys.stderr, "File is badly formatted (%s): %s" % (str(e), filename)
+    sys.exit(1)
 
 #except with else
 try:
@@ -50,9 +52,7 @@ except IOError, e:
     sys.exit(1)
 finally:
     delete_temp_files()
-'''
 
-'''
 #Exception is raised using the raised keyword.
 raise Exception("error message")
 '''
@@ -69,6 +69,7 @@ else:
 finally:
     print "d"
 
+
 print ""
 #what is the output
 try:
@@ -79,7 +80,6 @@ else:
     print "c"
 finally:
     print "d"
-
 
 print ""
 #what is the output

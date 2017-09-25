@@ -1,6 +1,6 @@
-import getpass
 import sys
 import telnetlib
+import time
 
 user = "git"
 password = "jnjnuh"
@@ -11,6 +11,8 @@ print list_of_servers
 fd.close()
 
 for server in list_of_servers:
+    print "\n\nConnecting to ", server
+    time.sleep(3)
     server = server.rstrip('\n')
     tn = telnetlib.Telnet(server)
 

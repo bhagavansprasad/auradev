@@ -4,7 +4,7 @@ tuple2 = (123, 'abb')
 print cmp(tuple1, tuple2)
 print cmp(tuple2, tuple2)
 print cmp(tuple2, tuple1)
-print cmp(tuple1, (123, 'abe'))
+print cmp(tuple1, (123, 'abf'))
 
 print "" 
 
@@ -18,8 +18,8 @@ print cmp((123, 'abc'), ('123', 'abdxyz'))
 print ""
 
 #tuple3 = tuple2 + ('823')
-tuple3 = tuple2 + tuple("823")
-print tuple3
+tuple2 = tuple2 + tuple("823")
+print tuple2
 
 print ""
 tuple1 = tuple('823')
@@ -37,6 +37,7 @@ print tuple1[0]+5
 print type(tuple1[1])
 print tuple1[1]*5
 print int(tuple1[1])+5
+#print tuple1[1]+5
 print str(tuple1[0])[0]
 print tuple1[1][0]
 
@@ -46,6 +47,7 @@ print "First tuple length : ",  len(tuple1)
 print "Second tuple length : ", len(tuple2)
 
 tuple1 = ('1', 98346)
+tuple2 = (123, 'abb')
 print "tuple1 :", tuple1
 print "tuple2 :", tuple2
 print dir(tuple1)
@@ -61,25 +63,18 @@ aList = [123, 'xyz', 'zara', 'abc'];
 aTuple = tuple(aList)
 print "Tuple elements : ", aTuple
 
-tup1 = ('physics', 'chemistry', 1997, 2000);
-tup2 = (1, 2, 3, 4, 5, 6, 7 );
-print "tup1[0]  : ", tup1[0]
-print "tup2[1:5]: ", tup2[1:5]
+tuple1 = ('1', 98346)
+#tuple1[0] = 100;
+#tuple1.append(4)
 
-
-#tup1[0] = 100;
-#tup1.append(4)
-
-#del tup1;
+#del tuple1;
 print ""
-print "tup1  :", tup1
+print "tuple1  :", tuple1
 
-tup3 = tup2 + tup1 + tup2 + (2, 3, 4, 5)
-print "tup3  :", tup3
+tuple3 = tuple2 + tuple1 + tuple2 + (2, 3, 4, 5)
+print "tuple3  :", tuple3
 
-
-tup3 = tup3 + tup1
-
+tuple3 = tuple3 + tuple1
 
 julia = ("Julia", "Roberts", 1967, "Duplicity", 2009, "Actress", "Atlanta, Georgia")
 print julia

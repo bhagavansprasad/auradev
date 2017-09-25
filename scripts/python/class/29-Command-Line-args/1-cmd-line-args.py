@@ -10,11 +10,11 @@ for args in sys.argv:
     print args
 
 fd = open(sys.argv[1], "r")
+#fd = open("t.txt", "r")
 list_of_servers = fd.readlines()
 
 print list_of_servers 
 
 for server in list_of_servers:
     print server
-exit(1)
 

@@ -1,4 +1,3 @@
-'''
 #!/usr/bin/env python
 import httplib
 import urlparse
@@ -28,6 +27,7 @@ print "fragment :", fragment
 conn.close()
 
 print "================="
+'''
 '''
 '''
 if scheme == 'http':

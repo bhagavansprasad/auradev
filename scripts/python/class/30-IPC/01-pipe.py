@@ -2,43 +2,44 @@ import os
 import time
 
 
-def child(pipeout):
+def child(wfd):
   count = 1
   print "-->C: In Child"
   while True:
-      verse = "Child writing message :%d\n" % count
+      buff = "Child writing message :%d\n" % count
       count += 1
       print "C: going to sleep before write"
-      time.sleep(3)
+      time.sleep(2)
       print "C: After sleep and before write"
-      retval = os.write(pipeout, verse)
+      retval = os.write(wfd, buff)
       print "C : write retval", retval
-      if (count == 10):
-          retval = os.write(pipeout, "bye\n")
+      if (count == 5):
+          retval = os.write(wfd, "bye")
           print "C : write retval", retval
           print "Child exiting..."
           time.sleep(1)
           break
 
-def parent(pipein):
+def parent(rfd):
     print "-->P: In parent"
     counter = 1
-    pipein = os.fdopen(pipein)
+    rfd = os.fdopen(rfd)
     while True:
         print "P. Before reading..."
-        sbuff = pipein.readline()[:]
+        sbuff = rfd.readline()[:]
         print 'P: received :%s' % (sbuff)
+
         if (sbuff == "bye"):
             print "Parent exiting..."
             break;
 
-pipein, pipeout = os.pipe()
+rfd, wfd  = os.pipe()
 
 if os.fork() == 0:
-    os.close(pipein)
-    child(pipeout)
+    os.close(rfd)
+    child(wfd)
 else:
-    os.close(pipeout)
-    parent(pipein)
+    os.close(wfd)
+    parent(rfd)
 
 print ""

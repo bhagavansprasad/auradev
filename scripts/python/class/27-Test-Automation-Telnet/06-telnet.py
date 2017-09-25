@@ -30,7 +30,7 @@ print "After service"
 data = telnet.read_until("*")
 data = telnet.read_very_eager()
 
-if (data.find("error") > 0):
+if (data.find("not running") > 0):
     print "Service is not running"
     print "starting service"
     telnet.write("sudo service apache2 start\n")

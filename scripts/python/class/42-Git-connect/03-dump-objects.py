@@ -43,7 +43,7 @@ def main(repository):
             # ignore blobs and trees
             pass
  
-    print(json.dumps(objects, indent=2))
+    print(json.dumps(objects, indent=4))
  
  
 if __name__ == '__main__':

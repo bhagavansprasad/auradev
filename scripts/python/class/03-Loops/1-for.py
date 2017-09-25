@@ -36,5 +36,12 @@ for myword in words:
 		j+=1
 	j = 1
 	i += 1
+
+n = 25
+for i in range(2, n):
+    if (n%i == 0):
+        print "NP"
+else:
+    print "P"
 exit(1)
 	

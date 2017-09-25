@@ -75,6 +75,10 @@ print "------------"
 
 rurl = get_redirected_url(data)
 (response, retcode, data) = send_http_request(rurl)
+print "resp, status :", response.status
+print "resp  reason :", response.reason
+print "retcode      :", retcode
+
 print "============="
 print data
 print "============="

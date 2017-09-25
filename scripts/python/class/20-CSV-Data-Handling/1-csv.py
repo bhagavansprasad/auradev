@@ -44,7 +44,7 @@ print ("-" * 20)
 for row in data_list:
     print row
 
-
 fd.close()
 
+exit(1)
 

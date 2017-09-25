@@ -8,7 +8,7 @@ from threading import Thread, current_thread
 import os
 from multiprocessing import Process, Lock
 
-def get_task_id()
+def get_task_id():
 	return current_thread().name
 
 def my_debug_print (debug):

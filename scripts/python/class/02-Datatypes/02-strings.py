@@ -4,7 +4,6 @@ print test_str
 
 for temp in test_str:
 	print temp,
-print ""
 
 print ""
 
@@ -30,20 +29,18 @@ test_str = "new test string"
 print test_str
 
 test_str = "Aura Networks Bangalore"
-print test_str
-print test_str[0]
-print test_str[1]
-print test_str[-1]
-print test_str[-2]
-print test_str[1:6]
-print test_str[1:23]
-print test_str[1:30]
-print test_str[0:30]
-print test_str
-print test_str[:]
-print test_str[5:]
-print test_str[:-1]
-print test_str[:]
+print "     :", test_str
+print " 0   :", test_str[0]
+print " 1   :", test_str[1]
+print " -1  :", test_str[-1]
+print " -2  :", test_str[-2]
+print " 1:6 :", test_str[1:6]
+print " 1:23:", test_str[1:23]
+print " 1:30:", test_str[1:30]
+print " 0:30:", test_str[0:30]
+print " ':' :", test_str[:]
+print "5:   :", test_str[5:]
+print "':-1':", test_str[:-1]
 print test_str[-1:]
 print test_str[::-1]
 print test_str[::]
@@ -101,6 +98,7 @@ print dir(a)
 str = "this is string example. and temp...wow!!!";
 print "str                   :", str
 sub = "i";
+
 print "str.len()             :", len(str)
 print "str.count(sub)        :", str.count(sub)
 print "str.count(sub, 4)     :", str.count(sub, 4)
@@ -133,7 +131,8 @@ print "1. ", str.find(substr)
 print "2. ", str.find(substr, 10)
 print "3. ", str.find(substr, 20)
 print "4. ", str.index(substr, 10)
-#print "5. ", str.index(substr, 20)
+print "5. ", str.index(substr, 20)
+exit(1)
 print "6. ", str.find("test")
 print ""
 
@@ -149,6 +148,7 @@ print "2. ", str.upper()
 print "3. ", str.upper().capitalize()
 print "4. ", str.upper().capitalize().islower()
 print "5. ", str.upper().isupper()
+
 
 print ""
 
@@ -198,6 +198,7 @@ str = "88888888this is string example....wow!!!8888888888abc888888888888";
 print str
 substr = "abc"
 print str.lstrip('8').rstrip('8').rstrip(substr).rstrip('8')+substr
+print str.strip('8')
 
 #Number with tabs, single space and multiple spaces
 phnum = "	      990 2096 750   	       "

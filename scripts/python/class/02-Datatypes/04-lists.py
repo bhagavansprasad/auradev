@@ -12,7 +12,6 @@ print ids
 del ids[0]
 print ids
 
-
 ids.sort()
 print ids
 

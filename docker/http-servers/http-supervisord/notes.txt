@@ -28,7 +28,6 @@ Steps to write in Dockerfile
 - From shell 
   curl http://127.0.0.1/cgi-bin/env.cgi
 
-
 Create folder /etc/nginx/sites-available
 Create folder /etc/nginx/sites-enabled
 Copy sources/default to  /etc/nginx/sites-available

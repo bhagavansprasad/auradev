@@ -5,16 +5,11 @@ fd = open("t.txt", "r")
 data = fd.read(5)
 print "data :", data
 
-#print "ss :", fd.softspace
-#fd.softspace = 1
-#print "ss :", fd.softspace
-
 fd.close()
 '''
+
+
 '''
-
-#==============
-
 fd = open("t.txt", "r")
 
 data = fd.read(10)
@@ -24,7 +19,9 @@ data = fd.read(10)
 print "2 :data :", data
 
 fd.close()
+'''
 
+'''
 fd = open("t.txt", "r")
 i = 0
 while(True):
@@ -37,10 +34,11 @@ while(True):
     #time.sleep(1)
 
 fd.close()
+'''
 
 
+'''
 fd = open("t.txt", "r")
-
 i = 0
 while(True):
     data = fd.readline()
@@ -51,11 +49,9 @@ while(True):
 
 fd.close()
 
+'''
 
-
-#==============
-
-print "====readlines===="
+'''
 fd = open("t.txt", "r")
 data = fd.readlines()
 print "len :%d, %s" % (len(data), data)
@@ -111,23 +107,12 @@ print "file position ", fd.tell()
 
 fd.seek(-10, 1)
 print "file position ", fd.tell()
+exit(1)
 
 print "Name of the file  :", fd.name
 print "Closed or not     :", fd.closed
 print "Opening mode      :", fd.mode
 print "Softspace flag    :", fd.softspace
 
-print "---"
-fd.seek(0, 0)
-data = fd.read(10)
-print data
-print "file position ", fd.tell()
-
-fd.seek(-1, 1)
-print "file position ", fd.tell()
-
-data = fd.read(10)
-print data
-print "file position ", fd.tell()
 fd.close()
 exit(1)

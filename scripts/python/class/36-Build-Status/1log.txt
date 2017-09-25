@@ -3,7 +3,7 @@ amath.c: In function ‘get_factorial_value’:
 amath.c:12:9: warning: ‘i’ may be used uninitialized in this function [-Wmaybe-uninitialized]
   printf ("-->%u\n", i);
          ^
-main.c: In function ‘main’:
+main.c: In function ‘warning’:
 main.c:10:3: warning: implicit declaration of function ‘get_factorial_value’ [-Wimplicit-function-declaration]
    retval = get_factorial_value(5);
    ^

@@ -37,10 +37,14 @@ time.sleep(2)
 '''
 
 def child_process(rfd):
-    print 'I am Child   pid :%d, rfd :%d' % (os.getpid(), rfd)
+    while(1):
+        print 'I am Child   pid :%d, rfd :%d' % (os.getpid(), rfd)
+        time.sleep(1)
 
 def parent_process(wfd):
-    print 'I am Parent  pid :%d, wfd :%d' % (os.getpid(), wfd)
+    while(1):
+        print 'I am Parent  pid :%d, wfd :%d' % (os.getpid(), wfd)
+        time.sleep(1)
 
     
 pipein, pipeout = os.pipe()

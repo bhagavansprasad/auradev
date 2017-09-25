@@ -30,19 +30,19 @@ def dump_git_log(entry):
     print ""
 
 def main():
-	repo = pygit2.Repository('/opt/git/amath.git')
-	all_refs = list(repo.references)
-	print all_refs
+    repo = pygit2.Repository('/opt/git/amath.git')
+    all_refs = list(repo.references)
+    print all_refs
 
-	head = repo.references.get('refs/heads/master')  # Returns None if not found
-	#head = repo.references['refs/heads/master']  # Raises KeyError if not found
+    head = repo.references.get('refs/heads/master')  # Returns None if not found
+    #head = repo.references['refs/heads/master']  # Raises KeyError if not found
 
-	for entry in head.log():
-            dump_message_details(entry)
-            dump_committer_details(entry.committer)
+    for entry in head.log():
+        dump_message_details(entry)
+        dump_committer_details(entry.committer)
 	
-	for entry in head.log():
-            dump_git_log(entry)
+    for entry in head.log():
+        dump_git_log(entry)
         exit(1)
 
 if __name__ == '__main__':
