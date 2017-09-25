@@ -35,7 +35,7 @@ Strings
 
    ex. int add_numers(char *command_string);
    add  < integer >  < integer >  /* Adds first and second integers  */
-   sum  < integer >  < integer >  /* Substracts second from  first   */
+   sub  < integer >  < integer >  /* Substracts second from  first   */
    div  < integer >  < integer >  /* divides first with second   */
    mul  < integer >  < integer >  /* Multiplies first and second integers  */
 

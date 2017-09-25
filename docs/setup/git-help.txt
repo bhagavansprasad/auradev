@@ -44,11 +44,13 @@ Creating new git repository on git server
 $ sudo adduser git
 
 - Create new repository "py-sources.git" in '/home/git' folder
-$ su git
 $ cd /home/git
-$ mkdir py-sources.git
+$ sudo mkdir py-sources.git
 $ cd py-sources.git
-$ git init --bare
+$ sudo git init --bare
+$ cd ..
+$ sudo chown -R git:git py-sources.git
+
 
 - Goto another terminal (cliet)
 git clone git@192.168.1.254:/home/git/py-sources.git

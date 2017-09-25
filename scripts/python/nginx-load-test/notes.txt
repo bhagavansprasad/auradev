@@ -1,0 +1,4 @@
+1-http-req.py - Initiates 100 http requests to server
+2-http-req.py - Initiates 100 http requests to both static and dynamic pages
+3-bench-mark.py - SIMPLE WEB REQUEST BENCHMARK - http://code.activestate.com/recipes/442412-simple-web-request-benchmark/
+				$ python 3-bench-mark.py -c100 -t10 -Hlocalhost -p80 -ft.txt

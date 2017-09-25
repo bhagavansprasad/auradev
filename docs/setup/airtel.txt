@@ -1,6 +1,6 @@
-phone number: 080 41501820
-user name :08041501820_kk@airtelbroadband.in
-pass :
+#phone number: 080 41501820
+#user name :08041501820_kk@airtelbroadband.in
+#pass :16097616
 
 setup
 vpi : 1

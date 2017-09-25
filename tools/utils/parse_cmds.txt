@@ -41,6 +41,11 @@ Prints 0th 1st and 2nds words with delimiter as ':', from uniq lines which conta
 Prints the last word of each line which DOES NOT contain strings 'search string1' and 'search string2' from the file temp.txt
 	grep "search string" temp.txt | perl -lane 'print "@F[-1]"' | perl -nle 'print if !/search string/' | perl -nle 'print if !/search string2/'
 
+Prints 3rd, last, "last & Last but one" column of every line of 'ls -l'  results
+	ls  -l| perl -lane 'print "@F[3]"'
+	ls  -l| perl -lane 'print "@F[-1]"'
+	ls  -l| perl -lane 'print "@F[-2, -1]"'
+
 Perl command/code print the usage of each folder from smallest to largest from the current folder
 	du -k | sort -n | perl -ne 'if ( /^(\d+)\s+(.*$)/){$l=log($1+.1);$m=int($l/log(1024)); printf ("%6.1f\t%s\t%25s%s\n",($1/(2**(10*$m))),(("K","M","G","T","P")[$m]),"*"x (1.5*$l),$2);}'
 
