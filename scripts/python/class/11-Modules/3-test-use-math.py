@@ -1,14 +1,15 @@
+import sys
 import amath
-#from amath import is_prime
-#import fact
-#from fact import factorial
+sys.path.append('/home/bhagavan/training/scripts/python/class/11-Modules/mod-lib')
+import fact
 
 
 
-#if (is_prime(n)):
 n = 17
+#if (is_prime(n)):
 if (amath.is_prime(n)):
-    print n, "Prime"
+    print (n, "Prime")
 else:
-    print n, "NOT Prime"
+    print (n, "NOT Prime")
 
+print ("Factorial value of %d, is :%d" % (n, fact.factorial(n)))

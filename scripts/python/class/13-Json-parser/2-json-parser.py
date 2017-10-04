@@ -179,56 +179,21 @@ myobject = [
     }
 ]
 
-'''
-def get_container_id(obj):
-   return obj['Id']
-
-def get_container_state(obj):
-   return obj['State']['Status']
-
-def get_value_by_id(id, dict_object):
-    return dict_object[id]
-'''
 # The desired output should be
 #CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                   PORTS               NAMES
 #0b8dccc201b0        myhttpv1            "nginx -g 'daemon off"   5 weeks ago         Exited (0) 5 weeks ago                       myhttpv1
 
-#print myobject
-#print myobject[0]
+#print (myobject)
+#print (myobject[0])
 
-print myobject[0]['Id']
-print myobject[0]['Id'][0:12]
-print myobject[0]['Config']
-print myobject[0]['Config']['Image']
-print myobject[0]['State']
-print myobject[0]['State']['Status']
-print myobject[0]['Created']
-print myobject[0]['Args']
+print (myobject[0]['Id'])
+print (myobject[0]['Id'][0:12])
+print (myobject[0]['Config'])
+print (myobject[0]['Config']['Image'])
+print (myobject[0]['State'])
+print (myobject[0]['State']['Status'])
+print (myobject[0]['Created'])
+print (myobject[0]['Args'])
 exit(1)
 
-print myobject
-print "====================="
-print myobject[0]
-print "====================="
-print myobject[0]['Id']
-cont_id = myobject[0]['Id']
-print "cont_id :", cont_id
-print "cont_id :", type(cont_id)
-print "cont_id :", cont_id[0:12]
-print myobject[0]['Args']
-print myobject[0]['Args'][0]
-
-
-
-cid = get_container_id(myobject[0])
-print cid
-
-status = get_container_state(myobject[0])
-print status
-
-cid = get_value_by_id("Id", myobject[0])
-print cid
-
-status = get_value_by_id("Status", get_value_by_id("State", myobject[0]))
-print status
 

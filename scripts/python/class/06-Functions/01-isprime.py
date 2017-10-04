@@ -8,7 +8,7 @@ while (i < n):
         break
     i += 1
 
-if (flag ==  1):
+if (flag == 1):
     print "Number ", n, "is a PRIME"
 else:
     print "Number ", n, "is a NOT PRIME"

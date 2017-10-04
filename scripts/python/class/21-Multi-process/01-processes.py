@@ -1,7 +1,7 @@
 import os
 import time
 
-print "Hello world"
+print ("Hello world")
 
 print ("my process id pid :%d, ppid :%d" % (os.getpid(), os.getppid()))
 

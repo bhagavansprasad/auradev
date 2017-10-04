@@ -1,4 +1,4 @@
 import os
 
-retval =  os.system("ls")
+retval =  os.system("lss")
 print "retval :", hex(retval)

@@ -1,13 +1,12 @@
 import os
 import sys
 
-print "Mypid :", os.getpid()
+print ("Mypid :", os.getpid())
 
-sys.exit()
+sys.exit(-1)
 ''' 
-if (open == -1)
+if (open == 0)
 	sys.exit(0)
-
-if (write() < 0)
-	sys.exit(1)
+else
+	sys.exit(-1)
 ''' 

@@ -1,4 +1,5 @@
 import sys
-import fact
+#import fact
 
-print fact.factorial(5)
+#print fact.factorial(5)
+print ("Hello")

@@ -33,6 +33,5 @@ for tname in task_names:
     except:
         print "Error: unable to start thread"
 
-c = raw_input("Type something to quit.")
 
-print "Main process exiting"
+time.sleep(20)

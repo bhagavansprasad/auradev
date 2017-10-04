@@ -29,7 +29,7 @@ new_task_list = []
 for tname in task_names:
     try:
         ntask = Process(target=printer, args=(tname, lock))
-	new_task_list.append(ntask) 
+		new_task_list.append(ntask) 
         ntask.start()
 
     except:

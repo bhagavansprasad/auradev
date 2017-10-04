@@ -121,7 +121,6 @@ nobel_prize_winners = {
     (1984, "biology"): ["McClintock"],
 }
 print nobel_prize_winners[(1979, "physics")]
-exit(1)
 
 states = {
     'Andhra Pradesh': 'AP',
@@ -197,11 +196,8 @@ print "The city for the state 'KR' is: %s" % city
 print type(city)
 
 my_dict = {'Name': 'Aura', 'Age': 5, 'Location': 'Bangalore'}
-
 print my_dict
-
 my_dict.clear();   
-
 print my_dict
 
 del my_dict ;     
