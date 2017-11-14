@@ -1,2 +1,0 @@
-This is 2.txt file
-hello wordld
