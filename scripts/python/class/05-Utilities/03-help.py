@@ -4,8 +4,8 @@ import  dumphelp
 #print dir(mylist)
 
 mylist = []
-print dir(mylist)
-print dir(mylist.append)
+print(dir(mylist))
+print(dir(mylist.append))
 
 dumphelp.dump_object_help(mylist)
 

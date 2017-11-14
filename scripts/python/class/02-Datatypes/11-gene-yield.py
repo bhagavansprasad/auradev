@@ -21,7 +21,7 @@ my_gen_primes = get_primes(40)
 #for item in get_primes(30):
     #print item
 for item in my_gen_primes:
-    print item
+    print(item)
 
 
 

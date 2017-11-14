@@ -2,7 +2,7 @@ import sys
 import telnetlib
 import time
 
-user = "git"
+user = "bhagavan"
 password = "jnjnuh"
 
 fd = open(sys.argv[1], "r")
@@ -12,7 +12,6 @@ fd.close()
 
 for server in list_of_servers:
     print "\n\nConnecting to ", server
-    time.sleep(3)
     server = server.rstrip('\n')
     tn = telnetlib.Telnet(server)
 
@@ -35,6 +34,7 @@ for server in list_of_servers:
 
     tn.read_until("total ")
     print "Got total"
+
     tn.write("cat t.txt\n")
     tn.write("exit\n")
     print "=============="

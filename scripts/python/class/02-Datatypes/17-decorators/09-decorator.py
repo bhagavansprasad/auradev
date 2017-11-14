@@ -19,9 +19,9 @@ def timing_function(some_function):
 @timing_function
 def my_function():
     num_list = []
-    for num in (range(0, 10000)):
+    for num in (list(range(0, 10000))):
         num_list.append(num)
-    print("\nSum of all the numbers: " + str((sum(num_list))))
+    print(("\nSum of all the numbers: " + str((sum(num_list)))))
 
 
-print(my_function())
+print((my_function()))

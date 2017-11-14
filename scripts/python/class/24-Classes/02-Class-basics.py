@@ -1,43 +1,34 @@
 class MyClass:
-    name = "xxxxxx"
-    x = 0
-    y = 0
+	name = "bhagavan"
+	x = 0
+	y = 0
 
-    def __init__(self):
-        self.name = ""
-        self.x = 1
-        self.y = 1
-        print "1. In constructure function"
+	'''
+	def __init__(self):
+		self.name = ""
+		self.x = 1
+		self.y = 1
+		print "1. In constructure function"
+	'''
 
-    def print_data(self):
-        print("In print_data function in class")
-        print self.name
+	def print_data(self):
+		print("In print_data function in class")
+        print (name)
 
-    def store_data(self, data):
-        self.name = data
+	def store_data(self, data):
+		print("In store_data function in class")
+		name = data
 
-    def get_data(self):
-        return self.name
+	def get_data(self):
+		print("In get_data function in class")
+		return self.name
 
-obj1 = MyClass()
-obj1.print_data()
+def main():
+	obj1 = MyClass()
+	print (obj1.get_data())
 
-obj2 = MyClass()
-obj3 = MyClass()
+	return
 
-print "3. ", obj1.name
-
-obj1.store_data("Saketh")
-print "4. ", obj1.get_data()
-print "5. ", obj1.name
-
-print "6. ", obj2.get_data()
-print "7. ", obj2.name
-
-obj2.store_data("Bhagavan")
-print "8. ", obj2.get_data()
-print "9. ", obj2.name
-print "10. ", obj1.name
-print "11. ", obj2.name
-print "12. ", obj3.name
+if (__name__ == "__main__"):
+	main()
 

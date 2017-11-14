@@ -11,7 +11,7 @@ reader = csv.reader(fd)
 
 #connecting to database
 conn = None
-conn = psycopg2.connect( database="gcontacts", user="bhagavan", host="127.0.0.1", password="jnjnuh")
+conn = psycopg2.connect( database="auradb", user="bhagavan", host="127.0.0.1", password="jnjnuh")
 cur = conn.cursor()
 
 #insert each row of csv file and add to database
@@ -21,7 +21,7 @@ for row in reader:
         i = 1
         continue
 
-    print "===", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]
+    print("===", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
     cur.execute("INSERT INTO students_list(name, fullname, uid, gid, phone, hphone, address, email, status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)", 
         (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], "1"))
 
@@ -33,9 +33,9 @@ fd.close()
 #Read all rows from database
 cur.execute("SELECT * FROM students_list")
 rows = cur.fetchall()
-print rows
+print(rows)
 
 #print each row
 for row in rows:
-    print row
+    print(row)
 

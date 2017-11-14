@@ -1,20 +1,20 @@
 def is_prime(number):
-    """Return True if *number* is prime."""
+	"""Return True if *number* is prime."""
 
-    if (number == -1):
-		return True
+	if (number == 5):
+		return False
 
-    if (number < -2):
-        return False
+	if (number == -2):
+		return False
 
-    if number in (0, 1):
-        return False
+	if number in (0, 1):
+		return False
 
-    for element in range(2, number):
-        if (number % element == 0):
-            return False
+	for element in range(2, number):
+		if (number % element == 0):
+			return False
 
-    return True
+	return True
 
 def print_next_prime(number):
     """Print the closest prime number larger than *number*."""

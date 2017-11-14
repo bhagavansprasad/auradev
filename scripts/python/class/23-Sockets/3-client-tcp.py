@@ -9,18 +9,29 @@ BUFFER_SIZE = 1024
 MESSAGE = "Hello, World!"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+print ("C. Creating socket success")
+
 s.connect((TCP_IP, TCP_PORT))
+print ("C. Connect to server success")
 
 i = 1
-time.sleep(5)
 
+time.sleep(5)
 while (i < 5):
-	s.send(MESSAGE+str(i))
+	msg = (MESSAGE+ " " + str(i) + " Time").encode()
+	print ("C. Sending message...")
+	print ("\t\t", msg) 
+
+	s.send(msg)
+	print ("C. Sending success...\n")
+
 	data = s.recv(BUFFER_SIZE)
-	print data
+	print ("C. Received message from server...")
+	print ("\t\t", data)
+
 	i += 1
-	time.sleep(1)
+	time.sleep(2)
 
 s.close()
 
-print "received data:", data
+print("received data:", data)

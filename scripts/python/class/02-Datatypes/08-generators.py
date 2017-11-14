@@ -2,25 +2,25 @@ import sys
 
 mygenr = (x*x for x in range(5))
 
-print type(mygenr)
+print(type(mygenr))
 for i in mygenr:
-   print(i),
+   print((i), end=' ')
 
-print ""
+print("")
 ylist = [x*x for x in range(3)]
-print type(ylist)
-print ylist
+print(type(ylist))
+print(ylist)
 
 ylist = [x+1 for x in range(3)]
-print ylist
+print(ylist)
 
 ylist = [x-1 for x in range(3)]
-print ylist
+print(ylist)
 
-print {'x':x-1 for x in range(10,20)}
+print({'x':x-1 for x in range(10,20)})
 
 def createGenerator():
-    mylist = range(3)
+    mylist = list(range(3))
     for i in mylist:
         yield i*i
 
@@ -29,7 +29,7 @@ print(mygenerator) # mygenerator is an object!
 for i in mygenerator:
     print(i)
 
-print "for bigger list"
+print("for bigger list")
 def firstn(n):
     num, nums = 0, []
     while num < n:
@@ -37,5 +37,5 @@ def firstn(n):
         yield num 
         num += 1
 sum_of_first_n = sum(firstn(1000000))
-print sum_of_first_n
+print(sum_of_first_n)
 

@@ -16,5 +16,5 @@ fib(n)
 #my_fib_list = fib(n)
 
 for f in fib(n):
-    print f
+    print(f)
 

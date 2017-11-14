@@ -13,14 +13,17 @@ def t_entry_func_print_time():
         time.sleep(1)
 
 
-print "Before creating thread..."
-myt1 = threading.Thread(name='T1', target=t_entry_func_print_time)
-myt2 = threading.Thread(name='T2', target=t_entry_func_print_time)
-myt1.setDaemon(False)
-myt2.setDaemon(True)
-print "After creating thread..."
-myt1.start()
-myt2.start()
+def main():
+	print "Before creating thread..."
+	myt1 = threading.Thread(name='T1', target=t_entry_func_print_time)
+	myt2 = threading.Thread(name='T2', target=t_entry_func_print_time)
+	myt1.setDaemon(False)
+	myt2.setDaemon(True)
+	print "After creating thread..."
+	myt1.start()
+	myt2.start()
 
-print "main process ends"
+	print "main process ends"
 
+if (__name__ == '__main__'):
+	main()

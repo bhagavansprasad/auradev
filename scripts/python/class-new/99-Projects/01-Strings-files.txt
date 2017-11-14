@@ -1,0 +1,11 @@
+1. Count number of 'warnings' in a given file
+	Task: Count number of lines contains 'Warning:' in a given file 
+	Input: Text file with logs
+	Example input file:
+		1log.txt
+		2log.txt
+	How to run: 
+		$ python count_warns.py 1log.txt 
+	Expected : 
+		"warning:" count 5
+

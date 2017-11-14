@@ -13,11 +13,13 @@ sockfd.bind((MY_IFACE, TCP_PORT))
 sockfd.listen(5)
 
 newfd, addr = sockfd.accept()
-print 'Connection address:', addr
+print('Connection address:', addr)
 
 data = newfd.recv(BUFFER_SIZE)
-print "received data:", data
+print("received data:", data.decode())
 
 newfd.send(data.upper())  # echo
 
 newfd.close()
+sockfd.close()
+

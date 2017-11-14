@@ -1,23 +1,9 @@
-#import mymath
-#from mymath import is_prime, is_even, is_odd
-#from mymath import *
-import mymath
+from amath import is_prime
 
 n = 5
 
 if (is_prime(n)):
-    print n, "Prime"
+    print ("%d is %s " % (n, "Prime"))
 else:
-    print n, "NOT Prime"
-
-if (is_even(n) == 1):
-    print n, "EVEN"
-else:
-    print n, "ODD"
-
-if (is_odd(n) == 1):
-    print n, "EVEN"
-else:
-    print n, "ODD"
-
+    print ("%d is %s " % (n, "NOT Prime"))
 

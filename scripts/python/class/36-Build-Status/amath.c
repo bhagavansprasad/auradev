@@ -10,6 +10,7 @@ int get_factorial_value(int n)
 		return -1;
 
 	printf ("-->%u\n", i);
+	printf ("-->%u\n", i);
 
 	for (i = 1; i <= n; i++)
 	{

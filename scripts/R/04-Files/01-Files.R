@@ -1,2 +1,6 @@
 #list.files()
-source("t.R")
+#source("t.R")
+getwd()
+set_wd()
+getwd()
+

@@ -1,6 +1,10 @@
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04
 https://www.postgresql.org/docs/9.2/static/functions-info.html
 
+- Setting initial password
+	sudo -u postgres psql
+	ALTER  USER postgress  WITH PASSWORD 'jnjnuh';
+
 Connecting to db
   psql -h <localhost> -U <username> <database>
 $ psql -h localhost -U postgres postgres
@@ -20,6 +24,7 @@ GRANT ALL PRIVILEGES ON DATABASE "reviewdb" to gerrit2;
 Database operations
 --------------------
 CREATE DATABASE gcontacts;
+CREATE DATABASE auradb;
 DROP DATABASE gcontacts;
 GRANT ALL PRIVILEGES ON DATABASE gcontacts to bhagavan;
 
@@ -33,6 +38,9 @@ Deleting rows
 	delete from playground where equip_id > 10;
 
 CREATE DATABASE gcontacts;
+
+create user
+	CREATE USER bhagavan  WITH PASSWORD 'jnjnuh';
 
 GRANT ALL PRIVILEGES ON DATABASE gcontacts to bhagavan;
  \c gcontacts; -- Changing the database
@@ -101,7 +109,7 @@ COPY (SELECT * from playground) To '/tmp/output.csv' With CSV;
  select * from students;
 
 
-CREATE TABLE my_contacts (
+CREATE TABLE contacts (
     id serial PRIMARY KEY,
     name VARCHAR (50) NOT NULL,
     phone INTEGER,
@@ -153,4 +161,7 @@ CREATE TABLE nbrs (
     cellname VARCHAR (50) NOT NULL
 );
 INSERT INTO nbrs (source, target, cellname) VALUES (15, 60, 'Aura1');
+
+CREATE TABLE student ( id serial PRIMARY KEY, rollno INTEGER, name VARCHAR (50) NOT NULL);
+INSERT INTO student (id, rollno, name) VALUES (1, 50, 'Ramesh');
 

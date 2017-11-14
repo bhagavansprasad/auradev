@@ -1,0 +1,152 @@
+CertifiedSolutionsArchitect-Associate2017/
+|-- 01CHAPTER-IntroductiontotheCourse28-46
+|   |-- 01-Introduction-Overview-18-21.mp4
+|   |-- 02-WhatYoullNeedGettingStarted-06-56.mp4
+|   `-- 03-ExamBluePrint-03-29.mp4
+|-- 02CHAPTER-AWS-10000FeetOverview01-17-16
+|   |-- 01-TheHistorySoFar-11-04.mp4
+|   |-- 02-10000FootOverview-Part1-19-45.mp4
+|   |-- 03-10000FootOverview-Part2-18-19.mp4
+|   |-- 04-10000FootOverview-Part3-20-37.mp4
+|   |-- 05-10000FootOverview-Part4-07-31.mp4
+|   `-- 06-10000FootQuiz.mp4
+|-- 03CHAPTER-IdentityAccessManagement-IAM31-05
+|   |-- 01-IAM101-03-32.mp4
+|   |-- 02-IAMLab-18-2.mp4
+|   |-- 03-CreateABillingAlarm-Lab-04-15.mp4
+|   |-- 04-IAMSummary-04-56.mp4
+|   `-- 05-IAMQuiz.mp4
+|-- 04CHAPTER-AWSObjectStorageandCDN-S3GlacierandCloudFront02-51-19
+|   |-- 01-S3101-21-45.mp4
+|   |-- 02-Lab-CreateanS3Bucket-11-29.mp4
+|   |-- 03-Lab-S3VersionControl-13-10.mp4
+|   |-- 04-CrossRegionReplication-14-13.mp4
+|   |-- 05-Lab-S3LifeCycleManagement-Glacier-14-18.mp4
+|   |-- 06-CloudFrontCDNOverview-09-12.mp4
+|   |-- 07-CreateaCloudFrontCDN-20-18.mp4
+|   |-- 08-S3SecurityandEncryption-05-39.mp4
+|   |-- 09-StorageGateway-16-01.mp4
+|   |-- 10-Snowball-08-42.mp4
+|   |-- 11-SnowballLab-08-46.mp4
+|   |-- 12-S3TransferAcceleration-04-14.mp4
+|   |-- 13-CreateAStaticWebsiteUsingS3-06-02.mp4
+|   |-- 14-Summary-17-30.mp4
+|   `-- 15-S3Quiz.mp4
+|-- 05CHAPTER-EC2-TheBackboneofAWS05-48-41
+|   |-- 01-EC2101-Part1-20-12.mp4
+|   |-- 02-EC2101-Part2-13-39.mp4
+|   |-- 03-LetsGetOurHandsDirtyLaunchanEC2Instance-Part1-20-23.mp4
+|   |-- 04-LetsgetourhandsdirtyLaunchanEC2instancePart2-11-43.mp4
+|   |-- 05-HowtousePutty-WindowsUsersOnly-06-31.mp4
+|   |-- 06-SecurityGroupsBasics-16-07.mp4
+|   |-- 07-UpgradingEBSVolumeTypes-Lab-Part1-14-15.mp4
+|   |-- 08-UpgradingEBSVolumeTypes-Lab-Part2-06-36.mp4
+|   |-- 09-CreatingaWindowsEC2InstanceandRAIDGroup-15-19.mp4
+|   |-- 10-EncryptRootDeviceVolumeandCreateanAMI-Lab-08-22.mp4
+|   |-- 11-AMIs-EBSRootDeviceVolumesvsInstanceStore-07-44.mp4
+|   |-- 12-LoadBalancersandHealthChecks-19-53.mp4
+|   |-- 13-CloudWatchEC2-14-20.mp4
+|   |-- 14-TheAWSCommandLineandEC2-11-33.mp4
+|   |-- 15-UsingIAMRoleswithEC2-09-11.mp4
+|   |-- 16-S3CLI-Regions-09-28.mp4
+|   |-- 17-UsingBootstrapScripts-14-37.mp4
+|   |-- 18-EC2InstanceMetadata-04-37.mp4
+|   |-- 19-AutoscalingGroupsLab-17-06.mp4
+|   |-- 20-EC2PlacementGroups-03-15.mp4
+|   |-- 21-ElasticFileSystemLab-15-04.mp4
+|   |-- 22-Lambda-Concepts-11-17.mp4
+|   |-- 23-BuildAServerlessWebpage-15-24.mp4
+|   |-- 24-UsingPollyToHelpYouPassYourExam-AServerlessApproach-Part1-19-55.mp4
+|   |-- 25-UsingPollyToHelpYouPassYourExam-AServerlessApproach-Part2-06-21.mp4
+|   |-- 26-BuildAnAlexaSkill-17-10.mp4
+|   |-- 27-EC2Summary-18-39.mp4
+|   `-- 28-EC2Quiz.mp4
+|-- 06CHAPTER-Route5301-06-33
+|   |-- 01-DNS101-17-03.mp4
+|   |-- 02-Route53RegisterADomainNameLab-04-37.mp4
+|   |-- 03-SetupOurEC2InstancesLab-10-28.mp4
+|   |-- 04-SimpleRoutingPolicyLab-05-55.mp4
+|   |-- 05-WeightedRoutingPolicyLab-06-02.mp4
+|   |-- 06-LatencyRoutingPolicyLab-04-52.mp4
+|   |-- 07-FailoverRoutingPolicyLab-09-31.mp4
+|   |-- 08-GeolocationRoutingPolicyLab-04-24.mp4
+|   |-- 09-DNSExamTips-03-41.mp4
+|   `-- 10-Route53Quiz.mp4
+|-- 07CHAPTER-DatabasesonAWS01-30-44
+|   |-- 01-Databases101-13-30.mp4
+|   |-- 02-Lab-CreateourfirstRDSInstance-13-26.mp4
+|   |-- 03-RDS-BackUpsMulti-AZ-ReadReplicas-17-47.mp4
+|   |-- 04-DynamoDB-12-26.mp4
+|   |-- 05-RedShift-08-37.mp4
+|   |-- 06-Elasticache-03-46.mp4
+|   |-- 07-Aurora-14-27.mp4
+|   |-- 08-DatabasesSummary-06-45.mp4
+|   `-- 09-DatabasesQuiz.mp4
+|-- 08CHAPTER-VPC01-47-42
+|   |-- 01-IntroductionandOverview-16-10.mp4
+|   |-- 02-BuildYourOwnCustomVPC-19-53.mp4
+|   |-- 03-BuildACustomVPC-Part2-08-45.mp4
+|   |-- 04-NetworkAddressTranslation-NAT-18-18.mp4
+|   |-- 05-AccessControlLists-ACLs-17-18.mp4
+|   |-- 06-CustomVPCsandELBs-02-30.mp4
+|   |-- 07-NATsvsBastions-03-57.mp4
+|   |-- 08-VPCFlowLogs-04-35.mp4
+|   |-- 09-VPCCleanUp-05-11.mp4
+|   |-- 10-Summary-11-05.mp4
+|   `-- 11-VPCQuiz.mp4
+|-- 09CHAPTER-ApplicationServices01-01-36
+|   |-- 01-SQS-12-45.mp4
+|   |-- 02-SWF-06-42.mp4
+|   |-- 03-SNS-08-13.mp4
+|   |-- 04-ElasticTranscoder-02-01.mp4
+|   |-- 05-APIGateway-06-34.mp4
+|   |-- 06-Kinesis101-09-25.mp4
+|   |-- 07-KinesisLab-05-54.mp4
+|   |-- 08-ApplicationServicesSummary-10-02.mp4
+|   `-- 09-ApplicationServicesQuiz.mp4
+|-- 10CHAPTER-TheRealWorld-CreatingafaulttolerantWordPressSite01-44-25
+|   |-- 01-GettingSetup-12-52.mp4
+|   |-- 02-SettingUpEC2-19-42.mp4
+|   |-- 03-AddingResilienceAndCloudFront-20-01.mp4
+|   |-- 04-SettingUpOurAMIs-22-31.mp4
+|   |-- 05-AutoScaling-LoadTesting-16-30.mp4
+|   |-- 06-CloudFormation-10-51.mp4
+|   `-- 07-WantToBeARealSolutionsArchitectYouNeedToKnowCloudFormation-01-58.mp4
+|-- 11CHAPTER-PreparingfortheExam-WhitePaperReviews54-36
+|   |-- 01-OverviewofAmazonWebServices-05-56.mp4
+|   |-- 02-OverviewofSecurityProcesses-Part1-13-44.mp4
+|   |-- 03-OverviewofSecurityProcesses-Part2-07-33.mp4
+|   |-- 04-AWSRiskandCompliance-05-20.mp4
+|   |-- 05-StorageOptionsintheCloud-07-36.mp4
+|   |-- 06-ArchitectingfortheAWSCloud-BestPractices-11-51.mp4
+|   |-- 07-ExamPracticalities-02-36.mp4
+|   `-- 08-MegaQuiz1.mp4
+|-- 12CHAPTER-WellArchitectedFramework01-31-35
+|   |-- 01-Intro-06-21.mp4
+|   |-- 02-Security-18-14.mp4
+|   |-- 03-Reliability-10-50.mp4
+|   |-- 04-PerformanceEfficiency-18-38.mp4
+|   |-- 05-CostOptimization-14-36.mp4
+|   |-- 06-OperationalExcellence-14-01.mp4
+|   `-- 07-Summary-08-55.mp4
+|-- 13CHAPTER-AdditionalExamTips01-11-02
+|   |-- 01-ExamTipsBasedOnStudentFeedback-10-50.mp4
+|   |-- 02-ConsolidatedBilling-07-53.mp4
+|   |-- 03-AWSOrganizationsLab-06-13.mp4
+|   |-- 04-CrossAccountAccess-14-19.mp4
+|   |-- 05-ResourceGroups-Tagging-07-54.mp4
+|   |-- 06-VPCPeering-04-23.mp4
+|   |-- 07-DirectConnect-05-01.mp4
+|   |-- 08-SecurityTokenService-08-07.mp4
+|   |-- 09-ActiveDirectoryIntegration-03-15.mp4
+|   |-- 10-Workspaces-03-07.mp4
+|   |-- 11-ECS-Part1-WhatisDocker-00-00.mp4
+|   `-- 12-ECS-Part2-WhatisECS-00-00.mp4
+`-- 14CHAPTER-ThankYouGoodLuck-ComingSoon04-28
+    |-- 01-ThankYouToAllMyStudents-02-53.mp4
+    |-- 02-MegaQuiz2.mp4
+    |-- 03-ScenarioQuiz.mp4
+    |-- 04-MiniExam-00-00.mp4
+    `-- 05-FinalPracticeExam-00-00.mp4
+
+14 directories, 135 files

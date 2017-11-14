@@ -1,7 +1,7 @@
 import sys
 sys.path.append('/home/bhagavan/training/scripts/python/class/11-Modules/mod-lib')
-import amath
+import fact
 
 n = 5
-t = amath.is_prime(5)
-print t 
+t = fact.factorial(5)
+print ("Factorial value of %d is %d" % (n, t)) 

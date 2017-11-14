@@ -33,16 +33,16 @@ def get_primes(input_list):
 num_list = [2, 5, 7, 8, 11, 15, 23, 29]
 
 result = get_primes(num_list)
-print result
-print "type of result ", type(result)
+print(result)
+print("type of result ", type(result))
 
 result = get_primes_with_yield(num_list)
-print result
-print "type of result ", type(result)
+print(result)
+print("type of result ", type(result))
 
 for num in result:
-    print num
+    print(num)
 
 for num in get_primes_with_yield(num_list):
-    print num
+    print(num)
 

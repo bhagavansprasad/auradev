@@ -1,6 +1,7 @@
 Task:  Need to update dhcp server configuration file
 Input: Mac address,  System name
 Expected : Add rule in '/etc/dhcp/dhcpd.conf' with mac address, with next sequence IP address
+			restart the service (sudo service isc-dhcp-server restart)
 
 
 The existing '/etc/dhcp/dhcpd.conf'

@@ -22,17 +22,20 @@ def printer(tname, lock):
         lock.release()
         print '%d.%8s After  Unlock, global data :%d' % (os.getpid(), tname, my_global_variable)
  
-lock = Lock()
-task_names = ['ganga', 'kaveri', 'penna']
-new_task_list = []
+def main():
+	lock = Lock()
+	task_names = ['ganga', 'kaveri', 'penna']
+	new_task_list = []
 
-for tname in task_names:
-    try:
-        ntask = Process(target=printer, args=(tname, lock))
-		new_task_list.append(ntask) 
-        ntask.start()
+	for tname in task_names:
+		try:
+			ntask = Process(target=printer, args=(tname, lock))
+			new_task_list.append(ntask) 
+			ntask.start()
+		except:
+			print "Error: unable to start thread"
 
-    except:
-	print "Error: unable to start thread"
+	time.sleep(20)
 
-time.sleep(20)
+if (__name__ == "__main__"):
+	main()

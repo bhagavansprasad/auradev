@@ -17,5 +17,5 @@ def my_decorator(some_function):
 
 
 if __name__ == "__main__":
-	print "1. In main"
+	print("1. In main")
 	my_decorator()

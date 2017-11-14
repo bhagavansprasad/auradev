@@ -5,6 +5,6 @@ class Color(Enum):
     GREEN = 2
     BLUE = 3
 
-print Color.RED
+print(Color.RED)
 
 

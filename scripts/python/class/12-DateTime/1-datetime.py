@@ -4,12 +4,14 @@ import calendar
 import datetime
 
 ticks = time.time()
-print ("Number of ticks since 12:00am, January 1, 1970:", ticks)
+print ("Number of ticks since 12:00am, January 1, 1970: %d" % (ticks))
 
 print ("")
 
 localtime = time.localtime(ticks)
 print ("Local current time :", localtime)
+
+#time.sleep(5)
 
 localtime = time.localtime()
 print ("Local current time :", localtime)
@@ -53,15 +55,15 @@ some_day = datetime.timedelta(days=45)
 print ('One day  :', some_day)
 print(type(some_day))
 
-yesterday = today - some_day
-print ('Yesterday:', yesterday)
-print (type(yesterday))
+past_date = today - some_day
+print ('past_date:', past_date)
+print (type(past_date))
 
-tomorrow = today + some_day
-print ('Tomorrow :', tomorrow)
+future_date = today + some_day
+print ('Future_date :', future_date)
 
-print ('tomorrow - yesterday:', tomorrow - yesterday)
-print ('yesterday - tomorrow:', yesterday - tomorrow)
+print ('future_date - past_date  :', future_date - past_date)
+print ('past_date   - future_date:', past_date   - future_date)
 
 print ('Times:')
 t1 = datetime.time(12, 55, 0)
@@ -75,7 +77,9 @@ print ('t1 < t2:', t1 < t2)
 print ('Dates:')
 d1 = datetime.date.today()
 print ('\td1:', d1)
+
 d2 = datetime.date.today() + datetime.timedelta(days=-5)
 print ('\td2:', d2)
+
 print ('\td1 > d2:', d1 > d2)
 exit(1)

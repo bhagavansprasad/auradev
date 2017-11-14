@@ -186,14 +186,15 @@ myobject = [
 #print (myobject)
 #print (myobject[0])
 
-print (myobject[0]['Id'])
-print (myobject[0]['Id'][0:12])
-print (myobject[0]['Config'])
-print (myobject[0]['Config']['Image'])
-print (myobject[0]['State'])
-print (myobject[0]['State']['Status'])
-print (myobject[0]['Created'])
-print (myobject[0]['Args'])
+print((myobject[0]['Id']))
+print((myobject[0]['Id'][0:12]))
+print((myobject[0]['Config']))
+print((myobject[0]['Config']['Image']))
+exit(1)
+print((myobject[0]['State']))
+print((myobject[0]['State']['Status']))
+print((myobject[0]['Created']))
+print((myobject[0]['Args']))
 exit(1)
 
 

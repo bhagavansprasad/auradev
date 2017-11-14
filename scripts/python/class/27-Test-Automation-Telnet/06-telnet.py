@@ -2,7 +2,7 @@ import telnetlib
 import time
 import sys
 
-HOST = "localhost"
+HOST = "192.168.1.38"
 USER = "bhagavan"
 PASSWORD = "jnjnuh"
 

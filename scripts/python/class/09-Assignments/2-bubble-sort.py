@@ -5,7 +5,7 @@ def my_bubble_sort(pdata):
     noe = len(data)
     i, j = 0, 0
 
-    print "noe :", noe
+    print("noe :", noe)
     while(i < noe):
         j = i + 1
         while (j < noe):
@@ -18,8 +18,8 @@ def my_bubble_sort(pdata):
         i += 1
 
 
-print ""
-print "Before sorting list is :", data
+print("")
+print("Before sorting list is :", data)
 my_bubble_sort(data)
-print ""
-print "After sorting list is  :", data
+print("")
+print("After sorting list is  :", data)

@@ -1,20 +1,30 @@
 import sys
 
-print sys.argv
-print sys.argv[0]
-print len(sys.argv)
-print "sys type  :", type(sys)
-print "argv type :", type(sys.argv)
+n = 5
+for i in range (1, n+1):
+	print (i), 
 
-for args in sys.argv:
-    print args
+print ""
 
-fd = open(sys.argv[1], "r")
-#fd = open("t.txt", "r")
-list_of_servers = fd.readlines()
+print ("argv       :", sys.argv)
+print ("argv[0]    :", sys.argv[0])
+print ("argv[1]    :", sys.argv[1])
+print ("args count :", len(sys.argv))
 
-print list_of_servers 
+n = int(sys.argv[1])
 
-for server in list_of_servers:
+for i in range (1, n+1):
+	print (i), 
+
+print ("")
+for i, args in enumerate(sys.argv):
+    print ("argv[%d]: %s" % (i, args))
+
+fd = open(sys.argv[2], "r")
+data = fd.readlines()
+print data 
+exit(1)
+
+for server in data:
     print server
 

@@ -2,6 +2,7 @@
 
 from openpyxl import load_workbook
 from openpyxl import Workbook
+
 from openpyxl.chart import (
     Reference,
     Series,

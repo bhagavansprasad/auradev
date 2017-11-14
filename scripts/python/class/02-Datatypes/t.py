@@ -6,7 +6,7 @@ myobject = [
     }
     ]
 
-print myobject
-print myobject[0]
-print myobject[0]["Id"]
-print myobject[0]["Id"][:13]
+print(myobject)
+print(myobject[0])
+print(myobject[0]["Id"])
+print(myobject[0]["Id"][:13])

@@ -1,6 +1,6 @@
 
 def factorial(n):
-    print "n :", n
+    print("n :", n)
     
     f = 1
     for i in range(1, n+1):
@@ -9,4 +9,4 @@ def factorial(n):
 
 n = 5
 t = factorial(n)
-print t
+print(t)

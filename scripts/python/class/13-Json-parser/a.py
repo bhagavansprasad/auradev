@@ -170,8 +170,8 @@ json_list = [
 #print json_list[0]
 #print type(json_list[0])
 
-print "CONTAINER ID        IMAGE                             COMMAND CREATED             STATUS                      PORTS      NAMES"
-print "%-19s %-33s %-20s" %  (json_list[0]["Id"][0:12], json_list[0]["Config"]["Image"], json_list[0]["State"]["StartedAt"])
+print("CONTAINER ID        IMAGE                             COMMAND CREATED             STATUS                      PORTS      NAMES")
+print("%-19s %-33s %-20s" %  (json_list[0]["Id"][0:12], json_list[0]["Config"]["Image"], json_list[0]["State"]["StartedAt"]))
 
 #print json_list[0]["Id"]
 #print json_list[0]["Id"][0:12]

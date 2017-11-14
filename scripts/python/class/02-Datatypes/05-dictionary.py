@@ -52,57 +52,50 @@ atomic_elements = {
 	"N": "nitrogen"
 }
 
-print atomic_elements
-print atomic_elements["C"]
-print atomic_elements["O"]
-print  ""
+print(atomic_elements)
+print(atomic_elements["C"])
+print(atomic_elements["O"])
+print("")
 
-print "O" in atomic_elements, "U" in atomic_elements
-print "o" in atomic_elements
+print("O" in atomic_elements, "U" in atomic_elements)
+print("o" in atomic_elements)
 
 if ("O" in atomic_elements):
-    print "Symbol is available"
-    print atomic_elements["O"]
+    print("'O' Symbol is available")
+    print(atomic_elements["O"])
 
 if ("U" in atomic_elements):
-    print "Symbol is available"
+    print("'U' Symbol is available")
 else:
-    print "Symbol is NOT available"
+    print("'U' Symbol is NOT available")
 
-print "oxygen" in atomic_elements
+print("oxygen" in atomic_elements)
 
-print atomic_elements.get("P", "The item 'P' Not available")
-print atomic_elements.get("c", "Not available")
-atomic_elements.update( {"P": "Phosphorous", "S": "sulfur"} )
-print atomic_elements
+print(atomic_elements.get("P", "The item 'P' Not available"))
+print(atomic_elements.get("c", "The item 'c' Not available"))
+atomic_elements.update( {"P": "Phosphorous", "S": "Sulfur"} )
+print(atomic_elements)
 del atomic_elements['C']
-print atomic_elements
-#print atomic_elements["C"]
+print(atomic_elements)
+#print (atomic_elements["C"])
 
-print atomic_elements.keys()
-print atomic_elements.values()
-print atomic_elements.values()[0]
-print atomic_elements.items()
-print atomic_elements.items()[0]
+print(list(atomic_elements.keys()))
+print(list(atomic_elements.values()))
+print(list(atomic_elements.values())[0])
+print(list(atomic_elements.items()))
+print(list(atomic_elements.items())[0])
 
-print ""
-
+print("")
 dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First', 'phone': ['9902000000', '900000000']}
-print "dict['Name']: ",  dict['Name']
-print "dict['Age']: ",   dict['Age']
-print "dict['Class']: ", dict['Class']
-print "dict['phone']: ", dict['phone']
-print "dict['phone']: ", dict['phone'][1]
-print "dict['phone']: ", dict['phone'][0][0]
+print("dict['Name']: ",  dict['Name'])
+print("dict['Age']: ",   dict['Age'])
+print("dict['Class']: ", dict['Class'])
+print("dict['phone']: ", dict['phone'])
+print("dict['phone']: ", dict['phone'][1])
+print("dict['phone']: ", dict['phone'][0][0])
 
-print "dict['Age']  : ", type(dict['Age'])
-print "dict['Class']: ", type(dict['Class'])
-print "dict['phone']: ", type(dict['phone'])
-print "dict['phone']: ", type(dict['phone'][0])
-print "dict['phone']: ", type(dict['phone'][0][0])
-
-print type(dict)
-print dir(dict)
+print(type(dict))
+print(dir(dict))
 
 atomic_number_to_name = {
     1: "hydrogen",
@@ -111,16 +104,16 @@ atomic_number_to_name = {
     8: "oxygen",
 }
 
-print atomic_number_to_name
-print atomic_number_to_name[1]
-print atomic_number_to_name[8]
+print(atomic_number_to_name)
+print(atomic_number_to_name[1])
+print(atomic_number_to_name[8])
 
 nobel_prize_winners = {
     (1979, "physics"): ["Glashow", "Salam", "Weinberg"],
     (1962, "chemistry"): ["Hodgkin"],
     (1984, "biology"): ["McClintock"],
 }
-print nobel_prize_winners[(1979, "physics")]
+print(nobel_prize_winners[(1979, "physics")])
 
 states = {
     'Andhra Pradesh': 'AP',
@@ -139,72 +132,71 @@ cities = {
     'KA': 'Benguluru'
 }
 
-print states
-print cities
+print(states)
+print(cities)
 
 states['Odisha'] = 'OR'
-print states
+print(states)
 
 cities['OR'] = 'Bhuvaneswar'
 cities['GJ'] = 'Ahemadabad'
 
-print states
-print cities
+print(states)
+print(cities)
 
+print('-' * 10)
+print("MH State has: ", cities['MH'])
+print("OR State has: ", cities['OR'])
 
-print '-' * 10
-print "MH State has: ", cities['MH']
-print "OR State has: ", cities['OR']
-
-print '-' * 10
-print "Karnataka's abbreviation is   : ", states['Karnataka']
-print "Maharashtra's abbreviation is : ", states['Maharashtra']
-print "Maharashtra's abbreviation is : ", states['Andhra Pradesh']
+print('-' * 10)
+print("Karnataka's abbreviation is   : ", states['Karnataka'])
+print("Maharashtra's abbreviation is : ", states['Maharashtra'])
+print("Maharashtra's abbreviation is : ", states['Andhra Pradesh'])
 
 # do it by using the state then cities dict
-print '-' * 10
-print "Maharashtra has: ", cities[states['Maharashtra']]
-print "Gurarath has: ",    cities[states['Gujarath']]
+print('-' * 10)
+print("Maharashtra has: ", cities[states['Maharashtra']])
+print("Gurarath has: ",    cities[states['Gujarath']])
 
-print '-' * 10
-for state, abbrev in states.items():
-    print "'%-15s' is abbreviated '%s'" % (state, abbrev)
+print('-' * 10)
+for state, abbrev in list(states.items()):
+    print("'%-15s' is abbreviated '%s'" % (state, abbrev))
 
 # print every city in state
-print '-' * 10
-for abbrev, city in cities.items():
-    print "'%s' has the city '%s'" % (abbrev, city)
+print('-' * 10)
+for abbrev, city in list(cities.items()):
+    print("'%s' has the city '%s'" % (abbrev, city))
 
 # now do both at the same time
-print '-' * 10
-for state, abbrev in states.items():
-    print "'%-15s' state is abbreviated '%s' and has city '%s'" % (state, abbrev, cities[abbrev])
+print('-' * 10)
+for state, abbrev in list(states.items()):
+    print("'%-15s' state is abbreviated '%s' and has city '%s'" % (state, abbrev, cities[abbrev]))
 
-print '-' * 10
+print('-' * 10)
 # safely get a abbreviation by state that might not be there
 state = states.get('Kerala')
-#print states['Kerala']
-print state
-
+print(state)
 if not state:
-    print "Sorry, no Kerala."
+    print("Sorry, no Kerala.")
+
+#print (states['Kerala'])
 
 # get a city with a default value
 city = cities.get('KR', 'Does Not Exist')
-print "The city for the state 'KR' is: %s" % city
+print("The city for the state 'KR' is: %s" % city)
 
-print type(city)
+print(type(city))
 
 my_dict = {'Name': 'Aura', 'Age': 5, 'Location': 'Bangalore'}
-print my_dict
+print(my_dict)
 my_dict.clear();   
-print my_dict
+print(my_dict)
 
 del my_dict ;     
-#print my_dict
+#print (my_dict)
 
 # empty dictionary
 my_dict = {}
-print my_dict
-
+print(my_dict)
 exit(1)
+

@@ -6,7 +6,7 @@ toaddrs  = "bhagavan@foreman.auradev.com"
 subject  = "Demo of email sending"
 
 header = ("From: %s\r\nTo: %s\r\nSubject:%s\r\n\r\n" % (fromaddr, toaddrs, subject))
-data = "This is a mail from me, with information about sending email from pythong script"
+data = "This is a mail from me, with information about sending email from python script"
 
 print "header  :", header
 print "data :", data
