@@ -35,3 +35,14 @@ Copy sources/default to  /etc/nginx/sites-available
 Create soft link to /etc/nginx/sites-available/default in /etc/nginx/sites-enabled
 Create /usr/share/nginx/html/cgi-bin folder
 Copy env.cgi file to /usr/share/nginx/html/cgi-bin folder
+
+
+-Setting-up nginx server to call a python script, as native application
+- Copy default file to  /etc/nginx/sites-available/
+cp source-files/sites-available/default /etc/nginx/sites-available/default
+
+- Create a folder "cgi-bin" in  "/usr/share/nginx/html/"
+mkdir -p /usr/share/nginx/html/cgi-bin
+
+- Copy env.cgi to "cgi-bin"
+cp source-files/cgi-bin/env.cgi /usr/share/nginx/html/cgi-bin
