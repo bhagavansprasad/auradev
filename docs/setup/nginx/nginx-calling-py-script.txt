@@ -28,7 +28,6 @@ Steps to write in Dockerfile
 - From shell 
   curl http://127.0.0.1/cgi-bin/env.cgi
 
-
 Create folder /etc/nginx/sites-available
 Create folder /etc/nginx/sites-enabled
 Copy sources/default to  /etc/nginx/sites-available
@@ -38,6 +37,10 @@ Copy env.cgi file to /usr/share/nginx/html/cgi-bin folder
 
 
 -Setting-up nginx server to call a python script, as native application
+
+- Install required packages
+sudo apt-get install nginx fcgiwrap python-fcgi libfcgi0ldbl 
+
 - Copy default file to  /etc/nginx/sites-available/
 cp source-files/sites-available/default /etc/nginx/sites-available/default
 
