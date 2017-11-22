@@ -1,25 +1,25 @@
 import json
  
-json_input = { "Birds": "Parrot", "Animals":  { "Wild": [ {"Lion":"Asian"},{"Tiger":"BengalTiger"} ] } }
-print((type(json_input)))
-print((json_input["Birds"]))
+json_obj = { "Birds": "Parrot", "Animals":  { "Wild": [ {"Lion":"Asian"},{"Tiger":"BengalTiger"} ] } }
+print(type(json_obj))
 
-json_input = '{ "Birds": "Parrot", "Animals":  { "Wild": [ {"Lion":"Asian"},{"Tiger":"BengalTiger"} ] } }'
-#print (type(json_input))
+print((json_obj["Birds"]))
 
+json_str = '{ "Birds": "Parrot", "Animals":  { "Wild": [ {"Lion":"Asian"},{"Tiger":"BengalTiger"} ] } }'
+print (type(json_obj))
 
 try:
-    decoded = json.loads(json_input)
-
-    print((type(decoded)))
+	njson_obj = json.loads(json_str)
+	print((type(njson_obj)))
+	exit(1)
  
-    # pretty printing of json-formatted string
-    print((json.dumps(decoded, sort_keys=True, indent=4)))
-    print(("JSON parsing example        :", decoded['Animals']))
-    print(("Complex JSON parsing example:", decoded['Animals']['Wild']))
-    print(("Complex JSON parsing example:", decoded['Animals']['Wild'][0]))
-    print(("Complex JSON parsing example:", decoded['Animals']['Wild'][0]['Lion']))
-    exit(1)
+	# pretty printing of json-formatted string
+	print((json.dumps(njson_obj, sort_keys=True, indent=4)))
+
+	print(("njson_obj['Animals']                      :", njson_obj['Animals']))
+	print(("njson_obj['Animals']['Wild']              :", njson_obj['Animals']['Wild']))
+	print(("njson_obj['Animals']['Wild'][0]           :", njson_obj['Animals']['Wild'][0]))
+	print(("njson_obj['Animals']['Wild'][0]['Lion']   :", njson_obj['Animals']['Wild'][0]['Lion']))
  
 except (ValueError, KeyError, TypeError):
     print ("JSON format error")

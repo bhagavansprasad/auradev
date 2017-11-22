@@ -1,6 +1,18 @@
 from operator import add
 from functools import reduce
 
+def import_modules_dynamically():
+	moduleNames = ['sys', 'os', 're', 'unittest']
+	print(moduleNames)
+	modules = map(__import__, moduleNames) 
+
+	i = 0
+	while (i < len(moduleNames)):
+		print (modules[i])
+		i = i + 1
+	return
+
+
 def is_prime(num):
     i = 2
     flag = 1
@@ -30,7 +42,8 @@ def main():
     #Normal way of finding primes from a list
     for i in items:
         if (is_prime(i)):
-            print((i), end=' ')
+            #print((i), end=' ')
+			print("")
 
     print ("")
 
@@ -53,6 +66,8 @@ def main():
 
     lfun = lambda a, b: a if (a > b) else b
     print((reduce(lfun, [47, 11, 42, 102, 13])))
+
+    import_modules_dynamically()
 
     exit(1)
 if __name__ == '__main__':

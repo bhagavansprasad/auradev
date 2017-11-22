@@ -2,7 +2,7 @@ def dump_object_help(obj):
 	for member in dir(obj):
 		print("print \"%-20s :\", obj.%s" %  (member, member))
 
-	        '''
+		'''
 		if (member.find("_") == -1):
 			print member
 			#print dir(member.__doc__)
@@ -10,3 +10,9 @@ def dump_object_help(obj):
 			#hobj = "obj.%s" % (member)
 			help(print "obj.%s" % (member))
 		'''
+
+def dump_members(obj):
+	for member in dir(obj):
+		#print("print \"%-20s :\", obj.%s" %  (member, member))
+		if (member.find("_") == -1):
+			print ("\t%s" % (member))

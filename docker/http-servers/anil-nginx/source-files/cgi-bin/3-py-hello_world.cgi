@@ -4,10 +4,10 @@
 import cgi
 import cgitb; cgitb.enable()  # for troubleshooting
 
-print "Content-type: text/html"
+print ("Content-type: text/html")
 print
 
-print """
+print ("""
 <html>
 
 <head><title>Sample CGI Script</title></head>
@@ -15,12 +15,12 @@ print """
 <body>
 
   <h3> Sample CGI Script </h3>
-"""
+""")
 
 form = cgi.FieldStorage()
 message = form.getvalue("message", "(no message)")
 
-print """
+print ("""
 
   <p>Previous message: %s</p>
 
@@ -33,4 +33,4 @@ print """
 </body>
 
 </html>
-""" % cgi.escape(message)
+""" % cgi.escape(message))

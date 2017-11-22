@@ -1,32 +1,32 @@
 #!/usr/bin/env python
-import httplib
-import urlparse
+import http.client
+import urllib.parse
 
-conn = httplib.HTTPConnection("www.python.org")
+conn = http.client.HTTPConnection("www.python.org")
 conn.request("GET", "/index.html")
 response = conn.getresponse()
-print response.status, response.reason
+print(response.status, response.reason)
 data = response.read()
-print data
-
+print(data)
 
 message = response.msg
 #print "response.url :", response.url
-print "getheaders :", response.getheaders
-print "msg        :", response.msg
-print "Location   :", response.msg['Location']
-print "Connection :", message['Connection']
+print("getheaders :", response.getheaders)
+print("msg        :", response.msg)
+print("Location   :", response.msg['Location'])
+print("Connection :", message['Connection'])
 
-scheme, netloc, path, query, fragment = urlparse.urlsplit(response.msg['Location'])
-print "scheme :", scheme
-print "netloc :", netloc
-print "path   :", path
-print "query  :", query
-print "fragment :", fragment
+scheme, netloc, path, query, fragment = urllib.parse.urlsplit(response.msg['Location'])
+print("scheme :", scheme)
+print("netloc :", netloc)
+print("path   :", path)
+print("query  :", query)
+print("fragment :", fragment)
 
 conn.close()
+exit(1)
 
-print "================="
+print("=================")
 '''
 '''
 '''

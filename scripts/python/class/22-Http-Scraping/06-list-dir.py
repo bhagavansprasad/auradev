@@ -6,15 +6,15 @@ def get_files_by_file_size(dirname, reverse=False):
     # Get list of files
     filepaths = []
     for basename in os.listdir(dirname):
-        print "basename :", basename
+        print("basename :", basename)
         filename = os.path.join(dirname, basename)
         if os.path.isfile(filename):
             filepaths.append(filename)
 
     # Re-populate list with filename, size tuples
-    for i in xrange(len(filepaths)):
+    for i in range(len(filepaths)):
         filepaths[i] = (filepaths[i], os.path.getsize(filepaths[i]))
-        print filepaths[i]
+        print(filepaths[i])
 
     # Sort list by file size
     # If reverse=True sort from largest to smallest
@@ -22,7 +22,7 @@ def get_files_by_file_size(dirname, reverse=False):
     filepaths.sort(key=lambda filename: filename[1], reverse=reverse)
 
     # Re-populate list with just filenames
-    for i in xrange(len(filepaths)):
+    for i in range(len(filepaths)):
         filepaths[i] = filepaths[i][0]
 
     return filepaths

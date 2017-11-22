@@ -1,4 +1,4 @@
-myobject = [
+json_list = [
     {
         "Id": "0b8dccc201b0be71d47ede92cb9e1801069f9e0b39505a7c6a32cabf7ada633a",
         "Created": "2016-12-29T10:30:07.119045211Z",
@@ -186,15 +186,32 @@ myobject = [
 #print (myobject)
 #print (myobject[0])
 
-print((myobject[0]['Id']))
-print((myobject[0]['Id'][0:12]))
-print((myobject[0]['Config']))
-print((myobject[0]['Config']['Image']))
-exit(1)
-print((myobject[0]['State']))
-print((myobject[0]['State']['Status']))
-print((myobject[0]['Created']))
-print((myobject[0]['Args']))
-exit(1)
+def dump_container_desc_debug(myobject):
+	print(myobject[0]['Id'])
+	print((myobject[0]['Id'][0:12]))
+	print((myobject[0]['Config']))
+	print((myobject[0]['Config']['Image']))
+	print((myobject[0]['State']))
+	print((myobject[0]['State']['Status']))
+	print((myobject[0]['Created']))
+	print((myobject[0]['Args']))
+	print((myobject[0]['Config']['Cmd']))
 
+def dump_container_desc(myobject):
+	print((myobject[0]['Id'][0:12]))
+	print((myobject[0]['Config']['Image']))
+	print((myobject[0]['State']['Status']))
+	print((myobject[0]['Created']))
+	print((myobject[0]['Config']['Cmd']))
+
+
+def main(myobject):
+	#dump_container_desc_debug(myobject)
+	expe_output = """0b8dccc201b0        myhttpv1            "nginx -g 'daemon off"   5 weeks ago         Exited (0) 5 weeks ago myhttpv1"""
+	print (expe_output)
+	dump_container_desc(myobject)
+
+if (__name__ == "__main__"):
+	main(json_list)
+	
 

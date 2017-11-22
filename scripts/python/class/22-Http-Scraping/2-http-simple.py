@@ -1,30 +1,30 @@
 #!/usr/bin/env python
-import httplib
-import urlparse
+import http.client
+import urllib.parse
 
 
 def my_http_request(url):
     """Get the Content-Type of the given url, using a HEAD request"""
-    scheme, server, path, query, fragment = urlparse.urlsplit(url)
-    print "scheme :", scheme
-    print "server :", server
-    print "path   :", path
-    print "query  :", query
-    print "fragment :", fragment
+    scheme, server, path, query, fragment = urllib.parse.urlsplit(url)
+    print("scheme :", scheme)
+    print("server :", server)
+    print("path   :", path)
+    print("query  :", query)
+    print("fragment :", fragment)
 
     if scheme == 'http':
-        ConnClass = httplib.HTTPConnection
+        ConnClass = http.client.HTTPConnection
     elif scheme == 'https':
-        ConnClass = httplib.HTTPSConnection
+        ConnClass = http.client.HTTPSConnection
     else:
-        print 'Invalid connection type :', scheme
+        print('Invalid connection type :', scheme)
         return ' '
 
     conn = ConnClass(server)
     try:
         conn.request('GET', path, headers={'Host': server})
         response = conn.getresponse()
-        print response.status, response.reason
+        print(response.status, response.reason)
 
         return response.getheader('Content-Type') or ''
     finally:
@@ -34,12 +34,12 @@ def my_http_request(url):
 url = "http://www.python.org/index.html"
 response = my_http_request(url)
 data = response.read()
-print data
+print(data)
 message = response.msg
-print message
+print(message)
 
 if response.status != 200:
-    print "Error response", response.status, response.reason
+    print("Error response", response.status, response.reason)
 
 
 

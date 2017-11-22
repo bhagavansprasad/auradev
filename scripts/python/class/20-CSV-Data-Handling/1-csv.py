@@ -15,17 +15,20 @@ except IOError as e:
 
 data_list = []
 
-reader = csv.reader(fd)
+fdata = csv.reader(fd)
 
-print ("reader type :", type(reader))
-print (next(reader))
-print (next(reader))
+print ("fdata type :", type(fdata))
+#print (next(fdata))
+#print (next(fdata))
 '''
 '''
+print ("")
 
-for row in reader:
+for row in fdata:
     print (row)
     data_list.append(row)
+
+print ("")
 
 print (data_list)
 
@@ -34,8 +37,8 @@ for row in data_list:
     print (row)
 
 print ("-" * 20)
-print (data_list[0])
-print (data_list[1])
+print ("data_list[0] :", data_list[0])
+print ("data_list[1] :", data_list[1])
 
 print (data_list[0][0])
 print (data_list[1][0])

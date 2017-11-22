@@ -21,6 +21,25 @@ void error(char *msg)
 	exit(1);
 }
 
+int atoupper(char *buf)
+{
+	int i = 0;
+
+	for (i=0; buf[i] != '\0'; i++)
+	{
+		if (buf[i] >= 97 && buf[i] <= 122)
+		{
+			buf[i] = buf[i] - 32;
+		}
+		else 
+		{
+			buf[i] = buf[i];
+		}
+	}
+	buf[i] = '\n';
+	buf[i+1] = '\0';
+}
+
 int main(int argc, char **argv) 
 {
 	int parentfd;
@@ -122,6 +141,8 @@ int main(int argc, char **argv)
 
 		printf("    |writing\n");
 		printf("    |    [");
+
+		atoupper(buf);
 		fflush(stdout);
 		n = write(childfd, buf, strlen(buf));
 		if (n < 0)

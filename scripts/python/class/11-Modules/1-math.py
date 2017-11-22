@@ -11,11 +11,15 @@ def is_prime(n):
     else:
         return 0
 
-n = 7
-if (is_prime(n)):
-    print n, "Prime"
-else:
-    print n, "NOT Prime"
+def main():
+	n = 29
+	if (is_prime(n) == 1):
+		print ("%d is %s" % (n, "Prime"))
+	else:
+		print ("%d is %s" % (n, "NOT Prime"))
+
+if (__name__ == "__main__"):
+	main()
 
 
 

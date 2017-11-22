@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import httplib
-import urlparse
+import http.client
+import urllib.parse
 
 '''
 def get_redirected_url(data):
@@ -15,87 +15,80 @@ def get_redirected_url(data):
 '''
 
 def get_redirected_url(data):
-    rurl  = ""
-    sp = data.find('src="http') 
-    if ( sp > 0):
-        return data[sp:data.find(' ', sp)].lstrip('src="').rstrip('"')
+	rurl  = ""
 
-    return rurl
+	print(type(data))
+	data = data.decode()
+	print(type(data))
+
+	sp = data.find('src="http') 
+	if ( sp > 0):
+		rurl = data[sp :data.find(' ', sp)].lstrip('src="').rstrip('"')
+
+	return rurl
 
 def send_http_request(url):
-    scheme, server, path, query, fragment = urlparse.urlsplit(url)
+	scheme, server, path, query, fragment = urllib.parse.urlsplit(url)
 
-    print "scheme :", scheme
-    print "server :", server
-    print "path   :", path
-    print "query  :", query
-    print "fragment :", fragment
+	print("scheme :", scheme)
+	print("server :", server)
+	print("path   :", path)
+	print("query  :", query)
+	print("fragment :", fragment)
     
-    if scheme == 'http':
-        ConnClass = httplib.HTTPConnection
-    elif scheme == 'https':
-        ConnClass = httplib.HTTPSConnection
-    else:
-         print 'scheme error'
-         exit(1)
+	if scheme == 'http':
+		ConnClass = http.client.HTTPConnection
+	elif scheme == 'https':
+		ConnClass = http.client.HTTPSConnection
+	else:
+		print('scheme error')
 
-    conn = ConnClass(server)
-    try:
-        conn.request('GET', path, headers={'Host': server})
-        response = conn.getresponse()
-        ''' 
-        print "resp, status :", response.status
-        print "resp  reason :", response.reason
-        print "msg          :", response.msg
-        ''' 
-        if response.status != 200:
-            print "error in status"
+	conn = ConnClass(server)
+	try:
+		conn.request('GET', path, headers={'Host': server})
+		response = conn.getresponse()
 
-        data = response.read()
+		print ("resp, status :", response.status)
+		print ("resp  reason :", response.reason)
+		print ("msg          :", response.msg)
 
-        return (response, response.status, data)
+		if response.status != 200:
+			print("error in status")
 
-    finally:
-        conn.close()
+		data = response.read()
 
-url = "http://www.airtel.in/smartbyte-s/page.html"
-(response, retcode, data) = send_http_request(url)
-print "resp, status :", response.status
-print "resp  reason :", response.reason
-print "retcode      :", retcode
+		return (response, response.status, data)
 
-if (retcode == 200):
-    print "msg          :", response.msg
-else:
-    print "Error in request"
+	finally:
+		conn.close()
 
-print "------------"
-print data
-print "------------"
+def main():
+	url = "http://www.airtel.in/smartbyte-s/page.html"
+	(response, retcode, data) = send_http_request(url)
+	print("resp, status :", response.status)
+	print("resp  reason :", response.reason)
+	print("retcode      :", retcode)
 
-rurl = get_redirected_url(data)
-(response, retcode, data) = send_http_request(rurl)
-print "resp, status :", response.status
-print "resp  reason :", response.reason
-print "retcode      :", retcode
+	if (retcode == 200):
+		print("msg          :", response.msg)
+	else:
+		print("Error in request")
+		exit(1)
 
-print "============="
-print data
-print "============="
+	print("------------")
+	print(data)
+	print("------------")
 
-exit(1)
+	rurl = get_redirected_url(data)
+	print (rurl)
+	(response, retcode, data) = send_http_request(rurl)
+	print("resp, status :", response.status)
+	print("resp  reason :", response.reason)
+	print("retcode      :", retcode)
 
-conn = httplib.HTTPConnection("www.airtel.in")
-conn.request("GET", "/smartbyte-/page.html")
-response = conn.getresponse()
-print response.status, response.reason
-data = response.read()
-print data
+	print("=============")
+	print(data)
+	print("=============")
 
-message = response.msg
-#print "response.url :", response.url
-print "getheaders :", response.getheaders
-print "msg        :", response.msg
-#print "Location   :", response.msg['Location']
-print "Connection :",  message['Connection']
-
+if (__name__ == "__main__"):
+	main()

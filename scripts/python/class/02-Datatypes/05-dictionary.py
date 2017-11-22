@@ -19,8 +19,7 @@
 '''
 
 '''
-student_data = {
-  student[
+  student = [
             {
             "name":"aura",
             "class":5,
@@ -37,7 +36,6 @@ student_data = {
                 ]
             },
             ]
-        }
 '''
 
 #json
@@ -70,7 +68,6 @@ else:
     print("'U' Symbol is NOT available")
 
 print("oxygen" in atomic_elements)
-
 print(atomic_elements.get("P", "The item 'P' Not available"))
 print(atomic_elements.get("c", "The item 'c' Not available"))
 atomic_elements.update( {"P": "Phosphorous", "S": "Sulfur"} )
@@ -82,6 +79,7 @@ print(atomic_elements)
 print(list(atomic_elements.keys()))
 print(list(atomic_elements.values()))
 print(list(atomic_elements.values())[0])
+
 print(list(atomic_elements.items()))
 print(list(atomic_elements.items())[0])
 
@@ -114,6 +112,7 @@ nobel_prize_winners = {
     (1984, "biology"): ["McClintock"],
 }
 print(nobel_prize_winners[(1979, "physics")])
+exit(1)
 
 states = {
     'Andhra Pradesh': 'AP',
