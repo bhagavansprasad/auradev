@@ -1,0 +1,2 @@
+FCGI_SOCKET_GROUP="nginx"
+umask 0007

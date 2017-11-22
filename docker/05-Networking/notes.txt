@@ -1,0 +1,38 @@
+- Docker Networking - Default
+http://www.dasblinkenlichten.com/docker-networking-101/
+	
+- Observe IP Tables
+docker run -it --rm busybox
+sudo iptables -t nat -L -n
+
+- Observe IP Tables
+docker run -it –rm –p 8080:80 busybox
+sudo iptables -t nat -L -n
+
+
+- Linking two containers
+docker run -it --name bb1 -p 8888:9999  busybox
+bb1# ping bb2
+bb1# printenv
+
+docker run -it --name bb2 --link bb1 busybox
+docker run -it --name bb2 --link bb1:bb1 busybox
+bb2# ping bb1
+bb2# printenv
+
+docker rm bb1 bb2
+
+- Creating new bridge
+docker network create mynetwork
+docker run -it --name bb1 -p 8888:9999  busybox
+docker run -it --name bb2 --link bb1 --network mynetwork busybox
+
+
+
+docker network connect my-bridge-network web
+docker network connect my-bridge-network db
+
+- Attach & dettach from network bridge
+docker network disconnect mynetwork bb2
+
+

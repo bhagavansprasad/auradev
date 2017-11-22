@@ -1,0 +1,38 @@
+= Configuring the AWS CLI
+
+= Security groups
+- List configuration values
+aws configure
+
+- Create security group
+aws ec2 create-security-group --group-name bhagavan-first-sg --description "My security group"
+
+- List all security groups
+aws ec2 describe-security-groups
+
+- Delete security groups
+aws ec2 delete-security-group --group-name bhagavan-first-sg
+aws ec2 delete-security-group --group-id sg-6038121b
+
+- Add a rule that allows incoming traffic over port 22 for SSH
+aws ec2 authorize-security-group-ingress --group-name bhagavan-first-sg --protocol tcp --port 22 --cidr 0.0.0.0/0
+
+= Using Key Pairs
+- Creating a Key Pair
+aws ec2 create-key-pair --key-name MyKeyPair --query 'KeyMaterial' --output text > MyKeyPair.pem
+
+- List all kesy
+aws ec3  describe-key-pairs
+
+= Launch and Connect to the Instance
+- Creating new ec2 instance
+aws ec2 run-instances --image-id ami-29ebb519 --security-group-ids sg-630f2518 --count 1 --instance-type t2.micro --key-name my_demo_key 
+
+- Listing all instances
+aws ec2 describe-instances
+aws ec2 describe-instances --instance-ids i-059589ea2e207f066
+aws ec2 describe-instances --instance-ids i-059589ea2e207f066 --query 'Reservations[0].Instances[0].PublicIpAddress'
+aws ec2 describe-instances --filters "Name=instance-type,Values=m1.small"
+aws ec2 describe-instances  --query  'Reservations[0].Instances[0].State'
+
+aws ec2 describe-instances --instance-ids i-ec3e1e2k

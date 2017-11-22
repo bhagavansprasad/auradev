@@ -1,0 +1,11 @@
+docker swarm init --advertise-addr 192.168.99.101
+docker swarm join \
+    --token SWMTKN-1-5yn9eyxpy4ot7u69np2ovsjcyy8vxgw3rougm5cpgxmpf5dn1m-5ks82o1txv5oy3n8zamv8scnr \
+    192.168.99.101:2377
+
+
+docker swarm join --token SWMTKN-1-4xc2js9m3sjf784wbm08c5lf869lqupm9e0vf3f30a4t5sf6cm-cpjqmlnuy0tip4ju6xzofjrcq 122.172.17.182:2377
+
+docker service create --name http --replicas 1 -p 90:80  katacoda/docker-http-server
+docker service create --name http --replicas 10 -p 80:80  katacoda/docker-http-server
+
