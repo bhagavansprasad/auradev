@@ -1,0 +1,57 @@
+heat_template_version: 2013-05-23
+
+description: Demo template to create and attach security group to an instance.
+
+resources:
+  demo-security-group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      name: demo-sec
+      description: Demo security groups
+      rules:
+        - remote_ip_prefix: 0.0.0.0/0
+          protocol: icmp
+        - remote_ip_prefix: 0.0.0.0/0
+          protocol: icmp
+          direction: egress
+        - remote_ip_prefix: 0.0.0.0/0
+          protocol: tcp
+          direction: ingress
+          ethertype:  IPv4
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 0.0.0.0/0
+          protocol: tcp
+          direction: egress
+          port_range_min: 1
+          ethertype:  IPv4
+          port_range_max: 65535
+        - remote_ip_prefix: 0.0.0.0/0
+          protocol: udp
+          direction: ingress
+          ethertype:  IPv4
+          port_range_min: 1
+          port_range_max: 65535
+        - remote_ip_prefix: 0.0.0.0/0
+          protocol: udp
+          direction: egress
+          ethertype:  IPv4
+          port_range_min: 1
+          port_range_max: 65535
+
+  demo-network:
+    type: OS::Neutron::Port
+    properties:
+      network_id: 61b5dca2-befd-4ca3-bc01-7706c3aa9fb2
+      security_groups: 
+        - { get_resource: demo-security-group }
+
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      name: test_instance_with_security
+      image: centoswithroot
+      key_name: ashwa
+      flavor: m1.small
+      networks:
+        - port: { get_resource: demo-network } 

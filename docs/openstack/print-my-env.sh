@@ -1,0 +1,14 @@
+echo "OS_PROJECT_NAME        -->"$OS_PROJECT_NAME
+echo "OS_TENANT_NAME         -->"$OS_TENANT_NAME
+echo "OS_USERNAME            -->"$OS_USERNAME
+echo "OS_AUTH_STRATEGY       -->"$OS_AUTH_STRATEGY
+echo "OS_PASSWORD            -->"$OS_PASSWORD
+echo "OS_NO_CACHE            -->"$OS_NO_CACHE
+echo "OS_REGION_NAME         -->"$OS_REGION_NAME
+echo "OS_IDENTITY_API_VERSION-->"$OS_IDENTITY_API_VERSION
+echo "OS_AUTH_URL            -->"$OS_AUTH_URL
+echo "OS_USER_DOMAIN_ID      -->"$OS_USER_DOMAIN_ID
+echo "OS_PROJECT_DOMAIN_ID   -->"$OS_PROJECT_DOMAIN_ID
+echo "OS_CACERT              -->"$OS_CACERT
+echo "CINDER_VERSION         -->"$CINDER_VERSION
+echo "OS_VOLUME_API_VERSION  -->"$OS_VOLUME_API_VERSION

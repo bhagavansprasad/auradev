@@ -1,0 +1,269 @@
+-> What is meant by a function ?
+-> what are the different types of functions?
+-> what is the difference between call by value and call by reference ?
+-> why fucntions are required ?
+-> what is a prototype and why is it required ?
+-> what are function parameters & why do we need them ?
+-> How to read a function orally?
+-> What is a function pointer ?
+-> list out the differences b/w call by value and call by reference ?
+-> what is meant by recurssive function and reentrent function ?
+-> list out the differences between them ?
+-> what is an inline function ?
+-> what is diffrence b/w inline function and a macro ?
+
+/* Detail Explanation of Functions */
+
+Function:
+	A function in C language is a block of code that performs a specific task. It has a name and it is reusable i.e. it
+	can be executed from as many different parts in a C Program as required. It also optionally returns a value to the 
+	calling program
+
+	So function in a C program has some properties discussed below:
+
+    i)	Every function has a unique name. This name is used to call function from “main()” function. A function can be 
+		called from within another function.
+
+   ii)	A function is independent and it can perform its task without intervention from or interfering with other parts
+   		of the program.
+
+  iii)	A function performs a specific task. A task is a distinct job that your program must perform as a part of its 
+  		overall operation, such as adding two or more integer, sorting an array into numerical order, or calculating 
+		a cube root etc.
+
+   iv)	A function returns a value to the calling program. This is optional and depends upon the task your function is 
+   		going to accomplish. Suppose you want to just show few lines through function then it is not necessary to return
+		a value. But if you are calculating area of rectangle and wanted to use result somewhere in program then you 
+		have to send back (return) value to the calling function.
+
+	v)	C language is collection of various library functions. If you have written a program in C then it is evident 
+		that you have used C’s inbuilt functions. Printf, scanf etc. all are C’s inbuilt functions. You cannot imagine 
+		a C program without function.
+
+	Structure of a Function:
+
+		A general form of a C function looks like this:
+
+		<return type> FunctionName (Argument1, Argument2, Argument3……)
+		{
+			Statement1;
+			Statement2;
+			Statement3;
+		}
+		An example of function.
+
+		int sum (int x, int y)
+		{
+			int result;
+			result = x + y;
+			return (result);
+		}
+	NOTE:	write all the problems given in assignment papers as Functions.
+		
+		You can also write functions which wont take any parameter as input and
+		which wont return any thing.
+		ex:
+			void dump(void)
+			{
+				print ("HI i am in the Dump function \n");
+			}
+	NOTE: 	Just call dump() from any of the function by defining dump function like this it will simply print the 
+			string.
+
+functions are of two types based on the parameters that we pass. They are 
+	1) Call by value(Pass by value).
+	2) Call by reference (Pass by reference).
+
+Call by Value:
+	known as Pass by value, Function will be called with the values and the
+	value will be stored in the local variable of that function. Even though
+	the value is modified inside the function it will not be modified in the
+	calling function.
+ex:
+
+	#include <stdio.h>
+
+	void call_by_value(int x) 
+	{
+		printf("Inside call_by_value x = %d before adding 10.\n", x);
+		x += 10;
+		printf("Inside call_by_value x = %d after adding 10.\n", x);
+	}	
+
+	int main() 
+	{
+		int a=10;
+		printf("a = %d before function call_by_value.\n", a);
+		call_by_value(a);
+		printf("a = %d after function call_by_value.\n", a);
+		return 0;
+	}
+
+The output of this call by value code example will look like this:
+
+	a = 10 before function call_by_value.
+	Inside call_by_value x = 10 before adding 10.
+	Inside call_by_value x = 20 after adding 10.
+	a = 10 after function call_by_value.
+	
+EXP:Here the a value is passed to the function call_by_value will be copied into the variable x and then x will be 
+	modified inside the function. since the variable "x" is local call_by_value function as soon as the function dies 
+	the variable will also die.
+
+	Best example can be given as booking a TAXI. Here only count will be
+	considerd not the actual persons that go in that TAXI.
+
+Call by reference:
+	Also known as Pass by reference. Here a pointer containing the address of the actual variable will be passed as 
+	the reference to a function. After the specific task of that function or as part of the secific function the value
+	at that perticular address will be changed or updated.
+
+	#include <stdio.h>
+
+	void call_by_reference(int *y) 
+	{
+		printf("Inside call_by_reference y = %d before adding 10.\n", *y);
+		(*y) += 10;
+		printf("Inside call_by_reference y = %d after adding 10.\n", *y);
+	}
+
+	int main() 
+	{
+		int b=10;
+	
+		printf("b = %d before function call_by_reference.\n", b);
+		call_by_reference(&b);
+		printf("b = %d after function call_by_reference.\n", b);
+	
+		return 0;
+	}
+
+The output of this call by reference source code example will look like this:
+
+	b = 10 before function call_by_reference.
+	Inside call_by_reference y = 10 before adding 10.
+	Inside call_by_reference y = 20 after adding 10.
+	b = 20 after function call_by_reference.
+
+EXP: "b" is a local variable to main function and the address of the variable is passed to the call_by_reference. 
+	 The function takes the address of the variable and stores it in a pointer variable. Inside the function value is
+	 manipulated at that particular address, so the value modified or updated will be reflected in main function also. 
+
+Note: A function is a combination of both "call by value" and "call by reference". call by reference will be helpfull 
+	  in avoiding the limitaion of retrun value. i.e in c only one variable or value can be returned to the function, 
+	  by using the call by reference we can get as many number of values as you want from calling to called function.
+
+Based on the Function Behaviour the Functions are named i.e
+	1) Recurssive Function.
+	2) Reentrent Function.
+
+Recurssive Function:
+	A function which calls itself is generally known as recursive function, in EMBEDDED Programing this type of 
+	functions are avoided because they take a lot of stack.
+
+ex: main()
+	{
+		printf("going to call Recursive function");
+		Recursive_function(5);
+	}
+	Recursive_function(int i)
+	{
+		printf("i am inside the Recursive function");
+		i--;
+		if(i >= 0)
+			Recursive_function(i);
+		
+		printf("Returned from Recursive function with i value %d",i)
+		return;
+	}
+	Compile and Run the program in debugging mode and make note of your observations.
+
+Reentrent Function:
+	it is also same as Recurssive Function but the function will not be called by itself 
+
+EX:
+	main()
+	{
+		printf("going to call Reentrent Function");
+		Reentrent_function();
+	}
+	Reentrent_function()
+	{
+		printf("inside Reentrent Function calling func()");
+		func();
+	}
+	func()
+	{
+		printf("inside func() calling func2()");
+		func2();
+	}
+	func2()
+	{
+		printf("inside func2() calling Reentrent Function");
+		Reentrent_function();
+	}
+EXP:
+	compile and execute the program in debugging mode you can beter understand the funciton.
+
+Function Pointer:
+
+	i)	The syntax for declaring a function pointer might seem messy at first, but in most cases it's really quite 
+		straight-forward once you understand what's going on. Let's look at a simple example:
+
+		void (*foo)(int);
+
+   ii)	In this example, foo is a pointer to a function taking one argument, an integer, and that returns void. It's 
+   		as if you're declaring a function called "*foo", which takes an int and returns void. Now, if *foo is a function
+		, then foo must be a pointer to a function. (Similarly, a declaration like int *x can be read as *x is an int, 
+		so x must be a pointer to an int.)
+
+  iii)	The key to write the declaration for a function pointer is that you're just writing out the declaration of a 
+  		function but with (*func_name) where you'd normally just put func_name.
+
+Reading Function Pointer Declarations:
+	i)	Sometimes people get confused when more stars are thrown in
+
+		void *(*foo)(int *);
+
+   ii) The above function pointer can be read as
+   		*foo is a function which takes an "int*" as arguments and returns "void*" foo is the pointer to a function.
+
+	#include <stdio.h>
+	
+	void my_int_func(int x)
+	{
+		printf( "%d\n", x );
+	}
+
+	int main()
+	{
+		void (*foo)(int); 		/*declaration of a function pointer*/
+		foo = &my_int_func;		/* assigning the function address to pointer*/
+
+		return 0;
+	}
+
+	calling of a function with function pointer is as shown below
+
+	#include <stdio.h>
+	void my_int_func(int x)
+	{
+		printf( "%d\n", x );
+	}
+
+
+	int main()
+	{
+		void (*foo)(int);
+		foo = &my_int_func;
+		/* call my_int_func (note that you do not need to write (*foo)(2) ) */
+		foo( 2 );
+		/* but if you want to, you may */
+		(*foo)( 2 );
+
+		return 0;
+	}
+
+	NOTE: that function pointer syntax is flexible; it can either look like most other uses of pointers, with & and *, 
+	or you may omit that part of syntax. This is similar to how arrays are treated, where a bare array decays to a 
+	pointer, but you may also prefix the array with & to request its address.

@@ -1,0 +1,20 @@
+Hacking ELF
+===========
+This is a new debugging technique which used to hack/instrument the ELF file in
+order to get the output with more debug messages.  This method is very useful
+when the final image is linked with third party libraries. These libraries can't
+debug as because source code is not available.  Features of this tool is
+
+Hacking Global data - Find the address of a global variable in elf file
+(a.out).  Replace the initial value with different value
+
+Hacking functions - This allows to replace a function with a new 'remap'
+function.  i.e. after hacking, remap_malloc() gets called in place of malloc().
+The new function remap_malloc() is a function implimented by us with
+instrumented code with debugs
+
+This is tested on MIPS and x86 architectures in both protected and non-protected
+modes
+
+
+

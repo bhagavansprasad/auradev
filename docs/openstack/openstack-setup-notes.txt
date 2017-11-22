@@ -1,0 +1,138 @@
+Configuration files
+
+-------------------
+Devstack
+/home/bhagavan/devstack/files/dnsmasq-for-baremetal-from-nova-network.conf
+
+/etc/openstack/clouds.yaml
+
+Is all openstack applications are running?
+	Horizon is now available at http://192.168.1.253/dashboard
+	http://192.168.1.253:5000/v2.0
+	Port rabbitmq should be lisening on port 5672
+	Port should be opened on below ports
+	80 - Apache
+	5673 - rabbitmq server
+	5000 - 
+
+
+Compile devstack
+	$ ./stack.sh
+
+Go to devstack directory
+	$ cd /home/bhagavan/devstack
+
+Set the environment
+	$ sh /home/bhagavan/auradev/docs/openstack/set-my-env.sh
+
+	NOTE: 
+	Check .stackenv values, change if require
+
+Source the environment
+	$ source myopenrc admin admin
+
+Print environment
+	$ sh  print-my-env.sh
+
+openstack CLI commands
+======================
+openstack service list
+
+Openstack CLI Basics
+	https://developer.rackspace.com/blog/openstack-cli-basics/
+
+nova CLI commands
+==================
+	https://github.com/dianaclarke/openstack-notes/wiki/openstack-flavors
+	nova flavor-list
+	nova service-list
+	nova flavor-create "384MB Tiny Instance" 10 384 5 1
+
+Booting images
+	nova boot centos-bhagavan --flavor 2 --image centos7x8664 
+	nova boot centos-bhagavan1 --flavor 2 --image centos7x8664 --fixed-ip 192.168.1.111
+
+Stopping images
+	nova stop centos-bhagavan
+
+Lising running images
+	nova list
+
+Print information about running image 'centos-bhagavan'
+	nova show centos-bhagavan
+
+Print colsole logs
+	nova console-log centos-bhagavan
+
+
+glance CLI commands
+==================
+Listing all images
+	glance image-list
+
+Creatting images
+	glance image-create --name centos7x8664 --file /home/bhagavan/dump/CentOS-7-x86_64-GenericCloud-1503.qcow2.xz --disk-format qcow2 --container-format bare --visibility public --progress
+
+
+Utility commands
+----------------
+nova-manage --version
+nova --version
+tail -f /var/log/{ceilometer,neutron,nova,openvswitch}/*.log /var/log/syslog
+
+Openstack commands
+===================
+openstack flavor list
+openstack network list
+
+Heat commands
+==============
+heat stack-create mystack -f 1_create_instance.yaml
+
+keystone CLI commands
+====================
+Listing users
+	keystone user list
+	keystone --help
+	keystone aggregate create bhagavan
+	keystone aggregate list
+	keystone service list
+
+
+Errors1
+=========
+nova boot centos-bhagavan --flavor 2 --image centos7x8664 --key-name adminKey
+Invalid key_name provided. (HTTP 400) (Request-ID: req-24f73e8e-ffd1-474d-9f0b-23cb77674753)
+
+nova keypair-add --pub_key ~/.ssh/id_rsa.pub mykey
+WARNING: Option "--pub_key" is deprecated; use "--pub-key"; this option will be removed in novaclient 3.3.0.
+ERROR (CommandError): Can't open or read '/home/bhagavan/.ssh/id_rsa.pub': [Errno 2] No such file or directory: u'/home/bhagavan/.ssh/id_rsa.pub'
+
+ssh-keygen
+
+Errors2
+=========
+$ heat stack-create mystack -f 1_create_instance.yaml    
+publicURL endpoint for orchestration service in RegionOne region not found
+
+fix - Create a service account
+------------------------------
+Link: https://ask.openstack.org/en/question/53132/public-endpoint-for-orchestration-service-in-regionone-region-not-found/
+
+keystone service list
+keystone service create  --name=heat  --description="Orchestration" orchestration
+keystone endpoint create  --publicurl http://192.168.1.253:8004/v1 --internalurl http://192.168.1.253:8004/v1 --adminurl http://192.168.1.253:8004/v1 --region  RegionOne heat
+
+keystone user create --password=jnjnuh --email=bhagavan@aura.net heat
+keystone role add --user=heat --project=admin admin
+
+
+log files
+=---------
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+/var/log/apache2/keystone.log
+/var/log/apache2/keystone_access.log
+
+
+

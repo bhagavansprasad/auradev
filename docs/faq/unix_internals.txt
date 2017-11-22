@@ -1,0 +1,241 @@
+I. File Management
+------------------
+
+Pre-FAQs of File Management
+- Find out the unix commands to print/do below things/activities
+* Print Inode number accociated to file
+* Print Inode content
+* Print 'number of blocks' alloted to any file.
+* Find out the size of the data 'block'
+  Clue: Write a program which creates a text file and writes 200 bytes every
+  time in an infinite loop, with 5 sec interval.
+  In that interval, from command prompt (from another shell), print number
+  blocks allocated to that file
+* What is a link file?
+* How to create a 'Soft' or 'Hard' link file to a text file?
+* What is the difference between 'Soft' or 'Hard' link files, explain with
+  example.
+* What happens to the link file when we delete the original file?
+* What is the inode number of link file(s)? Is it different than original file?
+* Print the inode content of link files(s) and original file.
+* How to change the permission to a file?
+* How to change 'user' and 'group' of any file?
+* List all files '/dev' directory?
+* How to list only directories?
+* How to create a FIFO file? How is it different from normal file?
+* Does FIFO file exits even after reboot?
+* How many times that the FIFO file content can be printed (using 'cat' command)?
+* What does it mean a 'normal' file?
+* What happens if we try to call 'write' system call like below? Print return
+  values.
+	main()
+	{
+		write(0, "Aura Networks", 12);
+		write(1, "Aura Networks", 12);
+		write(2, "Aura Networks", 12);
+	}
+* What is the output of below program after running in background?
+NOTE: To run a process in the background. $./a.out &
+
+	main()
+	{
+		int fd1, fd2, fd3;
+
+		fd1 = open("a.txt", O_RDWR);
+		fd2 = open("b.txt", O_RDWR);
+		fd3 = open("c.txt", O_RDWR);
+
+		printf("-->fd1 :%d, fd2 :%d, fd3 :%d\n", fd1, fd2, fd3);
+		sleep(30);
+	}
+
+* What is the output of below program after running in background?
+NOTE: To run a process in the background. $./a.out &
+	main()
+	{
+		int fd1, fd2, fd3;
+
+		close(0);
+		close(1);
+		close(2);
+
+		fd1 = open("a.txt", O_RDWR);
+		fd2 = open("b.txt", O_RDWR);
+		fd3 = open("c.txt", O_RDWR);
+
+		printf("-->fd1 :%d, fd2 :%d, fd3 :%d\n", fd1, fd2, fd3);
+		sleep(30);
+	}
+* What is the file pointer and where does located when we open the file?
+* How to print file pointer position?
+* How to read 5 bytes of data from 10th byte offset in the file?
+* Read and print last 10 bytes of the data from a file.
+* Print file pointer positions in below program
+  - Open the same file twice
+  - Read 10 bytes from fd1 and 20 bytes from fd2
+  - Print file pointer positions
+
+	fd1 = open("a.c", O_RDONLY);
+	fd2 = open("a.c", O_RDONLY);
+	
+	read(fd1, buff1, 10);
+	read(fd2, buff2, 20);
+
+* Print file pointer positions in below program
+  - Open the a.c and store descriptor in fd1 
+  - dup fd1 descriptor and store it in fd2
+  - Read 10 bytes from fd1 and 20 bytes from fd2
+  - Print file pointer positions
+	
+	fd1 = open("a.c", O_RDONLY);
+	fd2 = dup(fd1);
+	
+	read(fd1, buff1, 10);
+	read(fd2, buff2, 20);
+
+* Print file pointer positions in below program
+  - Open the a.c and store descriptor in fd1 
+  - Do fork a process
+  - In child process read 10 bytes from fd
+  - In parent process read 20 bytes from fd
+  - Print file pointer positions in both the proecesses
+
+	fd = open("a.c", O_RDONLY);
+
+	if (fork() == 0)
+		read(fd1, buff1, 10);
+	else
+		read(fd2, buff2, 20);
+
+Post-FAQs of File Management
+- What is Super block (SB)?
+- What are the entries in SB?
+- How many "types of files" exits? Give example for each type?
+- Where can we find free data blocks list?
+- Why the "Flag that indicates super block is modified" is required?
+- Why lock fields are required in SB?
+- What is an inode?
+- What are the entries in inode?
+- What is difference between "Access time" Vs "Modified time" Vs "inode access time"
+- What is the difference between disk-inode and incore-inode?
+- What is use of "Is modified" field is required in inode?
+- What is "file mount point" field is required in inode?
+- What is the use of "Reference count" in inode?
+- What is in-core inode?
+- What happens when new file getting created?
+- How does the inode gets allocated to any process?
+- How does the data-blocks gets allocated to any process?
+- What happens when the file is getting deleted?
+- What happens when the inode is getting freed?
+- What is remember inode?
+- What are the "Table of Contents" in inode?
+- How does the path is converted to inode?  
+- Write down the algorithm to open system call?
+- If two process opens the same file, how many entries are created in "user file
+  descriptor table", "File table" and in inode table?
+- If the two processes open a file for reading, while reading, where does the
+  both file pointers are pointing to?
+- What is dup system call?
+- What is dup2 system call?
+- What is dup3 system call?
+- What is link file?
+- Does the link file also has the inode?
+- What is the size of the inode?
+- What is the size of the datablock?
+- How many datablocks are required to store 10 bytes of data in a file?
+  experiment in the system.
+- What are the implications if the datablock size too huge and too less?
+- How to print the inode number of any file?
+- What is the use of execution permission for a directory?
+- What are the permission fields?
+- What is the use of
+- How to change only inode content without changing the file content?
+- Creating a new file requires write permission in a directory?
+  Y/N
+- Creating an existing file requires write permission  on the file?
+  Y/N
+- Unlinking a file requires write permission in the directory, not on the file?
+  Y/N
+- What is boot block?
+
+II. Process Management
+----------------------
+- What are the states of a process?
+- What is the use of u-area?
+- What is the use of two fields in "Signal field" Vs "array of signal handlers" 
+- What is the relation between Process table Vs uArea Vs Per-process Region table
+  (Pregion) Vs region Table Vs Main memory
+- What are the different types of regions for each process?
+- What is Zombie process?
+- When does orphan process gets created?
+- What is interrupt latency?
+- What is the use of "Event descriptor" in the process table
+- Where does the "Present working directory" information stored?
+- What are the "limit fields" in u-area
+- What are the memory pages?
+- What could be size of the page in any system?
+- How does Virtual address to Physical address mapping can happen?
+- What is the context switch?
+- What is really happens when the Scheduler switches from executing process to
+  another process?
+- Does the context switch happens when kernel serves the interrupts?
+- What is the difference between "Page" and "Page Tables"
+- How many process gets created when we do fork() for 2 times?
+- How many regions gets created when we call fork() for 2 times?
+- What is the virtual address?
+- What is the use(s) of the virtual addresses?
+- What really happens when we try to access the memory which is not part of the current address space?
+- What really happens when we cross array boundaries and start writing the data?
+- What is the user stack and system stack?
+- What is the command to see the states of the process?
+- How simulate all process states in a system?
+- At what stage the signals are handled?
+- What is the use of the 'wait' system call?
+- What happens if 'wait' is called in child process?
+- Why do we pass 'short in *' as a argument to 'wait' system call?
+- How to avoid processes going to Orphan state?
+- How does parent know about the child termination?
+- How to know the status of child process termination? Normally or ab-normally?
+- What is preemption?
+- What is user or kernel mode execution?
+- What is difference between kernel mode execution?
+- What is event descriptor?
+- Is interrupt again a new process?
+II. I/O Management
+-----------------
+IV. Memory Management
+---------------------
+V. Inter Process Communication
+-------------------------------
+- Why IPC required and what is the main purpose?
+- Write an example program to demonstrate the requirement of IPC?
+- Is global variable is shared across child and parent process?
+- What is "copy on write bit" in the process table?
+- What are all different kinds of IPCs we have?
+- Describe "Named PIPE" Vs "Un Named PIPE"
+- Justify the statement "By default PIPE is full duplex"
+- If pipe is "Full Duplex" is it sufficient one pipe between two process?
+- Describe PIPE Vs Message-Queues
+- Describe Message-Queue Vs Shared memory
+- Describe PIPE Vs Message Queue Vs Signals?
+- How does parent know that child got finished his execution
+- How do we know the process got exited gracefully or ab-normally?
+- Cane we build client server communication using Message queues?
+- Describe Binary Vs Mutex semaphores?
+- Describe Binary Vs Counting semaphores?
+- What is Priority inversion?
+- What IPC is most widely used? 
+- Where exactly IPC data structures are stored?
+- What is process memory area?
+- What is deadlock?
+- What is difference between process Synchronization Vs Mutual Exclusion
+
+VI. General
+-----------
+- What is the difference between "system call" and "system defined function
+- What is the difference between "open" and "fopen"?
+- Which are above calls are 'system call' and 'function'?
+- List "buffered calls" Vs "Non buffered calls"
+- What is Internal and External fragmentation? Give me examples
+- What is blocking/non-blocking calls?
+

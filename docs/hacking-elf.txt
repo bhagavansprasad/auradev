@@ -1,0 +1,328 @@
+Maximum memory can be put on 512 MP
+
+objdumpmips -h vxWorks > v.h --> to list headers
+objdumpmips -t vxWorks > t.h --> to list all symbols in elf file
+objdumpmips -d vxWorks > t.h --> to decessemble
+objdumpmips -D vxWorks > D.s --> to decessemble-all
+
+
+8801099c <sysMemTop>:
+8801099c:	3c0288bgoe 	lui	v0,0x88be
+880109a0:	8c4220c4 	lw	v0,8388(v0)
+880109a4:	27bdffe8 	addiu	sp,sp,-24
+880109a8:	10400004 	beqz	v0,880109bc <sysMemTop+0x20>
+880109ac:	afbf0010 	sw	ra,16(sp)
+880109b0:	8fbf0010 	lw	ra,16(sp)
+880109b4:	03e00008 	jr	ra
+880109b8:	27bd0018 	addiu	sp,sp,24
+880109bc:	0e004277 	jal	880109dc <sysPhysMemTop>
+880109c0:	00000000 	nop
+880109c4:	3c01ff00 	lui	at,0xff00
+880109c8:	00221021 	addu	v0,at,v0
+880109cc:	3c0188be 	lui	at,0x88be
+880109d0:	ac2220c4 	sw	v0,8388(at)
+880109d4:	0a00426d 	j	880109b4 <sysMemTop+0x18>
+880109d8:	8fbf0010 	lw	ra,16(sp)
+
+8801099c:	3c0288bgoe 	lui	v0,0x88be
+	Shift 4 bytes to address 0x88be and store in v0
+	that means 0x88be0000
+
+880109a0:	8c4220c4 	lw	v0,8388(v0)
+    lw --> load word meaning --> load value in address v0+(8388 decimal)
+	add decimal 8388 to v0
+	that means 0x88be0000 + 8388 base 10	
+	that means v0 contains 0x88BE20C4
+	
+Assignments - 1
+===============
+Q1. What is the return value of sysMemTop function?
+A.  
+- Search function "sysMemTop" instructions by decessembling with -t option
+	objdumpmips -t vxWorks > t.s --> to list all symbols in elf file
+
+- Search for string "sysMemTop>:" in t.s
+  understand the decemssemble code
+
+- lui	v0,0x88be --> Do left shift for four times "0000" and store in register v0;
+	i.e v0 value is 0x88be0000
+
+- lw	v0,8388(v0) --> means, add 8388 to v0 and load value at that address and store in v0
+	Hex value of 8388 is 0x20C4
+	0X88BE0000 + 0x20C4 = 88BE20C4
+
+        To search the value at address 88BE20C4 do 
+	objdumpmips -d vxWorks > tD.S  and search in file tD.S
+	Search results gets like below: i.e. the address contains 0 in it.  
+
+	88be20c4 <memTop.0>:
+	88be20c4:	00000000 	nop
+
+	So 0 loads to v0 Register
+
+- addiu	sp,sp,-24
+	move the stack pointer -24 bytes
+
+- beqz	v0,880109bc <sysMemTop+0x20>
+	if (v0 == 0)
+		return v0
+
+  	      ....
+
+              calling 880109dc <sysPhysMemTop>
+
+- Goto function sysPhysMemTop at address 880109dc
+  understand the decemssemble code
+	lui	v0,0x88be --> left shift 4 bytes. so v0 =0x88be0000
+	lw	v0,8392(v0) --> load word value from v0 = 0
+
+	0x88be0000 + 8392 = 0x88BE20C8 -->
+	value at above addres is 
+
+	88be20c8 <sysPhysMemSize.1>:
+		...
+
+	That means lot of zeros.
+
+	Then what really happens?
+
+	bnez	v0,880109f8 <sysPhysMemTop+0x1c>
+	nop
+	lui	v0,0x9000 -> v0 = 90000000
+	lui	at,0x88be -> at = 88be0000
+	sw	v0,8392(at) -> What is means?
+
+
+
+Assignment - 2
+==============
+Q. What is the return value of function direct_segment_size 
+   Search decessemble code in t.s file
+
+	881aa910 <direct_segment_size>:
+	lui	v0,0x88bf
+	jr	ra              --> what is this?
+	lw	v0,-13920(v0)   --> load value at address (v0 - 13920 ) to v0
+
+	i.e. 88bf0000 - 0x3660 =  88BEC9A0 --> value at this address = 0x400000 -->  4194304 --> 4MB
+
+
+Assignment - 3
+==============
+Q. How is malloc implemented?  From what memory partition the memory got allocated?
+	addiu	sp,sp,-48
+	sw	s8,44(sp)
+ 	sw	s7,40(sp)
+	sw	ra,36(sp)
+	lui	s8,0x88bf --> s8 = 0x88bf0000
+	lw	s8,-26280(s8) --> 0x88bf0000 - 4f30 = s8 = 0x88BEB0C8
+	lui	v0,0x88bf --> v0 = 88bf0000
+	lw	s7,200(s8) --> s7 = s8 + c8 = 0x88BEB190
+	beqz	s7,88101960 <malloc+0x44> 
+	lw	v0,-26260(v0) --> v0 = *(88BE996C) --> ffffffff
+	lw	a1,216(s8)
+	move	a2,a0
+	move	a0,s8
+	jalr	s7
+	move	a3,v0
+	b	88101974 <malloc+0x58>
+	move	s8,v0
+	move	a1,a0
+	move	a0,s8
+	jal	88101020 <memPartAlignedAllocInternal>
+	move	a2,v0
+	move	s8,v0
+	move	v0,s8
+	lw	ra,36(sp)
+	lw	s7,40(sp)
+	lw	s8,44(sp)
+	jr	ra
+	addiu	sp,sp,48
+
+memPartAlignedAllocInternal -->
+semTake
+sizeNoedesAlloc --> memPartBlkAlignedAlloc
+objVerify
+semGive
+errnoSet
+		    
+
+
+Assignment-4 - How to change a global variable in data section?
+===============================================================
+
+- Find address of variable in t.s file which is genarated from objdumpmips -t vxWorks
+  The address is the first word from below row
+
+  80c1f88c g     O .data	00000004 my_test_long
+
+- Formula to caliculate see and change the value of above variable?
+  (Variable_addres - Segment_address) + (Segment_offset)
+  
+  Segment_address --> we can get it from t.h file which is generated from objdumpmips -h VxWorks
+  Segment_offset  --> we can get it from t.h file which is generated from objdumpmips -h VxWorks
+
+  (0x80c1f88c - 0x80bc6000) + 0x00bb8000) = 0xc1188c
+
+- Take the address and "GOTO ADDRESS" (not find address) in VxWorks image --> We can find the value which is assigned in global variable
+  (80c1f88c - 80bc6000) + 00bb8000 = ----> C1188C
+  GOTO places the the curser at the spcified address, from that position we can overwrite 4 bytes of data (Because int takes 4 bytes)
+
+
+Assignment-5 - Replacing function address with diffrent fun address
+===============================================================
+- Find address of the bhagavan_fun1 in CD.s file which is generated from onjdumpmips -D option
+	806f9090 <bhagavan_fun1>:
+
+- The address can also get it from t.s file which is generated from objdumpmips -t option
+	806f9090 g     F .text	00000038 bhagavan_fun1
+  NOTE: In both places the first word is the address of the function
+
+- Now serch the calling function of the bhagavan_fun1
+- The caller function is caglue_init 
+- Now search caglue_init  address in CD.s file which is generated from onjdumpmips -D option
+  In the decessemble of the function in the CD.s file, we can find the instruction like below
+  Which is calling the function bhagavan_fun1
+
+	806f91fc:	0c1be424 	jal	806f9090 <bhagavan_fun1>
+
+- The second word in above instruction i.e. 0c1be424, is a address in Vxworks, where bhagavan_fun1 is get called
+- Now SEARCH the address 0c1be424 in Vxworks image using "SEARCH STRING" option (not "goto address")
+  SEARCH places the the curser at the spcified address, from that position we can overwrite 4 bytes of data
+
+- Now get the address of the function "saketh" to replace bhagavan_fun1 call in the vxworks image
+- Find address of the saketh in CD.s file which is generated from onjdumpmips -D option
+	806f90c8 <saketh>:
+
+- The address can also get it from t.s file which is generated from objdumpmips -t option
+	806f90c8 g     F .text	00000038 saketh
+
+  NOTE: In both places the first word is the address of the function
+
+- Exclude first 2 bytes (MSB) from the address
+   <80>6f90c8
+  i.e. 6f90c8
+- Then devide by 4 --> 6f90c8/4 = 1BE432
+
+- Prfix with "0c" i.e. first 2 bytes (MSB) of function address of  bhagavan_fun1
+- So the new address will be 0C1BE432
+
+- Replace the new address 0C1BE432 in the vxworks image where the curser is placed
+- Save and close the file.  Execute the new Vxworks image file.  It calls the function saketh instead of bhagavan_fun1
+
+Assignment-6 - In protected mode - Replacing function address with diffrent fun address
+=======================================================================================
+- Find address of the first_function in CD.s file which is generated from objdump -D option
+	08048384 <first_function>:
+
+- Now serch the calling function of the first_function, which is main function 
+  In the decessemble of the function in the CD.s file, we can find the instruction like below
+  Which is calling the function first_function.
+	8048447:       e8 38 ff ff ff          call   8048384 <first_function>
+ 	804844c:       a1 c8 96 04 08          mov    0x80496c8,%eax
+
+- From above decemssemble code, 
+  The first line, first word i.e. 8048447, is the is the instruction address
+  The first line, second word i.e. 'e8 38 ff ff ff', is a instruction in a.out, where first_function is gets called
+
+  The second line, first word i.e. '804844c' is the next instruction address after 'first_function' instruction
+
+- Open a.out in hex mode, and search for string e838ffffff. You may find this word in 'short words' with spaces.  i.e. 'e8 38ff ffff'
+  NOTE: To open vi in hex mode, ->vi a.out, ->:%!xxd - changes to hex mode, ->:%!xxd -r - moves back to text mode
+  
+- Find address of the remap_first_function in CD.s file which is generated from objdump -D option
+	080483b6 <remap_first_function>:
+
+- (remap_fun_address - next_instruction_address)
+  Diff (080483b6 - 804844c) = FFFFFFFFFFFFFF6A -> i.e. 6a is the offset
+
+- replace 'e8 38ff ffff' with 'e86aff ffff' in a.out
+
+
+D:\project\elf>c:\perl\bin\perl D:\project\OpenTV_tools\mtss\box_specific\MIPS32\remap.pl vxWorks get_my_element
+D:\project\elf>c:\perl\bin\perl D:\project\OpenTV_tools\mtss\box_specific\MIPS32\change_var.pl vxWorks get_my_element
+
+c:\perl\bin\perl D:\project\OpenTV_tools\mtss\box_specific\MIPS32\remap.pl vxWorks o_pipe_realize
+
+readelfmips.exe -w D:\project\elf\tree\FBOP\opentv\debug\pkg\core.pkg > core.txt
+
+D:\project\elf>readelfmips -w D:\project\elf\temp\pipeline.ooo > core.txt
+
+Assignment - 7 - remaping - in MIPSEL in protected mode
+=======================================================
+0x20 << 16 = 0x20000 == 131072 base 10
+131072 - 32228 = 98844 base 10 == 0x1821C 
+0x1821C + 0x004008a4 = 0x418AC0 == 4295360 base 10
+
+00400770 <first_function>:
+004007d4 <remap_first_function>:
+004007d4 - 00400770 = 0x64 == 100 base 10
+-32680 = 0xFFFFFFFFFFFF8058
+-32580 = 0xFFFFFFFFFFFF80BC
+
+
+
+Assignement = 6
+===============
+Analyze the fucntion get_my_element, and find the arguments and return type and write a remap function to the same
+
+get_my_element --> takes argument type --> input_elem_ptr (d3b9) -> DW_TAG_pointer_type (99d1) -> o_elm_description_t (99ac)
+
+  <1><99ac>: Abbrev Number: 5 (DW_TAG_structure_type)
+     DW_AT_sibling     : <99d1>	
+     DW_AT_byte_size   : 8	
+     DW_AT_decl_file   : 11	
+     DW_AT_decl_line   : 87	
+ <2><99b4>: Abbrev Number: 6 (DW_TAG_member)
+     DW_AT_name        : (indirect string, offset: 0x8541): type	
+     DW_AT_decl_file   : 11	
+     DW_AT_decl_line   : 85	
+     DW_AT_type        : <99a1>	 (enum type)
+     DW_AT_data_member_location: 2 byte block: 23 0 	(DW_OP_plus_uconst: 0)
+ <2><99c2>: Abbrev Number: 6 (DW_TAG_member)
+     DW_AT_name        : (indirect string, offset: 0xac57): elmID	
+     DW_AT_decl_file   : 11	
+     DW_AT_decl_line   : 86	
+     DW_AT_type        : <9957>	 (unsigned long int 32)
+     DW_AT_data_member_location: 2 byte block: 23 4 	(DW_OP_plus_uconst: 4)
+
+
+	return type
+99ac - o_elm_description_t	 - 
+
+ <1><d54b>: Abbrev Number: 13 (DW_TAG_structure_type)
+     DW_AT_sibling     : <d59e>	
+     DW_AT_name        : (indirect string, offset: 0xc187): _my_elem_t	
+     DW_AT_byte_size   : 24	
+     DW_AT_decl_file   : 1	
+     DW_AT_decl_line   : 98	
+ <2><d557>: Abbrev Number: 6 (DW_TAG_member)
+     DW_AT_name        : (indirect string, offset: 0x9967): elem	
+     DW_AT_decl_file   : 1	
+     DW_AT_decl_line   : 99	
+     DW_AT_type        : <99d1>	
+     DW_AT_data_member_location: 2 byte block: 23 0 	(DW_OP_plus_uconst: 0)
+ <2><d565>: Abbrev Number: 6 (DW_TAG_member)
+     DW_AT_name        : (indirect string, offset: 0x98b7): next	
+     DW_AT_decl_file   : 1	
+     DW_AT_decl_line   : 100	
+     DW_AT_type        : <d59e>	
+     DW_AT_data_member_location: 2 byte block: 23 8 	(DW_OP_plus_uconst: 8)
+ <2><d573>: Abbrev Number: 6 (DW_TAG_member)
+     DW_AT_name        : (indirect string, offset: 0xaa7c): pipelist	
+     DW_AT_decl_file   : 1	
+     DW_AT_decl_line   : 101	
+     DW_AT_type        : <d5a4>	
+     DW_AT_data_member_location: 2 byte block: 23 c 	(DW_OP_plus_uconst: 12)
+ <2><d581>: Abbrev Number: 6 (DW_TAG_member)
+     DW_AT_name        : (indirect string, offset: 0xa509): master_pipe	
+     DW_AT_decl_file   : 1	
+     DW_AT_decl_line   : 102	
+     DW_AT_type        : <d5aa>	
+     DW_AT_data_member_location: 2 byte block: 23 10 	(DW_OP_plus_uconst: 16)
+ <2><d58f>: Abbrev Number: 6 (DW_TAG_member)
+     DW_AT_name        : (indirect string, offset: 0xb734): status	
+     DW_AT_decl_file   : 1	
+     DW_AT_decl_line   : 103	
+     DW_AT_type        : <9a03>	
+     DW_AT_data_member_location: 2 byte block: 23 14 	(DW_OP_plus_uconst: 20)

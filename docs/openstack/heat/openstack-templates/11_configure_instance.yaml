@@ -1,0 +1,32 @@
+heat_template_version: 2013-05-23
+
+description: Demo template for configure instance.
+
+parameters:
+  instance_name:
+    type: string
+    label: Name
+    description: Name of the instance to be created
+    default: test-instance-bash
+
+resources:
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      name: { get_param: instance_name }
+      image: centoswithroot
+      flavor: m1.small
+      key_name: ashwa
+      networks:
+        - network: int-net
+      user_data_format: RAW
+      user_data:
+        str_replace:
+          template: |
+            #!/bin/bash
+            for i in 1 2 3 4 5
+            do
+              echo "+Info: test instance configure part --"
+            done
+          params:
+            instance_name: { get_param: instance_name }

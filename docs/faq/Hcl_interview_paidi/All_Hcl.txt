@@ -1,0 +1,625 @@
+********************************* HCL AND ALL INTERVIEW QUESTIONS ********************************  
+Asked whether experienced in "socket programming"
+Asked Revlevant experience in "c".
+How well you are in "c"?
+Asked about the project OVDC ?
+
+Questions
+
+1. How to create multiple childs to a single parent process?
+	 e.g init process.
+2. How to create a chain of processes?
+
+3. In message queues how a reading process can know if the queue is empty ?
+Can we build a communication between two unrelated processes?
+
+4. what are named and unnamed pipes?
+
+5. Given 
+	char *a ="HCL"
+        a = "WElCOME"
+	will it throw any error?
+
+	 strcpy(a, "WElCOME")
+	 Is it OKAY?
+
+6. Difference between char const *a and const char *a? Explain with an example ?
+
+7. Write fibinocci series using recursion ?
+	How the stack works in case of recursion?
+
+8. what are variable number of arguments ?
+
+9. Storage classes --list out scope and life of all.
+
+10. extern and static . For instance in a file "a.c" int i as global, and
+	in file "b.c" declared as extern int i = 10 will it throw any error?
+
+11. Linked lists..
+		
+		Given a pointer pointing to the last element of the list. How to find the head of the list without using temparory pointer variable? And the list is purely single linked lists?
+		
+		Given a doubly linked list? asked to write a program to find and remove
+		the duplicates ?
+
+12. static funtions : In "a.c" static sum() is defined and in "b.c" again static sum() is defined. Can we do so ? if so, why? 
+
+13. what is a socket?
+
+14. what is conditional compilation?
+
+15. what is a conditional operator?
+
+16. Difference between #define and typedef?
+
+17. what is derived data types?
+
+18. Implement strstr(), return type of the function?
+
+19. Reverse the 4 bits and print the value in 4 bits.
+	        Input  4 -  0100--->reverse to
+	    ---->output2-   0010
+
+20. allocate memory for an array using malloc?
+
+21. swap the number without temp.										
+
+22. How do find wether a num is power of 2?
+ 
+23. Swap the even and odd bits of an integer?
+
+24. Explanation for Tower of Hanoi problem?
+
+25. What is core dump and use and how to genarate?
+
+26. what is the "Back trace" in GDB?
+
+27. What is the Memory Leak?
+
+28. Detect the loop in a Linked List?
+
+29. What is the  use of Make File?
+
+30. Explain the process states diagram?
+
+31. Find if the sub string is there or not in the main string?
+
+32. How to allocate Memory for a node?
+
+33. struct abc
+    {
+       int a;
+       char *p;
+    };
+    struct abc _abc = {10,"hai"};//This is also correct but not in this way
+    How to allocate the values for above structre elements individually and how to print?
+
+34. How compiler Knows to free the particular size given to malloc()?
+
+35. What is the context Switch?
+
+36. What is the inode and where the inode information is stored?
+
+37. How to use the Valgrind and purpose?
+
+38. What is the best one i.e Memcopy and Memmove to use if i have 100 bytes i want to copy 15bytes?
+
+39. How float a = 2.5; is represented in memory?
+
+40. char a = 128, printf("%d", a)?
+
+41. How negative values are stored in memory?
+
+42. Scope and lifetime of all the storage classes?
+
+43. In which storage section, static variables are stored?
+
+44. In file a.c int i declared as global and b.c extern int i is declared?
+
+somewhere in the program i is printed. what is the value of i?
+
+45. Diff b/w const char *ptr and char const *ptr and char *const ptr?
+
+46. Program to print fibinocci series using recursion?
+
+47. program to print "hello world" without using main()?
+
+48. program to check whether the machine is "Little endian" or "BIG ENDIAN"
+
+49. Register float a = 2.5, printf("%f", a)
+--> Single line to two numbers swapping ,withot using 3rd variable.
+--> Explain stack segment.
+-->wat is an volatile and when u have using volatile variable ?
+-->what is an uninon & advantage &disadvantage?
+    uninon name
+    {
+	 char a;
+	 int b;
+	 char c;
+	};
+uninon name t;
+t.a = 10;
+t.b = 20;
+t.c = 5;
+find size and draw memory map in uninon ?
+-->expalin structur ?advantage and disadvantage ?
+--> expalin holes or padding and memory map ?
+    struct name
+    {
+	 char a;
+	 int b;
+	 char c;
+	};
+size and memory map ?
+
+-->what is an 'MACRO' syntax ? advantages ?expalin every thing....
+--> expalin syntax and with exaple program also
+               -while loop
+			   -for loop
+			   -do while loop ?
+			   -if staement ?
+			   -if else statement ?
+			   -switch statement ?
+
+--->how to implement of structur using stack using variables Push and POP?
+--->find litter Endian and Big Endian ?
+--->setbit,clearbit,Toggle bit,&& show Bit(Find on/off)positions?
+--->given struct insid union
+     ex:-
+            struct name
+            {
+              int a;
+              int b;
+            };
+            union nam
+ 	    {
+              int x;
+              int y;
+            }t1,*ptr;
+           how to accessing union members in x,y && print?
+
+-->using single linked list, given nth position adding Node ?
+-->using single linked list, given nth postion Replacing data?
+-->using single linked list, given nth postion delete node ?
+-->using single linked list, write an Reverse linked list ?
+-->using double linked list, write an Reverse linked list ?
+-->telme that 10 Real time  commands (Linux commands)?
+-->can u explain stack sigment?
+
+Real time question:-
+-->how many members invalved in project?
+-->what u have implenting Project Module?
+-->asking Linux Vesrsion?
+-->asking processer size(32 bit procer) and compiler version ?
+-->how many monthes we are taken each project ?
+-->what is use of real time in these project && why it is use ?
+-->asking Company location?
+-->exptation of salory?
+-->curent ctc?
+-->monthly wise how much amount of salory u getting?
+-->which domain you are working?
+-->asking you are user developer (or) kernel Developer?
+***************************************"STRINGS"*********************************
+50. char *ptr
+
+strcpy(ptr,"HCL") does it works, if so how?
+
+51. implement strstr() strrev()(try without using a temp varaible)?
+
+52. char a[30] = "I am an Indian"
+
+53. write a program to count numbers os 'a' in the above string?
+****************************"Bit Manupulations"************************************
+54. Program to "toggle" a bit at nth pos.
+
+55. Given two positions. Asked to print the bit (ON/OFF) at both the positions.
+	if (bit is ON)
+		make it OFF
+	else
+		make it ON
+
+56. Given a number, asked to "rotate" the bits twice and print the number.
+
+57. Given two positions in a num. "Swap" the bits at two positions.
+							!     !
+						0 0 0 1 1 1 0 0 becomes
+						0 0 1 1 1 0 0 0
+ Good to know
+--> HOW to check if bit is o or 1 set a bit at the given position reverse bits
+--> Given a Number input 34 'NIBBLE SWAP' using out put 43.
+--> explain 'SET BIT' ?
+--> Given number 10, passing through function       /*declaration*/  
+                                                function(char num,pos);
+                                                function(int num,pos);
+												function(float num,pos);
+												function(double num,pos);
+
+												/*Defination*/
+												function()
+												{
+												  set bit---;
+												  ---------;
+												  ---------;
+												}
+each function calling means working these is target.
+--> Given two number 10,30 find max numb, using bitwise operations.
+--> Given number, find ON/OFF positions using 16 bit proceser(that is show bit).
+
+***********************************"LINKEDLISTS"********************************
+"Single linked list":-
+58. Add a node in the middle of the lists
+
+59. Delete a node at the nth positon from the last
+
+60. check if there exists a loop in linked lists
+
+61. Given a pointer to the last node of SLL. how do you point to the head in list provided list is not circular?
+	 
+"DLL":-
+
+62. Delete a node in the DLL at the nth pos from the last.
+GOOD to know. 
+
+63. Reverse a linked list (tech mahindra)
+
+64. find and remove the duplicates the single linked lists.
+-->given only one Head not given any pointer so travelling to delet midile node.
+
+***************************"OPERATING SYSTEM"*********************************
+65. How to create a tree of processes
+
+66. creat n number of childs with one parent. i.e one parent and n childs
+
+67. What is IPC and explain IPC mechanisms.
+
+68. Arguments to a pipe()
+
+69. How to know if the message queue is empty or not
+
+70. what is named and unamed pipe. explain one major difference between both.
+
+71. Given an array of ten elements: int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    in process A creat a shared memory segment.
+
+	 			  add the two consecutive elements in the array 
+				  write into the shared memory 
+				  wait()
+                                                 in process b read into the shared memory
+				  wait()
+i.e while process A is using the segment, process B show wait and vice versa.
+				
+72. what are different storage sections (or) storage segments ?
+
+73. storage sections : IPL,STACX,HEAP,BSS,DATA,TEXT
+
+ 74. storage segments : auto register,static,extern
+
+75. write a program for deletion of a node from double linkedlist ,base address of the node
+given, header is availble globally ?
+
+76. what is the output of the following program ?
+
+	int *foo()
+	{
+	int a = 10;
+	return &a;
+	}
+	main()
+	{
+	int *ptr;
+	ptr = foo();
+	printf("*ptr=%d\r\n",*ptr);
+	}	
+
+77. Explain about memory management module ?
+
+78. Tell me how many types of sorting algorithms are availble ?, and which one is
+the best ?
+
+79. what are different types of storage classes are available explain each one ?
+
+78. what is the sizeof structure and union ?
+
+79. structure members are given like this
+              struct node
+               {
+                 int a;
+                 char a;
+                 int a;
+                };
+******************************************IPC*************************************
+80.Why IPC required and what is the main purpose?
+
+81. Write an example program to demonstrate the requiremnt of IPC?
+
+82. Is global varible is shared across child and parent process?
+
+83.What is "copy on write bit" in the process table?
+
+84.What are all different kinds of IPCs we have?
+
+85. Describe "Named PIPE" Vs "Un Named PIPE"
+
+86. Justify the statement "By default PIPE is full duplex"
+
+87. If pipe is "Full Duplex" is it sufficient one pipe bitween two process?
+
+88. Describe PIPE Vs Message-Queues
+ 
+89. Describe Message-Queue Vs Shared memory
+
+90. Describe PIPE Vs Message Queue Vs Siganls?
+
+91. How does parent know that chaild got finished his execution
+
+92. How do we know the process got exited gracefully or ab-normally?
+
+93. Cane we build client server communication using Message queues?
+
+94. Describe Binary Vs Mutext semaphores?
+
+95. Describe Binar Vs Counting semaphores?
+96. What is Priority inversion?
+
+97. What IPC is most widely used? 
+
+98. Where exactly IPC data structures are stored?
+
+99. What is process memory area?
+
+100.What is deadlock?
+
+101. What is difference bitween process Synchronization Vs Mutual Execlusion.
+
+102. how to know the string length with out using strlen function?
+
+103. arr[10] = {1,2,3}; then questions on this array , arr[10] = ?,arr[1] = ?,arr[9] = ? like questions?
+
+104. progream on simple sequeence ?
+
+105. what is endianness how to find littel endian and big endiean?
+
+106. how to do bit toggeling and bit reset ?
+
+107. what is linked list structure of linked list ?
+
+108. what is the diffrence between typedef int INT and  #define INT int .
+
+109. what is structure and diffrence between union and structure ?
+
+110. what is bitwise operator (multiplication) ?
+
+112. double pointer representation ?
+
+113. storage classes storage sections difference between scope and range ?
+
+114. difference between string pointer and character array ?
+
+115. How much you rate yourself in C programming ?
+
+116. What is the difference between structure and union ?
+	Is it possible to access all the union members at once ?
+	Defined the structure members in the skeleton ? will it throw any error ?
+	if yes? why?
+	size of struct and unions ?
+
+
+
+117. what are the storage classes in c ?
+	Difference between static and extern ?
+   	If a variable is declared as global "static int i = 10;" in "a.c" and in "b.c" can I
+ 	declare the variable as "extern static int i;"?
+
+118. Difference between strcpy and memcpy ?
+	And Syntaxes of memcpy, strcpy ?
+
+119. Difference between "malloc" and "calloc" and their syntaxes ?
+	why (void *) in malloc ?
+
+120. Linear search and Binary search ?
+	Given two arrays one is sorted and another is not sorted. Which search to
+	use for which one? and why ?
+	Asked to write a Binary search program ?
+
+121. Given a string and asked to reverse using a function ?
+
+122. Given three variables and asked to write a single statement which will find out
+
+the largest number using terinary operator?
+
+123. Given two times in Hh1:mm1:ss1 and HH2:MM2:SS2 asked to add the both and store
+it to hh3:mm3:ss3.
+
+124. what are the different IPC channels and which one to use when?
+
+125. Asked to write the prime number and print the first factor in case if the number
+is not prime?
+
+126. what storage class contains default value as ZERO?
+
+127. Difference between (*ptr)++ and ++*ptr ?
+
+128.Given a 
+        struct exp
+		{
+		int i
+		}xyz;
+		(*xyz)->i = 10
+		printf(i) output of the code ?
+
+129.printf(5+"fascimile")
+
+130. write a program to reverse the linked list ?
+
+--> given int arry[]={1,2,3,4,5,6};threads using 1st thread print 'EVEN' number and 2nd thread using 'ODD' Number.
+- Threads shares Page tables, Per-Process Region tables, Region tables of the process
+1.what is an pointer &&  advantages && explain double pointer with memory map ?  
+
+2. given two string, checking each character and remove duplicate charater ?
+
+3. Given sting char [20]="bangalore HCL chinnai" ,each word reverse print ?
+
+4. expalin memory leak with example ?
+
+5. c questions on types of variable in c ?
+
+6. storage classes in c ?
+
+7. size of int depends on which parameters 
+
+8. program memory questions: data segment code segment 
+
+9. questions on  projects
+
+10. write a C program to Reverse a singly linked list 
+
+11.  write a C program to find endianness of a machine 
+
+12. how to print last 5 characters in string char str[20]="banagalore HCL";
+13. hellow how are you ----------input
+    wolleh woh era uou ----------out put
+15.        
+          int main()
+		  {
+          int arr[]={10,20,30,40};
+		  arr++;
+		  printf("%d\n",arr);
+		  }
+     
+16. he is given single linked list
+      head--->|10| |20| |30| |40| |50| |60|-----------input put.
+		                 |
+						 |
+						 replace thse number 100
+
+			  |10| |20| |100| |40| |50| |60|----------out put.
+
+
+
+Written Test
+------------------
+1. find the error in the following Program and modify if possible to work.?
+int main()
+{
+ printf("The Value of a is-->%d\n",a);
+}
+int a;
+2. Find the sizes of following.
+uninon test1
+{
+float a;
+int a,b;
+char c;
+},
+struct test2
+{
+float a;
+int a,b;
+char d;
+}
+union test1 t1;
+struct test2 t2;
+printf("union size-->%d, Structure Size-->%d\n",sizeof(t1),size(t2));
+}
+
+3.
+int main()
+{
+int i=10;
+int *ptr = &i
+printf( "%d  %d\n",*(char*)ptr,*(char *)(ptr+1));
+4. 
+int main()
+{
+int a[]={1,2,3,4,5}
+for(i=0;i<5;i++)
+{
+a++;
+printf(Array Values %d\n",a[i]);
+}
+5.write a program to find the nibble swapping for character variable.?(Ex: 0x34 bits swaping finally result is 0x43)
+6.write a program to find the copy one string to another string without using strcpy().?
+
+*******************************Technical -I********************************
+
+1.Discussions on written test paper (C Questions) .?
+2.what is the use of pointers in C .?
+3.what is the difference between array and structure.?
+4.what is structure and what is  difference between union and  structure.?
+5.write a program to swap two numbers without using third variable.?
+6.what is the structure padding how to avoid it and why structure padding is required .?
+7.what is the difference between array and linked list.?
+8.how to allocate memory at run time.?
+9.what are the storage classes available in C .?
+10. storage sections .?
+11.how to find which is bit is on or off .?
+12.what is makefile why we need this in real-time.?
+13.what CVS and what is the main use of CVS.?
+14.what are the properties of stack and queue explain with example.?
+
+********************************* Techinical -II *****************************************
+
+1.what is function pointer , what is use of function pointer and write a simple program and explain clearly how it works.?
+2.what are compilation stages explain each one clearly.?
+3.what is the difference between #define and typedef.?
+4.what is the difference between array and structure.?
+5.write a program to concatenate two string using pointers or arrays.?
+6.what are storage classes available and explain each clearly.?
+7.write a program for extern variable .?
+8.swap two variable without using third variable.?
+9.what is the return value of strcmp().?
+10.what is makefile , how it works , write a small make file .?
+11.what is splint.?
+12.what is valgrind.? 
+13.what is coredump, how to debug core file.?
+14.what are IPC's available in LINUX and explain each one.?
+15.what is difference between mutex and semaphore.?
+16.what is difference between binary semaphore and counting semaphore.?
+17.write and explain some linux command what u know.?
+18.what is the difference between memcpy() and strcpy() .?
+19.how to delete middle node in linked list explain procedure .?
+20.write a program string reverse using pointers.?
+21.what is context switch.?
+22.what is preemptive and non-preemptive scheduling .?
+23.how find and grep commands work in linux.?
+24.some questions on pointers.?
+--------------------------------logical questions --------------------------------------------------
+1.I have two tins with capacity of 4 liter and 5 liter do some activity and finally i want 2 ltr water in 5 ltr can and 1 ltr in 4 ltr can.? (I think it is not possible)
+2.I have two tins with capacity of 5ltr and 2 ltr do some activity and finaly i want to fill 3 ltr in 5 ltr can and 1ltr 2 ltr can ( I forget exact question ).
+
+*********************** OS Questions ***************************
+1.what is IPC and why ipc required.?
+2.difference between named pipe and unnamed pipe?
+3.difference between message queue and pipe?
+4.what is the main disadvantage of pipe?
+5.which is the best mechanisam to share more data in IPc?
+6.what is semaphore,diff b/n Binary vs Mutex?
+7.what is page fault?
+8.How to overcome Page Fault and what is deman paging?
+9.what is round robin schduleing?
+10.diff b/n premptive vs non premptive schduleing in Os?
+11.what is premption?
+12.what is Context Switch?
+13.diiff b/n Premption and Context switch?
+14.what is fragmenatation ?
+15.diiff b/n internal vs external fragmenation?
+16.unix file systems?
+17.what is inode?
+18.diff b/n find and grep?
+19.what is deadlock and how to detect deadlock?
+20.what is deamon process?
+21.what is process and what is PROCESS control Block
+22.what is conditon varaible
+23.diff b/n thread vs process
+24.what is multi tasking and multi processing?
+25.what is interpert..
+26.diif b/n signal vs interept
+27.what is virutal memory
+28.what are process states in linux?
+29.diagram for process states?
+30.diff b/n user mode and kernal mode
+31.diff b/n U area and Kernal area?
+32.what is fork and return value?
+33.what is zombie and orphan
+34.what is signal Handling?
+

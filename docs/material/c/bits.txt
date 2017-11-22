@@ -1,0 +1,23 @@
+ Using Bitwise operatorts...
+
+ - Print each byte value of 4 bytes for variable 'a', if 
+   int a = 300;
+
+- Write a program to reverse the Endianness 
+
+Macros of bit manipulation 
+
+#define clearbit(position,num)
+#define   setbit(position,num)
+#define toggle(position,num)
+#define GET(position,num) 
+#define count(n)
+
+
+
+
+
+
+
+
+

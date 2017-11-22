@@ -1,0 +1,99 @@
+To add new display mode and activate 1280x1024
+$ cvt 1280 1024
+# 1280x1024 59.89 Hz (CVT 1.31M4) hsync: 63.67 kHz; pclk: 109.00 MHz
+Modeline "1280x1024_60.00"  109.00  1280 1368 1496 1712  1024 1027 1034 1063 -hsync +vsync
+
+$ xrandr --newmode  "1280x1024" 109.00  1280 1368 1496 1712  1024 1027 1034 1063 -hsync +vsync
+$ xrandr --addmode VGA-0 1280x1024
+$ xrandr --output VGA-0 --mode  1280x1024
+$ xrandr
+
+To change mode
+$ xrandr --output Virtual1 --mode 1360x768
+
+Screen 0: minimum 320 x 200, current 1024 x 768, maximum 4096 x 4096
+VGA-0 connected 1024x768+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+   	1024x768       60.0* 
+800x600        60.3  
+  1440x900       59.9  
+DVI-0 disconnected (normal left inverted right x axis y axis)
+
+The correct setup is
+----------------------
+bhagavan@ubuntu:~$ xrandr
+Screen 0: minimum 1 x 1, current 1366 x 681, maximum 8192 x 8192
+Virtual1 connected primary 1366x681+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+   1366x681       60.0*+
+   2560x1600      60.0  
+   1920x1440      60.0  
+   1856x1392      60.0  
+   1792x1344      60.0  
+   1920x1200      59.9  
+   1600x1200      60.0  
+   1680x1050      60.0  
+   1400x1050      60.0  
+   1280x1024      60.0  
+   1440x900       59.9  
+   1280x960       60.0  
+   1360x768       60.0  
+   1280x800       59.8  
+   1152x864       75.0  
+   1280x768       59.9  
+   1024x768       60.0  
+   800x600        60.3  
+   640x480        59.9  
+Virtual2 disconnected (normal left inverted right x axis y axis)
+Virtual3 disconnected (normal left inverted right x axis y axis)
+Virtual4 disconnected (normal left inverted right x axis y axis)
+Virtual5 disconnected (normal left inverted right x axis y axis)
+Virtual6 disconnected (normal left inverted right x axis y axis)
+Virtual7 disconnected (normal left inverted right x axis y axis)
+Virtual8 disconnected (normal left inverted right x axis y axis)
+
+===============================
+To add new display mode and activate 1280x1024
+$ cvt 1366 681
+$ xrandr --newmode  "1366x681" 75.00  1368 1432 1568 1768  681 684 694 708 -hsync +vsync
+
+$ xrandr --addmode VGA-0 1366x681
+$ xrandr --output VGA-0 --mode  1366x681
+$ xrandr
+Screen 0: minimum 320 x 200, current 1024 x 768, maximum 4096 x 4096
+VGA-0 connected 1024x768+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+   	1024x768       60.0* 
+800x600        60.3  
+  1440x900       59.9  
+DVI-0 disconnected (normal left inverted right x axis y axis)
+
+The correct setup is
+----------------------
+bhagavan@ubuntu:~$ xrandr
+Screen 0: minimum 1 x 1, current 1366 x 681, maximum 8192 x 8192
+Virtual1 connected primary 1366x681+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+   1366x681       60.0*+
+   2560x1600      60.0  
+   1920x1440      60.0  
+   1856x1392      60.0  
+   1792x1344      60.0  
+   1920x1200      59.9  
+   1600x1200      60.0  
+   1680x1050      60.0  
+   1400x1050      60.0  
+   1280x1024      60.0  
+   1440x900       59.9  
+   1280x960       60.0  
+   1360x768       60.0  
+   1280x800       59.8  
+   1152x864       75.0  
+   1280x768       59.9  
+   1024x768       60.0  
+   800x600        60.3  
+   640x480        59.9  
+Virtual2 disconnected (normal left inverted right x axis y axis)
+Virtual3 disconnected (normal left inverted right x axis y axis)
+Virtual4 disconnected (normal left inverted right x axis y axis)
+Virtual5 disconnected (normal left inverted right x axis y axis)
+Virtual6 disconnected (normal left inverted right x axis y axis)
+Virtual7 disconnected (normal left inverted right x axis y axis)
+Virtual8 disconnected (normal left inverted right x axis y axis)
+

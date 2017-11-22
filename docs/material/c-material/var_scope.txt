@@ -1,0 +1,301 @@
+//------------------------1---------------------
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+
+	{
+		int a = 30;
+		printf("-->a :%d\n", a);
+		a++;
+		printf("-->a :%d\n", a);
+	}
+	
+	printf("-->a :%d\n", a);
+	user_definedf();
+}
+
+void user_definedf(void)
+{
+	int a = 40;
+	printf("-->a :%d\n", a);
+}
+
+//------------------------1---------------------
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	user_definedf();
+}
+
+void user_definedf(void)
+{
+	printf("-->a :%d\n", a);
+}
+
+//------------------------1---------------------
+int a = 10;
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	user_definedf();
+
+	printf("-->a :%d\n", a);
+}
+
+void user_definedf(void)
+{
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+}
+
+//------------------------2---------------------
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	user_definedf();
+
+	printf("-->a :%d\n", a);
+}
+
+void user_definedf(void)
+{
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+}
+
+//------------------------3---------------------
+int a = 10;
+
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	user_definedf();
+	user_definedf();
+	user_definedf();
+
+	printf("-->a :%d\n", a);
+}
+
+void user_definedf(void)
+{
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+}
+
+//------------------------3---------------------
+
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	user_definedf();
+	user_definedf();
+	user_definedf();
+
+	printf("-->a :%d\n", a);
+}
+
+void user_definedf(void)
+{
+	int a = 10;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+}
+
+
+//------------------------3---------------------
+
+static int a = 10;
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	user_definedf();
+	user_definedf();
+	user_definedf();
+
+	printf("-->a :%d\n", a);
+}
+
+void user_definedf(void)
+{
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+}
+
+
+//------------------------3---------------------
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	user_definedf();
+	user_definedf();
+	user_definedf();
+
+	printf("-->a :%d\n", a);
+}
+
+void user_definedf(void)
+{
+	static int a = 10;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+}
+
+//------------------------3---------------------
+static int a = 10;
+
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	user_definedf();
+	user_definedf();
+	user_definedf();
+
+	printf("-->a :%d\n", a);
+
+	user_definedf2();
+	user_definedf2();
+}
+
+void user_definedf(void)
+{
+	static int a = 30;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+}
+
+void user_definedf2(void)
+{
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+}
+
+//------------------------3---------------------
+static int a = 10;
+
+main()
+{
+	int a = 20;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	a = user_definedf();
+	a = user_definedf();
+	a = user_definedf();
+
+	printf("-->a :%d\n", a);
+
+	user_definedf2();
+	user_definedf2();
+}
+
+void user_definedf(void)
+{
+	static int a = 30;
+
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	printf("-->a :%d\n", a);
+
+	return a;
+}
+
+void user_definedf2(void)
+{
+	printf("-->a :%d\n", a);
+	
+	a++;
+
+	a = user_definedf();
+
+	printf("-->a :%d\n", a);
+}
+
+

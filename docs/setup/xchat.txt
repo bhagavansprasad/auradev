@@ -1,0 +1,16 @@
+Settingup Xchat
+
+Server
+------
+- Is already running in 192.168.1.30
+
+Client
+------
+$ xchat
+
+Network List -> Add -> Aura
+Edit (Aura) -> Add -> 192.168.1.30/6667 and Press Enter
+Select "Auto Connect" option
+Favorate Channels "#aura"
+
+

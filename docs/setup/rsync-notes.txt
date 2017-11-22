@@ -1,0 +1,9 @@
+Backup
+------
+- Backup is stored in sys4, /home/bhagavan/cvs directory
+
+Task: Synchronize a remote directory with a local directory
+	$ rsync -rav --progress --delete cvs@192.168.1.30:/home/cvs /home/bhagavan/backup/cvs
+
+Task: Synchronize a local directory with a remote rsync server
+	$ rsync -r -a -v --progress --delete rsync://rsync.nixcraft.in/cvs /home/cvs

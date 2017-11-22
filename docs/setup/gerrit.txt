@@ -1,0 +1,38 @@
+-- pgsql (database) installation
+  $ sudo apt-get update
+  $ sudo apt-get install postgresql postgresql-client postgresql-contrib pgadmin3
+
+- Login to pgsql shell 'with user postgress'
+$ su - postgres
+$ psql postgres
+
+- Reset admin password
+  # \password postgres
+
+- Create new user 'gerrit'
+  # create user gerrit;
+
+- Set new password 'jnjnuh' to new user
+  # ALTER USER gerrit with PASSWORD 'jnjnuh';
+
+- Create new database 'reviewdb'
+  # create database reviewdb;
+  # \list  //to list all dbs
+  # \list -l
+  # SELECT * FROM pg_user;
+
+- Enable permissions to 'gerrit' to access db 'reviewdb'
+  # GRANT ALL PRIVILEGES ON DATABASE reviewdb TO gerrit;
+
+-- Java installation
+  $ sudo apt-get install default-jdk
+
+-- gerrit installation
+  http://blogs.fcoos.net/how-to-install-gerrit-on-an-ubuntu-14-04-server/
+  $ wget https://gerrit-releases.storage.googleapis.com/gerrit-2.12.2.war
+  $ java -jar gerrit-2.12.2.war init
+-- Postgres SQL installation
+
+----ubuntu
+sudo adduser newuser
+

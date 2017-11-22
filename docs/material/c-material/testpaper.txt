@@ -1,0 +1,227 @@
+- What will be output of fallowing printf
+printf("%d\r\n", 5%10)
+10 5 2 0
+
+Evaluate the fuction with fn(7), what is the final return value of 'fn'
+
+int fn(int v)
+{
+    if (v == 1 || v == 0)
+        return 1;
+    
+    if (v%2 == 0)
+        return fn(v/2) + 2;
+    else
+        return fn(v/2) + 2;
+}
+a. 10  b. 11  c. 1   d. 5
+
+
+What will be the output of the following program?
+
+#define SQARE(a)  (a * a)
+
+main()
+{
+	int a = 3;
+
+	int sq= SQARE(a+2);
+
+	printf("%d\r\n", sq);
+}
+
+a. 25  b. 11  c. 10  d.1
+3+2 * 3+2
+
+
+---
+#define CPTR char *
+
+main()
+{
+	CPTR p1, p2;
+	printf("%d %d\r\n", sizeof(p1), sizeof(p2));
+}
+a. 4  4  b. 4  1  c. 1  4  d.1  1
+
+What will be the output of the fallowing program?
+main()
+{
+    int a = 10, b = 3;
+
+    if(a%b)
+        printf("NDS");
+    else
+        printf("Technologies");
+}
+
+What will be the output of the fallowing program?
+main()
+{
+    int a = 10, b = 20, c = 0, n = 0;
+
+    n = ++a && ++b || ++c;
+
+    printf("%d %d %d %d\r\n", a, b, c, n);
+}
+
+What will be the output of the fallowing program?
+main()
+{
+    int a = 10, b = 20, c = 0, n = 0;
+    
+    n = c && ++a || ++b;
+
+    printf("%d %d %d %d\r\n", a, b, c, n);
+}
+
+What will be the output of the fallowing program?
+main()
+{
+	int a = 10, b = 20;
+
+	swap(a, b);
+
+	printf("%d %d\r\n", a, b);
+}
+
+
+int swap(int a, int b)
+{
+	int temp;
+
+	temp = a;
+	a = b;
+	b = temp;
+}
+
+Say Yes/No
+
+In C all functions except main can be called recurssively (Yes/No)
+Variable are 'Global variables' when they declared 
+a. Before main
+b. Not within any block
+c. Defined as Static
+d. None of the above
+
+main()
+{
+	int i = 0;
+
+	for (i = 1; i <= 10; i++)
+	{
+		if ( i >= 5)
+			break;
+	}
+     printf("%d", i);
+}
+
+a.10  b.5  c.6 d. 1
+
+main()
+{
+    int i = 0;
+
+    for (i = 1; i <= 10; )
+    {
+       if (i<= 7)
+          i = i + 2;
+    }
+
+    printf("%d, i);
+}
+a.10  b.11  c.Infinite loop d.1
+
+Are the bellow programs are same?
+
+Program 'a'
+main()
+{
+  int *p = malloc(100);
+ 
+   ....
+   /*some code*/
+   ....
+
+   free(p);
+}
+
+Program 'b'
+main()
+{
+  int *p;
+  
+  *p = malloc(100);
+ 
+   ....
+   /*some code*/
+   ....
+
+   free(p);
+}
+
+a. 'a' and 'b' are identical and correct
+b. 'a' is correct and 'b' is in-correct
+c. 'a' is in-correct and 'b' is correct
+d. 'a' and 'b' are identical and both are in-correct
+
+
+main()
+{
+    int arr[5] = {10, 20};
+
+    printf("%d %d", a[1], a[2]);
+}
+
+a. 20, random number
+b. 20, 0
+c. random number, random number
+d. 0, 0
+
+main()
+{
+    int arr[5] = {10, 20, 30, 40, 50};
+
+    printf("%d %d %d\r\n", arr[1], *(arr + 1), 1[arr]));
+}
+Compiler error
+Runtime error/crash
+20, 0, 0
+20, 20, 20
+
+What will be the output of the following program if the array begins at the address 1200 in memory
+main()
+{
+    int arr[5];
+
+    printf("%u %u %u\r\n", arr, &arr[0], &arr);
+}
+
+a. Compiler error
+b. 1200, 0, 0
+c. 1200, 1200, 0
+d. 1200, 1200, 1200
+
+What will be the output of the following program if the 'a's address is 500 and 'ch's address is 700 in memory
+main()
+{
+    int a = 100; *pa = &a;
+    char ch = 'A', *pch = &ch;
+
+    p++;
+    pch++;
+
+    printf("%u %u\r\n", pa, pch);
+}
+Answer: 504, 701
+
+What will be the output of the following program?
+main()
+{
+    printf("%c", 2["SET TOP BOX"]);
+}
+
+a. E
+b. Compilation error
+c. Runtime error/Crash
+d. Non of the above

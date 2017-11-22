@@ -1,0 +1,5 @@
+Building XBMC (Kodi - Open-source media player) for Rasberry PI.  As part building home automation using Kodi Over RPI I need to work below activities
+- Settingup tool chain
+- Insalling dependency packages
+- Cross compiling
+- Loading image on SD card and Testing
