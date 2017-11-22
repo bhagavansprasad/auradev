@@ -1,0 +1,19 @@
+- Setting-up web server with python script with Php page
+sudo apt-get install php5-common php5-cli php5-fpm
+cp index.php /usr/share/nginx/html
+
+- Add below line to /etc/nginx/sites-available/default file
+	index index.php index.html index.htm;
+
+   location ~ \.php$ {
+	 fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index index.php;
+    include fastcgi_params;
+   }
+
+- Restart nginx service
+sudo service nginx restart
+
+- Start local server on port number 90
+python web.py
