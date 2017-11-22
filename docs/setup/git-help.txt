@@ -69,6 +69,10 @@ In git server
 	$ cd sources.git
 	$ git init --bare
 
+- Setting git remote URLs
+git remote -v
+git remote set-url origin bhagavan@192.168.1.254:/opt/git/auradev.git
+
 In git client
 	git clone git@192.168.1.254:/opt/git/sources.git
 	
