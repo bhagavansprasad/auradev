@@ -1,7 +1,7 @@
 1. Setting-up nginx server to call a python script, as native application
 ======================================================================
 - Install required packages
-sudo apt-get install nginx fcgiwrap python-fcgi libfcgi0ldbl 
+sudo apt-get install nginx fcgiwrap php5-fpm python-fcgi libfcgi0ldbl 
 
 - Copy default file to  /etc/nginx/sites-available/
 cp source-files/sites-available/default /etc/nginx/sites-available/default
@@ -14,6 +14,7 @@ cp source-files/cgi-bin/env.cgi /usr/share/nginx/html/cgi-bin
 
 - Restart nginx
 sudo service nginx restart
+sudo service php5-fpm restart
 
 - Browse pages from shell or from Browser
 curl localhost
@@ -50,6 +51,7 @@ cp index.php /usr/share/nginx/html
 
 - Restart nginx service
 sudo service nginx restart
+sudo service php5-fpm restart
 
 - Start local application/server on port number 90 (statically mentioned in
   index.php)
