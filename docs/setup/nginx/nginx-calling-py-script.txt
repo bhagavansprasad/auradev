@@ -1,5 +1,70 @@
+1. Setting-up nginx server to call a python script, as native application
+======================================================================
+- Install required packages
+sudo apt-get install nginx fcgiwrap python-fcgi libfcgi0ldbl 
+
+- Copy default file to  /etc/nginx/sites-available/
+cp source-files/sites-available/default /etc/nginx/sites-available/default
+
+- Create a folder "cgi-bin" in  "/usr/share/nginx/html/"
+mkdir -p /usr/share/nginx/html/cgi-bin
+
+- Copy env.cgi to "cgi-bin"
+cp source-files/cgi-bin/env.cgi /usr/share/nginx/html/cgi-bin
+
+- Restart nginx
+sudo service nginx restart
+
+- Browse pages from shell or from Browser
+curl localhost
+http://localhost
+
+curl localhost/index.html
+http://localhost/index.html
+
+curl localhost/cgi-bin/env.cgi
+http://localhost/cgi-bin/env.cgi
+
+Making nginx to serve data reading from another application
+===========================================================
+- Setup nginx and make sure the basic nginx is working
+  Fallow procedure above to setup basic nginx which call python script
+  internally
+
+- Copy index.php to /usr/share/nginx/html
+cp index.php /usr/share/nginx/html
+
+- In  /etc/nginx/sites-available/default file search 'index' and 
+  insert the word 'index.php' in the second position, like below
+
+  index index.php index.html index.htm;
+
+- Insert below block to handle '.php' requests (after 'location /cgi-bin' block)
+
+   location ~ \.php$ {
+	 fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index index.php;
+    include fastcgi_params;
+   }
+
+- Restart nginx service
+sudo service nginx restart
+
+- Start local application/server on port number 90 (statically mentioned in
+  index.php)
+python db.py
+
+- Browse pages from Browser
+http://localhost
+http://localhost/index.html
+http://localhost/index.php
+http://localhost/cgi-bin/env.cgi
+
+Setting-up nginx server to call a python script, as docker container
+====================================================================
 Steps to write in Dockerfile
-- Pull nginx
+- pull nginx
 - Modify file "/etc/nginx/sites-enabled/default", such that It contains below content
      location /cgi-bin/ {
      gzip off;
@@ -34,18 +99,3 @@ Copy sources/default to  /etc/nginx/sites-available
 Create soft link to /etc/nginx/sites-available/default in /etc/nginx/sites-enabled
 Create /usr/share/nginx/html/cgi-bin folder
 Copy env.cgi file to /usr/share/nginx/html/cgi-bin folder
-
-
--Setting-up nginx server to call a python script, as native application
-
-- Install required packages
-sudo apt-get install nginx fcgiwrap python-fcgi libfcgi0ldbl 
-
-- Copy default file to  /etc/nginx/sites-available/
-cp source-files/sites-available/default /etc/nginx/sites-available/default
-
-- Create a folder "cgi-bin" in  "/usr/share/nginx/html/"
-mkdir -p /usr/share/nginx/html/cgi-bin
-
-- Copy env.cgi to "cgi-bin"
-cp source-files/cgi-bin/env.cgi /usr/share/nginx/html/cgi-bin

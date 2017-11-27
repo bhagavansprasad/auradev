@@ -25,6 +25,5 @@ server {
     fastcgi_index index.php;
     include fastcgi_params;
    }
-
 }
 
