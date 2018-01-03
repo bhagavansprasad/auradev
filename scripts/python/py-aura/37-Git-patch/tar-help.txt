@@ -1,0 +1,11 @@
+- Creating new patch.tar with source path
+tar -rvf patch.tar test_repos-1/1-a/1a.py test_repos-1/1-b/2notes.txt 
+
+- Appending new file to existing patch.tar
+tar -rvf patch.tar test_repos-2/2-a/new-file.txt
+
+- List all files in tar
+tar -tvf patch.tar
+
+ - Extracting files from tar, and create path
+ tar -xvf patch.tar
