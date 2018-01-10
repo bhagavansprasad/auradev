@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Shop</title>
-    </head>
+		<title>Aura: Welcome to customized nginx!</title>
+			<style>
+    			body {
+        			width: 35em;
+        			margin: 0 auto;
+        			font-family: Tahoma, Verdana, Arial, sans-serif;
+    			}
+			</style>
+	</head>
 
     <body>
-        <h1>Welcome to my shop</h1>
+		<h1>Aura: Curstomized nginx!</h1>
+		<p>If you see this page, the nginx web server is successfully installed and working</p>
         <ul>
             <?php
             $json = file_get_contents('http://127.0.0.1:90/');
