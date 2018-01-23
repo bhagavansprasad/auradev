@@ -10,18 +10,19 @@ def createDirectory():
     directory = "videos"
     if not os.path.isdir("./" + directory + "/"):
         os.mkdir("./" + directory + "/")
-        print "Videos Folder Created."
+        print("Videos Folder Created.")
     else:
-        print "Video Folder Exists."
-        print "---------------------"
+        print("Video Folder Exists.")
+        print("---------------------")
 
 # Move all the files in the root directory with the .wmv extension
 # to the videos folder
 def moveVideos():
     for file in os.listdir("."):
         if os.path.splitext(file)[1] == ".wmv":
-            print "Moving:", file
+            print("Moving:", file)
             shutil.move(file, os.path.join("videos", file))
+
 def createHTML():
     videoDirectory = os.listdir("videos")
     f = open("list.html", "w")
@@ -31,6 +32,11 @@ def createHTML():
     f.write('\t</ul>\n')
     f.write('</body></html>\n')
 
-createDirectory()
-moveVideos()
-createHTML()
+def main():
+	createDirectory()
+	moveVideos()
+	createHTML()
+
+
+if (__name__ == '__main__'):
+	main()

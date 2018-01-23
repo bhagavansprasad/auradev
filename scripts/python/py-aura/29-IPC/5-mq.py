@@ -1,4 +1,4 @@
-import Queue
+import queue
  
 class Task(object):
     def __init__(self, priority, name):
@@ -8,7 +8,7 @@ class Task(object):
     def __cmp__(self, other):
         return cmp(self.priority, other.priority)
  
-q = Queue.PriorityQueue()
+q = queue.PriorityQueue()
  
 q.put( Task(100, 'a not agent task') )
 q.put( Task(5, 'a highly imp task') )
@@ -16,6 +16,6 @@ q.put( Task(10, 'an important task') )
  
 while not q.empty():
     cur_task = q.get()
-    print 'process priority:', cur_task.priority
-    print 'process task    :', cur_task.name
+    print('process priority:', cur_task.priority)
+    print('process task    :', cur_task.name)
  

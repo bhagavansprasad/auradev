@@ -18,7 +18,7 @@ def get_product(a, b):
 def get_dividend(a, b):
 	return a / b
 
-state_machine = {
+state_machine1 = {
 	"sum"  : get_sum,
 	"diff" : get_difference,
 	"prod" : get_product,
@@ -45,7 +45,7 @@ def main(argv):
 	a = int(argv[2])
 	b = int(argv[3])
 
-	t = state_machine[argv[1]](a, b)
+	t = state_machine1[argv[1]](a, b)
 
 	print (t)
 

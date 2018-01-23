@@ -35,14 +35,13 @@ def get_process_status_by_name(service, HOST, user, password, ps_cmd):
 	#print (output)
 	print ("==========")
 
-	if (output.find(bytes(service, "UTF-8")) > 0):
+	if (output.find(bytes(service, "UTF-8")) >= 0):
 		print("Service %s is ***Running***" % (service))
 	else:
 		print("Service %s is ***NOT Running***" % (service))
 
 	print ("==========")
 
-'''
 def get_hostname_by_ip(ip_addr, user, password):
 	cmd = "hostname"
 
@@ -105,7 +104,6 @@ def get_sys_uptime_by_ip(ip_addr, user, password):
 	print ("==========")
 	print (output)
 	print ("==========")
-'''
 
 HOST = "localhost"
 user = "bhagavan"
@@ -114,9 +112,9 @@ ps_cmd = "ps -Al"
 service = "mytestprog"
 
 def main():
-	get_process_status_by_name(service, HOST, user, password, ps_cmd)
 	#get_sys_uptime_by_ip("127.0.0.1", "bhagavan", "jnjnuh")
-	#get_hostname_by_ip("127.0.0.1", "bhagavan", "jnjnuh")
+	#get_process_status_by_name(service, HOST, user, password, ps_cmd)
+	get_hostname_by_ip("127.0.0.1", "bhagavan", "jnjnuh")
 
 if (__name__ == "__main__"):
         main()

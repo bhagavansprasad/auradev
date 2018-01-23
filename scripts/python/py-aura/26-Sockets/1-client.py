@@ -5,8 +5,6 @@ import time
 dip_addr = '127.0.0.1' 
 DTCP_PORT = 5005
 BUFFER_SIZE = 1024
-MESSAGE = "Hello, World!"
-
 
 sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 

@@ -5,7 +5,7 @@ import sys
 from multiprocessing import Process
  
 def chld_starting_fun(number):
-    print(("I am in '%s' function" % (sys._getframe().f_code.co_name)))
+    print("I am in '%s' function" % (sys._getframe().f_code.co_name))
     result = number * 2
     pid = os.getpid()
     print('-->Child: pid :%d, ppid :%d, result :%d' % (pid, os.getppid(), result))

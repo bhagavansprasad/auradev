@@ -12,10 +12,10 @@ try:
     s.login (host, user, password, login_timeout=20)
     s.sendline ('uptime') # run a command
     s.prompt() # match the prompt
-    print s.before, s.after
+    print(s.before, s.after)
     s.interact()
-except pxssh.ExceptionPxssh, e:
-    print 'pxssh failed on login.'
-    print str(e)
+except pxssh.ExceptionPxssh as e:
+    print('pxssh failed on login.')
+    print(str(e))
 except OSError:
-    print "End session to " + user + "@" + host
+    print("End session to " + user + "@" + host)

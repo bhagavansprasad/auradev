@@ -11,12 +11,8 @@ print(tA[1]*5)
 print(str(tA[0])[0])
 print(tA[1][0])
 
-tA = (123, '283')
+tA = (123, 283)
 print("First tuple length : ",  len(tA))
-
-tA = ('1', '98346', 99999)
-print("tA :", tA)
-print(dir(tA))
 print("Max value element tA: ", max(tA))
 print("min value element : ", min(tA))
 

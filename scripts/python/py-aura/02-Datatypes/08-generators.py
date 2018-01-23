@@ -1,41 +1,30 @@
 import sys
 
-mygenr = (x*x for x in range(5))
+def main():
+	ylist = [x*x for x in range(3)]
+	print(type(ylist))
+	print(ylist)
 
-print(type(mygenr))
-for i in mygenr:
-   print((i), end=' ')
+	ylist = [x+1 for x in range(3)]
+	print(ylist)
 
-print("")
-ylist = [x*x for x in range(3)]
-print(type(ylist))
-print(ylist)
+	ylist = [x-1 for x in range(3)]
+	print(ylist)
 
-ylist = [x+1 for x in range(3)]
-print(ylist)
+	print({'x':x-1 for x in range(10,20)})
 
-ylist = [x-1 for x in range(3)]
-print(ylist)
+	t = [x for x in range(10,20)]
+	print (t)
 
-print({'x':x-1 for x in range(10,20)})
+	t = [str(x) for x in range(10,20)]
+	print (t)
 
-def createGenerator():
-    mylist = list(range(3))
-    for i in mylist:
-        yield i*i
+	t = ["aura"+str(x) for x in range(10,20)]
+	print (t)
 
-mygenerator = createGenerator() # create a generator
-print(mygenerator) # mygenerator is an object!
-for i in mygenerator:
-    print(i)
+	t = {'aura'+str(x):x-1 for x in range(10,20)}
+	print (t)
+	return
 
-print("for bigger list")
-def firstn(n):
-    num, nums = 0, []
-    while num < n:
-        #nums.append(num)
-        yield num 
-        num += 1
-sum_of_first_n = sum(firstn(1000000))
-print(sum_of_first_n)
-
+if (__name__ == '__main__'):
+    main()

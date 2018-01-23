@@ -11,6 +11,7 @@ my_logger.setLevel(logging.DEBUG)
 handler = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=20, backupCount=5)
 
 handler.setLevel(logging.CRITICAL)
+my_logger.setLevel(logging.DEBUG)
 
 my_logger.addHandler(handler)
 my_logger.debug("Message with %s, %s", "test string1", "test string2")

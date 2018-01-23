@@ -22,7 +22,7 @@ print (cal)
 
 print ("Time in seconds since the epoch: %s" % time.time())
 print ("Current date and time          :", datetime.datetime.now())
-print ("Or like this                   :", datetime.datetime.now().strftime("%y-%m-%d-%H-%M-%Y-%m-%m-%H"))
+print ("Or like this                   :", datetime.datetime.now().strftime("%y-%m-%d-%H-%M-%Y"))
 print ("Current year                   :", datetime.date.today().strftime("%Y"))
 print ("Month of year                  :", datetime.date.today().strftime("%B"))
 print ("Month of year                  :", datetime.date.today().strftime("%h"))
@@ -70,6 +70,7 @@ print ('t1:', t1)
 
 t2 = datetime.time(13, 5, 0)
 print ('t2:', t2)
+
 print ('t1 < t2:', t1 < t2)
 #print (help(datetime.timedelta))
 
@@ -80,4 +81,3 @@ print ('\td1:', d1)
 d2 = datetime.date.today() + datetime.timedelta(days=5)
 print ('\td2:', d2)
 print ('\td1 > d2:', d1 > d2)
-exit(1)

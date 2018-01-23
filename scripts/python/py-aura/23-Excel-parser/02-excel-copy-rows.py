@@ -7,6 +7,7 @@ from openpyxl.styles import Font, Fill, colors, PatternFill, Protection
 def list_worksheets_by_wbook(wbook):
     wb = load_workbook(wbook)
     print("worksheet names...")
+
     for wsheet in wb.get_sheet_names():
         print(("'%s'" % (wsheet)), end=' ')
     print("")
@@ -44,12 +45,13 @@ def copy_rows_by_name(wbook, dst_wname, src_wname, filter_str):
     frow = [cell.value for cell in row]
     dwsheet.append(frow)
 
-    #dump rows
+    #dump dsheet rows
     for row in dwsheet.iter_rows():
         for cell in row:
             print(cell.value, " ", end=' ')
         print("")
 
+    #copy all rows that matched with given string
     for row in swsheet.iter_rows():
         if (row[2].value != None and row[2].value == filter_str):
             frow = [cell.value for cell in row]
@@ -60,13 +62,14 @@ def copy_rows_by_name(wbook, dst_wname, src_wname, filter_str):
     wb.save(wbook)
 
 def main():
-    wbook = 'shared/revenue.xlsx'
-    src_wname = "sales"
-    dst_wname = "sorted"
-    filter_str = "Vinay"
+	wbook = 'shared/revenue.xlsx'
+	src_wname = "sales"
+	dst_wname = "filtered"
+	filter_str = "Vinay"
 
-    list_worksheets_by_wbook(wbook)
-    copy_rows_by_name(wbook, dst_wname, src_wname, filter_str)
+	list_worksheets_by_wbook(wbook)
+	copy_rows_by_name(wbook, dst_wname, src_wname, filter_str)
+	return
 
 if (__name__ == '__main__'):
     main()

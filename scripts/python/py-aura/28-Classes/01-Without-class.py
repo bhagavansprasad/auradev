@@ -21,20 +21,19 @@ def increment_data(n):
     #print "a :", a
 
 def main():
-	global a
-	print(("data :", get_data()))
+	print("data :", get_data())
 
 	increment_data(10)
 
-	print(("data :", get_data()))
+	print("data :", get_data())
 
 	increment_data(20)
 
 	dump_data()
 
-	print(("data :", get_data()))
+	print("data :", get_data())
 	a = 100
-	print(("data :", get_data()))
+	print("data :", get_data())
 
 if (__name__ == "__main__"):
 	main()

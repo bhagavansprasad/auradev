@@ -18,7 +18,17 @@ else:
     print('Not Found')
 print("")
 
+
 regex = r'we \w\w\w'
+print("search -- '%s' -- '%s' " % (regex, s2))
+match = re.search(regex, s2)
+if match:                      
+    print('Found :', match.group())
+else:
+    print('Not Found')
+print("")
+
+regex = r'we \w\w\w\w\w'
 print("search -- '%s' -- '%s' " % (regex, s2))
 match = re.search(regex, s2)
 if match:                      
@@ -214,7 +224,8 @@ match = re.search(regex, str)
 if match:
     print(match.start())
     print(match.end())
+    print(str[:match.start()])
+    print(str[match.end()-1:])
     print(str[:match.start()]+str[match.end()-1:])
 print("")
 
-exit(1)

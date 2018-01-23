@@ -81,6 +81,7 @@ def main():
 
 	rurl = get_redirected_url(data)
 	print (rurl)
+
 	(response, retcode, data) = send_http_request(rurl)
 	print("resp, status :", response.status)
 	print("resp  reason :", response.reason)
@@ -89,6 +90,7 @@ def main():
 	print("=============")
 	print(data)
 	print("=============")
+	return
 
 if (__name__ == "__main__"):
 	main()

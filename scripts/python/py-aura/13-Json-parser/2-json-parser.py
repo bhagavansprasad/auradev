@@ -183,8 +183,11 @@ json_list = [
 #CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                   PORTS               NAMES
 #0b8dccc201b0        myhttpv1            "nginx -g 'daemon off"   5 weeks ago         Exited (0) 5 weeks ago                       myhttpv1
 
-#print (myobject)
-#print (myobject[0])
+def dump_full_json_obj(myobject):
+	print (myobject)
+	print (myobject[0])
+	return 
+
 
 def dump_container_desc_debug(myobject):
 	print(myobject[0]['Id'])
@@ -192,6 +195,7 @@ def dump_container_desc_debug(myobject):
 	print((myobject[0]['Config']))
 	print((myobject[0]['Config']['Image']))
 	print((myobject[0]['State']))
+	return
 	print((myobject[0]['State']['Status']))
 	print((myobject[0]['Created']))
 	print((myobject[0]['Args']))
@@ -206,7 +210,9 @@ def dump_container_desc(myobject):
 
 
 def main(myobject):
-	#dump_container_desc_debug(myobject)
+	#dump_full_json_obj(myobject)
+	dump_container_desc_debug(myobject)
+	return
 	expe_output = """0b8dccc201b0        myhttpv1            "nginx -g 'daemon off"   5 weeks ago         Exited (0) 5 weeks ago myhttpv1"""
 	print (expe_output)
 	dump_container_desc(myobject)

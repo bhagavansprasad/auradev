@@ -1,18 +1,20 @@
 def my_decorator(some_function):
+	print ("In my_decorator function")
 
-    def wrapper():
+	def wrapper():
 
-        print("Something is happening before some_function() is called.")
+		print("Something is happening before some_function() is called.")
 
-        some_function()
+		some_function()
 
-        print("Something is happening after some_function() is called.")
+		print("Something is happening after some_function() is called.")
 
-    return wrapper
+	print ("Returning from my_decorator function")
+	return wrapper
 
 
 def just_some_function():
-    print("Wheee!")
+	print("Wheee!")
 
 
 just_some_function = my_decorator(just_some_function)

@@ -123,19 +123,19 @@ print("tstr.count(sub)        :%d" % tstr.count(sub))
 
 sub = "aura";
 print("tstr.count(sub)        :%d" % tstr.count(sub))
-exit(1)
 
 i = 0
 tstr = "this is string example....wow!!!";
 print("tstr                   :%s" % tstr)
-suffix = "wow!!!";
 prefix = "This";
+suffix = "wow!!!";
 
 print("1. :%r" % tstr.endswith(suffix))
 print("2. :%r" % tstr.endswith(suffix, 5, 10))
 print("3. :%r" % tstr.startswith(prefix))
 print("4. :%s" % tstr.capitalize())
 print("5. :%r" % tstr.capitalize().startswith(prefix))
+print("6. :%s" % " ".count(' '))
 
 print("")
 
@@ -145,7 +145,6 @@ print("1. :%d" % tstr.find(substr))
 print("2. :%d" % tstr.find(substr, 10))
 print("3. :%d" % tstr.find(substr, 20))
 print("4. :%d" % tstr.find("Exam"))
-
 print("5. :%r" % tstr.index(substr))
 print("6. :%r" % tstr.index(substr, 10))
 #print("7. :%r" % tstr.index(substr, 20))
@@ -156,7 +155,6 @@ print("1. :%r" % tstr.islower())
 print("2. :%s" % tstr.lower())
 print("3. :%r" % tstr.lower().islower())
 
-print("")
 tstr = "this is string example....wow!!!"; 
 print("1. :%r" % tstr.isupper())
 print("2. :%s" % tstr.upper())
@@ -172,19 +170,19 @@ print(tstr.isspace())
 tstr = "This is string example....wow!!!";
 print(tstr.isspace())
 
-tstr = "This is string is example...is .wow!!!";
 print("")
+tstr = "This is string is example...is .wow!!!";
 print(tstr)
 print(tstr.replace("is", "was"))
 print(tstr)
 
 print("")
 tstr = "This is string is example...is .wow!!!";
-print("1. :%s" % tstr)
+print("1. :%s" % tstr.replace("is", "was"))
 print("2. :%s" % tstr.replace("is", "was", 1))  #Number of occurences to replace
 print("3. :%s" % tstr.replace("is", "was", 2))  #Number of occurences to replace
-print("4. :%s" % tstr.replace("is", "was", -1)) #Number of occurences to replace
-print("5. :%s" % tstr[5:].replace("is", "was")) #Number of occurences to replace
+print("4. :%s" % tstr.replace("is", "was", -1)) 
+print("5. :%s" % tstr[5:].replace("is", "was")) 
 print("")
 
 tstr = "          this is string           example....wow!!!     ";
@@ -215,15 +213,16 @@ print(tstr)
 substr = "abc"
 print(tstr.lstrip('8').rstrip('8').rstrip(substr).rstrip('8')+substr)
 print(tstr.strip('8'))
-exit(1)
 
 #Number with tabs, single space and multiple spaces
 phnum = "	      970 2096 756   	       "
 print(phnum)
 print(phnum.split())
 print(phnum.split()[1])
-phnum = "".join(phnum.split())
+print("".join(phnum.split()))
+print("-".join(phnum.split()))
 print(phnum)
+
 
 print("")
 tstr = "Line1-ab cdef \nLine2-abc\nLine,4-abcd";
@@ -231,6 +230,7 @@ print(tstr)
 print(tstr.split())
 print(tstr.split(' ', 1))
 print(tstr.split(' ', 2))
+print(tstr.split('\n'))
 
 print("")
 email = "bhagavanprasad@gmail.com"
@@ -242,7 +242,7 @@ dname = email.split('@')[1]
 print(username)
 print(dname)
 
-username,dname = email.split('@')
+username, dname = email.split('@')
 print(username)
 print(dname)
 exit(1)

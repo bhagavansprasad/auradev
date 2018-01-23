@@ -25,6 +25,7 @@ CREATE USER gerrit2  WITH PASSWORD 'jnjnuh';
 ALTER  USER gerrit2  WITH PASSWORD 'jnjnuh';
 ALTER USER ramesh WITH SUPERUSER;
 GRANT ALL PRIVILEGES ON DATABASE "reviewdb" to gerrit2;
+DROP USER naif;
 
 Database operations
 --------------------

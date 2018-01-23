@@ -15,8 +15,12 @@ class B(A):
 a = A()
 b = B()
 print(a.f())
+print ("")
+
 print(a.g())
+print ("")
 
 print(b.f())
+print ("")
+
 print(b.g())
-exit(1)

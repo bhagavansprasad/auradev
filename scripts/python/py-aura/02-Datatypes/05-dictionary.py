@@ -76,6 +76,7 @@ del atomic_elements['C']
 print(atomic_elements)
 #print (atomic_elements["C"])
 
+print(atomic_elements.keys())
 print(list(atomic_elements.keys()))
 print(list(atomic_elements.values()))
 print(list(atomic_elements.values())[0])
@@ -99,7 +100,7 @@ atomic_number_to_name = {
     1: "hydrogen",
     6: "carbon",
     7: "nitrogen",
-    8: "oxygen",
+    8: "oxygen"
 }
 
 print(atomic_number_to_name)
@@ -108,11 +109,10 @@ print(atomic_number_to_name[8])
 
 nobel_prize_winners = {
     (1979, "physics"): ["Glashow", "Salam", "Weinberg"],
-    (1962, "chemistry"): ["Hodgkin"],
+    (1962, "chemistry"): "Hodgkin",
     (1984, "biology"): ["McClintock"],
 }
 print(nobel_prize_winners[(1979, "physics")])
-exit(1)
 
 states = {
     'Andhra Pradesh': 'AP',
@@ -188,7 +188,7 @@ print(type(city))
 
 my_dict = {'Name': 'Aura', 'Age': 5, 'Location': 'Bangalore'}
 print(my_dict)
-my_dict.clear();   
+my_dict.clear()   
 print(my_dict)
 
 del my_dict ;     
@@ -197,5 +197,4 @@ del my_dict ;
 # empty dictionary
 my_dict = {}
 print(my_dict)
-exit(1)
 

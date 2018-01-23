@@ -25,14 +25,15 @@ def print_normal_email(raw_email):
 
 def dump_git_log(entry):
     print ("commit %s"   % (entry.oid_new))
-    print ("Author: %s"  % (print_normal_email(entry.committer.email)))
+    #print ("Author: %s"  % (print_normal_email(entry.committer.email)))
+    print ("Author: %s"  % (entry.committer.email))
     print ("Date:   %s"  % (datetime.utcfromtimestamp(entry.committer.time).strftime('%a %b %d %H:%M:%S %Y %z')))
     print ""
 
 def main():
     repo = pygit2.Repository('/opt/git/amath.git')
     all_refs = list(repo.references)
-    print all_refs
+    print (all_refs)
 
     head = repo.references.get('refs/heads/master')  # Returns None if not found
     #head = repo.references['refs/heads/master']  # Raises KeyError if not found
@@ -43,7 +44,6 @@ def main():
 	
     for entry in head.log():
         dump_git_log(entry)
-        exit(1)
 
 if __name__ == '__main__':
     main()

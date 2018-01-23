@@ -1,33 +1,32 @@
-from sets import Set
 
-engineers = Set(['Saketh', 'Jana', 'Vachan', 'Aura'])
-print(engineers)
+engineers = set(['Saketh', 'Jana', 'Vachan', 'Aura'])
+print("engineers   :", engineers)
 
-programmers = Set(['Vachan', 'Sama', 'Dheer', 'Aura'])
-print(programmers)
+programmers = set(['Vachan', 'Sama', 'Dheer', 'Aura'])
+print("programmers :", programmers)
 
-managers = Set(['Jana', 'Vachan', 'Dheer', 'Achyu'])
-print(managers)
-
+managers = set(['Jana', 'Vachan', 'Dheer', 'Achyu'])
+print("managers    :", managers)
 
 employees = engineers | programmers | managers           # union
-print(employees)
-
+print("employees :", employees)
 
 engineering_management = engineers & managers            # intersection
-print(engineering_management)
+print("engineering_management :", engineering_management)
 
 fulltime_management = managers - engineers - programmers # difference
-print(fulltime_management)
+print("fulltime_management :", fulltime_management)
 
 engineers.add('Dilip')                                  # add element
-print(engineers) 
+print("engineers   :", engineers)
 
-print("employees issuperset of engineers", employees.issuperset(engineers)) 
+print("employees is superset of engineers :", employees.issuperset(engineers)) 
 print(employees)
+
 employees.update(engineers)         # update from another set
+
 print(employees)
-print("employees issuperset of engineers", employees.issuperset(engineers)) 
+print("employees is superset of engineers :", employees.issuperset(engineers)) 
 
 
 for group in [engineers, programmers, managers, employees]: 

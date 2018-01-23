@@ -30,12 +30,13 @@ def append_rows_by_name(wbook, dst_wname, src_wname, filter_str):
     #max rows and cols
     srcount =  swsheet.max_row
     sccount =  swsheet.max_column
-    print(("%s: max row:col (%d:%d)" % (src_wname, srcount, sccount)))
+    print("%s: max row:col (%d:%d)" % (src_wname, srcount, sccount))
 
     drcount =  dwsheet.max_row
     dccount =  dwsheet.max_column
-    print(("%s: max row:col (%d:%d)" % (dst_wname, drcount, dccount)))
-    
+    print("%s: max row:col (%d:%d)" % (dst_wname, drcount, dccount))
+
+    #copy titles
     #copy titles only if it is new sheet
     if (drcount <= 1):
         row = swsheet[1]
@@ -48,19 +49,20 @@ def append_rows_by_name(wbook, dst_wname, src_wname, filter_str):
             print(cell.value, " ", end=' ')
         print("")
 
+    #copy all rows that matched with given string
     for row in swsheet.iter_rows():
         if (row[2].value != None and row[2].value == filter_str):
             frow = [cell.value for cell in row]
-            print(("appending {0}".format(frow)))
+            print("appending {0}".format(frow))
             dwsheet.append(frow)
 
-    print(("Saving :%s" % (wbook)))
+    print("Saving :%s" % (wbook))
     wb.save(wbook)
 
 def main():
     wbook = 'shared/revenue.xlsx'
     src_wname = "sales"
-    dst_wname = "sorted"
+    dst_wname = "filtered"
     filter_str = "Ashish"
 
     list_worksheets_by_wbook(wbook)

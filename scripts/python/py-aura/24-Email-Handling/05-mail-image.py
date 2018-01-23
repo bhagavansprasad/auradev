@@ -15,7 +15,7 @@ toaddr = 'bhagavansprasad@gmail.com'
 
 emailfrom = "bhagavan@foreman.auradev.com"  
 emailto = "bhagavan@foreman.auradev.com"
-fileToSend = "hi.csv"
+fileToSend = "t.pdf"
 username = 'bhagavansprasad@gmail.com'
 password = 'IPlay@5Show'
 

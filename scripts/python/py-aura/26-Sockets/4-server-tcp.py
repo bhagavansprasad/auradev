@@ -25,7 +25,8 @@ while 1:
 	print ("S. Received message from client...")
 	print("\t\t", data)
 
-	if not data: break
+	if not data: 
+		break
 
 	print ("S. Seding reply to client as ...")
 	data = data.upper()
@@ -35,3 +36,4 @@ while 1:
 	conn.send(data)  # echo
 
 conn.close()
+sockfd.close()

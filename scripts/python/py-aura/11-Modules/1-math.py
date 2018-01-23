@@ -14,9 +14,9 @@ def is_prime(n):
 def main():
 	n = 29
 	if (is_prime(n) == 1):
-		print ("%d is %s" % (n, "Prime"))
+		print(("%d is %s" % (n, "Prime")))
 	else:
-		print ("%d is %s" % (n, "NOT Prime"))
+		print(("%d is %s" % (n, "NOT Prime")))
 
 if (__name__ == "__main__"):
 	main()

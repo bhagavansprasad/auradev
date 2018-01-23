@@ -1,5 +1,5 @@
 class MyClass:
-	name = "bhagavan"
+	name = ""
 	x = 0
 	y = 0
 
@@ -15,7 +15,7 @@ class MyClass:
 
 	def store_data(self, data):
 		print("In store_data function in class")
-		name = data
+		self.name = data
 
 	def get_data(self):
 		print("In get_data function in class")
@@ -23,7 +23,9 @@ class MyClass:
 
 def main():
 	obj1 = MyClass()
-	print((obj1.get_data()))
+	print(obj1.get_data())
+	obj1.store_data("Ramesh")
+	print(obj1.get_data())
 
 	return
 

@@ -58,41 +58,41 @@ def read_lines_text_file(filename):
 
 def file_operations_seek(filename):
 	fd = open(filename, "rt")
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 
 	data = fd.read(10)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 
 	fd.seek(40)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 
 	data = fd.read(10)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 
 	fd.seek(0, 0)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 
 	fd.seek(10, 0)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 
 	fd.seek(20, 1)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 
 	fd.seek(-10, 2)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 	
 	fd.seek(0, 2)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 	
 	fd.seek(30, 0)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 	
 	fd.seek(-10, 1)
-	print(("file position :%d" % fd.tell()))
+	print("file position :%d" % fd.tell())
 	
-	print(("Name of the file  :%s" % fd.name))
-	print(("Closed or not     :%r" % fd.closed))
-	print(("Opening mode      :%r" % fd.mode))
+	print("Name of the file  :%s" % fd.name)
+	print("Closed or not     :%r" % fd.closed)
+	print("Opening mode      :%r" % fd.mode)
 
 	fd.close()
 	return
@@ -130,8 +130,8 @@ def main():
 	#read_line_text_file(filename)
 	#read_lines_text_file(filename)
 	#file_operations_seek(filename)
-	#write_to_file(filename)
-	write_to_binary_file("a.txt")
+	write_to_file(filename)
+	#write_to_binary_file("a.txt")
 	return
 	
 if (__name__ == "__main__"):

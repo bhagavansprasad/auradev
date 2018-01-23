@@ -8,8 +8,8 @@ session = libssh2.Session()
 session.startup(sock)
 session.userauth_password('bhagavan', 'jnjnuh')
 
-print dir(session)
+print(dir(session))
 channel = session.channel()
 channel.execute('ls -l')
 
-print channel.read(1024)
+print(channel.read(1024))

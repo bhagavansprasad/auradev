@@ -7,6 +7,7 @@ poets.append("10")
 
 print(poets)
 
+
 poets.append(poets[4] + "30")
 print(poets)
 
@@ -49,7 +50,7 @@ print("list2: ",   list2)
 
 print(list1.index('chemistry'))
 print(list1.index('physics'))
-#print list1.index('maths')
+#print(list1.index('maths'))
 
 print("list2: ",   list2)
 print(list2.pop())
@@ -99,4 +100,3 @@ if (new_sub not in list1):
     list1.append(new_sub)
 
 print(list1)
-exit(1)

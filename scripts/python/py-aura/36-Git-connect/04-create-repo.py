@@ -5,16 +5,20 @@ from pygit2 import init_repository
 from pygit2 import GIT_FILEMODE_BLOB, GIT_FILEMODE_TREE
 
 repo = init_repository('/tmp/repodir', bare=True)
+
 tf1 = repo.create_blob('this is a test file')
 tf2 = repo.create_blob('some other blob')
 tf3 = repo.create_blob('this is a test file2')
+
 tt1 = repo.TreeBuilder()
 tt1.insert('test_file1.txt', tf1, GIT_FILEMODE_BLOB)
 tt1.insert('test_file2.txt', tf3, GIT_FILEMODE_BLOB)
+
 tt2 = repo.TreeBuilder()
 tt3 = repo.TreeBuilder()
 tt4 = repo.TreeBuilder()
 tt5 = repo.TreeBuilder()
+
 tt5.insert('all_the_way_down.txt', tf2, GIT_FILEMODE_BLOB)
 tt4.insert('tt5', tt5.write(), GIT_FILEMODE_TREE)
 tt3.insert('tt4', tt4.write(), GIT_FILEMODE_TREE)

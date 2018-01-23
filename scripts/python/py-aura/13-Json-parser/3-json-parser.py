@@ -6,26 +6,22 @@ fd = open(json_file)
 print(type(fd))
 
 json_obj = json.load(fd)
+
 print(type(json_obj))
-
 print(json_obj[0]['Id'])
+print (json.dumps(json_obj, sort_keys=True, indent=4))
 
-exit(1)
-#print json.dumps(data, sort_keys=True, indent=4)
+json_decoded = json.dumps(json_obj)
+print(type(json_decoded))
+print (json_decoded)
 
-json_encoded = json.dumps(json_obj)
-print(type(json_encoded))
-#print json_encoded
-
-#print json_encoded[0]['Id']
+#print (json_decoded[0]['Id'])
 print('===============')
-exit(1)
-decoded_data = json.loads(json_encoded)
-print(type(decoded_data))
+encoded_data = json.loads(json_decoded)
 
-print(decoded_data)
-
-print(decoded_data['Id'])
+print(type(encoded_data))
+print(encoded_data)
+print(encoded_data[0]['Id'])
 exit(1)
 
 #print "Complex JSON parsing example: ", data['mydata']['list'][1]['name']

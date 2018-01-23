@@ -14,18 +14,17 @@ wb = load_workbook('shared/revenue.xlsx')
 wsheet = wb.get_sheet_by_name('population')
 
 data =   Reference(wsheet, min_col=2, min_row=2, max_col=2, max_row=12)
-categs = Reference(wsheet, min_col=1, min_row=2, max_col=1, max_row=12)
+categary = Reference(wsheet, min_col=1, min_row=2, max_col=1, max_row=12)
 
 chart = BarChart()
 chart.add_data(data=data)
-chart.set_categories(categs)
+chart.set_categories(categary)
 
 chart.legend = None
 chart.y_axis.majorGridlines = None
 #chart.varyColors = True
 chart.title = "World Population graph"
 wsheet.add_chart(chart, "H2")    
-
 
 projected_pie = ProjectedPieChart()
 projected_pie.type = "pie"

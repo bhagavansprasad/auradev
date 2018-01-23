@@ -1,9 +1,5 @@
 def is_prime(number):
 	"""Return True if *number* is prime."""
-
-	if (number == 5):
-		return False
-
 	if (number == -2):
 		return False
 

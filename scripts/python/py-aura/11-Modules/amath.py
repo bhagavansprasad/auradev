@@ -1,4 +1,3 @@
-
 def is_prime(n):
     i = 2
 
