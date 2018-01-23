@@ -69,6 +69,24 @@ In git server
 	$ cd sources.git
 	$ git init --bare
 
+Creating new repository pavan.git
+	$ cd /opt/git/
+	$ mkdir pavan.git
+	$ cd pavan.git
+	$ git init --bare
+	$ cd ..
+	$ sudo chmod -R 777 pavan.git 
+
+To clone
+	git clone /opt/git/pavan.git
+	touch t.py
+	git status ./
+	git add t.py
+	git commit -m "Comment"
+	git push origin master
+	git log ./
+
+
 - Setting git remote URLs
 git remote -v
 git remote set-url origin bhagavan@192.168.1.254:/opt/git/auradev.git
