@@ -1,7 +1,0 @@
-{
-  "01-test-primes.py::PrimesTestCase::test_split": true,
-  "01-test-primes.py::PrimesTestCase::test_upper": true,
-  "04-test-primes.py::PrimesTestCase::test_my_temp_fun": true,
-  "04-test-primes.py::PrimesTestCase::test_split": true,
-  "05-test.py::NumbersTest::test_even": true
-}
