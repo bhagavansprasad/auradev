@@ -1,5 +1,5 @@
-json_list = [
-    {
+import json
+json_obj = {
         "Id": "0b8dccc201b0be71d47ede92cb9e1801069f9e0b39505a7c6a32cabf7ada633a",
         "Created": "2016-12-29T10:30:07.119045211Z",
         "Path": "nginx",
@@ -177,47 +177,46 @@ json_list = [
             }
         }
     }
-]
 
 # The desired output should be
 #CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                   PORTS               NAMES
 #0b8dccc201b0        myhttpv1            "nginx -g 'daemon off"   5 weeks ago         Exited (0) 5 weeks ago                       myhttpv1
 
 def dump_full_json_obj(myobject):
-	print (myobject)
-	print (myobject[0])
-	return 
+    print (myobject)
+    print(json.dumps(myobject, sort_keys=True, indent=4))
+    return 
 
 
 def dump_container_desc_debug(myobject):
-	print(myobject[0]['Id'])
-	print((myobject[0]['Id'][0:12]))
-	print((myobject[0]['Config']))
-	print((myobject[0]['Config']['Image']))
-	print((myobject[0]['State']))
-	return
-	print((myobject[0]['State']['Status']))
-	print((myobject[0]['Created']))
-	print((myobject[0]['Args']))
-	print((myobject[0]['Config']['Cmd']))
+    print(myobject['Id'])
+    print(myobject['Id'][0:12])
+    print(myobject['Config'])
+    print(myobject['Config']['Image'])
+    print(myobject['State'])
+    print(myobject['State']['Status'])
+    return
+    print(myobject['Created'])
+    print(myobject['Args'])
+    print(myobject['Config']['Cmd'])
 
 def dump_container_desc(myobject):
-	print((myobject[0]['Id'][0:12]))
-	print((myobject[0]['Config']['Image']))
-	print((myobject[0]['State']['Status']))
-	print((myobject[0]['Created']))
-	print((myobject[0]['Config']['Cmd']))
+    print(myobject['Id'][0:12]),
+    print(myobject['Config']['Image']),
+    print(myobject['Args']),
+    print(myobject['Created']),
+    print(myobject['State']['Status']),
+    print(myobject['Config']['Cmd']),
 
 
 def main(myobject):
-	#dump_full_json_obj(myobject)
-	dump_container_desc_debug(myobject)
-	return
-	expe_output = """0b8dccc201b0        myhttpv1            "nginx -g 'daemon off"   5 weeks ago         Exited (0) 5 weeks ago myhttpv1"""
-	print (expe_output)
-	dump_container_desc(myobject)
+    expe_output = """0b8dccc201b0        myhttpv1            "nginx -g 'daemon off"   5 weeks ago         Exited (0) 5 weeks ago myhttpv1"""
+    #dump_full_json_obj(myobject)
+    dump_container_desc_debug(myobject)
+    return
+    print (expe_output)
+    dump_container_desc(myobject)
 
 if (__name__ == "__main__"):
-	main(json_list)
-	
-
+    main(json_obj)
+    

@@ -1,10 +1,10 @@
 prog_lagn = ['Python', 'C-Lang', 'Java']
-enumerateprog_lagn = enumerate(prog_lagn)
-print(type(enumerateprog_lagn))
-print(list(enumerateprog_lagn))
+enums_lagn = enumerate(prog_lagn)
+print(type(enums_lagn))
+print(list(enums_lagn))
 
-enumerateprog_lagn = enumerate(prog_lagn, 10)
-print(list(enumerateprog_lagn))
+enums_lagn = enumerate(prog_lagn, 10)
+print(list(enums_lagn))
 
 print("")
 prog_lagn = ['Python', 'C-Lang', 'Java']

@@ -1,33 +1,53 @@
 class MyClass:
-	name = ""
-	x = 0
+	name = "abcdexxx"
+	x = -1 
 	y = 0
 
 	def __init__(self):
-		self.name = ""
-		self.x = 1
-		self.y = 1
-		print("1. In constructure function")
+		print("In constructure function")
+		self.name = None
+		self.x = -1
+		self.y = 0 
 
-	def print_data(self):
-		print("In print_data function in class")
+	def __del__(self):
+		print("In destructure function")
+		self.name = None
+		self.x = -1
+		self.y = 0 
+
+	def my_constructer(self, data, a, b):
+		print("In set_data function in class")
+		self.name = data
+		self.x = a
+		self.y = b
+
+	def dump_data(self):
+		print("In dump_data function in class")
 		print (name)
 
-	def store_data(self, data):
-		print("In store_data function in class")
+	def set_data(self, data):
+		print("In set_data function in class")
 		self.name = data
 
 	def get_data(self):
 		print("In get_data function in class")
-		return self.name
+		return (self.name, self.x, self.y)
+
+	def increment_data(self, n):
+		self.x = self.x + n
+		return self.x 
 
 def main():
 	obj1 = MyClass()
-	print(obj1.get_data())
-	obj1.store_data("Ramesh")
-	print(obj1.get_data())
-
+	print("%s %d %d" % obj1.get_data())
 	return
+
+	obj1.my_constructer("", -1, 0)
+	print("%s %d %d" % obj1.get_data())
+
+	obj1.set_data("Ramesh")
+	print("%s %d %d" % obj1.get_data())
+
 
 if (__name__ == "__main__"):
 	main()

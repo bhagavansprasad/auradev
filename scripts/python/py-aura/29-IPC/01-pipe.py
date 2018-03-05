@@ -38,7 +38,7 @@ def parent(rfd):
 def main():
 	rfd, wfd  = os.pipe()
 
-	if os.fork() == 0:
+	if (os.fork() == 0):
 		os.close(rfd)
 		child(wfd)
 	else:

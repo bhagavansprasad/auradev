@@ -2,6 +2,14 @@
 import csv
 import sys
 
+'''
+data = []
+for line in csv.reader(fd)]
+	print line
+	print tuple(line)
+	data.append(tuple(line))
+'''
+
 def create_tuple_from_csv(filename):
 	with open(filename) as fd:
 		data=[tuple(line) for line in csv.reader(fd)]

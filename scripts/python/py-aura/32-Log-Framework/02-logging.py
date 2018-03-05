@@ -18,9 +18,10 @@ LEVELS = {'debug': logging.DEBUG,
           'critical': logging.CRITICAL}
 
 if len(sys.argv) > 1:
-    level_name = sys.argv[1]
-    level = LEVELS.get(level_name, logging.NOTSET)
-    logging.basicConfig(level=level)
+	level_name = sys.argv[1]
+	print (level_name)
+	level = LEVELS.get(level_name, logging.NOTSET)
+	logging.basicConfig(level=level)
 
 logging.debug   ('1. This is a debug message')
 logging.info    ('2. This is an info message')

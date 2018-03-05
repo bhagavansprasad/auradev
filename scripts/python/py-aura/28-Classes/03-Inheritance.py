@@ -5,22 +5,25 @@ class A:
 
     def g(self):
         print("A: function g")
-        return 'A'
+        return 'X'
 
 class B(A):
+	#g function ambigute function, because it is also available in base class
     def g(self):
         print("B: function g")
-        return 'B'
+        return 'Y'
 
-a = A()
-b = B()
-print(a.f())
+obj1 = A()
+print(obj1.f())
 print ("")
 
-print(a.g())
+print(obj1.g())
 print ("")
 
-print(b.f())
+obj2 = B()
+print(obj2.g())
 print ("")
 
-print(b.g())
+print(obj2.f())
+print ("")
+exit(1)

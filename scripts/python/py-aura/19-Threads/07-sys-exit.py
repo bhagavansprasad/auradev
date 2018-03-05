@@ -1,6 +1,6 @@
 import os
 
-print("parent ", os.getpid())
+print("Parent ", os.getpid())
 
 retval =  os.system("python test.py")
 

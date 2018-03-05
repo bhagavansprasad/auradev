@@ -7,7 +7,6 @@ poets.append("10")
 
 print(poets)
 
-
 poets.append(poets[4] + "30")
 print(poets)
 
@@ -24,7 +23,7 @@ poets.insert(2, "Thiruvalluvar")
 print(poets)
 
 list1 = ['physics', 'chemistry', '1997', '2000'];
-list2 = [1, 2, 3, 2, 5, 2, 5, 2 ];
+list2 = [1, 2, 3, 2, 5, 2, 5, 2];
 list3 = ["a", "b", "c", "d"]
 
 print("list1[0]: ",   list1[0])
@@ -48,10 +47,12 @@ list1.extend(list2) #this adds all list2 elements to list1
 print("list1: ",   list1)
 print("list2: ",   list2)
 
+list1 = ['physics', 'chemistry', '1997', '2000'];
 print(list1.index('chemistry'))
 print(list1.index('physics'))
 #print(list1.index('maths'))
 
+list2 = [1, 2, 3, 2, 5, 2, 5, 2];
 print("list2: ",   list2)
 print(list2.pop())
 print("list2: ",   list2)
@@ -82,7 +83,7 @@ new_sub = "maths"
 if (new_sub in list1):
     print("Found")
 else:
-    print("Appending")
+    print("I am Appending....")
     list1.append(new_sub)
 
 print(list1)
@@ -100,3 +101,4 @@ if (new_sub not in list1):
     list1.append(new_sub)
 
 print(list1)
+

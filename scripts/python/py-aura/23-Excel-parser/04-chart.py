@@ -5,7 +5,6 @@ from openpyxl import Workbook
 
 from openpyxl.chart import (
     Reference,
-    Series,
     BarChart,
     ProjectedPieChart
 )
@@ -37,7 +36,4 @@ projected_pie.add_data(data, titles_from_data=True)
 projected_pie.title = "Population graph"
 projected_pie.set_categories(labels)
 wsheet.add_chart(projected_pie, "H15")
-'''
-'''
-
 wb.save("shared/revenue.xlsx")

@@ -56,7 +56,7 @@ def index_error_with_args():
 	tstr = "Aura Networks"
 	print ("")
 	try:
-		tstr[0] = 'a'
+		#tstr[0] = 'a'
 		print(tstr[20])
 
 	except (TypeError, IndexError) as errobj:
@@ -68,7 +68,7 @@ def main():
 	#common_error()
 	#index_error()
 	#index_error_strings()
-	index_error_with_args()
+	#index_error_with_args()
 	return()
 
 if (__name__ == "__main__"):

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 def sample1():
 	try:
-		fd = open("user.csv", "r")
+		fd = open("users.csv", "r")
 		fd.write("Writing to file")
 		fd.close()
 		print("I am in try block")
@@ -24,7 +24,7 @@ def sample2():
 		print("I am in try block")
 
 	except IOError as err:
-		print ("Got execption because of some reason...")
+		print ("Got execption because of bellow reason...")
 		print (err)
 		print (err.args)
 	else:
@@ -55,7 +55,7 @@ def sample3():
 def main():
 	#sample1()
 	#sample2()
-	sample3()
+	#sample3()
 	return
 
 

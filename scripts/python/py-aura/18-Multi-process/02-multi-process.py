@@ -8,6 +8,7 @@ def chld_starting_fun(number):
     print("I am in '%s' function" % (sys._getframe().f_code.co_name))
     result = number * 2
     pid = os.getpid()
+    time.sleep(3)
     print('-->Child: pid :%d, ppid :%d, result :%d' % (pid, os.getppid(), result))
 
 def main():
@@ -16,21 +17,17 @@ def main():
 
     print('-->Parent: Before Child created :pid :%d, ppid :%d' % (pid, os.getppid()))
 
-    proc = Process(target=chld_starting_fun, args=(5,))
+    newproc = Process(target=chld_starting_fun, args=(5,))
 
     print('-->Parent: After Child created :%d' % (pid))
 
-    proc_list.append(proc)
+    proc_list.append(newproc)
 
     print ('-->Parent: Starting the Child process')
 
-    proc.start()
+    newproc.start()
 
-    print ('-->Parent: After child started, going for sleep')
-
-    time.sleep(5)
-
-    print ('-->Parent: After after sleep')
+    print ('-->Parent: After child started, going to wait for child to terminate')
 
     for proc in proc_list:
         proc.join()

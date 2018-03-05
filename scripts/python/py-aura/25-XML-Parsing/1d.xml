@@ -9,7 +9,5 @@
             HCL,Embedded
         </family-details>
     </student>
-
-    <student name="invalid">
-    </student>
+    <student name="invalid"> </student>
 </doc>

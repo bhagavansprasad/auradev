@@ -4,6 +4,7 @@
 int get_factorial_value(int n)
 {
 	int t = 1, i = 0;
+	int x;
 	printf ("-->%s, %s, %d\n", __FILE__, __FUNCTION__, __LINE__);
 
 	if (n < 0)

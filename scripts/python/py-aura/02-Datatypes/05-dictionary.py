@@ -1,53 +1,22 @@
 '''
-<student>
-    <name> aura </name>
-    <class> 5 </class>
-    <marks> 
-        <s1> 45 </s1>
-        <s2> 40 <s2>
-    </marks>
-</student>
-
-<student>
-    <name> aura </name>
-    <class> 10 </class>
-    <marks> 
-        <s1> 45 </s1>
-        <s2> 40 <s2>
-    </marks>
-</student>
+<student> <name> aura </name> <class> 5 </class> <marks> <s1> 45 </s1> <s2> 40 <s2> </marks> </student>
+<student> <name> aura </name> <class> 10 </class> <marks> <s1> 45 </s1> <s2> 40 <s2> </marks> </student>
 '''
 
 '''
-  student = [
-            {
-            "name":"aura",
-            "class":5,
-            "marks":[
-                    {"s1":45},
-                    {"s2":40}
-                ]
-            },
-            {"name":"temp",
-            "class":10,
-            "marks":[
-                {"s1":45},
-                {"s2":40}
-                ]
-            },
-            ]
+  student = [ { "name":"aura", "class":5, "marks":[ {"s1":45}, {"s2":40} ] }, {"name":"temp", "class":10, "marks":[ {"s1":45}, {"s2":40} ] }, ]
 '''
 
 #json
 
 atomic_elements = {
-	"H": "hydrogen",
+	"H":  "hydrogen",
 	"He": "helium",
 	"Li": "lithium",
-	"C": "carbon",
-	"O": "oxygen",
-	"P": "phosp",
-	"N": "nitrogen"
+	"C":  "carbon",
+	"O":  "oxygen",
+	"P":  "phosp",
+	"N":  "nitrogen"
 }
 
 print(atomic_elements)
@@ -80,7 +49,6 @@ print(atomic_elements.keys())
 print(list(atomic_elements.keys()))
 print(list(atomic_elements.values()))
 print(list(atomic_elements.values())[0])
-
 print(list(atomic_elements.items()))
 print(list(atomic_elements.items())[0])
 
@@ -197,4 +165,5 @@ del my_dict ;
 # empty dictionary
 my_dict = {}
 print(my_dict)
+exit(1)
 

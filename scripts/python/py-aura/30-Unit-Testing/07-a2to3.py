@@ -13,10 +13,10 @@ ignore_list = [
 
 test_strings = [
 	[False, "print"], 
-	[True, 'print "560103"'],
-	[True, "print '2345'"],
-	[True, "print'Aura Networks'"],
-	[True, "print'560103'"],
+	[True,  'print "560103"'],
+	[False, "print '2345'"],
+	[True,  "print'Aura Networks'"],
+	[True,  "print'560103'"],
 	[False, 'print ("560103")'],
 	[False, 'print xyz("560103")'],
 	[False, 'print    ("560103")'],
@@ -31,7 +31,7 @@ test_strings = [
 	[False, 'Hi I am printing my document'],
 	[False, "B "], 
 	[False, "def print_all_files_recursively(path):"],
-	[True, "print '98765'"],
+	[True,  "print '98765'"],
 	[False, ""]
 	]
 

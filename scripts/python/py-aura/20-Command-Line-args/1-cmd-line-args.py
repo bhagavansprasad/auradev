@@ -1,21 +1,21 @@
 import sys
 
-n = 10
+n = 5
 for i in range (1, n+1):
-	print (i), 
+	print ("%3d" % (i), end=''), 
 
 print ("")
 
 print ("argv       :", sys.argv)
+print ("args count :", len(sys.argv))
 print ("argv[0]    :", sys.argv[0])
 print ("argv[1]    :", sys.argv[1])
-print ("args count :", len(sys.argv))
 
 n = int(sys.argv[1])
 print (n)
 
 for i in range (1, n+1):
-	print (i), 
+	print ("%3d" % (i), end=''), 
 
 print ("")
 
@@ -29,3 +29,4 @@ print (data)
 for temp in data:
     print (temp)
 
+exit(1)

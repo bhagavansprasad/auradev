@@ -25,7 +25,7 @@ def doubler3(number):
 def main():
     numbers = [5, 10, 15]
     entry_func_list = [doubler1, doubler2, doubler3]
-    procs = []
+    proc_list = []
 
     pid = os.getpid()
 
@@ -33,13 +33,13 @@ def main():
 
     for index, number in enumerate(numbers):
         proc = Process(target=entry_func_list[index], args=(number,))
-        procs.append(proc)
-        print(("index :", index))
+        proc_list.append(proc)
         proc.start()
 
-    time.sleep(10)
-    for proc in procs:
+    for proc in proc_list:
         proc.join()
+
+    print('-->Parent :%d, exiting...' % (pid))
 
 if (__name__ == '__main__'):
     main()

@@ -5,12 +5,12 @@ import time
 def print_hai(timeout):
 	while(True):
 		print ("T1: Hai")
-		time.sleep(1)
+		time.sleep(timeout)
 
 def print_hello(timeout):
 	while(True):
 		print ("T2 : Hello")
-		time.sleep(1)
+		time.sleep(timeout)
 
 def main():
 

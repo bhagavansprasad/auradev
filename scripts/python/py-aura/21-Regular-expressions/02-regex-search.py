@@ -18,7 +18,6 @@ else:
     print('Not Found')
 print("")
 
-
 regex = r'we \w\w\w'
 print("search -- '%s' -- '%s' " % (regex, s2))
 match = re.search(regex, s2)
@@ -203,9 +202,13 @@ print("")
 regex = r'\s\s+'
 print("findall -- '%s' -- '%s' " % (regex, s1))
 match = re.findall(regex, s1)
-print(re.sub(regex, ' ', s1))
 if match:
     print(match)
+print("")
+
+regex = r'\s\s+'
+print("findall -- '%s' -- '%s' " % (regex, s1))
+print(re.sub(regex, ' ', s1))
 print("")
 
 regex = r'ACTS'
@@ -228,4 +231,5 @@ if match:
     print(str[match.end()-1:])
     print(str[:match.start()]+str[match.end()-1:])
 print("")
+exit(1)
 

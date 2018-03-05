@@ -1,4 +1,4 @@
-
+myglob = 10
 def is_prime(n):
     i = 2
 
@@ -13,4 +13,5 @@ def is_prime(n):
         return 0
 
 def is_even(n):
-    return (not n%2)
+	myglob_Var = 0
+	return (not n%2)

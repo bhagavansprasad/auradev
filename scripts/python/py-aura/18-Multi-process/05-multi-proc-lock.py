@@ -3,6 +3,8 @@ import os
 import time
 from multiprocessing import Process, Lock
 
+#global data is global to process, NOT global to system
+#Each process will have itw own global variable "my_global_variable"
 my_global_variable = 0
 
 def printer(tname, lock):
@@ -33,7 +35,7 @@ def main():
 			new_task_list.append(ntask) 
 			ntask.start()
 		except:
-			print("Error: unable to start thread")
+			print("Error: unable to start process")
 
 	time.sleep(20)
 

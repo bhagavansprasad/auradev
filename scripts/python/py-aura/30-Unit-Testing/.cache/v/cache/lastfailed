@@ -2,7 +2,6 @@
   "01-test-primes.py::PrimesTestCase::test_split": true,
   "01-test-primes.py::PrimesTestCase::test_upper": true,
   "04-test-primes.py::PrimesTestCase::test_my_temp_fun": true,
-  "04-test-primes.py::PrimesTestCase::test_negative_number_1": true,
-  "05-test.py::NumbersTest::test_even": true,
-  "07-a2to3.py::test_strings_2to3::test_strings_req_to_port": true
+  "04-test-primes.py::PrimesTestCase::test_split": true,
+  "05-test.py::NumbersTest::test_even": true
 }

@@ -7,10 +7,11 @@ def is_even(n):
 def main():
 	try:
 		assert(is_even(15) == True)
-	except:
+	except AssertionError:
 		print ("is_even returned False")
 	else:
 		print ("is_even returned True")
 
 if __name__ == '__main__':
+	#assert(is_even(15) == True)
 	main()

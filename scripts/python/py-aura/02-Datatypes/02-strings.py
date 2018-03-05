@@ -8,6 +8,7 @@ print ("%s String is :" % (test_str))
 
 print(len(test_str))
 print("Length of test_str is :%d" % (len(test_str)))
+print("Length of '%s' is :%d" % (test_str, len(test_str)))
 
 print(test_str[1])
 print("First  byte :%c" % (test_str[0]))
@@ -24,7 +25,6 @@ for temp in test_str:
 	print(temp),
 
 print("")
-
 test_str = "Aura Networks Bangalore"
 print(test_str[2])
 
@@ -44,6 +44,7 @@ print("-1   :%c" % test_str[-1])
 print("-2   :%c" % test_str[-2])
 print(" 1:6 :%s" % test_str[1:6])
 print(" 1:23:%s" % test_str[1:23])
+print(" 1:23:%s" % test_str[1:22])
 print(" 1:30:%s" % test_str[1:30])
 print(" 0:30:%s" % test_str[0:30])
 print(" ':' :%s" % test_str[:])
@@ -71,6 +72,7 @@ print(age * 3)
 print(height * 3)
 print(name * 3)
 print(str(height) * 3)
+print("%s" % (str(height) * 3))
 
 s = "Aurovill"
 s = "B" + s[:]
@@ -99,6 +101,7 @@ print("")
 #print(dir(tstr))
 #print(dir(""))
 #print (help(tstr.capitalize))
+#print (help("".capitalize))
 
 a = 10
 #print(dir(a))
@@ -106,7 +109,6 @@ a = 10
 tstr = "this is string example. and temp...wow!!!"
 print("tstr                   :%s" % tstr)
 sub = "i"
-
 print("tstr.len()             :%d" % len(tstr))
 print("tstr.count(sub)        :%d" % tstr.count(sub))
 print("tstr.count(sub, 4)     :%d" % tstr.count(sub, 4))
@@ -125,10 +127,10 @@ sub = "aura";
 print("tstr.count(sub)        :%d" % tstr.count(sub))
 
 i = 0
-tstr = "this is string example....wow!!!";
+tstr = "this is string example....wow!!!"
 print("tstr                   :%s" % tstr)
-prefix = "This";
-suffix = "wow!!!";
+prefix = "This"
+suffix = "wow!!!"
 
 print("1. :%r" % tstr.endswith(suffix))
 print("2. :%r" % tstr.endswith(suffix, 5, 10))
@@ -145,8 +147,8 @@ print("1. :%d" % tstr.find(substr))
 print("2. :%d" % tstr.find(substr, 10))
 print("3. :%d" % tstr.find(substr, 20))
 print("4. :%d" % tstr.find("Exam"))
-print("5. :%r" % tstr.index(substr))
-print("6. :%r" % tstr.index(substr, 10))
+print("5. :%d" % tstr.index(substr))
+print("6. :%d" % tstr.index(substr, 10))
 #print("7. :%r" % tstr.index(substr, 20))
 print("")
 
@@ -200,19 +202,19 @@ print("4. %d" % len(tstr.strip()))
 
 print("")
 
-tstr = "88888888this is string example....wow!!!8888888888888888888888";
+tstr = "88888888this is string example....wow!!!8888888888888888888888"
 print(tstr)
 print(tstr.rstrip('8'))
 print(tstr.rstrip('8').lstrip('8'))
 print(tstr.rstrip('8').lstrip('8').lstrip("th"))
 print(tstr.strip('8'))
 
-tstr = "88888888this is string example....wow!!!8888888888abc888888888888";
-#output should be tstr = "this is string example....wow!!!abc";
+tstr = "88888888this is string example....wow!!!8888888888abc888888888888"
+#output should be tstr = "this is string example....wow!!!abc"
 print(tstr)
 substr = "abc"
-print(tstr.lstrip('8').rstrip('8').rstrip(substr).rstrip('8')+substr)
 print(tstr.strip('8'))
+print(tstr.lstrip('8').rstrip('8').rstrip(substr).rstrip('8')+substr)
 
 #Number with tabs, single space and multiple spaces
 phnum = "	      970 2096 756   	       "
@@ -222,7 +224,6 @@ print(phnum.split()[1])
 print("".join(phnum.split()))
 print("-".join(phnum.split()))
 print(phnum)
-
 
 print("")
 tstr = "Line1-ab cdef \nLine2-abc\nLine,4-abcd";

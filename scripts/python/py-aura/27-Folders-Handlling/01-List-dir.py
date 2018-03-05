@@ -81,12 +81,12 @@ def get_n_list_files_by_file_size(dirname, reverse=False):
     return filepaths
 
 def main():
-	dirname = "/home/bhagavan/training/scripts/python/py-aura/16-PgSQL"
-	list_all(dirname)
-	list_files(dirname)
-	list_dirs(dirname)
-	get_files_with_size(dirname)
-	return
+    dirname = "/home/bhagavan/training/scripts/python/py-aura/16-PgSQL"
+    list_all(dirname)
+    list_files(dirname)
+    list_dirs(dirname)
+    get_files_with_size(dirname)
+    return
 
 if (__name__ == '__main__'):
-	main()
+    main()

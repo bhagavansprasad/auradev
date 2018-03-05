@@ -38,10 +38,10 @@ def make_connection(host):
         print("Could not connect to server '%s'" % host)
         return None 
 
-def get_trace_route_by_ip(host):
+def get_trace_route_by_ip(target):
 	#target = ["192.168.1.254"]
-	target = ["yahoo.com"]
-	result, unans = traceroute(target, maxttl=5)
+	#target = ["yahoo.com"]
+	result, unans = traceroute(target, maxttl=10)
 	print (result)
 	print ("")
 	print (unans)
@@ -60,6 +60,7 @@ def start_service_by_name(host, username, password, service):
 	telnet = make_connection(host)
 
 	if (telnet == None):
+		print ("Could not connect to server :%s" % (host))
 		get_trace_route_by_ip(host)
 		return
 	telnet.read_until("login: ".encode('ascii'))
@@ -113,7 +114,6 @@ def main():
 	#with open('servers.json', encoding="utf-8") as data_file:    
 	with open('servers.json') as data_file:    
 		data = json.load(data_file)
-
 
 	for server in data:
 		start_service_by_name(server['system_name'], server['username'], server['password'],  server['service'])

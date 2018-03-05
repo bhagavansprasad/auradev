@@ -8,6 +8,8 @@ textfile = "t.txt"
 with open(textfile) as fp:
     data = fp.readlines()
 
+fp.close()
+
 msg = ("From: %s\r\nTo: %s\r\nSubject:%s\r\n\r\n" % (fromaddr, toaddrs, subject))
 
 msg = msg + "".join(data)

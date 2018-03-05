@@ -70,7 +70,7 @@ def start_service_by_name(host, username, password, service):
 		my_debug_print("Trying to start service...")
 
 		telnet.write(bytes("sudo service apache2 start\n", 'UTF-8'))
-		telnet.read_until("[sudo] password ".encode('ascii'))
+		telnet.read_until("[sudo] password".encode('ascii'))
 		data = telnet.read_very_eager()
 
 		password = (password + bytes("\n", 'UTF-8'))
@@ -92,6 +92,10 @@ def start_service_by_name(host, username, password, service):
 
 def main():
 	#with open('servers.json', encoding="utf-8") as data_file:    
+	#telnetlib.DEBUGLEVEL = 40
+	#print (dir(telnetlib))
+	#print (help(telnetlib))
+	#return
 	with open('servers.json') as data_file:    
 		data = json.load(data_file)
 

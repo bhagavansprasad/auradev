@@ -3,6 +3,9 @@ def is_prime(number):
 	if (number == -2):
 		return False
 
+	if (number >= -10 and number < 0):
+		return False
+
 	if number in (0, 1):
 		return False
 

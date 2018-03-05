@@ -5,6 +5,8 @@ print("")
 
 print(tA[0])
 print(type(tA[0]))
+print(type(tA[1]))
+print(type(tA))
 
 print(tA[0]+5)
 print(tA[1]*5)
@@ -14,8 +16,9 @@ print(tA[1][0])
 tA = (123, 283)
 print("First tuple length : ",  len(tA))
 print("Max value element tA: ", max(tA))
-print("min value element : ", min(tA))
+print("min value element : ",   min(tA))
 
+print(tA)
 tC = tB + tuple('823')
 print(tC)
 
@@ -37,12 +40,13 @@ print("tA  :", tA)
 tC = tB + tA + tB + (2, 3, 4, 5)
 print("tC  :", tC)
 
-tC = tC + tA
-
 temp = (10, 20)
 a, b = temp
 print (a)
 print (b)
+
+#temp = (10, 20, 30)
+#a, b = temp
 
 julia = ("Julia", "Roberts", 1967, "Duplicity", 2009, "Actress", "Atlanta, Georgia")
 print(julia)

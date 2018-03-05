@@ -3,6 +3,8 @@ import os
 import time
 from multiprocessing import Process, Lock
 
+#global data is global to process, NOT global to system
+#Each process will have itw own global variable "my_global_variable"
 my_global_variable = 0
 
 def printer(tname, lock):

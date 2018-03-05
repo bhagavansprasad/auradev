@@ -14,6 +14,5 @@ def main():
 	print_hai()
 	print_hello()
 	
-
 if (__name__ == '__main__'):
 	main()

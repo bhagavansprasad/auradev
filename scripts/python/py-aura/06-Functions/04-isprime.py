@@ -33,11 +33,16 @@ def is_prime(num):
 
 def is_prime(n):
     i = 2
+	#print ("")
 
     for i in range(2, n):
+		#print ("")
         if (n % i == 0):
+			#print ("")
             return 0
+		#print ("")
 
+	#print ("")
     return 1
 
 m = 25

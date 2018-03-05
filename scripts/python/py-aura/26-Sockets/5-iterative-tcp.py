@@ -14,22 +14,22 @@ s.bind((TCP_IP, TCP_PORT))
 print ("S. Binding on to port %d, Success" % (TCP_PORT))
 
 s.listen(5)
-print ("S. Waiting for connection from clients...");
 
 tot_conn_count = 0
 while(1):
-	nfd, addr = s.accept()
-	tot_conn_count += 1
-	print ("\n\nS. Connection count ", tot_conn_count)
-	print ("S. Got the connection request from ",  addr);
-	while 1:
-		data = nfd.recv(BUFFER_SIZE)
-		print ("S. Received message from client...")
-		print("\t\t", data)
+    print ("S. Waiting for connection from clients...");
+    nfd, addr = s.accept()
+    tot_conn_count += 1
+    print ("\n\nS. Connection count ", tot_conn_count)
+    print ("S. Got the connection request from ",  addr);
+    while 1:
+        data = nfd.recv(BUFFER_SIZE)
+        print ("S. Received message from client...")
+        print("\t\t", data)
 
-		if not data: break
+        if not data: break
 
-		print ("S. Seding reply to client as ...")
-		data = data.upper()
-		nfd.send(data)  # echo
-	nfd.close()
+        print ("S. Seding reply to client as ...")
+        data = data.upper()
+        nfd.send(data)  # echo
+    nfd.close()

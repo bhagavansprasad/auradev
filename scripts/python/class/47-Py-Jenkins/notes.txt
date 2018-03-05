@@ -1,9 +1,0 @@
- curl -X POST http://admin:jnjnuh@localhost:8080/job/test1/build
- curl -X POST http://admin:jnjnuh@localhost:8080/api
- curl -X POST http://admin:jnjnuh@localhost:8080/job/test1/api
- http://localhost:8080/api/
-
- wget -q --auth-no-challenge --user admin --password jnjnuh--output-document - 'http://localhost:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
- Jenkins-Crumb:22e8858fc0af31b615a739252db7f4f5
-
- curl -I -X POST http://admin:jnjnuh@localhost:8080/job/test1/build -H "Jenkins-Crumb:22e8858fc0af31b615a739252db7f4f5"

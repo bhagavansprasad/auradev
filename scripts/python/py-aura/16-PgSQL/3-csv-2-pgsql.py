@@ -4,7 +4,7 @@ import psycopg2
 import sys
 
 #open the source csv file
-fd = open('/home/bhagavan/training/scripts/python/class/14-PgSQL/users-data.csv', 'rt')
+fd = open('/home/bhagavan/training/scripts/python/py-aura/10-CSV-Data/users-data.csv', 'rt')
 
 #reading data from csv
 reader = csv.reader(fd)

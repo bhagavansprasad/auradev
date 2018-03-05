@@ -9,7 +9,7 @@ server_address = ('localhost', 10000)
 print ('starting up on %s port %s' % server_address)
 sock.bind(server_address)
 
-while True:
+while (True):
     print ('\nwaiting to receive message')
     data, address = sock.recvfrom(4096)
     

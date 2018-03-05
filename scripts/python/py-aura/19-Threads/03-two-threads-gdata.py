@@ -6,6 +6,9 @@ import os
 gdata = 0
 
 def t_entry_func_print_time(delay):
+    #global data is global to process, so, threads associated to process can
+    #  access global data of the process
+    #All threads can access global data of the process
     global gdata
     count = 1
 

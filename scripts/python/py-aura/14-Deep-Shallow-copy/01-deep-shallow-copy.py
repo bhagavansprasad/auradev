@@ -25,4 +25,6 @@ d2 = list(d1)
 
 print("id(d1) :", id(d1))
 print("id(d2) :", id(d2))
+print("d1    :", d1)
+print("d2    :", d2)
 exit(1)

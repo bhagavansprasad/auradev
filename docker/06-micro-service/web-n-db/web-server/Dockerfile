@@ -17,12 +17,10 @@ COPY nginx.conf /etc/nginx/
 COPY index.html /usr/share/nginx/html/
 COPY index.php /usr/share/nginx/html/
 COPY default /etc/nginx/sites-available
-CMD ["mkdir", "-p", "/usr/share/nginx/html/cgi-bin"]
 RUN mkdir -p /usr/share/nginx/html/cgi-bin
-COPY env.cgi  /usr/share/nginx/html/cgi-bin
+COPY env.cgi /usr/share/nginx/html/cgi-bin
 
 #Restart services
-#ENTRYPOINT service nginx restart && service fcgiwrap restart && service php5-fpm restart  && bash
 ENTRYPOINT service nginx restart && service fcgiwrap restart && service php5-fpm restart && bash
 
 EXPOSE $HTTP_PORT

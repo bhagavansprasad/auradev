@@ -76,8 +76,9 @@ print ('t1 < t2:', t1 < t2)
 
 print ('Dates:')
 d1 = datetime.date.today()
-print ('\td1:', d1)
+print ('d1:', d1)
 
 d2 = datetime.date.today() + datetime.timedelta(days=5)
-print ('\td2:', d2)
-print ('\td1 > d2:', d1 > d2)
+print ('d2:', d2)
+print ('d1 > d2:', d1 > d2)
+exit(1)

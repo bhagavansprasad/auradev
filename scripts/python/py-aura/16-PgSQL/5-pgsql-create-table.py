@@ -8,4 +8,3 @@ cur1 = conn1.cursor()
 cur1.execute("CREATE TABLE pgs1 (rno INTEGER PRIMARY KEY, name VARCHAR, phno VARCHAR);")
 conn1.commit()
 
-

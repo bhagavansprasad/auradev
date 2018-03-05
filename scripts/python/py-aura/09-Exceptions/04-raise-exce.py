@@ -3,8 +3,8 @@ def factorial( n ):
    temp = 1
 
    if (n < 0):
-      raise ValueError("Invalid Input for factorial function!", n)
-      #raise Exception('Invalid Input for xxxxxxxxxxxx factorial value!')
+      #raise ValueError("Invalid Input for factorial function!", n)
+      raise Exception('Invalid Input for xxxxxxxxxxxx factorial value!')
       print ("")
 
    for i in range(1, n+1):

@@ -24,6 +24,8 @@ def count_http_req_by_ret_code(cdata, retcode):
 	
 	print (count)
 
+def count_http_req_by_dates(cdata, old_date, latest_date):
+
 def main():
 	filename = "web-req-data.csv"
 	cdata = get_csv_data(filename)
@@ -32,6 +34,7 @@ def main():
 	print("")
 
 	count_http_req_by_ret_code(cdata, 400)
+	count_http_req_by_dates(cdata, d1, d2)
 	print("")
 
 if (__name__ =='__main__'):

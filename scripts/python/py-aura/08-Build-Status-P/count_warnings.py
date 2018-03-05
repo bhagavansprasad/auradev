@@ -44,23 +44,26 @@ def is_build_promoted():
         return 0
     
 
-if(len(sys.argv) < 3):
-    print("Error: Invalid/Insufficient arguments")
-    print("Usage: count_warnings.py <current log file> <old log file>")
-    print("")
-    exit(1)
+def main(argv):
+	if(len(argv) < 3):
+		print("Error: Invalid/Insufficient arguments")
+		print("Usage: count_warnings.py <current log file> <old log file>")
+		print("")
+		exit(1)
 
-for count, args in enumerate(list(sys.argv)):
-    wcount = get_warn_count_by_file(args)
-    #print '%d. %s, %d' % (count, args, wcount)
-    warn_count_by_file[count-1][0] = args
-    warn_count_by_file[count-1][1] = wcount
+	for count, args in enumerate(list(argv)):
+		wcount = get_warn_count_by_file(args)
+		#print '%d. %s, %d' % (count, args, wcount)
+		warn_count_by_file[count-1][0] = args
+		warn_count_by_file[count-1][1] = wcount
 
-if (is_build_promoted() < 0):
-    print("Build CAN'T be promoted")
-    sys.exit(-1)
-else:
-    print("Build Promoted")
-    sys.exit(0)
+	if (is_build_promoted() < 0):
+		print("Build CAN'T be promoted")
+		sys.exit(-1)
+	else:
+		print("Build Promoted")
+		sys.exit(0)
 
+if (__name__ == "__main__"):
+	main(sys.argv)
 

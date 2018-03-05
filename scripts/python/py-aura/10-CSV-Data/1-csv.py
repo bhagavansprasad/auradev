@@ -94,6 +94,7 @@ def main():
 
 	dlist = get_data_by_csv_file(filename)
 	operate_csv_data(dlist)
+	return
 
 if (__name__ =='__main__'):
 	main()
