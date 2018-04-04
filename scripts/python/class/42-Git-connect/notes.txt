@@ -1,8 +1,0 @@
-
-repo = pygit2.Repository('/opt/git/amath.git')
-print list(repo.references) #print all branches
-
-head = repo.references.get('refs/heads/master')  # Returns None if not found
-for entry in head.log():
-	entry.message, entry.oid_new, entry.oid_old
-	entry.committer.email, .name, .raw_name, .time

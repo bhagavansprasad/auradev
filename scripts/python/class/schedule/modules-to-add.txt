@@ -1,9 +1,0 @@
-Logging and logger modules
-Calling python function code from "C" and vice versa
-Python matplotlib
-xml parsing
-email sending
-api testing
-logging
-ssh client-server connections
-
