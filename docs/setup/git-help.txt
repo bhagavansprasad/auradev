@@ -30,6 +30,12 @@ To  see the 'log' of the committed file
 To  'get' deleted files
 	git checkout .
 
+To list only deleted files
+    git ls-files --deleted
+
+To remove all deleted files from repository
+    git ls-files --deleted | xargs git rm
+
 Diffing with gvim
 -----------------
 git config --global diff.tool gvimdiff
@@ -93,4 +99,84 @@ git remote set-url origin bhagavan@192.168.1.254:/opt/git/auradev.git
 
 In git client
 	git clone git@192.168.1.254:/opt/git/sources.git
+
+
+Distributed Version Control System
+- Advantages of Git
+Free and open source
+Fast and small
+Implicit backup
+Security
+No need of powerful hardware
+Easier branching
+
+Blobs - Binary Large Object 
+
+Trees - Tree is an object, which represents a directory
+
+Commits
+Commit holds the current state of the repository. A commit is also named by SHA1 hash
+
+Branches
+Another line of development. By default, Git has a master branch
+
+Tags
+Tag assigns a meaningful name with a specific version in the repository
+
+Clone
+Clone operation creates the instance of the repository
+
+Pull
+Pull operation copies the changes from a remote repository instance to a local one
+
+Push
+Push operation copies changes from a local repository instance to a remote one
+
+HEAD
+HEAD is a pointer, which always points to the latest commit in the branch
+
+Revision
+Revision represents the version of the source code
+
+URL
+URL represents the location of the Git repository
+
+git status
+git status ./
+git add <filename>
+git add *
+git rm --cached a.txt
+git add -u
+git commit -m "Commit message"
+git push origin master
+git diff a.txt
+git log
+git log a.txt
+git show <hash>
+git stash
+git stash pop
+git stash apply
+git stash list
+git stash save "add style to our site"
+git stash pop stash@{2}
+git stash show
+git stash clear
+git checkout -b feature_x
+git checkout master
+git branch -d feature_x
+git push origin feature_x
+git merge feature_x
+git diff <source_branch> <target_branch>
+git tag 1.0.0 1b2e1d63ff
+git log --author=bob
+git log --pretty=oneline
+git log --graph --oneline --decorate --all
+git log --name-status
+git checkout -- <filename>
+git fetch origin
+git reset --hard origin/master
+
+git config color.ui true
+git config format.pretty oneline
+git add -i
 	

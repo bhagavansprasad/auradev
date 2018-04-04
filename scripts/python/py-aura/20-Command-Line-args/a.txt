@@ -1,5 +1,0 @@
-www.udemy.com took too long to respond.
-Checking the connection
-Checking the proxy and the firewall
-Running Windows Network Diagnostics
-ERR_CONNECTION_TIMED_OUT

@@ -1,3 +1,4 @@
+find . -name "*.c" -o -name "*.h" -o -name Makefile
 
 ff "*.c"
 ff "*.c" -o -name *.h
