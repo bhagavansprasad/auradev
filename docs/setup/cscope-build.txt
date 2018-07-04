@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ff "*.c"
 ff "*.c" -o -name *.h
@@ -15,3 +16,23 @@ And also add easy way to refer the path
 --------------------------------------------------
 alias wd='cd /home/bhagavan/students/prasad/cam'
 
+=======
+find . -name "*.c" -o -name "*.h" -o -name Makefile
+
+ff "*.c"
+ff "*.c" -o -name *.h
+ff "*"
+ff "*" > files.txt
+g files.txt 
+pwd
+cscope -b -q  -i files.txt 
+
+In .bashrc add path to the CSCOPE_DB=--------
+-------------------------------------------------
+CSCOPE_DB=/home/bhagavan/students/prasad/cam
+
+And also add easy way to refer the path
+--------------------------------------------------
+alias wd='cd /home/bhagavan/students/prasad/cam'
+
+>>>>>>> 1a15024c9d008360cd41c49bc6829eb576bbfda4
