@@ -1,3 +1,5 @@
+- Package for wifi gui interface wicd
+
 - Wifi setup for TL-WN725N device from TP-LINK
 https://linuxforums.org.uk/index.php?topic=11261.0
 http://brilliantlyeasy.com/ubuntu-linux-tl-wn725n-tp-link-version-2-wifi-driver-install/

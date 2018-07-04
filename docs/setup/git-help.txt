@@ -94,3 +94,31 @@ git remote set-url origin bhagavan@192.168.1.254:/opt/git/auradev.git
 In git client
 	git clone git@192.168.1.254:/opt/git/sources.git
 	
+- Add user git
+  adduser git 
+  ...
+
+- Add group of your own. Example 'embedded'
+add group embedded
+
+- Create empty folder /git
+  sudo mkdir /git
+
+- Login as git
+  su git
+
+- Goto /git
+  cd /git
+
+- Create new repository '1test.git'
+  git init --bare
+
+- Change repository permissions
+  sudo chown git:embedded /git
+ 
+- From client clone the repository
+   git clone bhagavan@localhost:/git/1test.git
+
+   NOTE: The user 'bhagavan' should be part 'embedded' group on the git-server
+
+

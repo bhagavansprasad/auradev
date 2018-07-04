@@ -34,6 +34,8 @@ docker push 293136561839.dkr.ecr.us-west-2.amazonaws.com/ubuntu:trusy
 Amazon linux image
 ssh -i MyFirstInstance.pem ec2-user@ec2-34-208-216-63.us-west-2.compute.amazonaws.com
 
+chmod 400 MyFirstInstance.pem
+
 For Ubuntu images
 ssh -i MyFirstInstance.pem root@ec2-34-208-216-63.us-west-2.compute.amazonaws.com
 ssh -i MyFirstInstance.pem ubuntu@ec2-34-208-216-63.us-west-2.compute.amazonaws.com
