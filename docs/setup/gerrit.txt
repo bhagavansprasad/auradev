@@ -2,6 +2,11 @@
   $ sudo apt-get update
   $ sudo apt-get install postgresql postgresql-client postgresql-contrib pgadmin3
 
+- Reset postgres user password
+$ sudo su
+# passwd postgres
+# exit
+
 - Login to pgsql shell 'with user postgress'
 $ su - postgres
 $ psql postgres
@@ -31,8 +36,10 @@ $ psql postgres
   http://blogs.fcoos.net/how-to-install-gerrit-on-an-ubuntu-14-04-server/
   $ wget https://gerrit-releases.storage.googleapis.com/gerrit-2.12.2.war
   $ java -jar gerrit-2.12.2.war init
--- Postgres SQL installation
 
-----ubuntu
-sudo adduser newuser
+
+========================================
+sudo service gerrit start
+/etc/init.d/gerrit -> /var/gerrit/bin/gerrit.sh
+ systemctl status gerrit.service
 
