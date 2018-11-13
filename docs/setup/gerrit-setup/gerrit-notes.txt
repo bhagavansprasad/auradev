@@ -1,0 +1,288 @@
+Gerrit setup
+============
+- Java setup
+- pqsql setup
+- gerrit setup
+- Gerrit configuration
+- Copy google oauth plugin
+- gerrit Init
+- Start and stop gerrit
+- Clean temparary files
+- Links
+
+Java setup
+==========
+$ sudo apt-get install oracle-java8-installer
+
+- Make sure java is pointing to right version like below (Incase of multiple
+  	version sof java is installed)
+$ sudo update-alternatives --config java
+There are 3 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1101      auto mode
+  1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1101      manual mode
+  2            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
+* 3            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      manual mode
+
+- Checking java version
+$ java -version
+java version "1.8.0_171"
+Java(TM) SE Runtime Environment (build 1.8.0_171-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
+
+pgsql setup
+===========
+Install postgress with default admin password 'jnjnuh'
+$ sudo apt-get install postgresql
+
+- Login to pgsql shell with default user 'postgres' and default db 'postgres' 
+$ psql -h 127.0.0.1 -U postgres postgres
+
+- Create new user 'auraadmin' with password 'jnjnuh'
+postgres=# CREATE USER auraadmin WITH PASSWORD 'jnjnuh';
+
+- Create new db 'auradb'
+postgres=# CREATE DATABASE auradb;
+
+- Grant all previleges to 'auraadmin' on db 'auradb'
+postgres=# GRANT ALL PRIVILEGES ON DATABASE auradb to auraadmin;
+
+gerrit setup
+============
+- Create site folder. ex: 'gerrit'
+$ mkdir gerrit
+
+$ cd ~/gerrit
+
+- Download war file
+wget https://www.gerritcodereview.com/download/gerrit-2.15.3.war
+
+- Configuration details (DBType : pgsql, DBName : auradb, DBUser : auraadmin, Password : jnjnuh )
+
+- Install gerrit
+$ java -jar gerrit-2.15.3.war init -d .
+	*** Gerrit Code Review 2.15.3
+	*** 
+	*** Git Repositories
+	*** 
+	Location of Git repositories   [git]: git
+
+	*** SQL Database
+	*** 
+	Database server type           [postgresql]: postgresql
+	Server hostname                [localhost]: localhost
+	Server port                    [(postgresql default)]: 
+	Database name                  [auradb]: auradb
+	Database username              [auraadmin]: jnjnuh
+	Change auraadmin's password      [y/N]? 
+	
+	*** Index
+	*** 
+	Type                           [lucene/?]: 
+
+	*** User Authentication
+	*** 
+
+	Authentication method          [oauth/?]:
+	Git/HTTP authentication        [http/?]:
+	Enable signed push support     [y/N]?
+
+	*** Review Labels
+	*** 
+	
+	Install Verified label         [y/N]? 
+	*** Email Delivery
+	*** 
+	SMTP server hostname           [localhost]: 
+	SMTP server port               [(default)]: 
+	SMTP encryption                [none/?]: 
+	SMTP username                  : 
+	
+	*** Container Process
+	*** 
+	Run as                         [root]: 
+	Java runtime                   [/usr/lib/jvm/java-8-oracle/jre]: 
+	Upgrade /home/test_user/gerrit/bin/gerrit.war [Y/n]? 
+	Copying gerrit.war to /home/test_user/gerrit/bin/gerrit.war
+	
+	*** SSH Daemon
+	*** 
+	Listen on address              [*]: Listen on port                 [29418]: 
+
+	*** HTTP Daemon
+	*** 
+	Behind reverse proxy           [y/N]? 
+	Use SSL (https://)             [y/N]? 
+	Listen on address              [*]: 
+	Listen on port                 [8086]: 
+	Canonical URL                  [http://localhost:8086/]: 
+
+	*** Cache
+	*** 
+	
+	*** Plugins
+	*** 
+	Installing plugins.
+	Install plugin commit-message-length-validator version v2.15.1 [y/N]? 
+	Install plugin download-commands version v2.15.1 [y/N]? 
+	Install plugin hooks version v2.15.1 [y/N]? 
+	Install plugin replication version v2.15.1 [y/N]? 
+	Install plugin reviewnotes version v2.15.1 [y/N]? 
+	Install plugin singleusergroup version v2.15.1 [y/N]? 
+	Initializing plugins.
+	No plugins found with init steps.
+
+	*** Experimental features
+	*** 
+	Enable any experimental features [y/N]? 
+	Initialized /home/test_user/gerrit
+	
+Gerrit configuration
+====================
+$ /home/test_user/gerrit/etc/gerrit.config
+
+[gerrit]
+	basePath = git
+	serverId = b47945e9-425e-4da5-a205-a4aa364871e2
+	canonicalWebUrl = http://localhost:8086/
+[database]
+	type = postgresql
+	hostname = localhost
+	database = bpdb
+	username = bpadmin
+[index]
+	type = LUCENE
+[auth]
+	type = OAUTH
+	gitBasicAuthPolicy = HTTP
+[receive]
+	enableSignedPush = false
+[sendemail]
+	smtpServer = localhost
+[container]
+	user = bhagavan
+	javaHome = /usr/lib/jvm/java-8-oracle/jre
+[sshd]
+	listenAddress = *:29418
+[httpd]
+	listenUrl = http://*:8086/
+[cache]
+	directory = cache
+
+$ /home/test_user/gerrit/etc/secure.config
+[database]
+	password = jnjnuh
+[auth]
+	registerEmailPrivateKey = ZAyTao2z8jyJOVjQE0LQ66IO4o9d/2foxl0=
+
+Copy Google oauth jar to plugins directory
+==========================================
+$ cd ~/gerrit/plugins
+$ wget https://github.com/davido/gerrit-oauth-provider/releases/download/v2.14.6.2/gerrit-oauth-provider.jar
+
+Create google app
+=================
+https://console.developers.google.com/apis/library/cloudapis.googleapis.com?q=Enabled%20APIs%20and%20services
+
+https://console.developers.google.com/apis/dashboard
+https://developers.google.com/identity/sign-in/web/sign-in?authuser=1
+https://console.developers.google.com/project
+
+gerrit Init
+===========
+$ cd ~/gerrit
+$ java -jar bin/gerrit.war init -d ./
+
+....
+....
+....
+*** OAuth Authentication Provider
+*** 
+
+Use Google OAuth provider for Gerrit login ? [Y/n]? 
+Application client id          : 2xxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+Application client secret      : 
+              confirm password : 
+error: Passwords did not match; try again
+Application client secret      : 
+              confirm password : 
+Fix legacy user id, without oauth provider prefix? [false]: 
+Use GitHub OAuth provider for Gerrit login ? [Y/n]? n
+Use Bitbucket OAuth provider for Gerrit login ? [Y/n]? n
+Use CAS OAuth provider for Gerrit login ? [Y/n]? n
+Use Facebook OAuth provider for Gerrit login ? [Y/n]? n
+Use GitLab OAuth provider for Gerrit login ? [Y/n]? n
+Use Dex OAuth provider for Gerrit login ? [Y/n]? n
+Use Keycloak OAuth provider for Gerrit login ? [Y/n]? n
+Use Office365 OAuth provider for Gerrit login ? [Y/n]? n
+...
+
+Gerrit configuration
+====================
+$ /home/test_user/gerrit/etc/gerrit.config
+
+...
+[plugin "gerrit-oauth-provider-google-oauth"]
+	client-id = 23xxxxxxxxxxxxxxxxxxxxxxxx-ilxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+	fix-legacy-user-id = false
+	domain = blackpeppertech.com
+...
+
+$ /home/test_user/gerrit/etc/secure.config
+...
+[plugin "gerrit-oauth-provider-google-oauth"]
+	client-secret = 8MXnmeDQQTDFeHR4qggAabGb
+
+Start and stop gerrit
+=====================
+$ bin/gerrit.sh start
+	Starting Gerrit Code Review: OK
+
+$ bin/gerrit.sh stop
+	Stopping Gerrit Code Review: OK
+
+Temparary files can be cleaned
+==============================
+rm -rf cache/
+rm -rf db/
+rm -rf git/*
+rm -rf logs/*
+rm -rf plugins/*
+rm -rf index/changes_0048/
+rm index/groups_0004/*
+rm -rf tmp/
+
+- Links
+https://github.com/davido/gerrit-oauth-provider
+https://ocroquette.wordpress.com/2012/12/16/simple-user-management-for-gerrit/
+https://github.com/davido/gerrit-oauth-provider/issues/88
+https://github.com/davido/gerrit-oauth-provider/issues/84
+http://codexc.com/blog/2014/09/how-to-installation-and-configuration-gerrit-v2-10-with-github-oauth/
+
+Gettit CLI projects
+==============================
+ssh -p 29418 bhagavan.prasad@bpgerrit.com
+git clone ssh://bhagavan.prasad@127.0.0.1:29418/test2.git
+
+ssh -p 29418 bhagavan.prasad@bpgerrit.com gerrit ls-projects
+curl http://bpgerrit.com:8086/projects/
+curl https://bpgerrit.com:8086/projects/
+git push ssh://bhagavan.prasad@localhost:29418/test2 HEAD
+
+Google webapp(s) details
+------------------------
+Google webapp : bp-gerrit-app
+user : bhagavan.prasad@blackpeppertech.com
+Name : BlackPepper-Gerrit
+Client ID	230069144060-58gn1n70ni3sh07lt06qjc0a8gm2997b.apps.googleusercontent.com
+Client secret	SwtGcs8al0F9XQzLBkrSLPYo
+
+Google webapp : bpapp1
+https://console.developers.google.com/apis/credentials/oauthclient/832331246578-g8rm6rcoej1mphtqc6hih74bjksltbh8.apps.googleusercontent.com?project=bpapp1-212808&authuser=1&organizationId=154305816938
+user : bhagavan.prasad@blackpeppertech.com
+Name : gerrit-oauth
+Client ID	832331246578-g8rm6rcoej1mphtqc6hih74bjksltbh8.apps.googleusercontent.com
+Client secret	5GARojj9ugYJgiYjYengniJy
+
