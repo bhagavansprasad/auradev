@@ -9,7 +9,7 @@ set ch=2
 set bs=2 ai ru " for cygwin
 " set guioptions-=T " remove headers.
 
-"set guifont=Courier\ 10\ Pitch\ 16
+set guifont=Monospace\ 12
 set lines=42 columns=165 tw=80 pvh=14 wrapmargin=8
 set ic scs is vb sm so=5
 set scr=3 sw=2 sbr=\ \ lsp=2
