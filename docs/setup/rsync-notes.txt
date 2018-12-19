@@ -11,3 +11,6 @@ rsync -rav --progress --delete cvs@192.168.1.30:/home/cvs /home/bhagavan/backup/
 - Synchronize a local directory with a remote rsync server
 rsync -r -a -v --progress --delete rsync://rsync.nixcraft.in/cvs /home/cvs
 
+- rsync with local folders
+rsync -zvh backup.tar /tmp/backups/
+
