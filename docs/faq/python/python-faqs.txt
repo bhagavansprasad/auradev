@@ -39,5 +39,15 @@
 39. Call Function
 40. Built in function of a list & dictionary
 41. Program to call a text file and edit
-
+42. How to read last 10 bytes of a text file?
+43. How to create n text files?
+44. In dictionaries the key can be what type?
+45. How to run a programme multiple times with different arguments?
+46. How to capture the exit status of a script/program from another script?
+47. Regex
+48. Knowledge on Exception?
+49. Modules - OS and SYS
+50. Design a class/module which gives (Like Dictionary)
+    Value using Key
+    Key using Value
 
