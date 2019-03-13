@@ -1,0 +1,26 @@
+#phone number: 080 41501820
+#user name :08041501820_kk@airtelbroadband.in
+#pass :16097616
+
+setup
+vpi : 1
+vci : 32
+service category : UBR Without PCR
+Enable quality service : NO
+Connection type : PPP over Ethernet (PPPoE)
+Encapulation mode : LLC/SNAP - Bridging
+PPPoE Service Name: blank
+Authentication method : AUTO
+Dial on demand (with idle timeout timer) - Blank
+PPP IP extension  - Blank
+Enable KeepAlive  - Blank
+Use Static IP Address  - Blank
+Retry PPP password on authentication error  - Blank
+Enable PPP Debug Mode  - Blank
+Bridge PPPoE Frames Between WAN and Local Ports (Default Enabled)A - Checked
+MTU[1-65535] :  1492
+Enable NAT : Yes	
+Enable Firewall : Yes
+Enable IGMP Multicast 	 : Blank
+Enable WAN Service 	: Checked
+Service Name : pppoe_0_1_32_1

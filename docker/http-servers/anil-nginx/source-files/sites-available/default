@@ -1,0 +1,20 @@
+server {
+        listen 80 default_server;
+
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+
+        server_name localhost;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        location ~ /cgi-bin/.*\.cgi {
+             gzip off;
+             root  /usr/share/nginx/html/;
+             fastcgi_pass  unix:/var/run/fcgiwrap.socket;
+             set $path_info $fastcgi_path_info;
+             include /etc/nginx/fastcgi_params;
+        }
+}

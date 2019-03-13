@@ -1,0 +1,77 @@
+RPC over XMPP (Jabber) Protocol
+--------------------------------------
+The Jabber or XMPP (Extensible Messaging and Presence Protocol) is an open
+standard for real-time communication which powers a wide range of applications
+including instant messaging.  XMPP communicates over XML format is a good reason
+to extend this protocol for different applications.
+
+- Implimentations Details
+Basic XMPPC - Establishing Connection with XMPP (Jabber) Server 
+Authentication - Athentication with Jabber server over MD5 digest mechanism
+
+Jabber RPC extenson 
+- The <iq/> stanza is used to transport XML-RPC payloads (commands) with set.
+  Responses are built over 'result'
+- Each stanza contains only one command at a time.
+- Application-level errors will be indicated within the XML-RPC payload 
+- Through this extension user can execute any command in rempote PC/Device.
+  This application is also used to discover or start services in remotely.
+- Built an infrastructure to add new commands dynamically
+
+Building Remote Screen (Debugging Agent) over XMPP (Jabber) Protocol
+--------------------------------------------------------------------
+The Jabber or XMPP (Extensible Messaging and Presence Protocol) is an open
+standard for real-time communication which powers a wide range of applications
+including instant messaging.  XMPP communicates over XML format is a good reason
+to extend this protocol for different applications.
+Customized File Transfer over XMPP (Jabber) Protocol
+
+- Implimentations Details
+Basic XMPPC - Establishing Connection with XMPP (Jabber) Server 
+Authentication - Athentication with Jabber server over MD5 digest mechanism
+Jabber RDA (Remote Debugging Agent) extenson 
+- This module is resposible to collect debugging related information from remote
+  device.
+- Client issues commands over XMPP '<iq/>' stanza, remote agent sitting on the
+  devices polls for commands and responsds with relavent data.
+- Each stanza contains only one command at a time.
+- Through this extension user can execute any command in rempote PC/Device.
+  Like collecting device configuration, Current status of any device, DB
+  implement over linked list.
+- Built an infrastructure to add new commands dynamically
+
+Ping over XMPP (Jabber) Protocol
+--------------------------------
+The Jabber or XMPP (Extensible Messaging and Presence Protocol) is an open
+standard for real-time communication which powers a wide range of applications
+including instant messaging.  XMPP communicates over XML format is a good reason
+to extend this protocol for different applications.
+
+- Implimentations Details
+Basic XMPPC - Establishing Connection with XMPP (Jabber) Server 
+Authentication - Athentication with Jabber server over MD5 digest mechanism
+Ping Over XMPP (Jabber extenson)
+- XMPP Protocol Instant messaging works over TCP Port number 5222. 
+- Incase of no messages are exchanged between two clients for a long time,
+  Transport Layer (TCP) automatically closes connection after configured
+  threshold value.  This breaks the communication between clients.  
+- This problem is resolved by exchanging "white space pings" messages
+  periodically between clients
+- The pinging entity sends an IQ-get containing a <ping/> element 
+- The pinged entity returns with an IQ-result 
+
+Customized File Transfer over XMPP (Jabber) Protocol
+----------------------------------------------------
+The Jabber or XMPP (Extensible Messaging and Presence Protocol) is an open
+standard for real-time communication which powers a wide range of applications
+including instant messaging.  XMPP communicates over XML format is a good reason
+to extend this protocol for different applications.
+
+- Implimentations Details
+Basic XMPPC - Establishing Connection with XMPP (Jabber) Server 
+Authentication - Athentication with Jabber server over MD5 digest mechanism
+File Transfer Over XMPP (Jabber extenson)
+- This exension enables users to transfer files between them while doing instant
+  messaging.  
+- This also enable seamless file transfer, including fall-back mechanisms as appropriate.
+- Ensure that the profile will work even when one or both parties are behind a firewall.

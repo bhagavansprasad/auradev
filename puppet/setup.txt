@@ -1,0 +1,16 @@
+Master
+sudo rm -rf /var/lib/puppet/ssl/*
+sudo puppet master --verbose --no-daemonize
+
+Agent
+sudo rm -rf /var/lib/puppet/ssl/*
+puppet agent --test --server puppet --waitforcert 100
+
+Master
+puppet cert list
+puppet cert sign agent1
+puppet cert list –a
+
+Agent
+puppet agent -t
+

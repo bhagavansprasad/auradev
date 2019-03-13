@@ -1,0 +1,65 @@
+  298  cd ansible/1example/
+  362   pip install ansible
+  363  sudo  pip install ansible
+  368  sudo  pip install ansible
+  371  sudo  pip install ansible
+  374  mkdir ansible
+  375  cd ansible/
+  381  dpkg -l ansible
+  383  yum list ansible
+  384  which ansible
+  385  ansible -i workshop  all -m ping
+  389  ansible -i workshop  all -m ping
+  392  ansible -i workshop  all -m ping
+  393  yum search ansible
+  394  sudo yum install ansible.noarch
+  395  ansible -i workshop  all -m ping
+  397  ansible -i workshop  all -m ping
+  401  ansible -i workshop  all -m ping
+  406  ansible -i workshop  all -m ping
+  409  ansible -i workshop  all -m ping
+  413  ansible -i workshop  all -m ping
+  415  ansible -i workshop  all -m ping
+  419  ansible -i workshop  all -m ping
+  424  ansible -i workshop  all -m ping
+  425  ansible -i workshop webservers -m command -a "echo hello"
+  429  ansible -i workshop webserver -m command -a "echo hello"
+  443  ansible-playbook -i inventory 2inventory.yml 
+  445  ansible-playbook -i inventory 2inventory.yml 
+  447  ansible-playbook -i inventory 2inventory.yml 
+  448  sudo ansible-playbook -i inventory 2inventory.yml 
+  453  sudo ansible-playbook -i inventory -s 2inventory.yml 
+  464  sudo ansible-playbook -i inventory -s 2inventory.yml 
+  465   ansible-playbook -i inventory -s 2inventory.yml 
+  468   ansible-playbook -i inventory -s 2inventory.yml 
+  469   ansible-playbook -i inventory -s 3pl.yml 
+  470  repoquery ansible
+  471  repoquery -l ansible
+  472  repoquery -l ansible-0:2.0.2.0-1.el7.noarch
+  474  repoquery -l ansible-0:2.0.2.0-1.el7.noarch
+  475  rpm -ql ansible-0:2.0.2.0-1.el7.noarch
+  476  rpm -ql ansible-0:2.0.2.0-1.el7.noarch > t
+  479   ansible-playbook -i inventory -s main.yml 
+  480   ansible-playbook -i inventory -s main.yml tags
+  481   ansible-playbook -i inventory -t http -s main.yml
+  485   ansible-playbook -i inventory -t http -s main.yml
+  577  cd ansible/
+  579  g ansible-notes.txt
+  580  g ansible-notes.txt 
+  595  cd ansible/1example/
+  603  cd /etc/ansible/
+  606  g ansible.cfg 
+  609  ansible-playbook -i inventory -s 3pl.yml 
+  612  cd ansible/1example/
+  614  ansible-playbook -i inventory -s 3pl.yml 
+  616  git clone ansible-owncloud-best-practices
+  617  git clone https://gitansible-owncloud-best-practices
+  618  git clone https://github.com/training-devops/ansible-owncloud-best-practices.git
+  620  cd ansible-owncloud-best-practices/
+  737  cd ansible/
+  744  scp -r ansible/ bhagavan@192.168.1.101:~/training/ansible/rhl-ws
+  746  cd /etc/ansible/
+  752  cat ansible.cfg 
+  755  scp -r ansible/ bhagavan@192.168.1.101:~/training/ansible/rhl-ws/etc
+  761  history | grep ansible
+  762  history | grep ansible > cmds.txt

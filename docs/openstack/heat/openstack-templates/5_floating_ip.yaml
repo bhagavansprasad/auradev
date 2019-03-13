@@ -1,0 +1,24 @@
+heat_template_version: 2013-05-23
+
+description: Demo template to associate floating IP.
+
+resources:
+  floating_ip:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: ext-net
+
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      image: centoswithroot
+      key_name: ashwa
+      flavor: m1.small
+      networks:
+        - network: int-net
+
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip }
+      server_id: { get_resource: test_instance }

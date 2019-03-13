@@ -1,0 +1,3 @@
+- Configure all sytems gvim with same configuration
+- Every system should have the all the users configured with same user ID
+- Building assignments

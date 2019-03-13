@@ -1,0 +1,26 @@
+heat_template_version: 2013-05-23
+
+description: Demo template to define parameters.
+
+parameters:
+  image_name:
+    type: string
+    label: Image
+    description: Image needs to use to create instance.  
+    default: centoswithroot
+  key_name:
+    type: string
+    label: Key
+    description: Key value pair used to create instances.
+    default: ashwa
+
+resources:
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      name: param-instance
+      image: { get_param: image_name }
+      key_name: { get_param: key_name }
+      flavor: m1.small
+      networks:
+        - network: int-net

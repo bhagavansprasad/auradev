@@ -1,0 +1,16 @@
+Link 
+	https://help.ubuntu.com/community/DansGuardian
+
+sudo apt-get install clamav-freshclam iptables privoxy dansguardian 
+
+Configuration files
+
+Sites to ban - proxy refused message is displayed
+	 /etc/dansguardian/bannedsitelist - sites to ban
+	 /etc/dansguardian/exceptionsitelist - sites in exception
+
+Any configuration change, need to restart dansguardian
+	sudo service dansguardian restart
+
+
+sudo apt-get -y install clamav-freshclam iptables privoxy dansguardian

@@ -1,0 +1,11 @@
+$ ls -ls /usr/bin/py*
+	/usr/bin/python2.7
+	/usr/bin/python3.4
+	/usr/bin/python3.4m
+
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.4 2
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.4m 3
+$ update-alternatives --list python
+$ sudo update-alternatives --config python
+

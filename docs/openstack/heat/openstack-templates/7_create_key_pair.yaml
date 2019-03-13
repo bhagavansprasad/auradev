@@ -1,0 +1,23 @@
+heat_template_version: 2013-05-23
+
+description: Demo template to create a key pair
+
+resources:
+  my_key:
+    type: OS::Nova::KeyPair
+    properties:
+      save_private_key: true
+      name: ash_demo
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      image: centoswithroot
+      key_name: { get_resource: my_key }
+      flavor: m1.small
+      networks:
+        - network: int-net
+
+outputs:
+  private_key:
+    description: Private Key
+    value: { get_attr: [ my_key, private_key] }

@@ -1,0 +1,161 @@
+Pre-requisites - What to read before doing project
+--------------------------------------------------
+Makefile usage
+Debugging
+
+Tools
+  - Makefile
+  - Compilation stages
+  - Storage sections
+
+C
+  - File manipulation
+    * Opening a file
+      Open a text file in read mode
+
+    * Reading a file
+      Read entire content of the file and store in array
+
+    * Check the return values of the open and read
+
+  - Strings
+    sscanf
+    sprintf
+    * How to extract alfa numaric values from string (array) to variables, using sscanf
+    * How to construct alfa numaric string with different data type variables, using with sprintf
+    * See the example string like string in file "/proc/<any dir>/stat"
+      The printed string will 
+    NOTE : Use the string which you in the File manipulation 
+
+    atoi
+    itoa
+
+  - Debugging
+    gdb
+
+  - Structures
+
+  - Unions
+
+OS
+  NOTE: Read "Unix: The open boundless C"
+   - Process
+     How to create a new process from another process?
+     What is fork ?
+     What is PID (Process ID)?
+     How to print a PID of a process?
+     How to print a Parent PID of a process?
+
+   - Signals
+     Different signals
+     How to raise a signal
+     How to register a signal handler
+     How to stop or kill a process from another process
+  
+   - IPC
+     What are all different kinds of IPC's?
+     What is the PIPE?
+     What is the Named PIPE?
+     What is difference bitween Named PIPE and Un-named PIPE?
+     What is a Message queue?  What for it is used?
+  
+   - Write a simple program
+     Which create a new process P2
+     Now send a "Hello world" strin from P1 to P2
+     Read string in P2 and print it
+
+- OVD Process
+-------------
+  - Lists all processes running and gets their PIDs
+    Q. How to list all the process?
+    A. Open the "/proc" directory using with "opendir" call.
+
+    Q. What processess to be listed?
+    A. Lists all processes
+
+    Q. Where to store the list?
+    A. Read complete "/proc" directory content.
+       Each line is a PID and it is associated with a process
+       Store all PID's list in a array.
+       Use bellow function to read and story "/proc" content
+
+       int read_n_store_proc_content(int *pid_list);
+       - Call this function with a int array with size may 1000
+       - Open "/proc" directory
+       - Read each line and store name of the file (pid) in array (pid_list) by
+         converting into int
+	 NOTE: Get some examples from net, about reading directory file.
+	 We can read file content into a structure
+	 - Return value - Number of elements (files) stored in the array
+			  -1 incase of failure
+  
+    -  Read each element from pid_list, construct path to stat file
+       example : "/proc/<pid>/stat "
+
+    -  Call bellow function, which returns file descriptor ONLY IF FILE EXISTS
+       int ovd_open(char *file_name);
+       Returns -1 in case of failure
+
+    -  Read each process stat file and caliculate giffies
+    -  Call bellow function, which reads entire file to a buffer and returns 
+       number of bytes it read from file
+       int ovd_read(int fd, char *buff);
+       fd - Is the file descriptor
+       buff - Pointer to a char array with size 5012 bytes 
+    -  Close the file
+    -  Call bellow function, with buffer, which reads buffer with
+       sscanf() with proper format strings
+       NOTE: See the man page of proc and search from format string
+       int ovd_cpu_occ_giffies(char *buff, int *umode_giffs, int *kmode_giffs);
+       buff - Data read from stat file
+       umode_giffs - return argument to store sum of user mode giffs
+       kmode_giffs - return argument to store sum of kernel mode giffs
+       return value -  sum of both modes giffies
+                       -1 in case of failure
+ 
+    Q. What happens when the process dies before we open?
+    A. Open the file if only exists and check open return value
+
+    Q. What happens when the process dies before we read?
+    A. Check the return value of read
+  - Data structure that used to send data from ovd to ovc
+    typedef struct ovdc_data_t
+    {
+      int pid; //PID of the process
+      int cpuocc  //Current process giffs
+    }ovdc_data;
+
+  - Populate the Datastructure
+    What DS?
+    Diclaration of the DS
+      Data structure should contain PID
+      This is unique identification field
+  Write to OVC over IPC
+  Wait for configured time interval and start from begining.
+  
+
+- OVC Process
+  Read data from IPC
+  Get the PID from data (CurrOcc)
+  Check if we have PrevOcc with us associated with PID
+    If we have it, then caliculate CPUOcc with PrevOcc and CurrOcc
+      Check if this perticular process is exceeding configured CPU occupancy
+      If it is, Take necessary steps
+      - Send appropriate signals to the process with PID
+    If not, Add CurrOcc to PrevOcc
+  If doesnot existst, store Data (PrevOcc) as a new entry
+    How to store?
+    Store such a way that, it takes less time to search
+    Where to store?
+    What DS to use?
+  Wait for configured time interval and read once again
+- Communication bitween OVD and OVC
+- What datastructure to use?
+  Which one to use? PIPES or Message Queues?
+- What is the configuration?
+  On what condition we reduce the priority of a process?
+  On what condition we stop the process execution?
+  When the stopped process, continues?
+  On what condition we kill the process? 
+- How to test?
+  How to simulate environment where more processes are running?

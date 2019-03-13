@@ -1,0 +1,8 @@
+- OpenRG_airtel_20th_Nov_2012.conf
+Created after changing the local IP address to 192.168.1.2, DHCP is enabled
+
+- OpenRG-15-02-2013.conf
+	Created after removing beetel modem from network
+	router IP address is chaged to 192.168.1.1
+	Enabled DHCP
+	Firewall is configured to allow all packets

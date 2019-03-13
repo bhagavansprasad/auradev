@@ -1,0 +1,21 @@
+- Package for wifi gui interface wicd
+
+- Wifi setup for TL-WN725N device from TP-LINK
+https://linuxforums.org.uk/index.php?topic=11261.0
+http://brilliantlyeasy.com/ubuntu-linux-tl-wn725n-tp-link-version-2-wifi-driver-install/
+
+https://askubuntu.com/questions/330026/configure-connect-wireless-network-through-the-command-line-in-ubuntu-12-04
+sudo ifconfig wlan0 up
+sudo iwlist wlan0 scan
+sudo iwlist scan
+iwconfig
+wpa_passphrase Aura jnjnuhuh
+
+sudo ifdown wlan0 
+sudo ifup -v wlan0
+
+/etc/network/interface 
+auto wlan0
+iface wlan0 inet dhcp
+wpa-ssid Aura
+wpa-psk  PASSWORD-IN-PLAIN-TEXT

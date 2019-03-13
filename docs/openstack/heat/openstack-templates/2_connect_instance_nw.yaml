@@ -1,0 +1,18 @@
+heat_template_version: 2013-05-23
+
+description: Demo to attach network to an instance.
+
+resources:
+  test_instance_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: 61b5dca2-befd-4ca3-bc01-7706c3aa9fb2
+
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      image: centoswithroot
+      key_name: ashwa
+      flavor: m1.small
+      networks:
+        - port: { get_resource: test_instance_port }

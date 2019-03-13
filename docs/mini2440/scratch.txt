@@ -1,0 +1,117 @@
+- Link to get details about mini6410
+	http://www.minidevs.com/minidevs/info177.html
+
+- Language converter from weblink
+	http://www.google.com/language_tools?hl=EN
+
+
+- DNW application
+	http://hi.baidu.com/z_live/blog/item/449713c609f021d0d0006057.html
+
+- Compiling dnw application (USB hosting application)
+	gcc dnw2.c -o dnw2 -lusb
+
+- Running dnw application
+	sudo dnw2 zImage.gz
+
+- Can get help from below website
+	http://bill.station51.net/
+
+- Very good instructions given 
+	http://bill.station51.net/
+	http://billforums.station51.net/viewtopic.php?f=4&t=20
+
+- Another website has good instructions 
+	http://members.cox.net/ebrombaugh1/embedded/mini2440/index.html
+
+- Another link to download image to flash
+	http://mini2440vietnam.blogspot.com/2011/01/install-linux-into-mini2440-board.html
+
+- Web link to compile and load image on the mini2440
+	http://my.opera.com/vinodmunikoti/blog/manual-for-compiling-android-for-mini2440
+
+- Blogs on Android
+	http://suchakra.wordpress.com/2011/01/12/android-on-friendlyarm-mini2440-12-screen/
+	http://suchakra.wordpress.com/author/suchakra/
+	http://www.amitkarpe.com/2010/12/android-on-arm-and-linux-kernel.html
+
+File paths
+	/home/mohansai/armboard/cddump-arm2440/images/linux/supervivi-128M
+	/home/mohansai/armboard/dnw/dnw2
+	/home/mohansai/armboard/cddump-arm2440/linux/linux-2.6.32.2/config_mini2440_w35
+
+	Android zImage
+	--------------
+	/home/mohansai/armboard/src-android/android/kernel/arch/arm/boot/zImage
+	/home/mohansai/armboard/src-android/android/mini2440W35_android.img
+
+- Clean
+	CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm make clean 
+
+- The first step in compiling is to create the default configuration file
+	CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm make mini2440_defconfig
+
+- Compile
+	CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm make 
+
+- To build uImage
+	CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm make uImage
+
+	CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm make zImage
+
+create a soft copy for a file like theis 
+--------------
+ln -s arm-linux-gnueabi-gcc-gcc -> /usr/bin/arm-linux-gnueabi-gcc
+	  
+	  file name                       path of the file   
+----------
+mkswap /dev/sdb1
+mkfs.ext2 /dev/sdb2
+mkfs.ext3 /dev/sdb3
+
+----------------------------------------------------------------
+Cleaning your source tree
+----------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------
+-->  	Installing Kernel Modules To Your Filesystem
+
+
+$ CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm INSTALL_MOD_PATH=mnt make modules_install 
+----------------------------------------------------------------------------------------------------------
+
+-->		Customizing Your Kernel Configuration
+
+CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm make menuconfig 
+
+Every time you make any change to this, you should clean your source tree and recompile.
+-------------------------------------------------------------------------------------------------------------
+Every time you make any change to this, you should clean your source tree and recompile.
+Cleaning your source tree
+
+CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm make clean 
+
+This will simply clean the tree of binaries and compiled object files etc but leaves the config intact.
+If you want to clean it completely and erase the config to start fresh you can do a distclean.
+
+CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm make distclean 
+
+----------------------------------------------------------------
+
+http://members.cox.net/ebrombaugh1/embedded/mini2440/index.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+http://tecadmin.net/install-jenkins-in-ubuntu/#
+$ wget -q -O - http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | sudo apt-key add -
+
+Add below line to file "/etc/apt/sources.list.d/jenkins.list" - (if file doesnot exists, create new)
+	deb http://pkg.jenkins-ci.org/debian-stable binary/
+
+$ sudo apt-get update
+$ sudo apt-get install jenkins
+
+from Bowser connect to http://localhost:8080/
+
+Enter the password which is stored in file "/var/lib/jenkins/secrets/initialAdminPassword"
+

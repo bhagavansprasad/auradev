@@ -1,0 +1,117 @@
+Notes
+-----
+Diagnostics
+Link
+	http://drewtech.com/support/J2534/index.html
+
+J2534 Faqs
+	http://www.boschdiagnostics.com/pro/j2534-faqs	
+
+Apps for cars
+	http://www.developereconomics.com/7-things-you-need-to-know-before-developing-a-car-app/
+
+
+FAQs
+----
+1.  Maximum transportation message size
+2.  What is Bus failure?
+3.  What is Ressive bit
+4.  What is Dominant bit?
+5.  What is Arbitration?
+6.  What is Message Priority
+7.  What is Message ID
+8.  What is CAN node
+9.  Do CAN node has ID?
+10. What is CAN bus data rate?
+11. What are all frame types?
+12. What is 
+	Data Frame?
+	Remote Frame
+	Error Frame
+	Overload Frame
+13. Error Frame
+	CRC, Bit-Stuffing, Bit Eror, Form Error, Ack Eror
+14. What is frame?
+15. What are the Frame content?
+	SOF, RTR, IDE, DLC, CRC, ACK, INT
+16. What is node synchronisation?
+17. What is Bit monitoring?
+18. What is Bus off mode?
+19. What are all message send types?
+20. How do we know bus is free to send data?
+21. What are all CAN node error states?
+22. What is CAN?
+23. What is Asynchronous Serial Communication?
+24. Why CAN is reliable?
+25. How many layer it supports?
+26. What is the max speed of CAN?
+27. CAN vs Extd. CAN? Can they coexist on a network?
+28. If they can co-exist, which one will have priority; if not, what is the reason?
+29. Describe the process of bus arbitration in CAN?
+30. What's the difference between CSMA/CR and CSMA/CD?
+31. How can we identify a specific sensor in a CAN network?
+32. Data Frame vs Remote Frame; Who wins arbitration? Explain why?
+33. What is bus termination resistor value for CAN? Do they vary if we put them in each node instead of bus ends?
+34. Explain Error Frame? Explain the error states (Like Passive Active and Bus-off)?
+35. What is BUS-Off? What happens when bus-off occurs?
+36. What is TEC and REC?
+37. How they increment and decrement?
+38. What is difference between Inter frame space and overload frame?
+39. What is time quanta? Explain
+40. How does CAN work? What are the features of CAN?
+41. Why SOF is always a dominant bit?
+42. Explain error detection mechanism?
+43. CANALyzer vs CANoe
+44. CAPL vs IG
+45. IG block vs G block
+46. How many nodes can be simulated in Canalyzer and Canoe?
+47. Data frame vs Remote frame? Who wins when both are available in the network?
+48. What is Bit-Encoding?
+49. What is bit-stuffing?
+50. Why bit stuff happens after 51th bit; why not after or before 52th or 53th bit?
+54. What is DLC? Why is it needed?
+55. CAN vs LIN?
+56. CAN vs KWP vs UDS?
+57. Why 58F has considered for +ve response why not other than 59F?
+60. What is tester present? Why do we need it?
+61. What is security Access? Why do we need it?
+62. What is CANCaseXL (if you have used it)? Explain with types?
+63. If there are only two nodes on the bus, and both are transmitting same identifier
+	(exactly the same identifier),who will win the arbitration or what happens?
+64. If there is only one node on the bus and it is transmitting messages on the 
+	bus continuously, what will happen? Is node will go into the bus-off state or what happens?
+65. Is CAN full duplex? what is the significance of Extended frames other than that it can be used for generating more identifiers?
+66. What is the major difference between CAN 67.68B and previous version?
+69. Without CAPL,can we simulate the other ECU's CAN Messages except Test ECU in the CAN Simulation Network in CANoe tool without using IG or G blocks.
+70. How many can database files are required for CAN Network simulation in CANoe tool.
+71. what is the difference between CANalyzer,CANoe and CANape tools?
+72. Mention the few uses of the CANoe tool?
+73. what is a panel is CANoe Tool and its Use?
+74. Why CAPL scripting is used in CANoe tool?
+75. Is it possible to simulate other ECU's Except Test ECU without CAPL Scripting in CANoe tool?
+76. What is flow control frame?
+77. How many nodes can exist in CAN network?
+78. Length of msgid, canid?
+79. Who is assigning canid and msgid?
+80. Is everything in a network is broadcast?
+81. Can we control all the nodes with one microcontroller?
+82. How much data can we transfer at a time?
+83. How do u know the recevied data is correct (or) not?
+84. why we are using serial communication rather than parllel communication?
+85. What is the purpose of arbitaration?how it is maintain?
+86. Difference between controller and dash board?
+87. Can we control all nodes with one microcontroller?
+88. What is RTR & DLC?
+89. How much time taken by the ECU to control the other nodes?
+90. What is the dominant bit in base and extended?
+91. what is error states,error active,error passive and busoff?
+92. What is RTR bit,what is dataframe ,what really happens ?
+93. In remote frame request blocks until unless reply?
+94. Where the data length is specified in extended?
+95. Why SOF and EOF is required?
+96. For acknowledgemnt frame DLC will be zero(yes/no)?
+97. What is RTR value for error (or) overload?
+98. In the priority of process the first priority of the process is completed then
+99. one more process is accomidate then it will checks from the SOF (or) not?
+100. How to overload situation comes?
+

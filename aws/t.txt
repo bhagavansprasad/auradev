@@ -1,0 +1,5 @@
+Aura-srvr-3
+ec2-54-70-166-73.us-west-2.compute.amazonaws.com
+
+Aura-srvr-4
+ec2-34-211-17-208.us-west-2.compute.amazonaws.com

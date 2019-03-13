@@ -1,0 +1,21 @@
+heat_template_version: 2013-05-23
+
+description: Demo to create an instance from heat script.
+
+resources:
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      image: centoswithroot
+      key_name: ashwa
+      flavor: m1.small
+      networks:
+        - network: int-net
+  db_instance:
+    type: OS::Nova::Server
+    properties:
+      image: centoswithroot
+      key_name: ashwa
+      flavor: m1.medium
+      networks:
+        - network: int-net

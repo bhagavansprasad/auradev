@@ -1,0 +1,68 @@
+/* to do before the class */
+- Give brief explanation of storage sections below ?
+	IPL, Stack, Heap, BSS, Data, Text.
+
+- What does an IPL contain and what is its full form ?
+- What is Stack and why is it required ?
+- How will be the address of varibles stored in stack ?
+- What is a function stack ?
+- Why is Heap required and what does it contain ?
+- What is BSS full form & what does it contain ?
+- What is the data and what type of variables are stored in data section ?
+- Give description about Text and what are stored in Text ?
+
+/* assignments to be done after the class */
+
+- List out the differences between Stack and Heap ?
+- List out the differences between BSS and Data ?
+- What is meant by program memory ?
+
+Assignments:
+	write the program related to this content ?
+	solve all the errors on your own and print the address of all the varibles
+	and functions ?
+	write down all the variables in ascending order based on the address of the
+	variables ?
+
+- Write the addresses seperately based on the type of storeage section they store ?
+
+IPL:
+	Initial Program Loader which holds the starting address of the program
+	memory.
+
+Stack :
+	All the local variables that are declared inside the functions will be
+	stored in Stack, as soon as the functions gets called all the values will
+	come into stack and when program ends the stack of that particular funciton
+	gets deleted.
+
+	Program Stack:
+		the whole stack of the program is generally called as Program Stack.
+	Funciton Stack:
+		its a part of program stack and will be builded as soon as a
+		functioncall is executed(function cll).
+
+Heap:
+	The memory left in the ram while all the active applications are running. In
+	specific Heap is considered only when the program is using dynamic memory
+	allocations like malloc, calloc and realloc. It has read and write
+	compatability since we get the memory by using malloc(read) and we can modify the
+	content by using the pointer(write).
+
+BSS:
+	Block Stated Symbol which is used to store the reference to global
+	uninitialised variables, this helps to use the memory efficiently based on
+	the logic that variables with out initialization does not require any memory
+	to store. Its has only Read permission once the variable stored in it is
+	updated with a value then it will be moved to data section
+
+Data:
+	Data is used to store all the global initialized variables. if any of the
+	global values have predefined value that it has to be stored somewhere in
+	program memory. Its has Read/Write permissions so we can easyily change or
+	reassign the values.
+
+Text:
+	Text is the section which holds all the strings that are not stored in stack
+	and function names. its an read only section once declared/assigned will not
+	be changed.

@@ -1,0 +1,146 @@
+Git client
+==========
+To clone students folder
+	git clone git@192.168.1.254:/opt/git/students.git
+
+To see the 'status' of 'all' local files
+	git status 
+
+To see the 'status' of 'one' local file
+	git status  temp.c
+
+To 'add' new file
+	git add temp.c 
+
+To  'commit' new file
+	git commit temp.c 
+
+To  'push' to server permanentely 
+	git push origin master
+	or
+	git push 
+
+To  see the 'diff' between local and server file
+	git diff temp.c 
+
+To  checkin 'modified' file
+	git commit temp.c 
+
+To  see the 'log' of the committed file
+	git log temp.c 
+
+To  'get' deleted files
+	git checkout .
+
+To list all tags 
+    git tag
+    git tag -l "v1.8.5*"
+
+To create new 'tag' 
+    git tag -a <version string> -m <message>
+    git tag -a v1.4 -m "my version 1.4"
+
+Git show tag details
+    git show v1.4
+
+Push tag to remote server
+    git push origin v1.5
+
+Delete tag 
+    git tag -d v1.4
+
+Checkout based on tag
+    git checkout v1.4
+
+
+
+Diffing with gvim
+-----------------
+git config --global diff.tool gvimdiff
+git config --global difftool.prompt false
+git config --global alias.d difftool
+
+NOTE: Now to see diff do 'git d test.c' instead of 'git diff test.c'
+
+Creating new git repository on git server
+========================================
+- Add new user 'git'
+$ sudo adduser git
+
+- Create new repository "py-sources.git" in '/home/git' folder
+$ cd /home/git
+$ sudo mkdir py-sources.git
+$ cd py-sources.git
+$ sudo git init --bare
+$ cd ..
+$ sudo chown -R git:git py-sources.git
+
+
+- Goto another terminal (cliet)
+git clone git@192.168.1.254:/home/git/py-sources.git
+cd py-sources
+git add first.py
+git commit -m "first version"
+git push origin master
+
+
+To add new project 'sources'
+
+In git server
+	$ su git
+	$ cd /opt/git/
+	$ mkdir sources.git
+	$ cd sources.git
+	$ git init --bare
+
+Creating new repository pavan.git
+	$ cd /opt/git/
+	$ mkdir pavan.git
+	$ cd pavan.git
+	$ git init --bare
+	$ cd ..
+	$ sudo chmod -R 777 pavan.git 
+
+To clone
+	git clone /opt/git/pavan.git
+	touch t.py
+	git status ./
+	git add t.py
+	git commit -m "Comment"
+	git push origin master
+	git log ./
+
+
+- Setting git remote URLs
+git remote -v
+git remote set-url origin bhagavan@192.168.1.254:/opt/git/auradev.git
+
+In git client
+	git clone git@192.168.1.254:/opt/git/sources.git
+	
+- Add user git
+  adduser git 
+  ...
+
+- Add group of your own. Example 'embedded'
+add group embedded
+
+- Create empty folder /git
+  sudo mkdir /git
+
+- Login as git
+  su git
+
+- Goto /git
+  cd /git
+
+- Create new repository '1test.git'
+  git init --bare
+
+- Change repository permissions
+  sudo chown git:embedded /git
+ 
+- From client clone the repository
+   git clone bhagavan@localhost:/git/1test.git
+
+   NOTE: The user 'bhagavan' should be part 'embedded' group on the git-server

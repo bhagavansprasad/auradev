@@ -1,0 +1,30 @@
+C & OS
+------
+- OVDC - Finding CPU overload detection and controlling
+- Serial-to-IP-to-Serial - Sending serial output to IP and vice versa
+- Implimenting post mortem
+- Implimenting Pseudo Driver and building communication between Kernel and user
+  program
+- Implimenting charector driver
+- Hacking Executable and Linkable Format (ELF/object) file
+- Implimenting panic() call and printing stack trace
+
+C & Android
+-----------
+- Smart SMB on Android device
+- Building toolchain for android device
+- Building handheld device for hotel managment
+
+Cloud Computing
+---------------
+
+Streaming domain
+-----------------
+- Implimenting flv parser
+- Implimenting MP4 parser
+- Streaming video over public network
+- Processing stream captured from a web camera
+
+
+
+

@@ -1,0 +1,142 @@
+#ASSIGNMENT1 :
+-------------------------
+Exercises for multiple c  file programming :
+--------------------------------------------------------
+1. What is the function of a compiler anf what are the various stages in the
+   compilation process.
+
+2. What are object(.o or .obj) files and what is their format?
+
+3. How to compile a program that contains two or more C source files?
+
+4. What is -o option for the C compiler?
+
+5. What is the -c option for the C compiler?
+
+6. What is linker/loader and why it is required?
+
+7. What is a.out file and what is its format?
+
+8. What is symbolic information,why is it required?
+
+9. Write a program which contains four simple functions and a main function.
+   Keep each function in a separate file. So there will be total five files.
+   Each function displays "I am function 1 in file 1\n" kind of string.
+   The main function calls all the 4 functions.
+
+10. Make any one of the four functions defined the above program as static
+    function compile and run. Explain the reason if you are unable to run on
+    compile.
+
+11. Modify the program number 9, such that one initialized global variables is
+    defined in each of the file . Modify main function to display all the five
+    global variables. Modify each function to display the global variable  defined
+    in the file.
+
+12. Make all tha global variabled of the above program as static and execute the
+    program.
+
+13. What is meant by the scope of  the variable. Explain global scope. file
+    scope,function scope and block scope.
+
+14. Write a program with the follwing architecture and display the addressed of
+    various elements.Note down the following architecture and display the
+    addresses of various elements. Note down the addresses of all the elements in
+    your notebook and order them in increasing order. From the addresses
+    venify that they are falling in appropriate sectons like Text,Data,BSS,Heap and
+    Stack.
+
+
+ /*
+ 1. Print the addresses of all variables.  Based on the addresse value arrange them
+    in decending order
+	NOTE: Also Print ptr, &ptr, fun1, fun2 and fun3
+ 2. List all Local variables
+ 3. List all Global variables
+ 4. Print all global variables in a function called 'my_fun()' which is
+ 	defined "my_fun.c" 
+	NOTE: Compile the program like below
+	$ gcc main.c my_fun.c
+ 5. Compile the programs with and without '-Wall -Werror' flags and note your
+    observations
+ */
+
+main.c
+------
+int   idata1=1;
+char  carray1[10];
+char  cname1[128] = "Aura Networks";
+char  *pname1 = "Aura Networks";
+int   idata2;
+int   idata3 = 3;
+int   idata4;
+short sh1;
+short sh2 = 2;
+int   iarray2[10] = {1, 2};
+short sh3;
+short sh4 = 4;
+char  ch1 = 1;
+char  ch2;
+short sharray3[10] = {5, 6};
+char  ch3 = 3;
+
+main()
+{
+	int ldata1;
+	int 1data2 = 2;
+	int  ldata3;
+	static int sdata1;
+	static int sdata2 = 10;
+	char  cname2[128] = "Aura Networks";
+	char  *pname2 = "Aura Networks";
+
+	int *ptr=malloc(10);
+
+	printf("%p\n", ptr);
+	printf("%p\n", &ptr);
+
+	printf("%p\n", cname1);
+	printf("%p\n", pname1);
+	printf("%p\n", &pname1);
+
+	printf("%p\n", cname2);
+	printf("%p\n", pname2);
+	printf("%p\n", &pname2);
+}
+
+void fun1( )
+{ 
+	int ldata4;
+
+	printf("I am funcion1\n");
+}
+
+int idata5 = 10;
+void fun2( )
+{ 
+	printf("I am function 2\n");
+}
+
+void fun3()
+{
+	int ldata5 = 10;
+	printf("I am funcion 3\n");
+}
+
+int idata6 = 20;
+
+my_fun.c
+--------
+void my_fun(void)
+{
+	...
+
+	//print all global variabls
+
+	....
+}
+
+15. Add one more C  file to the above program.Declare some more global variables
+    and functions in the file. Didplay the addresses of the global variables and
+    funcions of that file from the main funcion.
+

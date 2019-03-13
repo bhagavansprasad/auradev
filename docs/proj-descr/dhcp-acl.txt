@@ -1,0 +1,8 @@
+Description
+-----------
+This module enables capabilities of dhcp server in reading ACL (Access Control
+List) from the user program dynamically.  i.e. User program communicates with DHCPS (running in
+Kernel mode) and sends list of blocked users from getting the IP addresses
+
+Role
+-----

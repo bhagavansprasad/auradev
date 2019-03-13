@@ -1,0 +1,3 @@
+parameters:
+  image: centoswithroot
+  key_name: ashwa

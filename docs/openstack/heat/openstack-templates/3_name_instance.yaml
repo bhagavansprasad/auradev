@@ -1,0 +1,14 @@
+heat_template_version: 2013-05-23
+
+description: Demo template to name an instance.
+
+resources:
+  test_instance:
+    type: OS::Nova::Server
+    properties:
+      name: demo-instance
+      image: centoswithroot
+      key_name: ashwa
+      flavor: m1.medium
+      networks:
+        - network: int-net

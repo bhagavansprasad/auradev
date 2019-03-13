@@ -1,0 +1,21 @@
+Linked List
+- Adding a node to a linked list
+- Deleting a node from linked list
+- Counting number nodes in linked list
+- Counting number of occourences of given value in the linked list
+- Implimenting the circular list
+- Find out the given list is a circular list. 
+	NOTE: Header is available globally
+- Print the middle node value of a linked list by traversing only once
+- How to find the 
+- How would you find a loop in a singly-linked list?
+-How to find two linked lists are intersected or not
+
+Arrays
+- Replacing duplicate elements with '0' in the array
+- Removing dumplicate elements in the array
+- Impliment "Magic Square"
+	NOTE : Refer the link, http://www.youtube.com/watch?v=SWHcbBm19KA&feature=related
+
+Strings
+

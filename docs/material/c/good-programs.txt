@@ -1,0 +1,299 @@
+Problem 1
+Points A, B and C lies on a circle, find the radius of the circle.
+
+INPUT
+The first line of input contains T, the number of test cases; and T test cases follow. Each test case contains the coordinates of A, B and C respectively.
+
+For example, 0 0 2 3 4 8 means A = (0,0), B = (2,3) and C = (4,8).
+
+OUTPUT
+This should contain T lines, each line containing the radius of the circle.
+
+CONSTRAINTS
+1 <= T <= 100000
+
+SAMPLE INPUT
+1
+5 0 -5 0 0 -5
+
+SAMPLE OUTPUT
+5
+ 
+Problem 2
+The curator of Salarjung Museum wants to coat the museum’s floors to protect it from damage. The curator must determine the square feet to be covered in order to estimate material and labor costs. Each room and hallway has been divided into a set of convex polygons and the curator has a list of the x-y coordinates of the corners of each polygon. The curator has hired you to write a program to calculate the area of a convex polygon given the x-y coordinates of its vertices (corners).
+ 
+Definition: A polygon is convex if, for every pair of points within the polygon, every point on a straight line segment that connects the points is also within the polygon.
+ 
+The first line of the input contains T, the number of convex polygons. Followed by N, the number of sides of the polygon followed by the x-y coordinates indicating the corners of a convex polygon describing a room or hallway in clockwise order. N and the corresponding x-y coordinates are repeated T number of times.
+For example,
+2
+5
+-11 -10
+-11 10
+11 10
+15 15
+11 -100
+4
+-11 -10
+-11 10
+11 10
+11 -10
+ 
+Means that there are 2 polygons.
+First polygon has 5 sides and the coordinates of each side are
+(-11,-10), (-11,10), (11,10), (15,15) and (11,-100).
+Second polygon has 4 sides and the coordinates of each side are
+(-11,-10), (-11,10), (11,10) and (11,-10).
+ 
+The output will print the areas of the T convex polygons.
+For example,
+1650
+440
+Means the area of the first polygon is 1650 and the area of the second polygon is 440 respectively.
+ 
+CONSTRAINTS
+1 <= T <= 100000
+3 <= N <= 10
+ 
+SAMPLE INPUT
+2
+5
+-11 -10
+-11 10
+11 10
+15 15
+11 -100
+4
+-11 -10
+-11 10
+11 10
+11 -10
+
+SAMPLE OUTPUT
+1650
+440
+ 
+Problem 3
+Most of us think of numbers as cold and unfeeling. As a matter of fact, some numbers are happy, while others are unhappy. The procedure for learning whether a number is happy or unhappy is quite simple. Starting with any positive integer, replace the number with the sum of the squares of its digits. Repeat the process until the number equals one or loops endlessly in a cycle. Numbers that converge to one are happy numbers, while those that do not are unhappy numbers. For this program loop cycles will have less than a hundred entries.
+ 
+For example, starting with the number, N = 32, the sum of squares is 13 because 3x3 + 2x2 = 13. The sum of squares for 13 is 10 because 1x1 + 3x3 = 10. The sum of squares for 10 is 1, so 32 is a happy number.
+ 
+INPUT
+The first line of the input contains T, the number of test cases; and T test cases follow.
+ 
+OUTPUT
+This should contain T lines, each line containing the word “happy” or “unhappy”.
+If the number is happy then print “happy” else print “unhappy”.
+ 
+CONSTRAINTS
+1 <= T <= 100000
+1 <= N <= 10000
+ 
+SAMPLE INPUT
+5
+32
+4565
+42
+86
+5555
+ 
+SAMPLE OUTPUT
+happy
+unhappy
+unhappy
+happy
+happy
+ 
+Problem 4
+A polite number is a positive integer which can be written as the sum of two or more consecutive positive integers. Other positive integers are impolite.
+ 
+INPUT
+The first line of the input contains T, the number of test cases; and T test cases follow.
+ 
+OUTPUT
+This should contain T lines, each line containing the word “polite” or “impolite”.
+If the number is polite then print “polite” else print “impolite”.
+ 
+CONSTRAINTS
+1 <= T <= 100000
+1 <= N <= 10000
+ 
+SAMPLE INPUT
+5
+2
+3
+6
+11
+20
+ 
+SAMPLE OUTPUT
+impolite
+polite
+polite
+polite
+polite
+ 
+Problem 5
+In this problem you are going to create a simple Roman numeral calculator. This calculator will need to accept two numbers (in Roman numeral form) and then allow a single mathematical operation to be performed. Operators can be + (plus), - (minus), / (divide) and * (multiply).
+ 
+The Roman numerals you will need to comprehend are:
+I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000
+ 
+To know about Roman numerals visit http://mathforum.org/dr.math/faq/faq.roman.html.
+ 
+INPUT
+The first line of the input contains T, the number of test cases; and T test cases follow.
+ 
+OUTPUT
+This should contain T lines, each line containing the result of the operation.
+ 
+CONSTRAINTS
+1 <= T <= 100000
+1 <= Operand <= 4000
+The results of any requested division (/) operation will be whole numbers.
+ 
+SAMPLE INPUT
+4
+XI + V
+X – V
+X / V
+II * V
+ 
+SAMPLE OUTPUT
+XVI
+V
+II
+X
+ 
+Problem 6
+Mr. Dis and Mr. Aster are mechanical engineers at Fiasco Iron Works. They were assigned to design roadways for automated trolleys to carry the iron ores across the smelting plants. They were supposed to make two circular roadways for the automated trolleys. However, by mistake Mr Dis and Mr Aster made the circular roadways tangential to each other (i.e. the two circular paths touch each other at a point).
+ 
+Every morning at 0800 hrs the trolleys start at the point of tangency and move clockwise in their respective tracks. It is quite obvious that at some point the trolleys would collide at the point from where they started.
+ 
+In a desperate attempt to save the trolleys and the damage caused to the operations of the plant, the Chief Engineer of the plant has requested you to write a programme that will sound a hooter 10 seconds before the collision such that the foreman can stop the trolleys in order to avoid the collision.
+ 
+You need to write a programme to find out the time lapsed (in seconds) before the hooter should go off.
+ 
+INPUT
+The first line of the input contains T, the number of test cases; and T test cases follow. Each test case gives the perimeters (in meters) of the circular tracks and speeds (in meters per second) of the trolleys respectively.
+For example,
+100 70 10 10
+Means the perimeters of the circular tracks are 100 meters and 70 meters respectively; and the speeds of the trolleys are 10 m/s and 7 m/s respectively.
+ 
+OUTPUT
+This should contain T lines, each line containing the time lapsed (in seconds) before the hooter should go off.
+ 
+CONSTRAINTS
+1 <= T <= 100000
+Time taken by any of the trolleys to complete one revolution around the circular track is a whole number.
+ 
+SAMPLE INPUT
+1
+100 70 10 10
+ 
+SAMPLE OUTPUT
+60
+ 
+ 
+Problem 7
+The digital video recorder (DVR) is becoming a popular item for home entertainment systems. One of the benefits of a DVR is that it can keep track of when your favorite shows are on for you. Simply tell the DVR which shows you like to watch, and it will record them for you. Unfortunately, many of your favorite shows are on at the same time and your generic DVR can only record a single show at once. Additionally, the DVR will randomly choose which show to record when there is a scheduling conflict. There must be a better way to do this.
+Your task it is to write the conflict resolution code for a new Open Source DVR program.
+
+The new DVR should consider two things,
+* Whether another airing of the same show is available to be recorded.
+* If all airings of a particular show conflict with another show(s), then the show(s) with the highest priority will be recorded. In other words, you may have to consider the priority of more than two shows when resolving conflicts. You should only record a show once and during its first available airing.
+ 
+Develop a program that takes as input the taping schedule of a DVR and determines which shows are recorded and at what time.
+ 
+INPUT
+The first line of the input contains T, the number of test cases; and T test cases follow.
+The input data contains a list of shows to record and the dates and times they will be aired. The shows are listed in priority order, with the first show having the highest priority. Each line contains the name of the show followed by a series of days and times. Each day and time consists of a three-letter abbreviation for a day of the week (i.e., one of SUN, MON, TUE, WED, THU, FRI, or SAT), followed by the time of day, expressed in “military time'', i.e., as a four-digit sequence whose first two digits are in the range 00..23 (indicating the number of hours since midnight) and whose last two digits are in the range 00..59 (indicating the number of minutes since the beginning of the current hour). All shows start on the hour and will last less than one hour. The airings for each show are listed in no particular order. There is no limit to the number of airings a show may have. The delimiter for the input data is the '/' character.
+
+For example, 
+Wagle Ki Duniya/WED/2000/SUN/2200
+means that Wagle Ki Duniya is shown on Wednesdays at 2000 hrs and Sundays at 2200 hrs.
+ 
+OUTPUT
+This should contain T lines, each line containing the show listed in the input (and in the same order), displaying the show name and the time it will be recorded that week. If the show cannot be scheduled, you should output the string “Impossible”.
+ 
+CONSTRAINTS
+1 <= T <= 1000
+ 
+SAMPLE INPUT
+10
+Wagle Ki Duniya/WED/2000/SUN/2200
+Humlog/WED/2000
+Buniyaad/THU/1900
+Bharat Ek Khoj/THU/2000
+24/MON/2000
+Yeh Joh Hain Zindagi/TUE/2000
+American Idol/TUE/2000/WED/2000
+Byomkesh Bakshi/SUN/2000
+The Simpsons/SUN/1900
+Desperate Housewives/SUN/2000/TUE/1900
+
+SAMPLE OUTPUT
+Wagle Ki Duniya SUN 2200
+Humlog WED 2000
+Buniyaad THU 1900
+Bharat Ek Khoj THU 2000
+24 MON 2000
+Yeh Joh Hain Zindagi TUE 2000
+American Idol Impossible
+Byomkesh Bakshi SUN 2000
+The Simpsons SUN 1900
+Desperate Housewives TUE 1900
+ 
+Problem 8
+Bajrangi has an idea for a startup called SmartTools, which allows users to make short blog entries by typing abbreviations for common words. When generating the web pages for display the software will expand the abbreviations according to the site's lexicon. Bajrangi believes that the time people save by typing fewer letters will encourage them to switch to his site.
+Write a program to expand abbreviations into words from a lexicon.
+ 
+INPUT
+The input is divided into two sections.
+The first section is the lexicon itself, and the second section is a SmartTools user's blog entry that needs to be expanded. The sections are divided by a single | character.
+The termination for the input is the newline character.
+ 
+OUTPUT
+The program must print the blog entry with all the abbreviations expanded into words. A substituted word must be the shortest unique word that can be formed by adding zero or more letters (or punctuation symbols) to the abbreviation. If two or more words can be formed by adding the same number of letters, then the abbreviation should be printed as it is.
+ 
+SAMPLE INPUT
+cream chocolate every ever does do ice is fried friend friends lick like floor favor flavor flower best but probably poorly say says that what white our you your strawberry storyboard the | wht flvr ic crm ds yr bst fnd lke? ur frds lk stbry, bt choc s prly th bs flr vr!
+ 
+SAMPLE OUTPUT
+what flavor ice cream does your best friend like? our friends lk strawberry, but chocolate is poorly the best floor ever!
+ 
+Problem 9
+The Pocket PC can access local area networks (LANs) using an 11 Mbps wireless LAN card. The card communicates with wireless access points located in and around the LAN. Your task is to write a program to test the coverage area of a set of wireless access points.
+ 
+To solve this problem you will need to consider that the wireless access points have a limited range of communication which may vary from one model to the next. This means that most WLAN installations will contain more than one wireless access point. Therefore your program will need to read the WLAN installation as a set of (x,y) locations of wireless access points, each with its own service radius.
+ 
+You will also need to consider the purpose of using a wireless LAN: to provide mobile access to the network. Therefore the test conditions for the WLAN will be straight line-segment paths.
+Further, each path from one (x,y) position to another (x,y) position represents a person using the Pocket PC moving from one point to another.
+ 
+For each path, your program must determine if the person encounters a "dead" spot - a spot not serviced by any of the wireless access points.
+ 
+INPUT
+The input file contains two sections.
+Section one, named “ACCESS”, contains a list of all the access point locations. Each access point has an (x,y) location and a service radius. For example, 198 202 150 means X = 198, Y = 202 and service radius = 150
+Section two, named “PATHS”, is a list of (x,y) pairs indicating path start and stop. For example, 160 420 160 380 means Start X = 160, Start Y = 420, STOP X = 160 and STOP Y = 380.
+ 
+OUTPUT
+This should list each path (x,y) pair followed by either the phase "DEAD SPOT" or "ACCESS CLEAR" as shown below.
+ 
+SAMPLE INPUT
+ACCESS
+198 202 150
+300 500 300
+700 500 150
+800 200 150
+PATHS
+160 420 160 380
+460 580 680 580
+782 139 758 421
+404 306 850 253
+ 
+SAMPLE OUTPUT
+160 420 160 380 ACCESS CLEAR
+460 580 680 580 ACCESS CLEAR
+782 139 758 421 ACCESS CLEAR
+404 306 850 253 DEAD SPOT

@@ -1,0 +1,17 @@
+- People loves to generate code, No readymade code
+- Anounce we make people to do generate the code
+- Likes to do IEEE protocols
+- If the students feel, there is new things in presenter they likes to join
+- People likes to go to Hyd
+- People can ask, within 45 days how are we going to execute
+- People likes to do Embedded programming in C
+- Very less chance to reject Embeddeed projects
+- We don't need any prior knowledge, but you should be open for learning?
+
+Assure them
+- We will make you to think
+- We will make you generate code
+- We give you required knowledge
+- We will give you basics where you can create your own path
+- Doubts/Questions will be answered online
+- Requrements - No hardware is required, only Linux OS  & C compilers are required

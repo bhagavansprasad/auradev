@@ -1,0 +1,232 @@
+Link
+http://docs.ansible.com/ansible/intro_getting_started.html
+
+$ sudo apt-get install software-properties-common
+$ sudo apt-add-repository ppa:ansible/ansible
+$ sudo apt-get update
+$ sudo apt-get install ansible
+
+test ansible setup
+echo "127.0.0.1" > ~/ansible_hosts
+export ANSIBLE_INVENTORY=~/ansible_hosts
+
+Parallelism and Shell Commands
+$ ssh-agent bash
+$ ssh-add ~/.ssh/id_rsa
+
+ansible atlanta -a "/sbin/reboot" -f 10
+ansible atlanta -a "/usr/bin/foo" -u username
+ansible atlanta -a "/usr/bin/foo" -u username --become [--ask-become-pass]
+ansible atlanta -a "/usr/bin/foo" -u username --become-user otheruser [--ask-become-pass]
+
+ansible raleigh -m shell -a 'echo $TERM'
+
+File Transfer
+To transfer a file directly to many servers:
+ ansible atlanta -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+
+The file module allows changing ownership and permissions on files. These same options can be passed directly to the copy module as well:
+$ ansible webservers -m file -a "dest=/srv/foo/a.txt mode=600"
+$ ansible webservers -m file -a "dest=/srv/foo/b.txt mode=600 owner=mdehaan group=mdehaan"
+
+The file module can also create directories, similar to mkdir -p:
+$ ansible webservers -m file -a "dest=/path/to/c mode=755 owner=mdehaan group=mdehaan state=directory"
+
+As well as delete directories (recursively) and delete files:
+$ ansible webservers -m file -a "dest=/path/to/c state=absent"
+
+Managing Packages
+Ensure a package is installed, but don’t update it:
+$ ansible webservers -m yum -a "name=acme state=present"
+
+Ensure a package is installed to a specific version:
+$ ansible webservers -m yum -a "name=acme-1.5 state=present"
+
+Ensure a package is at the latest version:
+$ ansible webservers -m yum -a "name=acme state=latest"
+
+Ensure a package is not installed:
+$ ansible webservers -m yum -a "name=acme state=absent"
+
+Users and Groups
+The ‘user’ module allows easy creation and manipulation of existing user accounts, as well as removal of user accounts that may exist:
+$ ansible all -m user -a "name=foo password=<crypted password here>"
+$ ansible all -m user -a "name=foo state=absent"
+
+Deploying From Source Control
+Deploy your webapp straight from git:
+$ ansible webservers -m git -a "repo=git://foo.example.org/repo.git dest=/srv/myapp version=HEAD"
+
+Managing Services
+Ensure a service is started on all webservers:
+$ ansible webservers -m service -a "name=httpd state=started"
+
+Alternatively, restart a service on all webservers:
+$ ansible webservers -m service -a "name=httpd state=restarted"
+
+Ensure a service is stopped:
+$ ansible webservers -m service -a "name=httpd state=stopped"
+
+Time Limited Background Operations
+Long running operations can be run in the background, and it is possible to check their status later. For example, to execute long_running_operation asynchronously in the background, with a timeout of 3600 seconds (-B), and without polling (-P):
+$ ansible all -B 3600 -P 0 -a "/usr/bin/long_running_operation --do-stuff"
+
+If you do decide you want to check on the job status later, you can use the async_status module, passing it the job id that was returned when you ran the original job in the background:
+$ ansible web1.example.com -m async_status -a "jid=488359678239.2844"
+
+Polling is built-in and looks like this:
+$ ansible all -B 1800 -P 60 -a "/usr/bin/long_running_operation --do-stuff"
+
+Gathering Facts
+Facts are described in the playbooks section and represent discovered variables about a system. These can be used to implement conditional execution of tasks but also just to get ad-hoc information about your system. You can see all facts via:
+
+$ ansible all -m setup
+
+
+ssh -o StrictHostKeyChecking=no root@localhost -p 32770
+CMD  ["ssh-keygen", "-f", "id_rsa", "-t", "rsa", "-N", "''"]
+COPY id_rsa.pub "/root/.ssh/authorized_keys"
+
+
+First commands
+--------------
+ ssh-agent bash
+ ssh-add ~/.ssh/id_rsa
+
+- Test case
+ansible all -m ping
+
+With different user 'root'
+ansible -vvvv all  --inventory-file=./1-hosts -m ping -u root
+ansible all  --inventory-file=./1-hosts  -a "/bin/echo hello" -u root
+
+# as bruce
+$ ansible all -m ping -u bruce
+# as bruce, sudoing to root
+$ ansible all -m ping -u bruce --sudo
+# as bruce, sudoing to batman
+$ ansible all -m ping -u bruce --sudo --sudo-user batman
+
+# With latest version of ansible `sudo` is deprecated so use become
+# as bruce, sudoing to root
+$ ansible all -m ping -u bruce -b
+# as bruce, sudoing to batman
+$ ansible all -m ping -u bruce -b --become-user batman
+
+setup
+-----
+Copy ssh public key to the host
+172.17.0.[2:4]
+scp id_rsa.pub root@172.17.0.2:/.ssh/auth/authorized_keys"
+
+create new '/etc/ansible/hosts' file with host IP
+172.17.0.2
+
+Testing the setup
+ansible all -a "/bin/echo hello"
+ansible all -a "/bin/echo hello" -u root
+ansible all -a "/bin/echo hello" -u root -p 32770
+ansible all -a "/bin/echo hello" -u root -p 32770  --inventory-file=./1-hosts
+
+disable SSH key host checking in /etc/ansible/ansible.cfg
+host_key_checking = False
+remote_user = root
+
+Adding set of in 'hosts' file 
+172.17.0.2
+172.17.0.3
+172.17.0.4
+172.17.0.5
+
+	or 
+
+172.17.0.[2:5]
+
+Hosts and Groups
+================
+[webservers]
+172.17.0.2
+172.17.0.3
+
+[dbservers]
+172.17.0.3
+172.17.0.4
+172.17.0.5
+db-[a:f].example.com
+
+ansible -l webservers all  -a "/bin/echo hello"
+ansible --limit=webservers all  -a "/bin/echo hello"
+ansible -l webservers,dbservers all  -a "/bin/echo hello" 
+
+grouping with yaml files
+------------------------
+/etc/ansible/groups_vars/dbservers-g.yaml
+---
+database_server: 172.17.0.4
+http://stackoverflow.com/questions/23767765/ansible-doesnt-pick-up-group-vars-without-loading-it-manually
+http://stackoverflow.com/questions/21908363/ansible-read-inventory-hosts-and-variables-to-group-vars-all-file
+http://stackoverflow.com/questions/31343753/ansible-variable-defined-in-group-vars-all-not-found
+
+docker run -itd -P --name 1node ssh-service 
+docker run -itd -P --name 2node ssh-service 
+docker run -itd -P --name 3node ssh-service 
+docker run -itd -P --name 4node ssh-service 
+
+Setup
+S1 - Create 4 Nodes (Linux systems) with ssh server installed
+     Append local ~/.ssh/id_rsa.pub file content to node(s),  /root/.ssh/authorized_keys
+S2 - Check ssh connection with node.
+	 ssh root@192.168.1.253
+     Note: Should not prompt for password
+S3 - Create new file '/etc/ansible/hosts' with below content
+     192.168.1.253
+S4 - Run ansible with below command
+- Running on all hosts
+ansible all -a "/bin/echo hello"
+
+- Running on all hosts with username
+ansible all -a "/bin/echo hello" -u root
+
+- Running on all hosts with username and port
+ansible all -a "/bin/echo hello" -u root -p 32770
+
+- Running on all hosts with username and port along with inventory file
+ansible all -a "/bin/echo hello" -u root -p 32770  --inventory-file=./1-hosts
+
+- Running only on 'webservers' group
+ansible webservers -a "/bin/echo hello"
+
+- Running only on 'webservers' and dbservers group
+ansible webservers:dbservers -a "/bin/echo hello"
+
+- All machines must be in the group webservers but not in the group phoenix
+webservers:!phoenix
+
+- The hosts must be in the group webservers and the host must also be in the group staging
+webservers:&staging
+webservers[0]
+webservers[-1]
+webservers[0:1]
+webservers[1:]
+webservers:dbservers:&staging:!phoenix
+
+/etc/ansible/hosts file content
+192.168.1.253 ansible_user=bhagavan
+[webservers]
+172.17.0.2	ansible_user=root
+172.17.0.3	ansible_connection=ssh	ansible_user=root
+
+- List of server from 172.17.0.2, 3, 4
+172.17.0.[2:4]
+
+	 Results should be
+	 -----------------
+	 192.168.1.253 | success | rc=0 >>
+	 hello
+
+S5 : Settingup nodes
+
+
+Group Vars
+ansible all -a "/bin/echo hello" --inventory-file=./3-host-vars
+

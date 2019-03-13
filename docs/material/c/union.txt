@@ -1,0 +1,5 @@
+ Using Unions ... 
+
+ - Print each byte value of 4 bytes for variable 'a', if 
+   int a = 300;
+

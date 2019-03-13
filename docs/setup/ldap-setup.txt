@@ -1,0 +1,12 @@
+https://www.osradar.com/how-to-install-openldap-server-on-ubuntu-18-04/
+
+$ sudo apt install slapd ldap-utils
+sudo systemctl status slapd.service
+
+sudo dpkg-reconfigure slapd
+
+ldapsearch -x
+sudo apt install phpldapadmin
+
+
+

@@ -1,0 +1,33 @@
+sudo puppet cert sign auradev.awsc.com
+sudo puppet cert clean auradev.awsc.com
+sudo puppet cert list --all
+sudo puppet cert list 
+puppet agent -t --debug 
+find /var/lib/puppet/ssl -name auradev.awsc.com.pem -delete
+find . -name auradev.awsc.com.pem
+sudo puppet agent --enable
+sudo puppet config print ssldir
+
+Agent
+- /etc/hosts
+127.0.0.1 auradev.awsc.com
+122.171.79.225 foreman.auradev.com
+
+- /etc/hostname
+auradev.awsc.com
+
+- /etc/puppet/puppet.conf
+server=foreman.auradev.com
+
+- Print hostname
+hostname
+
+- Reload hostname
+hostname -F /etc/hostname
+
+
+
+
+
+
+

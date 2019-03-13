@@ -1,0 +1,176 @@
+                          Porting uClinux 2.6 on Samsung AX4510
+
+
+Step 1.        Download the uClinux distribution:   uClinux-dist-20040408.tar.gz
+               You can download the distribution from below link.
+                          http://www.uclinux.org/pub/uClinux/dist/
+               Store the distribution tar file in local disk.
+               untar the above file.
+                          tar -zxvf uClinux-dist-20040408.tar.gz
+               After successful untaring uClinux-dist folder will be created in the same directory
+               Get into the uClinux-dist directory
+                                      cd  uClinux-dist
+               remove linux-2.0.x, linux-2.4.x, linux-2.6.x directories from uClinux-dist directory
+
+Step 2.        Download the linux kernel:     linux-2.6.9.tar.bz2
+               You can download the kernel from below link
+	                  http://www.kernel.org/pub/linux/kernel/2.6/linux-2.6.9.tar.bz2
+               move the downloaded file to uClinux-dist folder
+	       untar the file with the below command
+	                   tar -jxvf linux-2.6.9.tar.bz2
+               in uClinux-dist directory move linux-2.6.9 to linux-2.6.x
+
+Step 3.       Download the patch files:
+              You can Download MMU less ARM patches for linux kernel 2.6.9 from below URLs
+                           http://www.uclinux.org/pub/uClinux/uClinux-2.6.x/linux-2.6.9-uc0.patch.gz
+                           http://opensrc.sec.samsung.com/download/linux-2.6.9-uc0-hsc0.patch.gz 
+	      In uClinux-dist directory:  Apply above patches one after other
+	                   \linux-2.6.x>gzip -dc linux-2.6.9-uc0.patch.gz | patch -p1
+                           \linux-2.6.x>gzip -dc linux-2.6.9-uc0-hsc0.patch.gz | patch -p1
+              
+Step 4.       Download the cross tool chain:
+              you can download it from link
+	                   http://opensrc.sec.samsung.com/download/arm-elf-tools-20040427.sh
+              install the tool chain in super user
+	                   $su
+			   password:
+			   #sh arm-elf-tools-20040427.sh
+                           #exit
+
+Step 5.       Creating configuration files in vendor directory
+                           \uClinux-dist$ cp linux-2.6.x/arch/armnommu/configs/espd_4510b_defconfig
+                           vendors/Samsung/4510B/config.linux-2.6.x
+                       	   \uClinux-dist$ cp vendors/Samsung/4510B/config.vendor-2.4.x
+                           vendors/Samsung/4510B/config.vendor-2.6.x
+	      
+Step 6.       Editing some files:
+              Open "config.vendor-2.6.x" file
+	                   gvim uClinux-dist/vendors/Samsung/44B0/config.vendor-2.6.x 
+              search for CONFIG_USER_BUSYBOX_KILLALL, CONFIG_USER_LOGIN_LOGIN, CONFIG_USER_OLD_PASSWORDS
+                         CONFIG_USER_BUSYBOX_BUSYBOX in the file.
+	      Replace y by n in all
+	          previously-->
+	                 CONFIG_USER_BUSYBOX_KILLALL=y
+			 CONFIG_USER_LOGIN_LOGIN=y
+			 CONFIG_USER_OLD_PASSWORDS=y
+			 CONFIG_USER_BUSYBOX_BUSYBOX=y
+	          modify to -->
+		         CONFIG_USER_BUSYBOX_KILLALL=n
+			 CONFIG_USER_LOGIN_LOGIN=n
+			 CONFIG_USER_OLD_PASSWORDS=n
+			 CONFIG_USER_BUSYBOX_BUSYBOX=n
+	     
+              Open "config.arch" file
+	                   gvim uClinux-dist/vendors/Samsung/44B0/config.arch
+	      Search for CONSOLE_BAUD_RATE
+                Replace number from 19200 to 57600
+		           CONSOLE_BAUD_RATE = 57600
+              
+             Open "Makefile" file
+	                   gvim uClinux-dist/vendors/Samsung/44B0/Makefile
+			   Add the below code which is in between "adding stat"
+			   and "add ends" after the existing code in Makefile.
+                           make sure that <TAB> should be given
+                    image:
+                  	[ -d $(IMAGEDIR) ] || mkdir -p $(IMAGEDIR)
+			genromfs -v -V "ROMdisk" -f $(ROMFSIMG) -d $(ROMFSDIR)
+
+     		#Adding stats
+			<TAB>$(CROSS_COMPILE)ld -r -o $(ROOTDIR)/$(LINUXDIR)/romfs.o \
+			-b binary $(ROMFSIMG)
+		 	<TAB>$(CROSS_COMPILE)objcopy -O binary -R .note -R .comment \
+                         -S $(ROOTDIR)/$(LINUXDIR)/linux $(RAMIMAGE)
+    		#adding ends
+
+                         7   ELFIMAGE = $(IMAGEDIR)/image.elf
+                         8   #sai added stats
+                         9   RAMIMAGE = $(IMAGEDIR)/image.ram
+                         10  #sai stats ends
+
+
+             Open "rc" file
+	                 gvim uClinux-dist/vendors/Samsung/44B0/rc
+			 change '/dev/ram0' to '/dev/ram1' Where ever necessary
+
+Step 7.       Open linux-2.6.x/arch/armnommu/kernel/setup.c
+                            \uClinux-dest$ gvim linux-2.6.x/arch/armnommu/kernel/setup.c
+	      Add "romfs_start" and "romfs_ends" variables in the specified lines
+
+                                64 extern int _stext, _text, _etext, _edata, _end;
+                                65 extern int romfs_start,romfs_end;
+             Add "sprintf" in the specified lines.
+                                682 char *from = default_command_line;
+                                683 sprintf(default_command_line, "root=/dev/ram0 initrd=0x%08lx,%ldk keepinitrd", (unsigned long)&romfs_start,((unsigned long)&romfs_end - (unsigned long)&romfs_start)>>10);
+
+
+	     	
+Step 7.       Edit the Kernel linker file to include the ROMFS
+                        gvim linux-2.6.x/arch/armnommu/kernel/vmlinux-lds.S,
+	      Add the below lines present in between "Add stats" and "End stats"
+                  81 *(.got) /* Global offset table */
+                  82
+                  #Add stats
+                     83 romfs_start = .;
+                     84 romfs.o
+                     85 romfs_end = .;
+                  #End stats
+
+Step 8.      Remove comments to macros in some files:
+             Open File "create_module.c"
+	          uClinux-dest$ gvim uClibc/libc/sysdeps/linux/common/create_module.c
+		  Search and Remove commentto macro "__NR_create_module"
+		  previously
+		          //#define __NR_create_module    127
+	          modify to
+		          #define __NR_create_module    127
+
+             Open File "syscalls.c"
+	          uClinux-dest$ gvim uClibc/libc/sysdeps/linux/common/create_module.c
+		  Search and Remove comment to macro "__NR_get_kernel_syms
+		  previously
+		          //#define  __NR_get_kernel_syms  127
+	          modify to
+		          #define   __NR_get_kernel_syms  127
+
+
+Compilation steps:
+In uClinux-dest directory  
+$make clean
+$make menuconfig
+               select "Vendor" as "Samsung"
+	       and "product" as "4510"
+	       Kernal/lib/Default
+	                 select all by using space bar
+			    save and exit
+$make dep
+$make lib_only
+              we will get an error
+	                 In file included from signals.c:24:/opt/uClinux-dist/lib/uClibc/include/bits/sigcontextinfo.h:
+			 21: linux/version.h: No such file or directory
+                         make[4]: *** [signals.o] Error 1
+                         make[4]: Leaving directory `/opt/uClinux-dist/uClibc/libpthread/linuxthreads'
+
+              Open "sigcontextinfo.h" 
+	                 uClinux-dist$ gvim /lib/uClibc/include/bits/sigcontextinfo.h
+			 give comments to hederfile "linux/version.h"
+                         previously -->  #include "linux/version.h"
+			 modify to  -->  //#include "linux/version.h"
+			                     save and exit from file.
+
+$make lib_only
+              This time u will not get any error
+
+$make user_only
+
+$make romfs
+
+$make image
+           We will get an error
+	            linux  : no such a file or directory
+                     ignore it and continue
+$make linux
+              
+$make image 
+          u will not get the previous error( linux  : no such a file or directory)
+
+$make

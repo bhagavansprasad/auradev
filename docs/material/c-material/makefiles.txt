@@ -1,0 +1,98 @@
+/* assignments to be taken before discusing of make files */
+
+-> Why should we go for a make file rather compiling it in shell ?
+-> What problems do we face in compiling files by the command gcc in shell ?
+-> What happens if we go for compiling files using gcc command for a big project
+   having some 2000 files ?
+-> What is the definition of a Makefile ?
+-> What is the structure of a Makefile ?
+-> How do make file compiles the source code ?
+-> what is the difference in compiling source code with make file and normal gcc
+   command. make a list ?
+-> What is meant by Dependency line and Command Line in a make file?
+-> What do we require binary files of code instead of generating output file
+   directly ?
+-> How can we include flags and files (from different paths) in a Makefile ?
+-> How does make file knows to compile specific files to build an image ?
+-> On what basis make file compiles only changed files of project ?
+-> Write a simple make file to compile two to three files ?
+-> How to debug a Makefile ?
+-> What is the Variable, Target, Macro in make file ?
+
+
+/*---------------Detail Explanation of MAKEFILES---------------*/
+	Make: is the oldest and best known build tool , a utility that allows a programmer to build or rebuild source code 
+		  files into a new version of a program.
+	
+	1) makefile is basically a script that guides the make utility to choose the appropriate program 
+		files that are to be compiled and linked together.
+
+	2) makefile is used with the UNIX make utility to determine which portions of a program to compile. 
+	
+	3) The make utility keeps track of the files were updated recently with the latest changes. However, all of the 
+		files that are dependent on the updated files must be compiled as well, which can be very time-consuming. 
+		
+	4) With the help of makefile, the make utility automates this compilation to ensure that all files that have been 
+		updated - and only those - are compiled and that the most recent versions of files are the ones linked to the 
+		main program, without requiring the user to perform the tasks separately.
+	
+	5) Creation of a Makefile:
+		Makefile creation is same as creation of any txt file from shell
+		
+		cmd:
+			gvim Makefile    /* For creation of Makefile */
+		
+		NOTE: The name of the make file should be similar as shown above.
+
+	6) A makefile contains two types of information for the make program.
+			i)	A target (the name of what the user is trying to construct); 
+		   ii)	The rules (commands that tell how to construct the target from the sources) and a dependency (the reason
+				that the target should be constructed, which is usually because it is out of date in respect to its 
+				components).
+	
+     7) a simple makefile structure is as shown bellow.
+	 		target ... : prerequisites ...
+             		recipe
+             		...
+             		...
+	
+	8) a simple makefile:
+		
+		file: main.c
+			main()
+			{
+				Factorial(5);			/* Write definiton of function in respecitve file names 
+				IsPrimeNUm(9);				Factorial.c, IsPrimeNUm.c, IsPalindrome.c */
+				IsPalindrome(592295);		
+			}
+
+		file: Makefile
+		/**********************************************************************/
+			BasicOPS: Factorial.o IsPrimeNUm.o, IsPalindrome.o				/*DL*/ 
+				gcc Factorial.o IsPrimeNUm.o IsPalindrome.o -o BasicOPS		/*CL*/
+			
+			Factorial.o: Factorial.c				/*DL*/
+				gcc -c Factorial.c 	-o Factorial.o 	/*CL*/
+
+			IsPrimeNUm.o: IsPrimeNUm.c				/*DL*/
+				gcc -c IsPrimeNUm.c -o IsPrimeNUm.o	/*CL*/
+
+			IsPalindrome.o:	IsPalindrome.c				/*DL*/
+				gcc -c IsPalindrome.c -o IsPalindrome.o	/*CL*/
+		/*********************************************************************/
+		
+		BasicOPS: Target
+		
+		Make file is combinaiton of 
+			i)	DL: Dependency line (prerequisites) 
+		   ii)	CL: Command line (recipe)
+		
+		Here BasicOPS is dependent on *.o files & Each ".o" file is dependent on their respective ".c" files.
+
+	9) Makefiles doesnt generate the output file directly, instead it compiles to generate the object file for 
+		every ".c" file. and finally links all object files to generate the output. 
+	
+   10) list out your differences that you find in compiling in shell directly and with make file.
+		
+		For help:	
+			http://www.gnu.org/software/make/manual/make.html#toc_Introduction

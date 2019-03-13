@@ -1,0 +1,207 @@
+Strings
+=======
+- Answer below questions
+  main()
+  {
+	  char *s1  = "Aura Net";
+	  char s2[10] = "Aura Net";
+  }
+
+  Q1. What is the difference between above statements?
+  Q1. What is the size of s1 and s2?
+  Q1. What is the type of s1 and s2?
+  Q1. What is strlen of s1 and s2?
+  Q1. Show the memory map with diagrams of s1, s2 and both the strings
+
+         s1 - 4 bytes            9 bytes in text section 
+      -----------------           -------------------
+	 |       600       |---      |A|u|r|a| |N|e|t|\0 |
+      -----------------    `----> -------------------
+	         500                 600 is base address
+
+                                  10 bytes in data section 
+                              s2  -----------------------
+                                 |A|u|r|a| |N|e|t|\0 |   |
+                                   ----------------------
+	                                 600 is base address
+
+  Q1. Which part of the memory does the variables s1 and s2 and strings are stored?
+  Q1. What is the total space occupied by all variables and strings?
+  Q1. Which of below statements are correct/in-correct, why, and what is the output?
+      s1[3] = 'z'; printf("%c", s1[3]);
+      s2[3] = 'z'; printf("%c", s2[3]);
+
+  Q1. Is  below statement correct/in-correct and why, and what is the output?
+      s1 = s2; printf("%s", s1); printf("%s", s2);
+
+  Q1. Is  below statement correct/in-correct and why, and what is the output?
+      s2 = s1; printf("%s", s1); printf("%s", s2);
+
+  Q1. Is  below statement correct/in-correct and why, and what is the output?
+      s1 = s2; 
+	  s1[3] = 'x';
+	  s2[4] = 'z';
+	  printf("%s", s1); printf("%s", s2);
+
+  Q1. Is  below statement correct/in-correct and why?  Draw the memory map.
+	  char *s1  = "Aura Net";
+	  char *s2  = NULL;
+	  char s3[10] = "Aura Net";
+	  char s4[10] =  NULL;
+	  char s5[10] =  "NULL";
+
+Trace below funcation and fix the problem.
+  int astrlen(const char *p)
+  {
+	  if(p[0] != '\0' && p[0] != NULL)
+	  {
+		  for (i = 0; p[i] != '\0'; i++);
+		  return i;
+	  }
+	  else
+	  {
+		  return 0;
+	  }
+  }
+  Q1. What is the return value of above function if its called like below
+  astrlen("Aura tech");
+  astrlen(NULL);
+
+
+- Answer below questions
+  main()
+  {
+	  char *s1  = "Aura Net";
+	  char s2[] = "Aura Net";
+	  char s3[] = ;
+  }
+
+- Answer below question
+  typedef struct mydata
+  {
+	  int age;
+	  char name[10];
+  }my_data;
+
+  my_data d1;
+  Q1. Which are below statments are correct/wrong and why?
+      scanf("%s", d1.name);
+      scanf("%s", &d1.name);
+
+  Q2. Which are below statments are correct/wrong and why?
+      scanf("%d", d1.age);
+      scanf("%d", &d1.age);
+
+  Q3. Which are below statments are correct/wrong and why?
+      printf("%d", d1.age);
+      printf("%d", &d1.age);
+      printf("%d", &d1.name);
+
+- Answer below question
+  typedef struct mydata
+  {
+	  int age;
+	  char *name;
+  }my_data;
+
+  my_data d1;
+  my_data d2 = {10, "Aura Tech"};
+  my_data *pd = &d2;
+  Q1. Which are below statments are correct/wrong and why?
+      scanf("%s", d1.name);
+
+	  d2.name[2] = 'R';
+
+  Q1. Draw the memory map for d2;  
+  Q1. Draw the memory map for pd;  
+  Q1. Draw the memory map for pd;  
+
+  Q2. At what stage the below statement throws error compile, linking, loading
+      or run time 
+      scanf("%s", &d1.name);
+
+  Q3. How make above statment correct?
+ 
+ - Answer below questions
+  typedef struct mydata
+  {
+	  int age;
+	  char name[10];
+  }my_data;
+
+  my_data d1 = {10, "Aura Net"}, d2, *p;
+  p = &d1;
+
+  Q1. Draw the memory map d1, d2 and p?
+  Q1. What is the size of p and d1?
+  Q1. how to print values of d1 using p?
+  Q1. Assign d2's address to p.  Then using p, change the members of d2.
+  Q1. Which are below statments are correct/wrong and why?
+	  d1.name[2] = 'R';
+
+Pointers
+========
+Q1. Write the Endian-ness of the current system 'little' or 'big' endian?
+
+Q1. Guess what is the ouput of below printf's?
+    int a = 0xabcd1234;
+
+	printf("%x\r\n", *&a);
+	printf("%x\r\n", *(char *)&a);
+	printf("%x\r\n", *(short *)&a);
+
+	*(char *)&a = 0x10;
+	printf("%x\r\n", *&a);
+
+	*(short *)&a = 0x10bb;
+	printf("%x\r\n", *&a);
+
+Q1. How to print each byte value of 'a' in below program?
+    int a = 0xabcd1234;
+
+    'a' 4 bytes 
+    ------------------
+   |34 | 12 | cd | ab |
+    ------------------
+	500  501  502  503 
+
+Q1. Swap above 'a's byte's values. like below and print
+    'a' 4 bytes 
+   .------------------.
+   |ab | cd | 12 | 34 |
+   '------------------'
+	500  501  502  503 
+
+Q1. What is the output?
+
+    char c = 'a';
+	char *p;
+	p = &c;
+
+	printf("-->c  Size :%d\r\n", sizeof(c));
+	printf("-->a  Size :%d\r\n", sizeof('a'));
+	printf("-->p  Size :%d\r\n", sizeof(p));
+	printf("-->*p Size :%d\r\n", sizeof(*p));
+
+Bit Manipulations
+=================
+Q1. What is the output of below statement?
+    unsigned short int n = 0xa0b;
+
+   .--------.
+   | b | a  |
+   '--------'
+	500  501
+
+	printf("-->n :%x\r\n", x);
+
+	n = ((unsigned short int) *(unsigned char *)&n[0]) << 8 | 
+	    ((unsigned short int) *(unsigned char *)&n[1]);
+
+	printf("-->n :%x\r\n", x);
+
+Debugging
+=========
+- How to print the failure reason of a system call?
+- What is perror() system call?
+- What does the variable 'errno' contains?

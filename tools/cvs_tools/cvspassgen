@@ -1,0 +1,9 @@
+#simple script to take a username and password and
+# return a line suitable for pasting into the CVS
+# password file.
+# Run like below
+# perl cvspassgen bhagavan jnjnuh
+($u, $p)=@ARGV;
+@d=(A..Z,a..z);
+$s=$d[rand(52)].$d[rand(52)];
+print $u.":".crypt($p, $s).":cvs\n";

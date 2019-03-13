@@ -1,0 +1,21 @@
+RPC - Building RPC Modulde (Remote Procedural Call) to do file operations.
+This module enables diskless device create/store files on remote system.
+
+Description
+-----------
+* This module enables to user applications to do file operations on files which
+  are in remote system.  This module maintains the files on remote system.
+
+* This has very limited API to applications where they can do Open, Read, Write,
+  Close, leek and unlink files.
+
+* RPC Client - Through which the application can send specific request
+  (open/read ...) along with required data.  RPC client sends the data to remote
+  RPC Server along with data
+
+* RPC Server - Upon receiving the data server understands the data and
+  performs the operation.  The appropriate data/errors are propagated to client.
+
+* This modules makes so transparent to application program where they didn't even know
+  file system is available on remote system or locally.
+

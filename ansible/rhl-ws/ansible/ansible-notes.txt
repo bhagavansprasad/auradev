@@ -1,0 +1,5 @@
+vm ip : 192.168.153.128
+ansible -i workshop  all -m ping
+ansible -i workshop webserver -m command -a "echo hello"
+ansible-playbook -i inventory -s 3pl.yml 
+

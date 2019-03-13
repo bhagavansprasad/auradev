@@ -1,0 +1,7 @@
+Configuration
+	Serial Device - /dev/ttyS0
+	Lockfile location - <default> i.e. /var/lock
+	Bps/Par/Bits	- 115200 8N1
+	Hardware flow control : No
+	Software flow control : No
+
