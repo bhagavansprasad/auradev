@@ -144,3 +144,7 @@ add group embedded
    git clone bhagavan@localhost:/git/1test.git
 
    NOTE: The user 'bhagavan' should be part 'embedded' group on the git-server
+
+- Caching the user-name and password for limited period
+  git config --global credential.helper cache
+  git config --global credential.helper 'cache --timeout=3600'
