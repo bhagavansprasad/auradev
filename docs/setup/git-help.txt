@@ -148,3 +148,16 @@ add group embedded
 - Caching the user-name and password for limited period
   git config --global credential.helper cache
   git config --global credential.helper 'cache --timeout=3600'
+ 
+
+- Adding existing repo to new repo with all history and branches
+	git clone --mirror <url_of_old_repo>
+	cd <name_of_old_repo>
+	git remote add new-origin <url_of_new_repo>
+	git push new-origin --mirror
+
+	example to add local repo 'stdents' to github
+	cd students
+	git remote add new-origin https://github.com/bhagavansprasad/students.git
+	git push new-origin --mirror
+
