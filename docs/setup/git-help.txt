@@ -144,6 +144,7 @@ add group embedded
    git clone bhagavan@localhost:/git/1test.git
 
    NOTE: The user 'bhagavan' should be part 'embedded' group on the git-server
+<<<<<<< HEAD
 
 - Caching the user-name and password for limited period
   git config --global credential.helper cache
@@ -161,3 +162,5 @@ add group embedded
 	git remote add new-origin https://github.com/bhagavansprasad/students.git
 	git push new-origin --mirror
 
+=======
+>>>>>>> 9dae731d5c60cf1acf0436b3e1f28f696304f93f
