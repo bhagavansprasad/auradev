@@ -1,0 +1,6 @@
+Reduce the video file size by 40%
+    ffmpeg -i original.mp4 -crf 40 new.mp4
+
+
+Reduce the video file size by 50% (Un-watchable)
+    ffmpeg -i original.mp4 -crf 50 new.mp4

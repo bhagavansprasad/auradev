@@ -43,7 +43,7 @@ xterm*|rxvt*)
 esac
 
 # Now the bash prompt will show only the last 3 directory names
-PROMPT_DIRTRIM=3
+PROMPT_DIRTRIM=1
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -69,30 +69,30 @@ alias l='ls -CF'
 alias g='gvim 2>/dev/null '
 alias c='clear'
 alias ff='find . -name '
-alias agrep='find . -type f -path ./build -prune \
-           -name "*.cpp" \
-        -o -name "*.hpp" \
-        -o -name "*.mk" \
-        -o -name "Makefile" \
-        -o -name "*.c" \
-        -o -name "*.h" \
-        -o -name "*.py" \
-        -o -name "*.conf" \
-        -o -name "*.ini" \
-        -o -name "*.json" \
-        -o -name "*.sh" \
-        | xargs grep -s -i -n --color '
+alias agrep='find . -path ./build -prune \
+    -name "*.cpp" \
+    -o -name "*.hpp" \
+    -o -name "*.mk" \
+    -o -name "Makefile" \
+    -o -name "*.c" \
+    -o -name "*.h" \
+    -o -name "*.py" \
+    -o -name "*.conf" \
+    -o -name "*.ini" 
+    -o -name "*.json" \
+    | xargs grep -i -n --color '
 
 alias ag='cat files.txt | xargs grep -n ' 
 alias wd='cd /home/$USER/training/scripts/python/py-aura'
 alias usb='cd /home/$USER/sources/uvcvideo/drivers/usb'
 alias src='cd /home/$USER/sources/uvcvideo/drivers'
 alias ns='netstat -alnp | grep '
-CSCOPE_DB=/home/$USER/students/bhagavan/flvmeta-1.1-r235/src/cscope.out
-export CSCOPE_DB
-gsettings set org.gnome.system.proxy mode 'manual' 
-gsettings set org.gnome.system.proxy.http host 192.168.1.254
-gsettings set org.gnome.system.proxy.http port 8080
+alias ml='cd /home/bhagavan/training/AI-ML/01-LLMs/01-Ollama-Basics'
+alias wrt='cd /home/bhagavan/sama/openwrt'
+
+# Virtual env
+alias gai='source ~/venv/genai/bin/activate'
+alias vml='source ~/venv/vml/bin/activate'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -107,7 +107,8 @@ if [ -f /etc/bashrc ] ; then
 fi
 
 export DIFFPROG='gvim -df +0 -geom +0+84'
-export EDITOR='gvim -df +0 -geom +0+84'
+# export EDITOR='vigvim -df +0 -geom +0+84'
+export EDITOR='vi'
 
 export CVSROOT=:pserver:$USER@192.168.1.30:/home/cvs/cvsroot
 git config --global user.email "bhagavan@auranetworks.in"
@@ -117,5 +118,19 @@ git config --global diff.tool cvsdiff
 git config --global difftool.prompt false
 git config --global alias.d difftool
 
+#export M2_HOME=/usr/local/apache-maven/apache-maven-3.8.5 
+#export M2=$M2_HOME/bin 
+#export MAVEN_OPTS="-Xms256m -Xmx512m"
+#export PATH=$M2:$PATH
+
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:
+
+alias k=kubectl
+complete -o default -F __start_kubectl k
+
+#DJango setup
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
+export PROJECT_HOME=$HOME/Devel
 
