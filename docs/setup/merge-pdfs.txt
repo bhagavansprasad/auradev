@@ -1,0 +1,6 @@
+With ghost script
+    gs -o final.pdf -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress  file1.pdf file2.pdf 
+
+With pdftk
+    pdftk  file1.pdf file2.pdf cat final.pdf
+ 
