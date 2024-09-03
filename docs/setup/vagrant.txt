@@ -1,0 +1,11 @@
+vagrant -v
+vagrant box add ubuntu/trusty64
+vagrant init ubuntu/trusty64 --box-version 20191107.0.0 
+vagrant up
+vagrant ssh-config
+
+cd D:\vagrant\UbuntuS1>
+ssh bhagavan@127.0.0.1 -p 2222
+
+
+

@@ -1,0 +1,4 @@
+**WSL commands**
+- Print IP of the distribution
+wsl -d Template-Ubuntu-22.04 hostname -I
+
