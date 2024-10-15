@@ -2,3 +2,28 @@
 - Print IP of the distribution
 wsl -d Template-Ubuntu-22.04 hostname -I
 
+
+- List all network adoptors
+Get-NetAdapter -IncludeHidden
+
+Windows
+sudo ip address add 192.168.3.100/24 brd + dev eth0
+netsh interface ip add address "vEthernet (WSL (Hyper-V firewall))" 192.168.99.1 255.255.255.0
+
+In windows
+wsl -d Ubuntu-22.04 sudo ip addr add 192.168.3.100/24 broadcast 192.168.3.255 dev eth0 label eth0:1
+netsh interface ip add address "vEthernet (WSL (Hyper-V firewall))" 192.168.3.100 255.255.255.0
+
+7760026697
+
+Port forwarding rules
+WSL commands:
+netsh interface portproxy add v4tov4 listenport=3390 listenaddress=0.0.0.0 connectport=3390 connectaddress=192.168.170.227
+
+Firewall rules:
+- Go to control panel and open advanced firewall rules
+- allow port 3390 through firewall
+
+- wsl2-hacks
+https://github.com/shayne/wsl2-hacks
+
