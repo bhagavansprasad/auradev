@@ -1,0 +1,55 @@
+Prints the last word of every line in the file temp.txt
+	perl -lane 'print "@F[-1]"' < temp.txt
+
+Prints the last two word of every line in the file temp.txt
+	perl -lane 'print "@F[-2, -1]"' < temp.txt
+
+Prints all lines that has 'search string' and doesn't contain 'vobs' from the file temp.txt
+	grep "search string:" temp.txt | perl -nle 'print if !/vobs/'
+
+Prints the first word of every line after parsing with delimitor as ':', in the file temp.txt
+	perl -na -F: -e 'print "$F[1]\n"' < temp.txt
+
+Prints the last word of every line after parsing with delimitor as '/', in the file temp.txt
+	perl -na -F/ -e 'print "@F[-1]"' < temp.txt
+	
+Prints last word of every line in temp.txt where the line doesnot have 'search string' as string
+	perl -lane 'print "@F[-1]"' < temp.txt | perl -nle 'print if !/search string/'
+	
+Prints last word of every line in temp.txt where the line doesnot have 'search string1' and 'search string2' as string
+	perl -lane 'print "@F[-1]"' < temp.txt | perl -nle 'print if !/search string1/' | perl -nle 'print if !/search string2/'
+
+Parses the last word of every line in temp.txt where the line doesnot have 'search string1' and 'search string2' as string
+From that woard parses it againg by delimiter '/' and prints the last word
+	perl -lane 'print "@F[-1]"' < temp.txt | perl -nle 'print if !/search string/' | perl -nle 'print if !/search string2/' | perl -na -F/ -e 'print "@F[-1]"'
+	
+Prints uniq lines after removing duplicate lines from the file 'temp.txt'
+	sort temp.txt | uniq
+
+Prints uniq lines which contains the string 'search string' after removing duplicate lines from the file 'temp.txt'
+	grep "search string:" temp.txt  | sort | uniq 
+
+Prints uniq lines which contains the string 'search string' after removing duplicate lines from the file 'temp.txt'
+	grep "search string:" temp.txt  | sort | uniq | perl -nae 'print "@F\n"'      
+
+Prints uniq lines which contains the string 'search string' after removing duplicate lines with delimitor as ':', from the file 'temp.txt'
+	grep "search string:" temp.txt  | sort | uniq | perl -na -F: -e 'print "@F"'      
+
+Prints 0th 1st and 2nds words with delimiter as ':', from uniq lines which contains the string 'search string' after removing duplicate lines from the file 'temp.txt'
+	grep "search string:" temp.txt  | sort | uniq | perl -na -F: -e 'print "$F[0] $F[1] $F[2]\n"'
+
+Prints the last word of each line which DOES NOT contain strings 'search string1' and 'search string2' from the file temp.txt
+	grep "search string" temp.txt | perl -lane 'print "@F[-1]"' | perl -nle 'print if !/search string/' | perl -nle 'print if !/search string2/'
+
+Jungo Command
+	for file in `cat up.txt`; do ll $file; done
+
+Removing all semaphores 
+	for id in `ipcs -s | awk '{print $2}'`; do ipcrm -s $id;done
+
+Perl command/code print the usage of each folder from smallest to largest from the current folder
+	du -k | sort -n | perl -ne 'if ( /^(\d+)\s+(.*$)/){$l=log($1+.1);$m=int($l/log(1024)); printf ("%6.1f\t%s\t%25s%s\n",($1/(2**(10*$m))),(("K","M","G","T","P")[$m]),"*"x (1.5*$l),$2);}'
+
+List count based on file type in a repository, list only top 15
+	find . -type f | sed -n 's/.*\.//p' | sort | uniq -c | sort -nr | head -15
+
