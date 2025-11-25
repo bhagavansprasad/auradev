@@ -4,3 +4,11 @@ Reduce the video file size by 40%
 
 Reduce the video file size by 50% (Un-watchable)
     ffmpeg -i original.mp4 -crf 50 new.mp4
+
+
+Merge mp4 files
+	Contents of inputs.txt
+		file 'a.mp4'
+		file 'b.mp4'
+
+	ffmpeg -f concat -safe 0 -i inputs.txt -c copy output.mp4
