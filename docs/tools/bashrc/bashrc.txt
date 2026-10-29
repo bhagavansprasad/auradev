@@ -1,0 +1,359 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+xterm-color)
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    ;;
+*)
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\(22.04)$ '
+    ;;
+esac
+
+# Comment in the above and uncomment this below for a color prompt
+#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+*)
+    ;;
+esac
+
+# Now the bash prompt will show only the last 3 directory names
+PROMPT_DIRTRIM=1
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    #alias dir='ls --color=auto --format=vertical'
+    #alias vdir='ls --color=auto --format=long'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias g='gvim 2>/dev/null '
+alias c='clear'
+alias ff='find . -name '
+alias ag='cat files.txt | xargs grep -n '
+alias ns='netstat -alnp | grep '
+
+alias agrep='find . -path ./build -prune \
+    -name "*.cpp" \
+    -o -name "*.hpp" \
+    -o -name "*.mk" \
+    -o -name "Makefile" \
+    -o -name "*.c" \
+    -o -name "*.h" \
+    -o -name "*.py" \
+    -o -name "*.conf" \
+    -o -name "*.ini" \
+    -o -name "*.json" \
+    -o -name "*.csv" \
+    -o -name "*.ts" \
+    -o -name "*.json" \
+    -o -name "*.ipynb" \
+    -o -name "*.md" \
+    | xargs grep -i -n --color '
+
+alias Zone='find . -name "*Zone.Identifier" | xargs rm -rf'
+alias CLEAN='find . -name "*.pyc" -o -name __pycache__ | xargs rm -rf'
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# Source global definitions
+if [ -f /etc/bashrc ] ; then
+    . /etc/bashrc
+fi
+
+export DIFFPROG='gvim -df +0 -geom +0+84'
+# export EDITOR='vigvim -df +0 -geom +0+84'
+export EDITOR='vi'
+
+git config --global user.email "bhagavan@auranetworks.in"
+git config --global user.name "bhagavan"
+git config --global core.editor "gvim"
+git config --global diff.tool cvsdiff
+git config --global difftool.prompt false
+git config --global alias.d difftool
+git config --global core.eol lf
+git config --global core.autocrlf input
+
+#export M2_HOME=/usr/local/apache-maven/apache-maven-3.8.5
+#export M2=$M2_HOME/bin
+#export MAVEN_OPTS="-Xms256m -Xmx512m"
+#export PATH=$M2:$PATH
+
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:
+
+alias k=kubectl
+complete -o default -F __start_kubectl k
+
+#DJango setup
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
+export PROJECT_HOME=$HOME/Devel
+
+# LLM
+export OLLAMA_API_BASE_URL=http://localhost:11434
+
+function ml() {
+   cd /home/bhagavan/aura-llm/01-LLMs/01-Ollama-Basics
+   source ~/venv/vml/bin/activate
+}
+
+function kgl() {
+   source ~/venv/kaggle/bin/activate
+   cd /home/bhagavan/aura-llm/18-Kaggle
+}
+
+
+# Langchain
+function lc() {
+        source ~/venv/langchain/bin/activate
+        cd /home/bhagavan/dev/langchain-academy
+}
+
+
+function dl() {
+   source ~/venv/dlern/bin/activate
+   cd /home/bhagavan/aura-llm/01-LLMs/11-DeepLearning
+}
+
+function ipl(){
+    #cd /home/bhagavan/my-git-repos/intellipaat/02-Python-DataScience/M07B-Machine-Learning-Using-Python
+        # cd /home/bhagavan/my-git-repos/intellipaat/02-Python-DataScience/M12-Project/09-Project–Revenue-Prediction-M
+        source ~/venv/ipl/bin/activate
+        cd /home/bhagavan/my-git-repos/intellipaat/03-AI/01-Nueral-Network/imdb
+}
+
+function genai(){
+    source ~/venv/genai/bin/activate
+    # cd /home/bhagavan/my-git-repos/genai/01-Vertexai/03-RAG-Docs
+        # cd /home/bhagavan/my-git-repos/genai/01-Vertexai/06-RAG-Basics
+        # cd /home/bhagavan/my-git-repos/aimultiagent
+        cd /home/bhagavan/my-git-repos/genai/01-Vertexai/08-functions
+}
+
+function wd(){
+        cd /home/bhagavan/aura/Promptly-GenAI/src/60_Evaluating_AgenticAI
+}
+
+function lms(){
+    source ~/venv/lms/bin/activate
+        cd /home/bhagavan/dev/ai-lms
+}
+
+function aig(){
+    source ~/venv/aignite/bin/activate
+        cd /home/bhagavan/dev/aignite
+}
+
+function netg(){
+    source ~/venv/netg/bin/activate
+        cd /home/bhagavan/dev/netgenie
+}
+
+function gtp(){
+    source ~/venv/gtp/bin/activate
+        cd /home/bhagavan/dev/gen-test-paper
+}
+
+function aura(){
+    source ~/venv/aura/bin/activate
+        cd /home/$USER/training/scripts/python/py-aura
+}
+
+function agi(){
+    source ~/venv/agi/bin/activate
+        cd /home/$USER/aura/Promptly-GenAI/src
+}
+
+function dubai(){
+    source ~/venv/dubai-lms/bin/activate
+        cd /home/$USER/dev/dubai-lms
+}
+
+function dlms(){
+    source ~/venv/dlms/bin/activate
+        cd /home/bhagavan/dev/lmsd/LMS-Project
+}
+
+function dlmsu(){
+    source ~/venv/dlms/bin/activate
+        cd /home/bhagavan/dev/lmsd/LMS-UI/src
+}
+
+function utils(){
+    source ~/venv/utils/bin/activate
+        cd /home/bhagavan/dev/utilities/pdfs
+}
+
+function stock(){
+    source ~/venv/stock/bin/activate
+        cd /home/bhagavan/aura/TickerBrain/kite
+}
+
+function pai(){
+    source ~/venv/paillm/bin/activate
+        cd /home/bhagavan/aura/PAiLLM
+}
+
+function qac(){
+    source ~/venv/qacmpn/bin/activate
+        cd /home/bhagavan/aura/qa-companion
+}
+
+function research(){
+    source ~/venv/research/bin/activate
+        cd /home/bhagavan/aura/gpt-researcher
+}
+
+function dpr(){
+    source ~/venv/dpr/bin/activate
+        cd /home/bhagavan/aura/dprai
+}
+
+function gadk(){
+    source ~/venv/adk/bin/activate
+        cd /home/bhagavan/aura/google-adk
+}
+
+function slms(){
+    source ~/venv/slms/bin/activate
+        cd /home/bhagavan/aura/slms/slm
+}
+
+function logl(){
+    source ~/venv/oci/bin/activate
+        cd /home/bhagavan/pocs/log-lens/src
+}
+
+function oicl(){
+    source ~/venv/oci/bin/activate
+        cd /home/bhagavan/pocs/oic-lens/src
+}
+
+function coupa(){
+    source ~/venv/coupa/bin/activate
+        cd /home/bhagavan/pocs/coupa-mcps/
+}
+
+function hcm(){
+    source ~/venv/hcm/bin/activate
+        cd /home/bhagavan/pocs/oracle_hcm_mcp/
+}
+
+function spired(){
+    source ~/venv/spire/bin/activate
+    cd /home/bhagavan/pocs/spire/ || return
+    source SPIRE-PORTS.env
+    export SPIRE_MCP_URL="http://127.0.0.1:${SPIRE_DEV_MCP_PORT}/mcp/"
+    export SPIRE_API_URL="http://127.0.0.1:${SPIRE_DEV_API_PORT}"
+    echo "spire dev: MCP ${SPIRE_DEV_MCP_PORT}  API ${SPIRE_DEV_API_PORT}  UI ${SPIRE_DEV_UI_PORT}"
+}
+
+function spirep(){
+    source ~/venv/spire-runtime/bin/activate
+    cd /home/bhagavan/pocs/spire-runtime/ || return
+    source SPIRE-PORTS.env
+    export SPIRE_MCP_URL="http://127.0.0.1:${SPIRE_PRODUCTION_MCP_PORT}/mcp/"
+    export SPIRE_API_URL="http://127.0.0.1:${SPIRE_PRODUCTION_API_PORT}"
+    echo "spire prod: MCP ${SPIRE_PRODUCTION_MCP_PORT}  API ${SPIRE_PRODUCTION_API_PORT}  UI ${SPIRE_PRODUCTION_UI_PORT}"
+}
+
+function praval(){
+    source ~/venv/praval/bin/activate
+        cd /home/bhagavan/pocs/praval/Oracle-HCM-Agent
+}
+
+export GEMINI_API_KEY=''
+
+export OPENAI_API_KEY=""
+export ANTHROPIC_API_KEY=""
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PYTHONPATH="$PYTHONPATH:/home/bhagavan/dev/gen-test-paper"
+
+export MONGODB_URI="mongodb://localhost:27017/"
+export MONGODB_DB_NAME="netgenie_db"
+
+export PROJECT_ID="bhagavangenai-444212"
+export MODEL_ID="gemini-1.5-flash-002"
+
+export LANGCHAIN_API_KEY=''
+export LANGCHAIN_TRACING_V2=false
+export OPENAI_API_KEY=''
+export LANGGRAPH_DEBUG=1
+
+export ZERODHA_API_KEY=""
+export ZERODHA_API_SECRET=""
+export ZERODHA_PORT="8001"
+export ZERODHA_SERVER_MODE="sse"
+
+export KITE_API_KEY=""
+export KITE_API_SECRET=""
+export APP_MODE="sse"
+export APP_PORT="8001"
+export APP_HOST=127.0.0.1
+export LOG_LEVEL="debug"
+
+export GITHUB_PERSONAL_ACCESS_TOKEN=''
+
+# Composio
+export JIRA_MCP_SERVER_URL="http://127.0.0.1:3333/mcp"
+export JIRA_PROJECT_KEY="PROM"
+export JIRA_BASE_URL="https://promptlyaitech.atlassian.net"
+export JIRA_USERNAME="promptlyaitech@gmail.com"
+export JIRA_API_TOKEN=''
+export ORACLE_CLOUD_USERNAME="mskrishna.om@gmail.com"
+export ORACLE_CLOUD_PASSWORD=""
+export REST_CLIENT_MODE=REAL
+
+export IKS_FUSION_BASE_URL='https://fa-euth-dev20-saasfademo1.ds-fa.oraclepdemos.com'
+export IKS_FUSION_USERNAME='Chase.Schultz'
+export IKS_FUSION_PASSWORD=''
+

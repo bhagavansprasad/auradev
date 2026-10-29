@@ -12,3 +12,8 @@ Merge mp4 files
 		file 'b.mp4'
 
 	ffmpeg -f concat -safe 0 -i inputs.txt -c copy output.mp4
+
+Increase the volume of the audio by 10 levels
+	ffmpeg -i 05-Subgraph.mp4 -af "volume=+20dB" -c:v copy new/05-Subgraph.mp4
+	ffmpeg -i 05-Subgraph.mp4 -af "volume=10.0" -c:v copy new/05-Subgraph.mp4
+	ffmpeg -i 05-Subgraph.mp4 -af loudnorm -c:v copy new/05-Subgraph.mp4
