@@ -47,7 +47,7 @@ Prints 3rd, last, "last & Last but one" column of every line of 'ls -l'  results
 	ls  -l| perl -lane 'print "@F[-2, -1]"'
 
 Perl command/code print the usage of each folder from smallest to largest from the current folder
-	du -k | sort -n | perl -ne 'if ( /^(\d+)\s+(.*$)/){$l=log($1+.1);$m=int($l/log(1024)); printf ("%6.1f\t%s\t%25s%s\n",($1/(2**(10*$m))),(("K","M","G","T","P")[$m]),"*"x (1.5*$l),$2);}'
+	du -xk --max-depth=1 /home/bhagavan 2>/dev/null | sort -n | perl -ne 'if (/^(\d+)\s+(.*$)/){$l=log($1+.1);$m=int($l/log(1024)); printf("%6.1f\t%s\t%25s%s\n",($1/(2**(10*$m))),(("K","M","G","T","P")[$m]),"*"x(1.5*$l),$2);}'
 
 Grep and count empty lines
     cat t.txt | grep "^$" | wc
